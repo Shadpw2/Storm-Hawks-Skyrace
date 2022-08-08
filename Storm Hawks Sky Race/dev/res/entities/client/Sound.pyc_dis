@@ -1,0 +1,95 @@
+# Embedded file name: /entities/client/Sound.py
+import BigWorld, ResMgr
+SoundFlag = None
+MusicList = {}
+SoundListPlaying = {}
+SoundList = {}
+LastMusicPlayed = 0
+
+def InitSound():
+    global SoundFlag
+    SoundConfigFile = ResMgr.openSection('SHOConfig.xml')
+    SoundFlag = SoundConfigFile.child(2).asString
+
+
+def TurnSound(flag):
+    global SoundFlag
+    SoundFlag = flag
+    SoundConfigFile = ResMgr.openSection('SHOConfig.xml')
+    SoundConfigFile.child(2).asString = flag
+    if flag != 'On':
+        StopMusic()
+        BigWorld.setMasterVolume(0)
+    else:
+        PlayMusic(0)
+        BigWorld.setMasterVolume(1)
+    try:
+        SoundConfigFile.save()
+    except:
+        pass
+
+
+def PlayMusic(spaceID):
+    global MusicList
+    global LastMusicPlayed
+    if not (SoundFlag == 'On' and spaceID in range(3)):
+        raise AssertionError
+        if MusicList.get(spaceID, None):
+            MusicList[spaceID].play()
+        else:
+            MusicList[spaceID] = BigWorld.playSound(('music/tenttown', 'music/racetrackone', 'music/racetracktwo')[spaceID])
+            LastMusicPlayed = spaceID
+    return
+
+
+def StopMusic(spaceID = -1):
+    if spaceID == -1:
+        spaceID = LastMusicPlayed
+    if not spaceID in range(3):
+        raise AssertionError
+        MusicList.get(spaceID, None) and MusicList[spaceID].stop()
+    return
+
+
+def PlayContinuousEffect(text):
+    if SoundFlag == 'On':
+        if SoundList.get(text, None):
+            if SoundListPlaying[text] == 0:
+                SoundListPlaying[text] = 1
+                SoundList[text].play()
+        else:
+            SoundListPlaying[text] = 1
+            SoundList[text] = BigWorld.playSound(text)
+    return
+
+
+def StopContinuousEffect(text):
+    if SoundList.get(text, None):
+        SoundListPlaying[text] = 0
+        SoundList[text].stop()
+    return
+
+
+def PlayEffect(text):
+    if SoundFlag == 'On':
+        if SoundList.get(text, None):
+            SoundListPlaying[text] = 1
+            SoundList[text].play()
+        else:
+            SoundListPlaying[text] = 1
+            SoundList[text] = BigWorld.playSound(text)
+    return
+
+
+def StopEffect(text):
+    if SoundList.get(text, None):
+        SoundListPlaying[text] = 0
+        SoundList[text].stop()
+    return
+
+
+def AttachFootSound(i):
+    footTrigger = None
+    if SoundFlag == 'On':
+        footTrigger = BigWorld.FootTrigger(i, 'effects/step')
+    return footTrigger

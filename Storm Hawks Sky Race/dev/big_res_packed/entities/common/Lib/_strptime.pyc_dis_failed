@@ -1,0 +1,13 @@
+# Embedded file name: /entities/common/Lib/_strptime.py
+"""Strptime-related classes and functions.
+
+CLASSES:
+    LocaleTime -- Discovers and stores locale-specific time information
+    TimeRE -- Creates regexes for pattern matching a string of text containing
+                time information
+
+FUNCTIONS:
+    _getlang -- Figure out what language is being used for the locale
+    strptime -- Calculates the time struct represented by the passed-in string
+
+"""

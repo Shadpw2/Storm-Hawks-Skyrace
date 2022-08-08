@@ -1,0 +1,31 @@
+# Embedded file name: /entities/client/Physics.py
+import BigWorld
+
+def attach(anEntity, name):
+    from keys import DUMMY_PHYSICS, RIPPER_PHYSICS
+    rawname = name
+    name += 'Physics'
+    ph = getattr(__import__(name, fromlist=[name]), name)
+    if anEntity == BigWorld.player():
+        anEntity.filter = ph.FILTER()
+    else:
+        anEntity.filter = BigWorld.AvatarFilter()
+    if hasattr(anEntity, 'physics'):
+        if ph.TYPE != (anEntity.ph.TYPE if hasattr(anEntity, 'ph') else DUMMY_PHYSICS):
+            anEntity.physics = ph.TYPE
+        if anEntity.physics == None:
+            anEntity.physics = ph.TYPE
+        physics = ph(anEntity)
+        if ph.TYPE == RIPPER_PHYSICS:
+            physics.turn = 0
+            physics.thrust = 0
+            physics.brake = 0
+            physics.collide = 1
+            physics.fall = 1
+            physics.scrambleHeight = 0
+            physics.takeoffAndLanding = 0
+        anEntity.ph = physics
+    elif hasattr(anEntity, 'ph'):
+        del anEntity.ph
+    anEntity.ph_name = rawname
+    return

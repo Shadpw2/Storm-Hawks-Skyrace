@@ -1,0 +1,109 @@
+# Embedded file name: /entities/client/KeyHandler.py
+import BigWorld, GUI
+from keys import *
+from Bitcasters.Const import DOWN, SHIFT
+from Bitcasters.mode.Mode import Mode
+from Bitcasters.GUI.Clickable import Clickable
+HELP_KEY = KEY_H
+KEY_MAPPING = dict(((x, x.lower() + x) for x in map(chr, range(65, 96))))
+KEY_MAPPING.update({'MINUS': '-_',
+ 'EQUALS': '=+',
+ 'LBRACKET': '[{',
+ 'RBRACKET': ']}',
+ 'SEMICOLON': ';:',
+ 'APOSTROPHE': '\'"',
+ 'GRAVE': '`~',
+ 'BACKSLASH': '\\|',
+ 'COMMA': ',<',
+ 'PERIOD': '.>',
+ 'SLASH': '/?',
+ 'SPACE': '  ',
+ '1': '1!',
+ '2': '2@',
+ '3': '3#',
+ '4': '4$',
+ '5': '5%',
+ '6': '6^',
+ '7': '7&',
+ '8': '8*',
+ '9': '9(',
+ '0': '0)'})
+
+class KeyHandler:
+
+    class data:
+        pass
+
+    def __init__(self):
+        self.data = KeyHandler.data()
+        self.data.mode = Mode(self, {})
+
+    def action(self, type, id, *args):
+        getattr(self.data.mode, type)(id, *args)
+
+    def continueWith(self, continuation):
+        if continuation != None:
+            self.data.mode.cleanup()
+            self.data.mode = continuation
+        return
+
+    def handleKeyEvent(self, down, key, mods):
+        from Bitcasters.layers.Factory import Layer
+        mods = mods * 2 + down
+        mode = self.data.mode
+        handledByDialog = bool(Layer.DIALOG_LAYER)
+        typed = False
+        if mods & DOWN:
+            id = BigWorld.keyToString(key)
+            if id in KEY_MAPPING:
+                typed = Layer.char(KEY_MAPPING[id][(mods & SHIFT) / SHIFT])
+            if key == KEY_TAB:
+                Layer.tab()
+            if key == KEY_BACKSPACE:
+                Layer.erase()
+            if key == KEY_RETURN:
+                Layer.enter()
+            if key == KEY_ESCAPE:
+                Layer.escape()
+            if key == HELP_KEY and not Layer.DIALOG_LAYER and not typed:
+                self.showHelp()
+        elif key == KEY_LEFTMOUSE:
+            Layer.DRAGGING_CLICKABLE = False
+        if not handledByDialog:
+            self.continueWith(mode.key(key, mods))
+
+    def tick(self):
+        self.mode.tick()
+
+    def showHelp(self):
+        from Bitcasters.layers.Factory import help
+        help(self.getdoc())
+
+    def getdoc(self):
+        from Util import ignore
+        pass1 = {}
+        from BWPersonality import storage, IS_RELEASE_VERSION
+        for k, v in storage().mode.commandmap.items():
+            kname = BigWorld.keyToString(k)
+            if kname == 'MOUSE0':
+                kname = 'Left Mouse'
+            if kname == 'MOUSE1':
+                kname = 'Right Mouse'
+            if not isinstance(v, list):
+                v = [v]
+            desc = ' / '.join(filter(None, tuple((a.__doc__ for a in v))))
+            if desc:
+                pass1[kname] = desc
+
+        pass2 = {}
+        for k, v in pass1.items():
+            if v[0] == '*' and IS_RELEASE_VERSION:
+                pass
+            else:
+                pass2.setdefault(v, []).append(k)
+
+        options = dict(((' / '.join(v), k) for k, v in pass2.items()))
+        lines = [ '%s: %s' % (k, v) for k, v in options.items() ]
+        linetext = 'Keys:\n\n%s\n\nYou can also use %s to bring up the help at any time.' % ('\n'.join(lines), BigWorld.keyToString(HELP_KEY)) if lines else ''
+        helpmsg = 'To start a race with another player, look at them and press the right mouse button. Next, click one of the yellow racing buttons that appears. \t\t\tWhen the other player does the same to you, the race will begin.\t\t\t\n\nTo race by yourself, look at one of the mission consoles in the middle of town, then press the right mouse button and choose a race.\t\t\t\n\nAt the mission consoles, you can also choose the "Race Anyone" button. This puts a race icon over your head, telling people that anyone can race with you.\n\t\t\t\n\nTo use anything in the game, just look at it and press the right mouse button. This will also show buttons on the screen that let you chat, look at \t\t\tyour items, change game options and do many other actions.' + '\n\n' + linetext
+        return helpmsg

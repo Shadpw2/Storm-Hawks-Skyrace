@@ -1,0 +1,11 @@
+# Embedded file name: /entities/client/Blank.py
+import BigWorld
+
+class Blank(BigWorld.Entity):
+
+    def __init__(self):
+        BigWorld.Entity.__init__(self)
+
+    def leaveWorld(self):
+        self.model = None
+        return

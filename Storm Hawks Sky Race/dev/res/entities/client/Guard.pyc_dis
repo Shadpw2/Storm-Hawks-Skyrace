@@ -1,0 +1,17 @@
+# Embedded file name: /entities/client/Guard.py
+import math
+import BigWorld
+from keys import *
+from Math import *
+from Avatar import Avatar
+
+class Guard(Avatar):
+    VISIBLE_RANGE = 30
+
+    def enterWorld(self):
+        self.model = BigWorld.Model('vehicles/Air Skimmer III Standard/models/skim_as3-standard_static.model')
+        motor = self.model.motors[0]
+        motor.entityCollision = 1
+        motor.collisionRooted = 0
+        self.filter = BigWorld.AvatarFilter()
+        self.targetCaps = [1]

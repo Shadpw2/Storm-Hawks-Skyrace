@@ -1,0 +1,47 @@
+# Embedded file name: /entities/client/DummyPhysics.py
+import BigWorld
+from Util import ignore
+from Sound import *
+
+class DummyPhysics(object):
+    from keys import DUMMY_PHYSICS
+    TYPE = DUMMY_PHYSICS
+    FILTER = BigWorld.AvatarDropFilter
+
+    def __init__(self, owner):
+        owner.physics.collide = True
+        StopContinuousEffect('effects/walk')
+        StopContinuousEffect('effects/run')
+
+    def setDirection(self, lateral, forward):
+        pass
+
+    def holdStill(self):
+        pass
+
+    def resumeMoving(self):
+        pass
+
+    def walk(self):
+        pass
+
+    def run(self):
+        pass
+
+    def toggleTurboMode(self):
+        pass
+
+    def boost(self):
+        pass
+
+    def seekTo(self, xyz, yaw, successAction = ignore, failAction = ignore):
+        failAction()
+
+    def speed(self):
+        return 0
+
+    def update(self):
+        pass
+
+    def checkAnims(self):
+        pass

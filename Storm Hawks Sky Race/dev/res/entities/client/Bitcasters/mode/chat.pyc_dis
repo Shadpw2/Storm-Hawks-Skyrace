@@ -1,0 +1,9 @@
+# Embedded file name: /entities/client/Bitcasters/mode/chat.py
+__root__ = ('Hi!', 'Bye!', 'Yes', 'No', 'Ok', 'Thanks!', 'MORE >')
+MORE = ('Hello >', 'Goodbye >', 'Game >', 'Trade >', 'Hurray >', 'Boo >')
+Hello = ('Hi everyone!', 'Hey there!', 'Welcome!', "How's it going?", 'Hiya!')
+Goodbye = ('See you later!', "I'll be right back.", 'Take care.', 'Have a nice day!', "I'm outta here!")
+Game = ('Does anyone want to race me?', 'Do you want to race?', 'Good game!', 'Want to play again?')
+Trade = ('Does anyone want to trade?', 'Do you want to trade?', 'A pleasure doing business with you.', 'Thank you, come again!')
+Hurray = ('Yay!', 'Woo hoo!', 'I win!', 'Oh yeah!')
+Boo = ('Oh no!', 'Gah!', 'Argh!', 'Wooops!')

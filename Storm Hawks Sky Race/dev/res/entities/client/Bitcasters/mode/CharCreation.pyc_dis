@@ -1,0 +1,34 @@
+# Embedded file name: /entities/client/Bitcasters/mode/CharCreation.py
+import BigWorld, GUI, BWPersonality
+import Math
+from math import *
+from Bitcasters.RepeatedTask import RepeatedTask
+from keys import *
+from Util import ignore
+from Mode import Mode
+
+class CharCreation(Mode):
+
+    def __init__(self, handler, scene, online):
+        BigWorld.callback(0.01, scene.show)
+        from Bitcasters.layers.Factory import create
+        self.layer = create('CharCreation', 0.75, owner=self, scene=scene, trap_background_clicks=False)
+        Mode.__init__(self, handler, {KEY_RETURN: [ignore, self.click_done],
+         KEY_ESCAPE: [ignore, self.click_cancel]})
+        self.online = online
+
+    def cleanup(self):
+        Mode.cleanup(self)
+        self.layer.cleanup()
+
+    def click_cancel(self):
+        """Go back to character selection"""
+        BigWorld.player().cancelCharCreation()
+
+    def click_done(self):
+        """Create this character"""
+        if self.online:
+            account = BigWorld.player()
+        else:
+            account = BWPersonality.CM.account
+        account.create(self.layer.character_data())

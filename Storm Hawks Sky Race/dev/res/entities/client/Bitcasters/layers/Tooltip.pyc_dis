@@ -1,0 +1,12 @@
+# Embedded file name: /entities/client/Bitcasters/layers/Tooltip.py
+data = {'tt': {'sprite': 'tooltip',
+        'type': 'image'}}
+import Factory, BigWorld
+
+class Layer(Factory.Layer):
+
+    def preinit(self, code, **kwargs):
+        self.text = kwargs['text']
+
+    def postinit(self):
+        self.components['tt'].write('text', self.text)

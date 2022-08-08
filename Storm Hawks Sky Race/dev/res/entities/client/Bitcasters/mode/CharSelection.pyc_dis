@@ -1,0 +1,49 @@
+# Embedded file name: /entities/client/Bitcasters/mode/CharSelection.py
+import BigWorld, GUI, BWPersonality
+import Math
+from math import *
+from keys import *
+from Util import ignore
+from Mode import Mode
+
+class CharSelection(Mode):
+
+    def __init__(self, handler, scene, characters, online):
+        self.online = online
+        self.characters = characters
+        raise characters or AssertionError
+        from Bitcasters.layers.Factory import create
+        self.layer = create('CharSelection', 0.75, owner=self, chardata=characters, scene=scene)
+        Mode.__init__(self, handler, {KEY_RETURN: [ignore, self.click_done],
+         KEY_ESCAPE: [ignore, self.esc]})
+        BigWorld.callback(0.01, lambda : self.layer.click_char(0))
+
+    def esc(self):
+        """Go back to login screen"""
+        self.click('back')
+
+    def click_back(self):
+        self.layer.scene._destroy()
+        BWPersonality.CM.restartLogin()
+
+    def click_done(self):
+        """Enter the game with the selected character"""
+        character = self.characters[self.layer.selected]
+        self.layer.scene._destroy()
+        if self.online:
+            BWPersonality.EnterOnlineWorld(character['name'])
+        else:
+            BWPersonality.EnterOfflineWorld(character)
+
+    def click_new_character(self):
+        BWPersonality.changeMode('CharCreation', self.layer.scene, self.online)
+
+    def click_delete_character(self):
+        try:
+            BigWorld.player().delete(self.layer.selected)
+        except:
+            pass
+
+    def cleanup(self):
+        Mode.cleanup(self)
+        self.layer.cleanup()

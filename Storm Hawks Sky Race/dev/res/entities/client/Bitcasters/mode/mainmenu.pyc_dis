@@ -1,0 +1,3 @@
+# Embedded file name: /entities/client/Bitcasters/mode/mainmenu.py
+__root__ = ('Options >', 'Quit')
+Options = ('Turn sound %(turnsound)s', 'Login Name : %(saveloginflag)s')

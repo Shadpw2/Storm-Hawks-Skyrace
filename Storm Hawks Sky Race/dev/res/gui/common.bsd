@@ -1,0 +1,811 @@
+{
+	'sheets': {
+		'maps/sheet1': (2048, 2048),
+		'maps/sheet2': (1024, 2048),
+		'maps/sheet3': (1024, 512)
+	},
+	'sprites': {
+		'': {'tiles': (1, 1), 'sheet': '', 'rect': (0, 0, 0, 0)},
+		'accept': {
+			'rect': (717, 1057, 177, 63),
+			'sheet': 'maps/sheet2',
+			'tiles': (3, 1)
+		},
+		'accepted': {
+			'rect': (732, 1240, 88, 49),
+			'sheet': 'maps/sheet2',
+			'tiles': (2, 1)
+		},
+		'account_creation': {
+			'rect': (0, 1498, 736, 503),
+			'sheet': 'maps/sheet1',
+			'tiles': (1, 1)
+		},
+		'add_friend': {
+			'rect': (0, 1412, 73, 243),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 3)
+		},
+		'alchemist': {
+			'rect': (911, 1946, 51, 102),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 2)
+		},
+		'amount': {
+			'labels': {
+				'text': {
+					'bounds': (0.328, 0.224, 0.627, 0.517),
+					'font': 'Bronic_27',
+					'text_align': 1
+				}
+			},
+			'rect': (732, 1120, 136, 120),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 2)
+		},
+		'back': {
+			'rect': (524, 1060, 98, 108),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 3)
+		},
+		'banner': {
+			'rect': (1364, 1925, 684, 79),
+			'sheet': 'maps/sheet1',
+			'tiles': (1, 1)
+		},
+		'bow': {
+			'rect': (146, 1169, 73, 243),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 3)
+		},
+		'broadcast': {
+			'rect': (0, 174, 219, 81),
+			'sheet': 'maps/sheet3',
+			'tiles': (3, 1)
+		},
+		'cc_connector': {
+			'rect': (754, 910, 50, 44),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 1)
+		},
+		'cc_holder': {
+			'labels': {
+				'text': {
+					'bounds': (0.284, 0.045, 0.299, 0.225),
+					'font': 'Bronic_14',
+					'text_align': 0.500
+				}
+			},
+			'rect': (243, 147, 207, 91),
+			'sheet': 'maps/sheet3',
+			'tiles': (3, 1)
+		},
+		'char_creation': {
+			'rect': (769, 602, 519, 602),
+			'sheet': 'maps/sheet1',
+			'tiles': (1, 1)
+		},
+		'char_selection': {
+			'rect': (1288, 602, 435, 602),
+			'sheet': 'maps/sheet1',
+			'tiles': (1, 1)
+		},
+		'check_lb': {
+			'rect': (292, 1412, 73, 243),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 3)
+		},
+		'checkbox': {
+			'rect': (687, 960, 25, 58),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 2)
+		},
+		'clip': {
+			'rect': (326, 1655, 37, 44),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 1)
+		},
+		'console_bg': {
+			'labels': {
+				'text': {
+					'behaviour': 'wrap',
+					'bounds': (0.022, 0.234, 0.866, 0.655),
+					'font': 'Bronic_17',
+					'text_align': 0
+				}
+			},
+			'rect': (1723, 534, 315, 237),
+			'sheet': 'maps/sheet1',
+			'tiles': (1, 1)
+		},
+		'console_bgfl': {
+			'labels': {
+				'text': {
+					'behaviour': 'wrap',
+					'bounds': (0.022, 0.234, 0.866, 0.566),
+					'font': 'Bronic_17',
+					'handle_clicks': True,
+					'text_align': 0
+				}
+			},
+			'rect': (1723, 771, 315, 237),
+			'sheet': 'maps/sheet1',
+			'tiles': (1, 1)
+		},
+		'console_chat': {
+			'rect': (970, 0, 41, 114),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 3)
+		},
+		'console_fl': {
+			'rect': (970, 114, 41, 114),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 3)
+		},
+		'defeat': {
+			'rect': (146, 1412, 73, 243),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 3)
+		},
+		'dialog_bg': {
+			'labels': {
+				'small_text': {
+					'bounds': (0.047, 0.243, 0.806, 0.643),
+					'font': 'tos_pp',
+					'text_align': 0
+				},
+				'text': {
+					'behaviour': 'wrap',
+					'bounds': (0.047, 0.243, 0.896, 0.646),
+					'font': 'Bronic_27',
+					'text_align': 0
+				},
+				'title': {
+					'bounds': (0.414, 0.068, 0.401, 0.092),
+					'font': 'Bronic_27',
+					'text_align': 0.500
+				}
+			},
+			'rect': (0, 1171, 560, 327),
+			'sheet': 'maps/sheet1',
+			'tiles': (1, 1)
+		},
+		'dialog_icons': {
+			'rect': (0, 811, 372, 358),
+			'sheet': 'maps/sheet2',
+			'tiles': (2, 2)
+		},
+		'dialog_panel': {
+			'rect': (308, 1932, 348, 96),
+			'sheet': 'maps/sheet2',
+			'tiles': (2, 1)
+		},
+		'dialog_pipe': {
+			'rect': (316, 1703, 43, 106),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 1)
+		},
+		'dialog_scroll': {
+			'rect': (560, 1171, 90, 327),
+			'sheet': 'maps/sheet1',
+			'tiles': (1, 1)
+		},
+		'dot': {
+			'rect': (285, 1799, 18, 18),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 1)
+		},
+		'dot2': {
+			'rect': (285, 1817, 18, 18),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 1)
+		},
+		'down': {
+			'rect': (694, 1090, 23, 72),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 3)
+		},
+		'endscroll_knob': {
+			'rect': (970, 228, 43, 26),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 1)
+		},
+		'exit': {
+			'rect': (804, 882, 32, 96),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 3)
+		},
+		'female': {
+			'rect': (442, 1117, 70, 183),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 3)
+		},
+		'fistpump': {
+			'rect': (73, 1169, 73, 243),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 3)
+		},
+		'health': {
+			'rect': (243, 0, 195, 147),
+			'sheet': 'maps/sheet3',
+			'tiles': (1, 3)
+		},
+		'help': {
+			'labels': {
+				'text': {
+					'behaviour': 'wrap',
+					'bounds': (0.074, 0.168, 0.847, 0.635),
+					'font': 'Bronic_27',
+					'text_align': 0
+				},
+				'title': {
+					'bounds': (0.365, 0.042, 0.223, 0.053),
+					'font': 'Bronic_27',
+					'text_align': 0.500
+				}
+			},
+			'rect': (0, 602, 769, 569),
+			'sheet': 'maps/sheet1',
+			'tiles': (1, 1)
+		},
+		'highlight': {
+			'labels': {
+				'data': {
+					'behaviour': 'wrap',
+					'bounds': (0.041, 0.406, 0.862, 0.516),
+					'font': 'Bronic_17',
+					'text_align': 0
+				},
+				'name': {
+					'bounds': (0.041, 0.078, 0.862, 0.234),
+					'font': 'Bronic_27',
+					'text_align': 0
+				}
+			},
+			'rect': (733, 1300, 270, 260),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 2)
+		},
+		'human': {
+			'rect': (868, 1120, 102, 51),
+			'sheet': 'maps/sheet2',
+			'tiles': (2, 1)
+		},
+		'inventory_bg': {
+			'labels': {
+				'name_title': {
+					'behaviour': 'wrap',
+					'bounds': (0.535, 0.038, 0.387, 0.110),
+					'font': 'Bronic_17',
+					'text_align': 0.500
+				}
+			},
+			'rect': (802, 0, 800, 602),
+			'sheet': 'maps/sheet1',
+			'tiles': (1, 1)
+		},
+		'large_text': {
+			'labels': {
+				'text': {
+					'bounds': (0.026, 0.083, 0.949, 0.833),
+					'font': 'Bronic_27',
+					'text_align': 0
+				}
+			},
+			'rect': (663, 811, 236, 38),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 1)
+		},
+		'lb': {
+			'labels': {
+				'name': {
+					'behaviour': 'wrap',
+					'bounds': (0.040, 0.283, 0.832, 0.688),
+					'font': 'Bronic_17',
+					'line_padding': 4,
+					'text_align': 0
+				},
+				'name_header': {
+					'behaviour': 'squeeze',
+					'bounds': (0.040, 0.188, 0.832, 0.079),
+					'font': 'Bronic_27',
+					'text_align': 0
+				},
+				'time': {
+					'behaviour': 'wrap',
+					'bounds': (0.040, 0.283, 0.832, 0.688),
+					'font': 'Bronic_17',
+					'line_padding': 4,
+					'text_align': 1
+				},
+				'time_header': {
+					'behaviour': 'squeeze',
+					'bounds': (0.040, 0.188, 0.832, 0.079),
+					'font': 'Bronic_27',
+					'text_align': 1
+				}
+			},
+			'rect': (0, 431, 1004, 380),
+			'sheet': 'maps/sheet2',
+			'tiles': (2, 1)
+		},
+		'leader': {
+			'rect': (656, 1946, 51, 102),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 2)
+		},
+		'leaderboard': {
+			'rect': (1488, 1340, 560, 571),
+			'sheet': 'maps/sheet1',
+			'tiles': (1, 1)
+		},
+		'left': {
+			'rect': (622, 1060, 36, 123),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 3)
+		},
+		'leftgui_actions': {
+			'rect': (144, 1655, 48, 156),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 3)
+		},
+		'leftgui_chat': {
+			'rect': (96, 1655, 48, 156),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 3)
+		},
+		'leftgui_help': {
+			'rect': (192, 1655, 48, 156),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 3)
+		},
+		'leftgui_inventory': {
+			'rect': (48, 1655, 48, 156),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 3)
+		},
+		'leftgui_main': {
+			'rect': (0, 1655, 48, 156),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 3)
+		},
+		'lists_down': {
+			'rect': (691, 1183, 41, 105),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 3)
+		},
+		'lists_up': {
+			'rect': (650, 1183, 41, 105),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 3)
+		},
+		'loading': {
+			'rect': (0, 0, 802, 602),
+			'sheet': 'maps/sheet1',
+			'tiles': (1, 1)
+		},
+		'login': {
+			'rect': (745, 1325, 376, 523),
+			'sheet': 'maps/sheet1',
+			'tiles': (1, 1)
+		},
+		'logos_abc': {
+			'rect': (819, 1892, 81, 23),
+			'sheet': 'maps/sheet1',
+			'tiles': (1, 1)
+		},
+		'logos_bell': {
+			'rect': (900, 1848, 80, 27),
+			'sheet': 'maps/sheet1',
+			'tiles': (1, 1)
+		},
+		'logos_bigworld': {
+			'rect': (980, 1875, 109, 25),
+			'sheet': 'maps/sheet1',
+			'tiles': (1, 1)
+		},
+		'logos_bitcasters': {
+			'rect': (980, 1848, 117, 27),
+			'sheet': 'maps/sheet1',
+			'tiles': (1, 1)
+		},
+		'logos_copyright': {
+			'rect': (736, 1989, 274, 12),
+			'sheet': 'maps/sheet1',
+			'tiles': (1, 1)
+		},
+		'logos_nerdcorps': {
+			'rect': (745, 1848, 74, 66),
+			'sheet': 'maps/sheet1',
+			'tiles': (1, 1)
+		},
+		'logos_telefilm': {
+			'rect': (900, 1875, 61, 27),
+			'sheet': 'maps/sheet1',
+			'tiles': (1, 1)
+		},
+		'logos_ytv': {
+			'rect': (833, 1848, 54, 44),
+			'sheet': 'maps/sheet1',
+			'tiles': (1, 1)
+		},
+		'mainmenu': {
+			'labels': {
+				'text': {
+					'bounds': (0.168, 0.071, 0.472, 0.062),
+					'font': 'Bronic_27',
+					'text_align': 0.500
+				}
+			},
+			'rect': (543, 0, 347, 483),
+			'sheet': 'maps/sheet3',
+			'tiles': (1, 1)
+		},
+		'male': {
+			'rect': (372, 1117, 70, 183),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 3)
+		},
+		'map': {
+			'rect': (0, 255, 543, 182),
+			'sheet': 'maps/sheet3',
+			'tiles': (3, 1)
+		},
+		'mechanic': {
+			'rect': (758, 1946, 51, 102),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 2)
+		},
+		'medium_text': {
+			'labels': {
+				'text': {
+					'bounds': (0.030, 0.161, 0.941, 0.710),
+					'font': 'Bronic_17',
+					'text_align': 0
+				}
+			},
+			'rect': (663, 849, 204, 33),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 1)
+		},
+		'merb': {
+			'rect': (868, 1222, 102, 51),
+			'sheet': 'maps/sheet2',
+			'tiles': (2, 1)
+		},
+		'minimize': {
+			'rect': (663, 916, 18, 48),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 3)
+		},
+		'navigator': {
+			'rect': (860, 1946, 51, 102),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 2)
+		},
+		'notify_chat': {
+			'rect': (240, 1752, 63, 47),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 1)
+		},
+		'notify_race_1': {
+			'rect': (240, 1655, 43, 48),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 1)
+		},
+		'notify_race_2': {
+			'rect': (283, 1655, 43, 48),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 1)
+		},
+		'notify_trade': {
+			'rect': (240, 1703, 76, 49),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 1)
+		},
+		'object': {
+			'labels': {
+				'text': {
+					'bounds': (0.011, 0.312, 0.956, 0.390),
+					'font': 'Bronic_27',
+					'text_align': 0.500
+				}
+			},
+			'rect': (365, 1300, 368, 632),
+			'sheet': 'maps/sheet2',
+			'tiles': (4, 8)
+		},
+		'overlay': {
+			'rect': (733, 1560, 270, 386),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 1)
+		},
+		'prelogin': {
+			'rect': (597, 0, 349, 431),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 1)
+		},
+		'progress': {
+			'rect': (0, 0, 243, 174),
+			'sheet': 'maps/sheet3',
+			'tiles': (1, 3)
+		},
+		'race_1': {
+			'rect': (219, 1169, 73, 243),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 3)
+		},
+		'race_2': {
+			'rect': (219, 1412, 73, 243),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 3)
+		},
+		'race_bg': {
+			'labels': {
+				'lap': {
+					'bounds': (0.254, 0.556, 0.247, 0.188),
+					'font': 'Bronic_27',
+					'text_align': 0.500
+				},
+				'timer': {
+					'bounds': (0.148, 0.237, 0.357, 0.188),
+					'font': 'Bronic_27',
+					'text_align': 0.500
+				}
+			},
+			'rect': (0, 1811, 285, 162),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 1)
+		},
+		'race_summary': {
+			'labels': {
+				'boosts': {
+					'bounds': (0.562, 0.497, 0.208, 0.050),
+					'font': 'Bronic_27',
+					'text_align': 1
+				},
+				'crystals': {
+					'bounds': (0.562, 0.249, 0.208, 0.050),
+					'font': 'Bronic_27',
+					'text_align': 1
+				},
+				'gold': {
+					'bounds': (0.375, 0.732, 0.370, 0.050),
+					'font': 'Bronic_27',
+					'text_align': 1
+				},
+				'position': {
+					'bounds': (0.134, 0.055, 0.685, 0.050),
+					'font': 'Bronic_27',
+					'text_align': 0.500
+				}
+			},
+			'rect': (1121, 1325, 367, 600),
+			'sheet': 'maps/sheet1',
+			'tiles': (1, 1)
+		},
+		'radio': {
+			'rect': (687, 910, 25, 50),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 2)
+		},
+		'refuse': {
+			'rect': (717, 994, 177, 63),
+			'sheet': 'maps/sheet2',
+			'tiles': (3, 1)
+		},
+		'remove_friend': {
+			'rect': (73, 1412, 73, 243),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 3)
+		},
+		'resizable_tooltip': {
+			'rect': (438, 0, 42, 42),
+			'sheet': 'maps/sheet3',
+			'tiles': (3, 3)
+		},
+		'right': {
+			'rect': (658, 1060, 36, 123),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 3)
+		},
+		'scroll_knob': {
+			'rect': (836, 966, 24, 19),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 1)
+		},
+		'scrollbar': {
+			'rect': (946, 0, 24, 386),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 1)
+		},
+		'sharpshooter': {
+			'rect': (707, 1946, 51, 102),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 2)
+		},
+		'shop': {
+			'labels': {
+				'owner': {
+					'bounds': (0.842, 0.345, 0.050, 0.298),
+					'font': 'Bronic_27',
+					'text_align': 0.500
+				},
+				'title': {
+					'bounds': (0.923, 0.209, 0.050, 0.458),
+					'font': 'Bronic_27',
+					'text_align': 0.500
+				}
+			},
+			'rect': (0, 0, 597, 408),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 1)
+		},
+		'slider_knob': {
+			'rect': (820, 1240, 30, 49),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 1)
+		},
+		'small_text': {
+			'labels': {
+				'text': {
+					'bounds': (0.043, 0.154, 0.913, 0.692),
+					'font': 'Bronic_14',
+					'text_align': 0.500
+				}
+			},
+			'rect': (663, 882, 140, 28),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 1)
+		},
+		'technician': {
+			'rect': (809, 1946, 51, 102),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 2)
+		},
+		'thick_long': {
+			'labels': {
+				'text': {
+					'bounds': (0.156, 0.184, 0.758, 0.612),
+					'font': 'Bronic_27',
+					'text_align': 0.500
+				}
+			},
+			'rect': (372, 811, 291, 153),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 3)
+		},
+		'thick_short': {
+			'labels': {
+				'text': {
+					'bounds': (0.300, 0.184, 0.540, 0.612),
+					'font': 'Bronic_27',
+					'text_align': 0.500
+				}
+			},
+			'rect': (372, 964, 152, 153),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 3)
+		},
+		'thin_long': {
+			'labels': {
+				'text': {
+					'bounds': (0.168, 0.167, 0.745, 0.733),
+					'font': 'Bronic_17',
+					'text_align': 0.500
+				}
+			},
+			'rect': (524, 964, 163, 96),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 3)
+		},
+		'thin_medium': {
+			'labels': {
+				'text': {
+					'bounds': (0.191, 0.167, 0.706, 0.733),
+					'font': 'Bronic_17',
+					'text_align': 0.500
+				}
+			},
+			'rect': (512, 1183, 138, 96),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 3)
+		},
+		'thin_short': {
+			'labels': {
+				'text': {
+					'bounds': (0.351, 0.154, 0.544, 0.692),
+					'font': 'Bronic_14',
+					'text_align': 0.500
+				}
+			},
+			'rect': (836, 882, 59, 84),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 3)
+		},
+		'thin_stub': {
+			'labels': {
+				'text': {
+					'bounds': (0.475, 0.154, 0.375, 0.692),
+					'font': 'Bronic_14',
+					'text_align': 0.500
+				}
+			},
+			'rect': (712, 910, 42, 84),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 3)
+		},
+		'tooltip': {
+			'labels': {
+				'text': {
+					'behaviour': 'wrap',
+					'bounds': (0.007, 0.029, 0.987, 0.943),
+					'font': 'Bronic_17',
+					'text_align': 0.500
+				}
+			},
+			'rect': (0, 1973, 308, 72),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 1)
+		},
+		'toptitle': {
+			'rect': (773, 1204, 381, 121),
+			'sheet': 'maps/sheet1',
+			'tiles': (1, 1)
+		},
+		'trade': {
+			'rect': (292, 1169, 73, 243),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 3)
+		},
+		'trading_bg': {
+			'labels': {
+				'other_name': {
+					'bounds': (0.124, 0.043, 0.362, 0.056),
+					'font': 'Bronic_27',
+					'text_align': 0.500
+				},
+				'your_name': {
+					'bounds': (0.531, 0.043, 0.362, 0.056),
+					'font': 'Bronic_27',
+					'text_align': 0.500
+				}
+			},
+			'rect': (1602, 0, 428, 534),
+			'sheet': 'maps/sheet1',
+			'tiles': (1, 1)
+		},
+		'up': {
+			'rect': (694, 1018, 23, 72),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 3)
+		},
+		'wallop': {
+			'rect': (868, 1171, 102, 51),
+			'sheet': 'maps/sheet2',
+			'tiles': (2, 1)
+		},
+		'wave': {
+			'rect': (0, 1169, 73, 243),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 3)
+		},
+		'window': {
+			'rect': (1723, 1008, 302, 332),
+			'sheet': 'maps/sheet1',
+			'tiles': (1, 1)
+		},
+		'world_topleft': {
+			'labels': {
+				'text': {
+					'bounds': (0.536, 0.378, 0.381, 0.481),
+					'font': 'Bronic_27',
+					'text_align': 0.500
+				}
+			},
+			'rect': (899, 811, 86, 264),
+			'sheet': 'maps/sheet2',
+			'tiles': (1, 1)
+		}
+	}
+}

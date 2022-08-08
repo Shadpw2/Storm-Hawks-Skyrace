@@ -1,0 +1,32 @@
+# Embedded file name: /entities/client/Bitcasters/mode/Loading.py
+import BigWorld, GUI, BWPersonality
+import Math
+from keys import *
+from Util import ignore
+from Mode import Mode
+
+class Loading(Mode):
+
+    def __init__(self, handler, next, *args, **kwargs):
+        from Bitcasters.layers.Factory import create
+        self.layer = create('Loading', 0.02, owner=self)
+        self.branding = create('branding', 0.01, owner=self, trap_background_clicks=False)
+        Mode.__init__(self, handler, {})
+        self.next = next
+        self.args = args
+        self.kwargs = kwargs
+
+    def cleanup(self):
+        Mode.cleanup(self)
+        self.layer.cleanup()
+        self.branding.cleanup()
+
+    def setProgress(self, value, time = 0.1):
+        if self.layer.set(value, time) and self.next:
+
+            def transition():
+                BWPersonality.changeMode(self.next, *self.args, **self.kwargs)
+                self.next = None
+                return
+
+            BigWorld.callback(time, transition)

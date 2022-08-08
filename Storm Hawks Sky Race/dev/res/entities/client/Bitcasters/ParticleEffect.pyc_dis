@@ -1,0 +1,29 @@
+# Embedded file name: /entities/client/Bitcasters/ParticleEffect.py
+import Pixie
+
+class ParticleEffect(object):
+
+    def __init__(self, name, node, offset, direction):
+        system = Pixie.create('particles/%s.xml' % name)
+        action = system.system(0).action(1)
+        action.setPositionSource(['Point', offset])
+        action.setVelocitySource(['Line', direction, direction])
+        action.ignoreRotation = 1
+        self.system = system
+        self.node = node
+        self.active = False
+
+    def show(self):
+        if not self.active:
+            self.active = True
+            self.node.attach(self.system)
+
+    def hide(self):
+        if self.active:
+            self.active = False
+            self.node.detach(self.system)
+
+    def isVisible(self):
+        return self.active
+
+    visible = property(isVisible, lambda self, v: [self.hide, self.show][v]())

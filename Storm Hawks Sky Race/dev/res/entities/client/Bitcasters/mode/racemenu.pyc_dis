@@ -1,0 +1,3 @@
+# Embedded file name: /entities/client/Bitcasters/mode/racemenu.py
+__root__ = ('Options >', 'Forfeit Race', 'Quit')
+Options = ('Turn sound %(turnsound)s', 'Login Name : %(saveloginflag)s')

@@ -1,0 +1,70 @@
+# .bpf Bitcasters Particle File?
+
+# karlk: doing some normalization.
+# Since we want to look things up by the ID, we use a dict at the top level,
+# with the IDs as keys. (The tuple organization in .bgl files has special
+# motivation: children are indicated symbolically to avoid nesting, and the
+# tuple guarantees order, which is reflected in the Z-order of components.)
+# It is assumed that an offset should always be converted into a Point and
+# a direction into a Line starting at the origin, so the relevant data is
+# omitted; it can be hard-coded.
+# Particles are made into a tuple because there is no use for names for the
+# individual particles - yet. We can revisit this later.
+# Each animation is also given a 'name' key - this is redundant at the moment,
+# but will later allow us to separate the combined-animation-particle name
+# from the base animation name (although we should also think about 
+# "templates"). It also helps with simplifying the code.
+
+{
+	'defeat001': {
+		'name': 'defeat001',
+		'emotion': 'Sad',
+	},
+	'bowing001': {
+		'name': 'bowing001',
+#		'particles': (
+#			{ 
+#				'name': 'testParticle_glow', 'attachTo': 'JNT_wrist_L',
+#				'startDelay': 0.8, 'timeToLive': 1.2, 
+#				'offset': (0, 0, 0), 'direction': (0, 0, 0)
+#			},
+#			{
+#				'name': 'testParticle_glow', 'attachTo': 'JNT_wrist_R',
+#				'startDelay': 0.8, 'timeToLive': 1.2,
+#				'offset': (0, 0, 0), 'direction': (0, 0, 0)
+#			}
+#		)	
+	},
+	'wave001': {
+		'name': 'wave001',
+		'emotion': 'Happy',
+#		'particles': (
+#			{ 
+#				'name': 'testParticle_glow', 'attachTo': 'JNT_wrist_R',
+#				'startDelay': 0.2, 'timeToLive': 1.3,
+#				'offset': (0, -0.2, 0), 'direction': (0, 0, 0)
+#			},
+#			{ 
+#				'name': 'testParticle_glow', 'attachTo': 'JNT_wrist_R',
+#				'startDelay': 0.2, 'timeToLive': 1.3,
+#				'offset': (0, 0.2, 0), 'direction': (0, 0, 0)
+#			},
+#			{
+#				'name': 'testParticle_glow', 'attachTo': 'JNT_wrist_R',
+#				'startDelay': 0.2, 'timeToLive': 1.5,
+#				'offset': (0, 0, 0), 'direction': (0, 0, 0)
+#			}
+#		)		
+	},
+	'fistpump001': { 
+		'name': 'fistpump001',
+		'emotion': 'Happy',
+#		'particles': (
+#			{ 
+#				'name': 'testParticle_glow3', 'attachTo': 'JNT_neck',
+#				'startDelay': 0.2, 'timeToLive': 1.5,
+#				'offset': (0, 0, 0), 'direction': (0, 0, -5)
+#			},
+#		)		
+	}
+}
