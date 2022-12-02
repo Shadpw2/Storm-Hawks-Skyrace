@@ -1,0 +1,5283 @@
+word32 fn00711280(word32 dwArg04, ptr32 & edxOut)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn00747330
+//      fn00747580
+// MayUse:  Stack +0004:[0..31]
+// LiveOut: eax edx
+// Trashed: SCZO eax ecx edi edx esi Top
+// Preserved: esp
+fn00711280_entry:
+l00711280:
+	branch dwArg04 >= 0<32> l00711291
+l00711291:
+l00711295_thunk_fn007050A0:
+	word32 edx_13
+	word32 ecx_50
+	word32 eax_11 = fn007050A0(dwArg04, out ecx_50, out edx_13)
+	edxOut = edx_13
+	return eax_11
+l00711288:
+l0071128C_thunk_fn00710730:
+	word32 edx_20
+	word32 eax_17 = fn00710730(dwArg04, out edx_20)
+	edxOut = edx_20
+	return eax_17
+fn00711280_exit:
+
+
+word32 fn00711330(word32 dwArg04, word32 dwArg08)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn006E9BD0
+// MayUse:  Stack +0004:[0..31] Stack +0008:[0..31]
+// LiveOut: eax
+// Trashed: SCZO eax ebp ebx ecx edi edx esi Top
+// Preserved: ebp esp
+fn00711330_entry:
+l00711330:
+	word32 esi_13 = dwArg04
+	word32 edi_17 = dwArg08
+	word32 ebx_120 = 0<32>
+	word32 dwLoc04_190 = 0<32>
+	branch dwArg08 > 0<32> l0071135A
+l00711346:
+	branch dwArg08 < 0<32> l0071134C
+l00711348:
+	branch Test(UGE,false) l0071135A
+l0071134C:
+	esi_13 = -dwArg04
+	edi_17 = -(dwArg08 + (esi_13 == 0<32>))
+	dwLoc04_190 = 1<32>
+l0071135A:
+	word32 eax_42 = esi_13
+	word32 ecx_43 = edi_17
+	branch (esi_13 | edi_17) == 0<32> l00711388
+l00711364:
+	eax_42 = __shrd(eax_42, ecx_43, 0xF<8>)
+	ecx_43 = ecx_43 >>u 0xF<32>
+	ebx_120 = ebx_120 + 1<32>
+	branch (eax_42 | ecx_43) != 0<32> l00711364
+l00711374:
+	branch ebx_120 <= 0x7FFFFFFF<32> l00711388
+l00711388:
+	// Failed to bind call argument.
+	// Please report this issue at https://github.com/uxmal/reko
+	// Failed to bind call argument.
+	// Please report this issue at https://github.com/uxmal/reko
+	word32 stackArg8 = <invalid>
+	word32 stackArg12 = <invalid>
+	word32 edx_274
+	word32 ecx_273
+	word32 ecx_269
+	word32 edx_270
+	word32 eax_108 = fn006DDD50(fn00723860(Mem59[0x00A1F414<p32>:word32] *s ebx_120 + 3<32> + Mem59[0x00A1F410<p32>:word32] & 0xFFFFFFFC<32>, out ecx_269, out edx_270), stackArg8, stackArg12, out ecx_273, out edx_274)
+	branch eax_108 == 0<32> l007113EE
+l007113BC:
+	word32 eax_118 = eax_108 + 0xC<32>
+	branch dwLoc04_190 == 0<32> l007113C8
+l007113C6:
+	ebx_120 = -ebx_120
+l007113C8:
+	Mem131[eax_108 + 8<32>:word32] = ebx_120
+	word32 ecx_124 = esi_13
+	word32 edx_132 = edi_17
+	branch (esi_13 | edi_17) == 0<32> l007113EE
+l007113D3:
+	ecx_124 = __shrd(ecx_124, edx_132, 0xF<8>)
+	Mem141[eax_118:word16] = SLICE(ecx_124 & 0x7FFF<32>, word16, 0)
+	edx_132 = edx_132 >>u 0xF<32>
+	eax_118 = eax_118 + 2<32>
+	branch (ecx_124 | edx_132) != 0<32> l007113D3
+l007113EE:
+	return eax_108
+l0071137C:
+	word32 ecx_275
+	word32 edx_276
+	fn006E1210(out ecx_275, out edx_276)
+	return 0<32>
+fn00711330_exit:
+
+
+word32 fn00711400(word32 dwArg04, word32 dwArg08)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn006E9BD0
+// MayUse:  Stack +0004:[0..31] Stack +0008:[0..31]
+// LiveOut: eax
+// Trashed: SCZO eax ebx ecx edi edx esi Top
+// Preserved: esp
+fn00711400_entry:
+l00711400:
+	word32 esi_10 = dwArg04
+	word32 edi_14 = dwArg08
+	word32 ebx_16 = 0<32>
+	word32 eax_20 = dwArg04
+	word32 ecx_21 = dwArg08
+	branch (dwArg04 | dwArg08) == 0<32> l0071143A
+l00711417:
+	eax_20 = __shrd(eax_20, ecx_21, 0xF<8>)
+	ecx_21 = ecx_21 >>u 0xF<32>
+	ebx_16 = ebx_16 + 1<32>
+	branch (eax_20 | ecx_21) != 0<32> l00711417
+l00711427:
+	branch ebx_16 <= 0x7FFFFFFF<32> l0071143A
+l0071143A:
+	// Failed to bind call argument.
+	// Please report this issue at https://github.com/uxmal/reko
+	// Failed to bind call argument.
+	// Please report this issue at https://github.com/uxmal/reko
+	word32 stackArg8 = <invalid>
+	word32 stackArg12 = <invalid>
+	word32 ecx_192
+	word32 edx_193
+	word32 ecx_188
+	word32 edx_189
+	word32 eax_73 = fn006DDD50(fn00723860(Mem13[0x00A1F414<p32>:word32] *s ebx_16 + 3<32> + Mem13[0x00A1F410<p32>:word32] & 0xFFFFFFFC<32>, out ecx_188, out edx_189), stackArg8, stackArg12, out ecx_192, out edx_193)
+	branch eax_73 == 0<32> l0071149B
+l0071146B:
+	Mem87[eax_73 + 8<32>:word32] = ebx_16
+	word32 ecx_86 = eax_73 + 0xC<32>
+	branch (dwArg04 | dwArg08) == 0<32> l0071149B
+l00711477:
+l00711480:
+	esi_10 = __shrd(esi_10, edi_14, 0xF<8>)
+	Mem96[ecx_86:word16] = SLICE(esi_10 & 0x7FFF<32>, word16, 0)
+	edi_14 = edi_14 >>u 0xF<32>
+	ecx_86 = ecx_86 + 2<32>
+	branch (esi_10 | edi_14) != 0<32> l00711480
+l0071149B:
+	return eax_73
+l0071142F:
+	word32 ecx_194
+	word32 edx_195
+	fn006E1210(out ecx_194, out edx_195)
+	return 0<32>
+fn00711400_exit:
+
+
+word32 fn007114E0(word32 ebx, word32 edi, word32 dwArg04, ptr32 & edxOut)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn006E5C60
+//      fn007114E0
+// MayUse:  ebx:[0..31] edi:[0..31] Stack +0004:[0..31]
+// LiveOut: eax edx
+// Trashed: SCZO eax ebx ecx edi edx esi Top
+// Preserved: esp
+fn007114E0_entry:
+l007114E0:
+	branch dwArg04 != 0<32> l00711509
+l00711509:
+	word32 eax_12 = Mem7[dwArg04 + 4<32>:word32]
+	branch eax_12 == 0xA1F400<32> l00711666
+l00711517:
+	word32 edx_466
+	word32 ecx_465
+	branch fn006D5670(eax_12, 0xA1F400<32>, out ecx_465, out edx_466) != 0<32> l00711666
+l00711666:
+	branch fn00710E90(dwArg04, fp - 8<32>, 8<32>, 1<32>, 1<32>) < 0<32> l007114FE
+l00711682:
+	edxOut = dwLoc04
+	return dwLoc08
+l0071152D:
+	word32 eax_60 = Mem18[dwArg04 + 4<32>:word32]
+	branch eax_60 == 0xA1E7E8<32> l00711657
+l0071153B:
+	word32 ecx_471
+	word32 edx_472
+	branch fn006D5670(eax_60, 0xA1E7E8<32>, out ecx_471, out edx_472) != 0<32> l00711657
+l00711657:
+	word32 esi_469
+	word32 edi_470
+	word32 edx_468
+	word32 ecx_467
+	int64 edx_eax_90 = CONVERT(fn007051A0(edi, dwArg04, out ecx_467, out edx_468, out esi_469, out edi_470), word32, int64)
+	edxOut = SLICE(edx_eax_90, word32, 32)
+	return SLICE(edx_eax_90, word32, 0)
+l00711551:
+	word32 eax_96 = Mem66[Mem66[dwArg04 + 4<32>:word32] + 0x30<32>:word32]
+	branch eax_96 == 0<32> l00711638
+l0071155F:
+	word32 eax_100 = Mem66[eax_96 + 0x48<32>:word32]
+	branch eax_100 == 0<32> l00711638
+l00711638:
+	word32 ecx_473
+	word32 edx_474
+	fn006E0F80(Mem66[0x00A16B7C<p32>:word32], 0x8D7510<32>, out ecx_473, out edx_474)
+	edxOut = 0xFFFFFFFF<32>
+	return 0xFFFFFFFF<32>
+l0071156A:
+	word32 esp_128
+	word32 eax_129
+	call eax_100 (retsize: 4;)
+		uses: Stack +0004:dwArg04,Stack +000C:dwLoc08,Stack +0010:dwLoc04,Stack +0018:dwArg04
+		defs: eax:eax_129,esp:esp_128
+	branch eax_129 == 0<32> l007114FE
+l00711576:
+	word32 ebx_184
+	word32 edi_182
+	word32 eax_139 = Mem127[eax_129 + 4<32>:word32]
+	Mem143[esp_128:word32] = ebx
+	Mem146[esp_128 - 4<i32>:word32] = edi
+	branch eax_139 == 0xA1E7E8<32> l0071160E
+l00711586:
+	Mem149[esp_128 - 8<i32>:word32] = 0xA1E7E8<32>
+	Mem151[esp_128 - 12<i32>:word32] = eax_139
+	word32 edx_481
+	word32 ecx_480
+	branch fn006D5670(Mem151[esp_128 - 12<i32>:word32], Mem151[esp_128 - 8<i32>:word32], out ecx_480, out edx_481) != 0<32> l0071160E
+l0071160E:
+	Mem166[esp_128 - 8<i32>:word32] = eax_129
+	// Failed to bind call argument.
+	// Please report this issue at https://github.com/uxmal/reko
+	word32 stackArg4 = <invalid>
+	word32 edi_479
+	word32 esi_478
+	word32 edx_477
+	word32 ecx_476
+	int64 edx_eax_176 = CONVERT(fn007051A0(edi, stackArg4, out ecx_476, out edx_477, out esi_478, out edi_479), word32, int64)
+	word32 v17_178 = Mem166[eax_129:word32] + 0xFFFFFFFF<32>
+	Mem179[eax_129:word32] = v17_178
+	word32 eax_181 = SLICE(edx_eax_176, word32, 0)
+	word32 edx_183 = SLICE(edx_eax_176, word32, 32)
+	edi_182 = eax_181
+	ebx_184 = edx_183
+	branch v17_178 != 0<32> l00711603
+l00711621:
+	word32 eax_186 = Mem179[eax_129 + 4<32>:word32]
+	word32 ecx_187 = Mem179[eax_186 + 0x18<32>:word32]
+	Mem189[esp_128 - 8<i32>:word32] = eax_129
+	call ecx_187 (retsize: 4;)
+		uses: eax:eax_186,Stack +0000:dwLoc04,Stack +0008:dwArg04,Stack +FFFFFFFC:dwLoc08
+	edxOut = edx_183
+	return eax_181
+l00711598:
+	word32 eax_207 = Mem151[eax_129 + 4<32>:word32]
+	branch eax_207 == 0xA1F400<32> l007115E5
+l007115A2:
+	Mem211[esp_128 - 8<32>:word32] = 0xA1F400<32>
+	Mem213[esp_128 - 0xC<32>:word32] = eax_207
+	word32 esp_221 = esp_128 - 4<32>
+	word32 edx_484
+	word32 ecx_483
+	branch fn006D5670(Mem213[esp_128 - 0xC<32>:word32], Mem213[esp_128 - 8<32>:word32], out ecx_483, out edx_484) != 0<32> l007115E5
+l007115E5:
+	Mem228[esp_128 - 8<32>:word32] = eax_129
+	// Failed to bind call argument.
+	// Please report this issue at https://github.com/uxmal/reko
+	word32 stackArg4 = <invalid>
+	word32 edx_234
+	word32 eax_233 = fn007114E0(ebx, edi, stackArg4, out edx_234)
+	word32 v15_239 = Mem228[eax_129:word32] + 0xFFFFFFFF<32>
+	Mem240[eax_129:word32] = v15_239
+	edi_182 = eax_233
+	ebx_184 = edx_234
+	branch v15_239 != 0<32> l00711603
+l007115F7:
+	word32 ecx_245 = Mem240[eax_129 + 4<32>:word32]
+	word32 edx_246 = Mem240[ecx_245 + 0x18<32>:word32]
+	Mem248[esp_128 - 8<32>:word32] = eax_129
+	call edx_246 (retsize: 4;)
+		uses: ecx:ecx_245,Stack +0000:dwLoc04,Stack +0008:dwArg04,Stack +FFFFFFFC:dwLoc08
+l00711603:
+	edxOut = ebx_184
+	return edi_182
+l007115B4:
+	word32 v12_271 = Mem213[eax_129:word32] + 0xFFFFFFFF<32>
+	Mem272[eax_129:word32] = v12_271
+	branch v12_271 != 0<32> l007115C5
+l007115B9:
+	word32 ecx_275 = Mem272[eax_129 + 4<32>:word32]
+	word32 edx_276 = Mem272[ecx_275 + 0x18<32>:word32]
+	Mem278[esp_128 - 8<32>:word32] = eax_129
+	word32 esp_279
+	call edx_276 (retsize: 4;)
+		uses: ecx:ecx_275,Stack +0000:dwLoc04,Stack +0008:dwArg04,Stack +FFFFFFFC:dwLoc08
+		defs: esp:esp_279
+	esp_221 = esp_279 + 4<32>
+l007115C5:
+	word32 eax_288 = Mem287[0x00A16B7C<p32>:word32]
+	word32 esp_290 = esp_221 - 4<i32>
+	Mem291[esp_290:word32] = 0x8D8858<32>
+	Mem293[esp_290 - 4<i32>:word32] = eax_288
+	// Failed to bind call argument.
+	// Please report this issue at https://github.com/uxmal/reko
+	word32 stackArg4 = <invalid>
+	word32 edx_487
+	word32 ecx_486
+	fn006E0F80(stackArg4, dwArg04, out ecx_486, out edx_487)
+	edxOut = 0xFFFFFFFF<32>
+	return 0xFFFFFFFF<32>
+l007114EC:
+	word32 edx_464
+	fn006E1DC0(out edx_464)
+l007114FE:
+	edxOut = 0xFFFFFFFF<32>
+	return 0xFFFFFFFF<32>
+fn007114E0_exit:
+
+
+word32 fn00711700(word32 dwArg04, ptr32 & edxOut)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn006E5C60
+// MayUse:  Stack +0004:[0..31]
+// LiveOut: eax edx
+// Trashed: SCZO eax ecx edx Top
+// Preserved: ebp ebx edi esi esp
+fn00711700_entry:
+l00711700:
+	branch dwArg04 == 0<32> l0071177B
+l00711709:
+	word32 eax_11 = Mem6[dwArg04 + 4<32>:word32]
+	branch eax_11 == 0xA1F400<32> l00711725
+l00711713:
+	word32 ecx_216
+	word32 edx_217
+	branch fn006D5670(eax_11, 0xA1F400<32>, out ecx_216, out edx_217) == 0<32> l0071177B
+l0071177B:
+	word32 edx_215
+	fn006E1DC0(out edx_215)
+	edxOut = 0<32>
+	return 0xFFFFFFFF<32>
+l00711725:
+	word32 esi_59 = Mem57[dwArg04 + 8<32>:word32]
+	word32 ecx_105 = 0<32>
+	word32 edi_109 = 0<32>
+	word32 ebp_123 = 1<32>
+	branch esi_59 >= 0<32> l0071173D
+l00711738:
+	ebp_123 = 0xFFFFFFFF<32>
+	esi_59 = -esi_59
+l0071173D:
+	word32 esi_110 = esi_59 - 1<32>
+	branch esi_110 < 0<32> l0071176A
+l00711742:
+	word32 ebx_100 = dwArg04 + 0xC<32> + esi_110 * 2<32>
+l00711746:
+	ui64 edi_ecx_155 = edx_eax_213 + edx_eax_103
+	ecx_105 = SLICE(edi_ecx_155, word32, 0) (alias)
+	edi_109 = SLICE(edi_ecx_155, word32, 32) (alias)
+	word32 edx_218
+	fn00694FE0(ecx_105, edi_109, 0x8000<32>, 0<32>, out edx_218)
+	int64 edx_eax_213 = <invalid>
+	int64 edx_eax_103 = CONVERT(CONVERT(Mem90[ebx_100:word16], word16, word32), word32, int64)
+	esi_110 = esi_110 - 1<32>
+	ebx_100 = ebx_100 - 2<32>
+	branch esi_110 >= 0<32> l00711746
+l0071176A:
+	int64 edx_eax_126 = CONVERT(ebp_123, word32, int64)
+	word32 edx_139
+	word32 eax_137 = fn00694FE0(SLICE(edx_eax_126, word32, 0), SLICE(edx_eax_126, word32, 32), ecx_105, edi_109, out edx_139)
+	edxOut = edx_139
+	return eax_137
+fn00711700_exit:
+
+
+word32 fn00711F50(word32 eax, word32 ecx, ptr32 & edxOut)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn007120F0
+// MayUse:  eax:[0..31] ecx:[0..31]
+// LiveOut: eax edx
+// Trashed: SCZO eax ebp ebx ecx edi edx esi Top
+// Preserved: esp
+fn00711F50_entry:
+l00711F50:
+	word32 esi_16 = Mem13[eax:word32] + 1<32>
+	word32 ebx_18 = 0xFFFFFFFF<32>
+	word32 eax_23 = ecx
+	branch ecx == 0<32> l00711F79
+l00711F69:
+l00711F70:
+	eax_23 = eax_23 >> 1<32>
+	ebx_18 = ebx_18 + 1<32>
+	branch eax_23 != 0<32> l00711F70
+l00711F79:
+	word32 esi_42
+	esi_42 = esi_16
+	branch Mem22[CONVERT(Mem22[esi_16:byte], byte, word32) * 4<32> + 0xA1EDE0<32>:word32] >= ecx l00711FA0
+l00711F85:
+	esi_42 = esi_16
+l00711F90:
+	esi_42 = esi_473 + 1<32>
+	esi_473 = esi_42
+	branch Mem22[CONVERT(Mem22[esi_473 + 0<32>:byte], byte, word32) * 4<32> + 0xA1EDE0<32>:word32] < ecx l00711F90
+l00711FA0:
+	Mem54[eax:word32] = esi_42
+	word32 edi_60 = esi_42 - esi_16
+	word32 ecx_65 = edi_60 *s ebx_18
+	branch CONVERT(CONVERT(ecx_65 + 0xE<32>, word32, int64) /32 ebx_18, word32, int32) >= edi_60 l00711FD4
+l00711FD4:
+	word32 edx_79 = SLICE((ecx_65 + 0xE<32>) *s64 0x88888889<32>, word32, 32) + (ecx_65 + 0xE<32>)
+	word32 ebp_94 = (edx_79 >> 3<32> >>u 0x1F<32>) + (edx_79 >> 3<32>)
+	branch ebp_94 <= 0x7FFFFFFF<32> l00711FFF
+l00711FFF:
+	// Failed to bind call argument.
+	// Please report this issue at https://github.com/uxmal/reko
+	// Failed to bind call argument.
+	// Please report this issue at https://github.com/uxmal/reko
+	word32 stackArg8 = <invalid>
+	word32 stackArg12 = <invalid>
+	word32 edx_127
+	word32 ecx_467
+	word32 ecx_471
+	word32 edx_468
+	word32 eax_126 = fn006DDD50(fn00723860(Mem91[0x00A1F414<p32>:word32] *s ebp_94 + 3<32> + Mem91[0x00A1F410<p32>:word32] & 0xFFFFFFFC<32>, out ecx_467, out edx_468), stackArg8, stackArg12, out ecx_471, out edx_127)
+	branch eax_126 != 0<32> l0071203C
+l0071203C:
+	word32 esi_137 = esi_42 - 1<32>
+	word32 edi_138 = 0<32>
+	word32 edx_141 = eax_126 + 0xC<32>
+	branch esi_137 <u esi_16 l0071208B
+l0071204C:
+	word32 ecx_153 = 0<32>
+l00712050:
+	ecx_153 = ecx_153 + ebx_18
+	word32 edi_155 = edi_138 | Mem145[CONVERT(Mem145[esi_137:byte], byte, word32) * 4<32> + 0xA1EDE0<32>:word32] << SLICE(ecx_153, byte, 0)
+	branch ecx_153 < 0xF<32> l00712078
+l00712065:
+	Mem162[edx_141:word16] = SLICE(edi_155 & 0x7FFF<32>, word16, 0)
+	edx_141 = edx_141 + 2<32>
+	ecx_153 = ecx_153 - 0xF<32>
+	edi_155 = edi_155 >>u 0xF<32> (alias)
+l00712078:
+	word16 di_178 = SLICE(edi_155, word16, 0)
+	esi_137 = esi_137 - 1<32>
+	edi_138 = edi_155 (alias)
+	branch esi_137 >=u esi_16 l00712050
+l00712081:
+	branch ecx_153 == 0<32> l0071208B
+l00712085:
+	Mem182[edx_141:word16] = di_178
+	edx_141 = edx_141 + 2<32>
+l0071208B:
+	word32 ecx_190 = edx_141 - eax_126
+	word32 ecx_191 = ecx_190 + 0xFFFFFFF4<32>
+	branch ecx_190 + 0xFFFFFFF4<32> >> 1<32> >= ebp_94 l007120B3
+l0071209E:
+l007120A0:
+	Mem210[edx_141:word16] = 0<16>
+	ecx_191 = ecx_191 + 2<32>
+	edx_141 = edx_141 + 2<32>
+	branch ecx_191 >> 1<32> < ebp_94 l007120A0
+l007120B3:
+	word32 edi_219 = Mem218[eax_126 + 8<32>:word32]
+	word32 esi_222 = edi_219
+	branch edi_219 >= 0<32> l007120BE
+l007120BC:
+	esi_222 = -edi_219
+l007120BE:
+	word32 ecx_230 = esi_222
+	branch esi_222 <= 0<32> l007120E5
+l007120C4:
+	edx_141 = eax_126 + 0xA<32> + esi_222 * 2<32>
+l007120C8:
+	branch Mem218[edx_141:word16] != 0<16> l007120D8
+l007120CE:
+	ecx_230 = ecx_230 - 1<32>
+	edx_141 = edx_141 - 2<32>
+	branch ecx_230 > 0<32> l007120C8
+l007120D8:
+	branch ecx_230 == esi_222 l007120E5
+l007120DC:
+	branch edi_219 >= 0<32> l007120E2
+l007120E0:
+	ecx_230 = -ecx_230
+l007120E2:
+	Mem260[eax_126 + 8<32>:word32] = ecx_230
+l007120E5:
+	edxOut = edx_141
+	return eax_126
+l00712034:
+	edxOut = edx_127
+	return eax_126
+l00711FF0:
+	word32 edx_294
+	word32 ecx_472
+	fn006E1210(out ecx_472, out edx_294)
+	edxOut = edx_294
+	return 0<32>
+l00711FB7:
+	word32 edx_316
+	word32 ecx_466
+	fn006E0F80(Mem54[0x00A17E2C<p32>:word32], 0x8D8890<32>, out ecx_466, out edx_316)
+	edxOut = edx_316
+	return 0<32>
+fn00711F50_exit:
+
+
+word32 fn007120F0(selector es, selector ds, word32 dwArg04, word32 dwArg08, word32 dwArg0C, ptr32 & edxOut)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn0073D140
+// MayUse:  cs:[0..15] ds:[0..15] es:[0..15] fs:[0..15] gs:[0..15] ss:[0..15] Stack +0004:[0..31] Stack +0008:[0..31] Stack +000C:[0..31]
+// LiveOut: eax edx
+// Trashed: SCZDOP eax ebp ebx ecx edi edx esi FPU -1 FPU -2 FPU -3 Top
+// Preserved: esp FPU -3
+fn007120F0_entry:
+l007120F0:
+	word32 edi_100 = dwArg04
+	word32 dwLoc14_1168 = 1<32>
+	branch dwArg0C == 0<32> l00712112
+l0071210D:
+	branch dwArg0C < 2<32> l00712117
+l00712112:
+	branch dwArg0C <= 0x24<32> l00712132
+l00712132:
+	byte al_25 = Mem16[dwArg04:byte]
+	branch al_25 == 0<8> l0071215B
+l0071213F:
+l00712140:
+	branch isspace(CONVERT(al_25, byte, word32)) == 0<32> l00712157
+l0071214D:
+	al_25 = Mem39[edi_100 + 1<32>:byte]
+	edi_100 = edi_100 + 1<32>
+	branch al_25 != 0<8> l00712140
+l00712157:
+	dwArg04 = edi_100
+l0071215B:
+	byte al_56 = Mem55[edi_100:byte]
+	branch al_56 == 0x2B<8> l0071216D
+l00712161:
+	branch al_56 != 0x2D<8> l00712174
+l00712165:
+	dwLoc14_1168 = 0xFFFFFFFF<32>
+l0071216D:
+	edi_100 = edi_100 + 1<32>
+	dwArg04 = edi_100
+l00712174:
+	byte al_70 = Mem69[edi_100:byte]
+	branch al_70 == 0<8> l0071219B
+l0071217A:
+l00712180:
+	branch isspace(CONVERT(al_70, byte, word32)) == 0<32> l00712197
+l0071218D:
+	al_70 = Mem84[edi_100 + 1<32>:byte]
+	edi_100 = edi_100 + 1<32>
+	branch al_70 != 0<8> l00712180
+l00712197:
+	dwArg04 = edi_100
+l0071219B:
+	word32 ebx_107 = dwArg0C
+	branch dwArg0C != 0<32> l007121D0
+l007121D0:
+	branch dwArg0C != 0x10<32> l007121EC
+l0071219F:
+	branch Mem115[edi_100:byte] == 0x30<8> l007121AF
+l007121AF:
+	byte al_118 = Mem115[edi_100 + 1<32>:byte]
+	branch al_118 == 0x78<8> l007121C5
+l007121B6:
+	branch al_118 == 0x58<8> l007121C5
+l007121C5:
+	ebx_107 = 0x10<32>
+	dwArg0C = 0x10<32>
+l007121D5:
+	branch Mem130[edi_100:byte] != 0x30<8> l007121EC
+l007121DA:
+	byte al_133 = Mem130[edi_100 + 1<32>:byte]
+	branch al_133 == 0x78<8> l007121E5
+l007121E1:
+	branch al_133 != 0x58<8> l007121EC
+l007121E5:
+	edi_100 = edi_100 + 2<32>
+	dwArg04 = edi_100
+l007121BA:
+	ebx_107 = 8<32>
+	dwArg0C = 8<32>
+l007121A4:
+	ebx_107 = 0xA<32>
+	dwArg0C = 0xA<32>
+l007121EC:
+	word32 edi_1070
+	word32 edx_1001
+	word32 ebp_321
+	branch (ebx_107 & ebx_107 - 1<32>) != 0<32> l00712272
+l00712272:
+	branch PARITY_EVEN(Mem172[ebx_107 * 8<32> + 0xA6D418<32>:real64] - 0.0) l007122D4
+l00712285:
+	Mem237[ebx_107 * 8<32> + 0xA6D418<32>:real64] = lg2(0.6931471805599453) * 0.6931471805599453 / (lg2(0.6931471805599453) * 0.6931471805599453)
+	word32 eax_217 = ebx_107 *s ebx_107
+	word32 ecx_224 = ebx_107
+	word32 edx_225 = 1<32>
+	branch eax_217 >u 0x8000<32> l007122C6
+l007122B7:
+	ecx_224 = eax_217
+	eax_217 = eax_217 *s ebx_107
+	edx_225 = edx_225 + 1<32>
+	branch eax_217 <=u 0x8000<32> l007122B7
+l007122C6:
+	Mem250[ebx_107 * 4<32> + 0xA6D5D8<32>:word32] = ecx_224
+	Mem252[ebx_107 * 4<32> + 0xA6D540<32>:word32] = edx_225
+l007122D4:
+	word32 esi_260 = edi_100 + 1<32>
+	branch Mem256[CONVERT(Mem256[edi_100:byte], byte, word32) * 4<32> + 0xA1EDE0<32>:word32] >= ebx_107 l00712304
+l007122E6:
+l007122F0:
+	esi_260 = esi_1809 + 1<32>
+	esi_1809 = esi_260
+	branch Mem264[CONVERT(Mem264[esi_1809 + 0<32>:byte], byte, word32) * 4<32> + 0xA1EDE0<32>:word32] < ebx_107 l007122F0
+l00712300:
+l00712304:
+	word32 eax_292 = fn00695040(CONVERT(esi_260 - edi_100, word32, real64) * Mem282[ebx_107 * 8<32> + 0xA6D418<32>:real64])
+	word32 eax_316 = fn007105C0(eax_292 + 1<32>, out edx_1001)
+	dwArg04 = eax_292 + 1<32>
+	ebp_321 = eax_316
+	word32 esp_322 = fp - 0x2C<32>
+	branch eax_316 == 0<32> l0071257C
+l00712336:
+	Mem327[eax_316 + 8<32>:word32] = 0<32>
+	edx_1001 = Mem327[ebx_107 * 4<32> + 0xA6D5D8<32>:word32]
+	edi_1070 = edi_100
+	branch edi_100 >=u esi_260 l00712209
+l0071235B:
+	edi_1070 = edi_100
+l00712370:
+	word32 edx_341 = Mem338[esp_322 + 0x1C<32>:word32]
+	word32 esi_342 = CONVERT(Mem338[CONVERT(Mem338[edi_1070:byte], byte, word32) * 4<32> + 0xA1EDE0<32>:word16], word16, word32)
+	word32 eax_343 = 1<32>
+	edi_1070 = edi_1070 + 1<32>
+	branch edx_341 <= 1<32> l007123AD
+l0071238B:
+l00712390:
+	branch edi_1070 == Mem338[esp_322 + 0x14<32>:word32] l007123AD
+l00712396:
+	esi_342 = esi_342 *s ebx_107 + Mem338[CONVERT(Mem338[edi_1070:byte], byte, word32) * 4<32> + 0xA1EDE0<32>:word32]
+	eax_343 = eax_343 + 1<32>
+	edi_1070 = edi_1070 + 1<32>
+	branch eax_343 < edx_341 l00712390
+l007123AD:
+	word32 ecx_1136 = Mem338[esp_322 + 0x20<32>:word32]
+	branch eax_343 == edx_341 l007123C8
+l007123B5:
+	ecx_1136 = ebx_107
+	branch eax_343 <= 1<32> l007123C8
+l007123BC:
+	word32 eax_375 = eax_343 + 0xFFFFFFFF<32>
+l007123C0:
+	ecx_1136 = ecx_1136 *s ebx_107
+	eax_375 = eax_375 - 1<32>
+	branch eax_375 != 0<32> l007123C0
+l007123C8:
+	word32 eax_392 = ebp_321 + 0xC<32>
+	edx_1001 = eax_392 + Mem338[ebp_321 + 8<32>:word32] * 2<32>
+	branch eax_392 >=u edx_1001 l007123F6
+l007123D5:
+	word32 esi_402 = esi_342 + CONVERT(Mem397[eax_392:word16], word16, word32) *s ecx_1136
+	Mem406[eax_392:word16] = SLICE(esi_402 & 0x7FFF<32>, word16, 0)
+	eax_392 = eax_392 + 2<32>
+	esi_342 = esi_402 >>u 0xF<32>
+	branch eax_392 <u edx_1001 l007123D5
+l007123F2:
+	ebx_107 = Mem406[esp_322 + 0x38<32>:word32]
+l007123F6:
+	word16 si_561 = SLICE(esi_342, word16, 0)
+	branch esi_342 == 0<32> l0071249B
+l007123FE:
+	branch Mem425[ebp_321 + 8<32>:word32] >= Mem425[esp_322 + 0x30<32>:word32] l00712413
+l00712413:
+	word32 esp_453
+	branch Mem425[esp_322 + 0x10<32>:word32] > 0x7FFFFFFF<32> l007124AA
+l007124AA:
+	word32 ecx_1803
+	fn006E1210(out ecx_1803, out edx_1001)
+	esp_453 = esp_322
+l00712421:
+	word32 eax_459 = Mem425[esp_322 + 0x10<32>:word32]
+	word32 edx_460 = Mem425[0x00A1F410<p32>:word32]
+	word32 esp_461 = esp_322 - 4<i32>
+	Mem462[esp_461:word32] = eax_459
+	word32 eax_464 = eax_459 *s Mem462[0x00A1F414<p32>:word32] + 3<32> + edx_460
+	Mem469[esp_461 - 4<i32>:word32] = 0xA1F400<32>
+	Mem471[esp_461 - 8<i32>:word32] = eax_464 & 0xFFFFFFFC<32>
+	word32 edx_1805
+	word32 ecx_1804
+	Mem482[esp_461 - 8<32>:word32] = fn00723860(Mem471[esp_461 - 8<i32>:word32], out ecx_1804, out edx_1805)
+	// Failed to bind call argument.
+	// Please report this issue at https://github.com/uxmal/reko
+	// Failed to bind call argument.
+	// Please report this issue at https://github.com/uxmal/reko
+	word32 stackArg4 = <invalid>
+	word32 stackArg12 = <invalid>
+	word32 ecx_1808
+	word32 eax_484 = fn006DDD50(stackArg4, eax_292 + 1<32>, stackArg12, out ecx_1808, out edx_1001)
+	esp_453 = esp_461 + 8<32>
+	branch eax_484 == 0<32> l007124AF
+l007124AF:
+	word32 v35_497 = Mem496[ebp_321:word32] + 0xFFFFFFFF<32>
+	Mem498[ebp_321:word32] = v35_497
+	branch v35_497 != 0<32> l0071257C
+l007124B9:
+	word32 ecx_501 = Mem498[ebp_321 + 4<32>:word32]
+	word32 edx_502 = Mem498[ecx_501 + 0x18<32>:word32]
+	Mem505[esp_453 - 4<i32>:word32] = ebp_321
+	word32 edx_514
+	call edx_502 (retsize: 4;)
+		uses: ecx:ecx_501,Stack +0008:eax_292 + 1<32>,Stack +0010:dwArg0C_1186
+		defs: edx:edx_514
+	edxOut = edx_514
+	return 0<32>
+l00712457:
+	Mem532[esp_461 + 4<32>:word32] = Mem482[esp_461 + 0x38<32>:word32] * 2<32>
+	Mem535[esp_461:word32] = ebp_321 + 0xC<32>
+	Mem538[esp_461 - 4<32>:word32] = eax_484 + 0xC<32>
+	memcpy(Mem538[esp_461 - 4<32>:(ptr32 void)], Mem538[esp_461:(ptr32 void)], Mem538[esp_461 + 4<32>:size_t])
+	word32 v33_541 = Mem538[ebp_321:word32] + 0xFFFFFFFF<32>
+	Mem542[ebp_321:word32] = v33_541
+	esp_322 = esp_461 + 8<32>
+	branch v33_541 != 0<32> l00712480
+l00712474:
+	word32 edx_545 = Mem542[ebp_321 + 4<32>:word32]
+	word32 eax_546 = Mem542[edx_545 + 0x18<32>:word32]
+	Mem548[esp_461 + 4<32>:word32] = ebp_321
+	word32 esp_549
+	call eax_546 (retsize: 4;)
+		uses: edx:edx_545,Stack +0008:eax_292 + 1<32>,Stack +0010:dwArg0C_1186
+		defs: edx:edx_552,esp:esp_549
+	esp_322 = esp_549 + 4<32>
+l00712480:
+	word32 eax_559 = Mem558[esp_322 + 0x30<32>:word32]
+	Mem563[eax_484 + 0xC<32> + eax_559 * 2<32>:word16] = si_561
+	Mem566[esp_322 + 0x10<32>:word32] = Mem563[esp_322 + 0x10<32>:word32] + 1<32>
+	ebx_107 = Mem566[esp_322 + 0x38<32>:word32]
+	Mem570[esp_322 + 0x30<32>:word32] = eax_559 + 1<32>
+	ebp_321 = eax_484
+l00712407:
+	Mem572[eax_392:word16] = si_561
+	Mem574[ebp_321 + 8<32>:word32] = Mem572[ebp_321 + 8<32>:word32] + 1<32>
+l0071249B:
+	branch edi_1070 <u Mem579[esp_322 + 0x14<32>:word32] l00712370
+l007124A5:
+l007121F8:
+	edi_1070 = dwArg04
+	ebp_321 = fn00711F50(fp + 4<32>, ebx_107, out edx_1001)
+l00712209:
+	branch ebp_321 == 0<32> l0071257C
+l00712211:
+	branch edi_1070 == edi_100 l007124D8
+l0071221B:
+	branch dwLoc14_1168 >= 0<32> l0071222A
+l00712222:
+	Mem619[ebp_321 + 8<32>:word32] = -Mem610[ebp_321 + 8<32>:word32]
+l0071222A:
+	byte al_622 = Mem621[edi_1070:byte]
+	branch al_622 == 0x4C<8> l00712234
+l00712230:
+	branch al_622 != 0x6C<8> l00712237
+l00712234:
+	edi_1070 = edi_1070 + 1<32>
+l00712237:
+	byte al_1069 = Mem621[edi_1070:byte]
+	branch al_1069 == 0<8> l0071225E
+l0071223D:
+l00712243:
+	branch isspace(CONVERT(al_1069, byte, word32)) == 0<32> l007124CF
+l007124CF:
+	branch Mem642[edi_1070:byte] == 0<8> l0071225E
+l007124D8:
+	word32 v16_654 = Mem653[ebp_321:word32] + 0xFFFFFFFF<32>
+	Mem655[ebp_321:word32] = v16_654
+	word32 esp_660 = fp - 44<i32>
+	branch v16_654 != 0<32> l007124EA
+l007124DE:
+	word32 edx_658 = Mem655[ebp_321 + 4<32>:word32]
+	word32 esp_685
+	call Mem655[edx_658 + 0x18<32>:word32] (retsize: 4;)
+		uses: edx:edx_658,Stack +0004:ebp_603,Stack +0008:dwArg04_1262,Stack +0010:dwArg0C_1186,Stack +0038:dwArg04_1262,Stack +0040:dwArg0C_1186
+		defs: esp:esp_685
+	esp_660 = esp_685 + 4<32>
+l007124EA:
+	word32 esi_695 = Mem694[esp_660 + 0x28<32>:word32]
+	word32 eax_696 = esi_695
+l007124F3:
+	eax_696 = eax_1810 + 1<32>
+	eax_1810 = eax_696
+	branch Mem694[eax_1810:byte] != 0<8> l007124F3
+l007124FC:
+	word32 eax_709
+	branch eax_696 - (esi_695 + 1<32>) >=u 0xC8<32> l0071251D
+l0071251D:
+	eax_709 = 0xC8<32>
+l00712505:
+	word32 eax_711 = esi_695
+l00712510:
+	eax_711 = eax_1811 + 1<32>
+	eax_1811 = eax_711
+	branch Mem694[eax_1811:byte] != 0<8> l00712510
+l00712519:
+	eax_709 = eax_711 - (esi_695 + 1<32>)
+l00712522:
+	word32 esp_729 = esp_660 - 4<i32>
+	Mem731[esp_729:word32] = eax_709
+	Mem735[esp_729 - 4<i32>:word32] = esi_695
+	// Failed to bind call argument.
+	// Please report this issue at https://github.com/uxmal/reko
+	word32 stackArg4 = <invalid>
+	word32 ecx_1799
+	word32 eax_755 = fn006EC9B0(stackArg4, dwArg04, out ecx_1799, out edx_1001)
+	branch eax_755 == 0<32> l0071257C
+l00712532:
+	Mem766[esp_729:word32] = eax_755
+	word32 edi_1800
+	word32 eax_977 = fn006DDDB0(eax_755, edx_1001, ebx_107, eax_755, edi_1070, es, ds, Mem766[esp_729:word32], out edx_1001, out edi_1800)
+	word32 v18_989 = Mem766[eax_755:word32] + 0xFFFFFFFF<32>
+	Mem990[eax_755:word32] = v18_989
+	word32 esp_1004 = esp_729 + 8<32>
+	branch v18_989 != 0<32> l0071254E
+l00712542:
+	word32 ecx_994 = Mem990[eax_755 + 4<32>:word32]
+	word32 edx_995 = Mem990[ecx_994 + 0x18<32>:word32]
+	Mem997[esp_729 + 4<32>:word32] = eax_755
+	word32 esp_998
+	call edx_995 (retsize: 4;)
+		uses: ecx:ecx_994,Stack +0008:dwArg04_1262,Stack +0010:dwArg0C_1186
+		defs: edx:edx_1001,esp:esp_998
+	esp_1004 = esp_998 + 4<32>
+l0071254E:
+	branch eax_977 == 0<32> l0071257C
+l00712552:
+	word32 ecx_1011 = Mem1010[0x00A17E2C<p32>:word32]
+	word32 esp_1014 = esp_1004 - 4<i32>
+	Mem1015[esp_1014:word32] = eax_977 + 0x14<32>
+	Mem1018[esp_1014 - 4<i32>:word32] = ebx_107
+	Mem1020[esp_1014 - 8<i32>:word32] = 0x8D88B4<32>
+	Mem1022[esp_1014 - 12<i32>:word32] = ecx_1011
+	// Failed to bind call argument.
+	// Please report this issue at https://github.com/uxmal/reko
+	word32 stackArg4 = <invalid>
+	word32 ecx_1802
+	fn006E15D0(stackArg4, dwArg04, out ecx_1802, out edx_1001)
+	word32 v19_1040 = Mem1022[eax_977:word32] + 0xFFFFFFFF<32>
+	Mem1041[eax_977:word32] = v19_1040
+	branch v19_1040 != 0<32> l0071257C
+l00712570:
+	word32 edx_1044 = Mem1041[eax_977 + 4<32>:word32]
+	word32 eax_1045 = Mem1041[edx_1044 + 0x18<32>:word32]
+	Mem1047[esp_1014:word32] = eax_977
+	call eax_1045 (retsize: 4;)
+		uses: edx:edx_1044,Stack +0008:dwArg04_1262,Stack +0010:dwArg0C_1186
+		defs: edx:edx_1051
+l0071257C:
+	edxOut = edx_1001
+	return 0<32>
+l00712254:
+	al_1069 = Mem642[edi_1070 + 1<32>:byte]
+	edi_1070 = edi_1070 + 1<32>
+	branch al_1069 != 0<8> l00712243
+l0071225E:
+	branch dwArg08 == 0<32> l00712268
+l00712266:
+	Mem1084[dwArg08:word32] = edi_1070
+l00712268:
+	edxOut = edx_1001
+	return ebp_321
+l00712117:
+	word32 ecx_1797
+	word32 edx_1125
+	fn006E0F80(Mem16[0x00A17E2C<p32>:word32], 0x8D88E0<32>, out ecx_1797, out edx_1125)
+	edxOut = edx_1125
+	return 0<32>
+fn007120F0_exit:
+
+
+void fn00715640(word32 dwArg04)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn00715A70
+// MayUse:  Stack +0004:[0..31]
+// LiveOut:
+// Trashed: SCZO eax ecx edx Top
+// Preserved: edi esi esp
+fn00715640_entry:
+l00715640:
+	word32 esp_103 = fp - 8<i32>
+	branch Mem10[0x00A74AF0<p32>:word32] == 0<32> l0071566D
+l00715650:
+	branch Mem10[dwArg04 + 8<32>:word32] == 0<32> l0071566D
+l00715655:
+	word32 esp_18
+	word32 eax_19
+	word32 ecx_20
+	word32 edx_21
+	call _iob_func (retsize: 4;)
+		uses: ecx:ecx_20,edx:edx_21,Stack +0004:0x8D89C8<32>,Stack +0014:dwArg04
+		defs: eax:eax_19,ecx:ecx_20,edx:edx_21,esp:esp_18
+	Mem26[esp_18 - 4<i32>:word32] = eax_19 + 0x40<32>
+	fprintf(Mem26[esp_18 - 4<i32>:(ptr32 FILE)], Mem26[esp_18:(ptr32 charconst )], 0<32>)
+	esp_103 = esp_18 + 4<32>
+l0071566D:
+	word32 eax_32 = Mem31[dwArg04 + 8<32>:word32]
+	branch eax_32 == 0<32> l00715688
+l00715674:
+	Mem36[dwArg04 + 8<32>:word32] = 0<32>
+	word32 v10_37 = Mem36[eax_32:word32] + 0xFFFFFFFF<32>
+	Mem38[eax_32:word32] = v10_37
+	branch v10_37 != 0<32> l00715688
+l0071567C:
+	word32 ecx_41 = Mem38[eax_32 + 4<32>:word32]
+	word32 edx_42 = Mem38[ecx_41 + 0x18<32>:word32]
+	Mem45[esp_103 - 4<i32>:word32] = eax_32
+	word32 esp_47
+	word32 edx_50
+	call edx_42 (retsize: 4;)
+		uses: ecx:ecx_41,edx:edx_50,Stack +0008:dwArg04
+		defs: edx:edx_50,esp:esp_47
+	esp_103 = esp_47 + 4<32>
+l00715688:
+	word32 eax_57 = Mem56[dwArg04 + 0x40<32>:word32]
+	branch eax_57 == 0<32> l007156A3
+l0071568F:
+	Mem61[dwArg04 + 0x40<32>:word32] = 0<32>
+	word32 v13_62 = Mem61[eax_57:word32] + 0xFFFFFFFF<32>
+	Mem63[eax_57:word32] = v13_62
+	branch v13_62 != 0<32> l007156A3
+l00715697:
+	word32 ecx_66 = Mem63[eax_57 + 4<32>:word32]
+	word32 edx_67 = Mem63[ecx_66 + 0x18<32>:word32]
+	Mem70[esp_103 - 4<i32>:word32] = eax_57
+	word32 esp_72
+	word32 edx_75
+	call edx_67 (retsize: 4;)
+		uses: ecx:ecx_66,edx:edx_75,Stack +0008:dwArg04
+		defs: edx:edx_75,esp:esp_72
+	esp_103 = esp_72 + 4<32>
+l007156A3:
+	word32 eax_82 = Mem81[dwArg04 + 0x4C<32>:word32]
+	branch eax_82 == 0<32> l007156BE
+l007156AA:
+	Mem86[dwArg04 + 0x4C<32>:word32] = 0<32>
+	word32 v14_87 = Mem86[eax_82:word32] + 0xFFFFFFFF<32>
+	Mem88[eax_82:word32] = v14_87
+	branch v14_87 != 0<32> l007156BE
+l007156B2:
+	word32 ecx_91 = Mem88[eax_82 + 4<32>:word32]
+	word32 edx_92 = Mem88[ecx_91 + 0x18<32>:word32]
+	Mem95[esp_103 - 4<i32>:word32] = eax_82
+	word32 esp_97
+	word32 edx_100
+	call edx_92 (retsize: 4;)
+		uses: ecx:ecx_91,edx:edx_100,Stack +0008:dwArg04
+		defs: edx:edx_100,esp:esp_97
+	esp_103 = esp_97 + 4<32>
+l007156BE:
+	word32 eax_107 = Mem106[dwArg04 + 0x28<32>:word32]
+	branch eax_107 == 0<32> l007156D9
+l007156C5:
+	Mem111[dwArg04 + 0x28<32>:word32] = 0<32>
+	word32 v15_112 = Mem111[eax_107:word32] + 0xFFFFFFFF<32>
+	Mem113[eax_107:word32] = v15_112
+	branch v15_112 != 0<32> l007156D9
+l007156CD:
+	word32 ecx_116 = Mem113[eax_107 + 4<32>:word32]
+	word32 edx_117 = Mem113[ecx_116 + 0x18<32>:word32]
+	Mem120[esp_103 - 4<i32>:word32] = eax_107
+	word32 esp_122
+	word32 edx_125
+	call edx_117 (retsize: 4;)
+		uses: ecx:ecx_116,edx:edx_125,Stack +0008:dwArg04
+		defs: edx:edx_125,esp:esp_122
+	esp_103 = esp_122 + 4<32>
+l007156D9:
+	word32 eax_132 = Mem131[dwArg04 + 0x2C<32>:word32]
+	branch eax_132 == 0<32> l007156F4
+l007156E0:
+	Mem136[dwArg04 + 0x2C<32>:word32] = 0<32>
+	word32 v16_137 = Mem136[eax_132:word32] + 0xFFFFFFFF<32>
+	Mem138[eax_132:word32] = v16_137
+	branch v16_137 != 0<32> l007156F4
+l007156E8:
+	word32 ecx_141 = Mem138[eax_132 + 4<32>:word32]
+	word32 edx_142 = Mem138[ecx_141 + 0x18<32>:word32]
+	Mem145[esp_103 - 4<i32>:word32] = eax_132
+	word32 esp_147
+	word32 edx_150
+	call edx_142 (retsize: 4;)
+		uses: ecx:ecx_141,edx:edx_150,Stack +0008:dwArg04
+		defs: edx:edx_150,esp:esp_147
+	esp_103 = esp_147 + 4<32>
+l007156F4:
+	word32 eax_157 = Mem156[dwArg04 + 0x30<32>:word32]
+	branch eax_157 == 0<32> l0071570F
+l007156FB:
+	Mem161[dwArg04 + 0x30<32>:word32] = 0<32>
+	word32 v17_162 = Mem161[eax_157:word32] + 0xFFFFFFFF<32>
+	Mem163[eax_157:word32] = v17_162
+	branch v17_162 != 0<32> l0071570F
+l00715703:
+	word32 ecx_166 = Mem163[eax_157 + 4<32>:word32]
+	word32 edx_167 = Mem163[ecx_166 + 0x18<32>:word32]
+	Mem170[esp_103 - 4<i32>:word32] = eax_157
+	word32 esp_172
+	word32 edx_175
+	call edx_167 (retsize: 4;)
+		uses: ecx:ecx_166,edx:edx_175,Stack +0008:dwArg04
+		defs: edx:edx_175,esp:esp_172
+	esp_103 = esp_172 + 4<32>
+l0071570F:
+	word32 eax_182 = Mem181[dwArg04 + 0x34<32>:word32]
+	branch eax_182 == 0<32> l0071572A
+l00715716:
+	Mem186[dwArg04 + 0x34<32>:word32] = 0<32>
+	word32 v18_187 = Mem186[eax_182:word32] + 0xFFFFFFFF<32>
+	Mem188[eax_182:word32] = v18_187
+	branch v18_187 != 0<32> l0071572A
+l0071571E:
+	word32 ecx_191 = Mem188[eax_182 + 4<32>:word32]
+	word32 edx_192 = Mem188[ecx_191 + 0x18<32>:word32]
+	Mem195[esp_103 - 4<i32>:word32] = eax_182
+	word32 esp_197
+	word32 edx_200
+	call edx_192 (retsize: 4;)
+		uses: ecx:ecx_191,edx:edx_200,Stack +0008:dwArg04
+		defs: edx:edx_200,esp:esp_197
+	esp_103 = esp_197 + 4<32>
+l0071572A:
+	word32 eax_207 = Mem206[dwArg04 + 0x38<32>:word32]
+	branch eax_207 == 0<32> l00715745
+l00715731:
+	Mem211[dwArg04 + 0x38<32>:word32] = 0<32>
+	word32 v19_212 = Mem211[eax_207:word32] + 0xFFFFFFFF<32>
+	Mem213[eax_207:word32] = v19_212
+	branch v19_212 != 0<32> l00715745
+l00715739:
+	word32 ecx_216 = Mem213[eax_207 + 4<32>:word32]
+	word32 edx_217 = Mem213[ecx_216 + 0x18<32>:word32]
+	Mem220[esp_103 - 4<i32>:word32] = eax_207
+	word32 esp_222
+	word32 edx_225
+	call edx_217 (retsize: 4;)
+		uses: ecx:ecx_216,edx:edx_225,Stack +0008:dwArg04
+		defs: edx:edx_225,esp:esp_222
+	esp_103 = esp_222 + 4<32>
+l00715745:
+	word32 eax_232 = Mem231[dwArg04 + 0x3C<32>:word32]
+	branch eax_232 == 0<32> l00715760
+l0071574C:
+	Mem236[dwArg04 + 0x3C<32>:word32] = 0<32>
+	word32 v20_237 = Mem236[eax_232:word32] + 0xFFFFFFFF<32>
+	Mem238[eax_232:word32] = v20_237
+	branch v20_237 != 0<32> l00715760
+l00715754:
+	word32 ecx_241 = Mem238[eax_232 + 4<32>:word32]
+	word32 edx_242 = Mem238[ecx_241 + 0x18<32>:word32]
+	Mem245[esp_103 - 4<i32>:word32] = eax_232
+	word32 esp_247
+	word32 edx_250
+	call edx_242 (retsize: 4;)
+		uses: ecx:ecx_241,edx:edx_250,Stack +0008:dwArg04
+		defs: edx:edx_250,esp:esp_247
+	esp_103 = esp_247 + 4<32>
+l00715760:
+	word32 eax_257 = Mem256[dwArg04 + 0x20<32>:word32]
+	Mem260[dwArg04 + 0x18<32>:word32] = 0<32>
+	Mem261[dwArg04 + 0x1C<32>:word32] = 0<32>
+	branch eax_257 == 0<32> l00715781
+l0071576D:
+	Mem263[dwArg04 + 0x20<32>:word32] = 0<32>
+	word32 v21_264 = Mem263[eax_257:word32] + 0xFFFFFFFF<32>
+	Mem265[eax_257:word32] = v21_264
+	branch v21_264 != 0<32> l00715781
+l00715775:
+	word32 ecx_268 = Mem265[eax_257 + 4<32>:word32]
+	word32 edx_269 = Mem265[ecx_268 + 0x18<32>:word32]
+	Mem272[esp_103 - 4<i32>:word32] = eax_257
+	word32 edx_277
+	call edx_269 (retsize: 4;)
+		uses: ecx:ecx_268,edx:edx_277,Stack +0008:dwArg04
+		defs: edx:edx_277
+l00715781:
+	word32 eax_284 = Mem283[dwArg04 + 0x24<32>:word32]
+	branch eax_284 == 0<32> l0071579E
+l00715788:
+	Mem288[dwArg04 + 0x24<32>:word32] = 0<32>
+	word32 v22_289 = Mem288[eax_284:word32] + 0xFFFFFFFF<32>
+	Mem290[eax_284:word32] = v22_289
+	branch v22_289 != 0<32> l0071579E
+l0071579E:
+	return
+l00715790:
+	word32 ecx_300 = Mem290[eax_284 + 4<32>:word32]
+	word32 edx_311
+	call Mem305[ecx_300 + 0x18<32>:word32] (retsize: 0;)
+		uses: ecx:ecx_300,edx:edx_311,Stack +0004:dwArg04
+		defs: edx:edx_311
+	return
+fn00715640_exit:
+
+
+void fn007157B0(word32 edi)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn00715B80
+// MayUse:  edi:[0..31]
+// LiveOut:
+// Trashed: SCZO eax ecx edx Top
+// Preserved: esi esp
+fn007157B0_entry:
+l007157B0:
+	branch edi != 0<32> l007157C1
+l007157B4:
+	fn006E86F0(0x8D8A4C<32>)
+l007157C1:
+	word32 esi_23 = Mem21[edi + 4<32>:word32]
+	branch esi_23 != 0<32> l007157D6
+l007157C9:
+	fn006E86F0(0x8D8A28<32>)
+l007157D6:
+	word32 ecx_113
+	fn0074F540(Mem36[0x00A6D66C<p32>:word32], 1<32>, out ecx_113)
+	word32 esi_51 = esi_23 + 4<32>
+l007157F0:
+	branch Mem55[esi_51:word32] != 0<32> l00715802
+l007157F5:
+	fn006E86F0(0x8D8A00<32>)
+l00715802:
+	word32 eax_70 = Mem69[esi_51:word32]
+	branch eax_70 == edi l0071580C
+l0071580C:
+	word32 edx_75 = Mem69[0x00A6D66C<p32>:word32]
+	Mem80[esi_51:word32] = Mem69[edi:word32]
+	fn0074F570(edx_75)
+	free(edi)
+	return
+fn007157B0_exit:
+l00715808:
+	esi_51 = eax_70
+
+
+word32 fn007158B0(word32 dwArg04, ptr32 & ecxOut)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn006E8910
+//      fn00706BE0
+//      fn00706C20
+//      fn00708DC0
+// MayUse:  Stack +0004:[0..31]
+// LiveOut: eax ecx
+// Trashed: eax ecx Top
+// Preserved: esp
+fn007158B0_entry:
+l007158B0:
+	word32 eax_6 = Mem0[0x00A6D67C<p32>:word32]
+	Mem7[0x00A6D67C<p32>:word32] = dwArg04
+	ecxOut = dwArg04
+	return eax_6
+fn007158B0_exit:
+
+
+void fn007159F0()
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn006E8910
+// MayUse: 
+// LiveOut:
+// Trashed: SCZO eax edx Top
+// Preserved: esp
+fn007159F0_entry:
+l007159F0:
+	fn0074F5E0(Mem0[0x00A6D674<p32>:word32])
+	Mem17[0x00A6D674<p32>:word32] = 0<32>
+	Mem18[0x00A6D670<p32>:word32] = 0<32>
+	return
+fn007159F0_exit:
+
+
+void fn00715A70(word32 dwArg04)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn006E8910
+// MayUse:  Stack +0004:[0..31]
+// LiveOut:
+// Trashed: SCZO eax ecx edx Top
+// Preserved: ebx edi esi esp
+fn00715A70_entry:
+l00715A70:
+	word32 ecx_347
+	fn0074F540(Mem0[0x00A6D66C<p32>:word32], 1<32>, out ecx_347)
+	word32 edi_26 = Mem18[dwArg04 + 4<32>:word32]
+	branch edi_26 == 0<32> l00715A9F
+l00715A90:
+	fn00715640(edi_26)
+	edi_26 = Mem34[edi_26:word32]
+	branch edi_26 != 0<32> l00715A90
+l00715A9F:
+	fn0074F570(Mem47[0x00A6D66C<p32>:word32])
+	word32 eax_59 = Mem51[dwArg04 + 0x18<32>:word32]
+	word32 esp_108 = fp - 0xC<32>
+	branch eax_59 == 0<32> l00715AC9
+l00715AB5:
+	Mem64[dwArg04 + 0x18<32>:word32] = 0<32>
+	word32 v12_65 = Mem64[eax_59:word32] + 0xFFFFFFFF<32>
+	Mem66[eax_59:word32] = v12_65
+	branch v12_65 != 0<32> l00715AC9
+l00715ABD:
+	word32 edx_69 = Mem66[eax_59 + 4<32>:word32]
+	word32 esp_76
+	call Mem71[edx_69 + 0x18<32>:word32] (retsize: 4;)
+		uses: edx:edx_69,Stack +0004:eax_59,Stack +0018:dwArg04
+		defs: esp:esp_76
+	esp_108 = esp_76 + 4<32>
+l00715AC9:
+	word32 eax_86 = Mem85[dwArg04 + 0x1C<32>:word32]
+	branch eax_86 == 0<32> l00715AE4
+l00715AD0:
+	Mem90[dwArg04 + 0x1C<32>:word32] = 0<32>
+	word32 v14_91 = Mem90[eax_86:word32] + 0xFFFFFFFF<32>
+	Mem92[eax_86:word32] = v14_91
+	branch v14_91 != 0<32> l00715AE4
+l00715AD8:
+	word32 ecx_95 = Mem92[eax_86 + 4<32>:word32]
+	word32 edx_96 = Mem92[ecx_95 + 0x18<32>:word32]
+	Mem99[esp_108 - 4<i32>:word32] = eax_86
+	word32 esp_102
+	word32 edx_105
+	call edx_96 (retsize: 4;)
+		uses: ecx:ecx_95,edx:edx_105,Stack +0008:dwArg04
+		defs: edx:edx_105,esp:esp_102
+	esp_108 = esp_102 + 4<32>
+l00715AE4:
+	word32 eax_112 = Mem111[dwArg04 + 0x20<32>:word32]
+	branch eax_112 == 0<32> l00715AFF
+l00715AEB:
+	Mem116[dwArg04 + 0x20<32>:word32] = 0<32>
+	word32 v15_117 = Mem116[eax_112:word32] + 0xFFFFFFFF<32>
+	Mem118[eax_112:word32] = v15_117
+	branch v15_117 != 0<32> l00715AFF
+l00715AF3:
+	word32 ecx_121 = Mem118[eax_112 + 4<32>:word32]
+	word32 edx_122 = Mem118[ecx_121 + 0x18<32>:word32]
+	Mem125[esp_108 - 4<i32>:word32] = eax_112
+	word32 esp_128
+	word32 edx_131
+	call edx_122 (retsize: 4;)
+		uses: ecx:ecx_121,edx:edx_131,Stack +0008:dwArg04
+		defs: edx:edx_131,esp:esp_128
+	esp_108 = esp_128 + 4<32>
+l00715AFF:
+	word32 eax_138 = Mem137[dwArg04 + 8<32>:word32]
+	branch eax_138 == 0<32> l00715B1A
+l00715B06:
+	Mem142[dwArg04 + 8<32>:word32] = 0<32>
+	word32 v16_143 = Mem142[eax_138:word32] + 0xFFFFFFFF<32>
+	Mem144[eax_138:word32] = v16_143
+	branch v16_143 != 0<32> l00715B1A
+l00715B0E:
+	word32 ecx_147 = Mem144[eax_138 + 4<32>:word32]
+	word32 edx_148 = Mem144[ecx_147 + 0x18<32>:word32]
+	Mem151[esp_108 - 4<i32>:word32] = eax_138
+	word32 esp_154
+	word32 edx_157
+	call edx_148 (retsize: 4;)
+		uses: ecx:ecx_147,edx:edx_157,Stack +0008:dwArg04
+		defs: edx:edx_157,esp:esp_154
+	esp_108 = esp_154 + 4<32>
+l00715B1A:
+	word32 eax_164 = Mem163[dwArg04 + 0x14<32>:word32]
+	branch eax_164 == 0<32> l00715B35
+l00715B21:
+	Mem168[dwArg04 + 0x14<32>:word32] = 0<32>
+	word32 v17_169 = Mem168[eax_164:word32] + 0xFFFFFFFF<32>
+	Mem170[eax_164:word32] = v17_169
+	branch v17_169 != 0<32> l00715B35
+l00715B29:
+	word32 ecx_173 = Mem170[eax_164 + 4<32>:word32]
+	word32 edx_174 = Mem170[ecx_173 + 0x18<32>:word32]
+	Mem177[esp_108 - 4<i32>:word32] = eax_164
+	word32 esp_180
+	word32 edx_183
+	call edx_174 (retsize: 4;)
+		uses: ecx:ecx_173,edx:edx_183,Stack +0008:dwArg04
+		defs: edx:edx_183,esp:esp_180
+	esp_108 = esp_180 + 4<32>
+l00715B35:
+	word32 eax_190 = Mem189[dwArg04 + 0xC<32>:word32]
+	branch eax_190 == 0<32> l00715B50
+l00715B3C:
+	Mem194[dwArg04 + 0xC<32>:word32] = 0<32>
+	word32 v18_195 = Mem194[eax_190:word32] + 0xFFFFFFFF<32>
+	Mem196[eax_190:word32] = v18_195
+	branch v18_195 != 0<32> l00715B50
+l00715B44:
+	word32 ecx_199 = Mem196[eax_190 + 4<32>:word32]
+	word32 edx_200 = Mem196[ecx_199 + 0x18<32>:word32]
+	Mem203[esp_108 - 4<i32>:word32] = eax_190
+	word32 edx_209
+	call edx_200 (retsize: 4;)
+		uses: ecx:ecx_199,edx:edx_209,Stack +0008:dwArg04
+		defs: edx:edx_209
+l00715B50:
+	word32 eax_216 = Mem215[dwArg04 + 0x10<32>:word32]
+	branch eax_216 == 0<32> l00715B6E
+l00715B57:
+	Mem220[dwArg04 + 0x10<32>:word32] = 0<32>
+	word32 v19_221 = Mem220[eax_216:word32] + 0xFFFFFFFF<32>
+	Mem222[eax_216:word32] = v19_221
+	branch v19_221 != 0<32> l00715B6E
+l00715B6E:
+	return
+l00715B5F:
+	word32 ecx_234 = Mem222[eax_216 + 4<32>:word32]
+	word32 edx_247
+	call Mem241[ecx_234 + 0x18<32>:word32] (retsize: 0;)
+		uses: ecx:ecx_234,edx:edx_247,Stack +0004:dwArg04
+		defs: edx:edx_247
+	return
+fn00715A70_exit:
+
+
+void fn00715B80(word32 esi)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn00715BD0
+// MayUse:  esi:[0..31]
+// LiveOut:
+// Trashed: SCZO eax ecx edx Top
+// Preserved: edi esp
+fn00715B80_entry:
+l00715B80:
+	word32 edi_12 = Mem6[esi + 4<32>:word32]
+	branch edi_12 == 0<32> l00715BCD
+l00715B88:
+	branch edi_12 != Mem13[0x00A6D67C<p32>:word32] l00715B9D
+l00715B90:
+	fn006E86F0(0x8D8A70<32>)
+l00715B9D:
+	fn007157B0(edi_12)
+	word32 eax_35 = Mem34[0x00A6D674<p32>:word32]
+	branch eax_35 == 0<32> l00715BC6
+l00715BAB:
+	branch fn0074F7F0(eax_35) != edi_12 l00715BC6
+l00715BB8:
+	fn0074F810(Mem41[0x00A6D674<p32>:word32])
+l00715BC6:
+	edi_12 = Mem65[esi + 4<32>:word32]
+	branch edi_12 != 0<32> l00715B88
+l00715BCD:
+	return
+fn00715B80_exit:
+
+
+void fn00715BD0(word32 dwArg04)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn006E8910
+// MayUse:  Stack +0004:[0..31]
+// LiveOut:
+// Trashed: SCZO eax ecx edx Top
+// Preserved: edi esi esp
+fn00715BD0_entry:
+l00715BD0:
+	fn00715B80(dwArg04)
+	word32 ecx_110
+	fn0074F540(Mem10[0x00A6D66C<p32>:word32], 1<32>, out ecx_110)
+	word32 edi_31 = 0xA6D678<32>
+l00715BF0:
+	branch Mem33[edi_31:word32] != 0<32> l00715C02
+l00715BF5:
+	fn006E86F0(0x8D8BC4<32>)
+l00715C02:
+	word32 eax_48 = Mem47[edi_31:word32]
+	branch eax_48 == dwArg04 l00715C0C
+l00715C0C:
+	branch Mem47[dwArg04 + 4<32>:word32] == 0<32> l00715C1F
+l00715C12:
+	fn006E86F0(0x8D8B94<32>)
+l00715C1F:
+	word32 edx_66 = Mem65[0x00A6D66C<p32>:word32]
+	Mem73[edi_31:word32] = Mem65[dwArg04:word32]
+	fn0074F570(edx_66)
+	free(dwArg04)
+	return
+fn00715BD0_exit:
+l00715C08:
+	edi_31 = eax_48
+
+
+word32 fn00715DD0(ptr32 & ecxOut, ptr32 & edxOut)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn006E1780
+//      fn006E7CE0
+//      fn006E8060
+//      fn006E8730
+//      fn006E8D90
+//      fn006F7890
+//      fn00707640
+//      fn00708DC0
+//      fn0072F830
+//      fn0072FBB0
+//      fn00753A60
+// MayUse: 
+// LiveOut: eax ecx edx
+// Trashed: SCZO eax ecx edx Top
+// Preserved: esp
+fn00715DD0_entry:
+l00715DD0:
+	word32 ecx_6 = Mem0[Mem0[0x00A6D67C<p32>:word32] + 4<32>:word32]
+	word32 eax_7 = Mem0[ecx_6 + 0xC<32>:word32]
+	branch eax_7 != 0<32> l00715DE0
+l00715DE0:
+	word32 ecx_18
+	word32 edx_19
+	word32 esi_47
+	word32 edi_48
+	word32 eax_17 = fn006FD8B0(eax_7, dwArg04, out ecx_18, out edx_19, out esi_47, out edi_48)
+	ecxOut = ecx_18
+	edxOut = edx_19
+	return eax_17
+l00715DDF:
+	ecxOut = ecx_6
+	edxOut = edx
+	return eax_7
+fn00715DD0_exit:
+
+
+word32 fn00715DF0(ptr32 & ecxOut)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn00753A60
+// MayUse: 
+// LiveOut: eax ecx
+// Trashed: SCZO eax ecx edx esi Top
+// Preserved: esp
+fn00715DF0_entry:
+l00715DF0:
+	word32 eax_52
+	word32 ecx_21 = Mem0[Mem0[0x00A6D67C<p32>:word32] + 4<32>:word32]
+	word32 eax_7 = Mem0[ecx_21 + 0xC<32>:word32]
+	branch eax_7 == 0<32> l00715E3D
+l00715E00:
+	word32 edi_113
+	word32 esi_112
+	word32 edx_111
+	word32 eax_20 = fn006FD8B0(eax_7, dwArg04, out ecx_21, out edx_111, out esi_112, out edi_113)
+	branch eax_20 == 0<32> l00715E3D
+l00715E14:
+	word32 eax_30 = Mem18[eax_20 + 4<32>:word32]
+	branch eax_30 == 0xA26EF0<32> l00715E30
+l00715E1E:
+	word32 edx_115
+	branch fn006D5670(eax_30, 0xA26EF0<32>, out ecx_21, out edx_115) == 0<32> l00715E3D
+l00715E30:
+	word32 edx_114
+	eax_52 = fn0072FC60(eax_20, out ecx_21, out edx_114)
+	branch eax_52 != 0<32> l00715E41
+l00715E3D:
+	eax_52 = dwArg08
+l00715E41:
+	ecxOut = ecx_21
+	return eax_52
+fn00715DF0_exit:
+
+
+word32 fn00715E50(word32 dwArg08, ptr32 & ediOut)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn006E8730
+//      fn006E8D90
+//      fn00706E30
+//      fn00706F10
+// MayUse:  Stack +0008:[0..31]
+// LiveOut: edi esi
+// Trashed: SCZO eax ecx edi edx esi Top
+// Preserved: esp
+fn00715E50_entry:
+l00715E50:
+	word32 esi_13 = Mem12[Mem0[Mem0[0x00A6D67C<p32>:word32] + 4<32>:word32] + 0xC<32>:word32]
+	branch dwArg08 != 0<32> l00715E87
+l00715E87:
+	word32 ecx_109
+	word32 edx_110
+	word32 esi_111
+	fn006FD8F0(esi_13, dwArg04, dwArg08, out ecx_109, out edx_110, out esi_111)
+	return
+l00715E64:
+	word32 ecx_112
+	word32 edx_113
+	word32 esi_114
+	word32 edi_115
+	branch fn006FD8B0(esi_13, dwArg04, out ecx_112, out edx_113, out esi_114, out edi_115) != 0<32> l00715E7A
+l00715E7A:
+	fn006FD950(esi_13, dwArg04)
+	return
+l00715E77:
+	return
+fn00715E50_exit:
+
+
+word32 fn00716A00(word32 edx, word32 ebx, word32 ebp, word32 esi, word32 edi, selector es, selector ds, word32 dwArg04, word32 dwArg08, ptr32 & edxOut)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn00716B20
+// MayUse:  cs:[0..15] ds:[0..15] ebp:[0..31] ebx:[0..31] edi:[0..31] edx:[0..31] es:[0..15] esi:[0..31] fs:[0..15] gs:[0..15] ss:[0..15] Stack +0004:[0..31] Stack +0008:[0..31]
+// LiveOut: ecx edx
+// Trashed: SCZDOP eax ebp ebx ecx edi edx esi Top
+// Preserved: esp
+fn00716A00_entry:
+l00716A00:
+	word32 eax_7 = Mem0[0x00A14188<p32>:word32] ^ fp - 0x3FC<32>
+	word32 edx_40 = fn006E1130(fp - 0x3F8<32>, fp - 0x3FC<32>, fp - 0x3F4<32>)
+	word32 ecx_46 = Mem37[Mem37[0x00A6D67C<p32>:word32] + 4<32>:word32]
+	word32 eax_47 = Mem37[ecx_46 + 0xC<32>:word32]
+	branch eax_47 == 0<32> l00716ADC
+l00716A54:
+	word32 edi_359
+	word32 esi_358
+	word32 eax_57 = fn006FD8B0(eax_47, ecx, out ecx_46, out edx_40, out esi_358, out edi_359)
+	branch eax_57 == 0<32> l00716ADC
+l00716A64:
+	branch fn0072FC60(eax_57, out ecx_46, out edx_40) == dwArg04 l00716ADC
+l00716ADC:
+	call MSVCR80.dll!vfprintf (retsize: 4;)
+		uses: ecx:ecx_90,edx:edx_91,Stack +0004:dwArg04,Stack +0008:dwArg04,Stack +000C:dwArg08,Stack +0420:dwArg04,Stack +0424:dwArg08
+l00716A71:
+	word32 eax_110 = fn00724FB0(fp - 0x3F0<32>, 0x3E9<32>, edx, dwArg08)
+	word32 esi_361
+	word32 edi_362
+	word32 edx_360
+	branch fn00731D30(fp - 0x3F0<32>, dwArg04, out edx_360, out esi_361, out edi_362) == 0<32> l00716AAC
+l00716A9C:
+	word32 edx_364
+	word32 ecx_363
+	fn006E1160(out ecx_363, out edx_364)
+	fputs(fp - 0x3F0<32>, dwArg04)
+l00716AAC:
+	branch eax_110 < 0<32> l00716AB8
+l00716AB0:
+	branch eax_110 <u 0x3E9<32> l00716AE8
+l00716AB8:
+	word32 edx_365
+	word32 edi_367
+	word32 esi_366
+	branch fn00731D30(0x8D8F28<32>, dwArg04, out edx_365, out esi_366, out edi_367) == 0<32> l00716AE8
+l00716ACA:
+	word32 ecx_369
+	word32 edx_370
+	fn006E1160(out ecx_369, out edx_370)
+	fputs(0x8D8F28<32>, dwArg04)
+l00716AE8:
+	word32 edx_211
+	word32 ecx_260
+	word32 ecx_368
+	fn00694B8E(fn006E0E00(dwLoc03F4, out ecx_368, out edx_211), eax_7 ^ fp - 0x3FC<32>, edx_211, ebx, ebp, esi, edi, es, ds, ebx, out ecx_260)
+	edxOut = edx_211
+	return ecx_260
+fn00716A00_exit:
+
+
+word32 fn00716B20(ptr32 & edxOut)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn006E1970
+//      fn006E19F0
+//      fn006E8730
+//      fn006E8D90
+//      fn006F5DD0
+//      fn006F6630
+//      fn006F6730
+//      fn006F6810
+//      fn006F68F0
+//      fn006F6D50
+//      fn006F7810
+//      fn006F7890
+//      fn006F8050
+//      fn006F8960
+//      fn006FE400
+//      fn007173A0
+//      fn007406A0
+//      fn0074F9E0
+//      fn00753C30
+//      fn007544A0
+//      fn007544F0
+// MayUse: 
+// LiveOut: ecx edx
+// Trashed: SCZO eax ecx edx Top
+// Preserved: esp
+fn00716B20_entry:
+l00716B20:
+	word32 esp_7
+	word32 eax_8
+	call _iob_func (retsize: 4;)
+		uses: eax:fp + 8<32>,Stack +0004:fp + 8<32>
+		defs: eax:eax_8,esp:esp_7
+	word32 edx_13 = Mem6[esp_7 + 8<32>:word32]
+	Mem17[esp_7 - 4<i32>:word32] = eax_8 + 0x40<32>
+	// Failed to bind call argument.
+	// Please report this issue at https://github.com/uxmal/reko
+	// Failed to bind call argument.
+	// Please report this issue at https://github.com/uxmal/reko
+	word32 stackArg4 = <invalid>
+	word32 stackArg8 = <invalid>
+	word32 edx_21
+	word32 ecx_22 = fn00716A00(edx_13, ebx, ebp, esi, edi, es, ds, stackArg4, stackArg8, out edx_21)
+	edxOut = edx_21
+	return ecx_22
+fn00716B20_exit:
+
+
+word32 fn00717180(word32 dwArg04, ptr32 & edxOut)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn006F63A0
+// MayUse:  Stack +0004:[0..31]
+// LiveOut: eax edx
+// Trashed: SCZO eax ecx edi edx Top
+// Preserved: esi esp
+fn00717180_entry:
+l00717180:
+	word32 edx_12
+	word32 ecx_237
+	word32 eax_10 = fn006FEF30(0xA215C0<32>, out ecx_237, out edx_12)
+	branch eax_10 != 0<32> l00717196
+l00717196:
+	word32 ecx_238
+	word32 edx_239
+	word32 eax_27 = fn006ECAC0(dwArg04, out ecx_238, out edx_239)
+	word32 ecx_240
+	word32 edx_100
+	word32 eax_36 = fn006FDCC0(out ecx_240, out edx_100)
+	Mem43[eax_10 + 8<32>:word32] = eax_36
+	word32 esp_103 = fp - 8<32>
+	branch eax_36 == 0<32> l00717202
+l007171B2:
+	branch eax_27 == 0<32> l00717217
+l007171B6:
+	word32 ecx_241
+	word32 esi_242
+	branch fn006FD8F0(eax_36, 0x8CA818<32>, eax_27, out ecx_241, out edx_100, out esi_242) != 0<32> l00717202
+l007171C9:
+	word32 esi_244
+	word32 ecx_243
+	branch fn006FD8F0(Mem53[eax_10 + 8<32>:word32], 0x8D0D58<32>, 0xA163B8<32>, out ecx_243, out edx_100, out esi_244) != 0<32> l00717202
+l00717202:
+	esp_103 = fp - 8<32>
+	branch eax_27 == 0<32> l00717217
+l00717206:
+	word32 v13_86 = Mem85[eax_27:word32] + 0xFFFFFFFF<32>
+	Mem87[eax_27:word32] = v13_86
+	branch v13_86 != 0<32> l00717217
+l0071720B:
+	word32 ecx_90 = Mem87[eax_27 + 4<32>:word32]
+	word32 esp_97
+	call Mem87[ecx_90 + 0x18<32>:word32] (retsize: 4;)
+		uses: ecx:ecx_90,Stack +0004:eax_27,Stack +0014:dwArg04
+		defs: edx:edx_100,esp:esp_97
+	esp_103 = esp_97 + 4<32>
+l00717217:
+	word32 v14_107 = Mem106[eax_10:word32] + 0xFFFFFFFF<32>
+	Mem108[eax_10:word32] = v14_107
+	branch v14_107 != 0<32> l00717228
+l0071721C:
+	word32 eax_111 = Mem108[eax_10 + 4<32>:word32]
+	word32 ecx_112 = Mem108[eax_111 + 0x18<32>:word32]
+	Mem115[esp_103 - 4<i32>:word32] = eax_10
+	call ecx_112 (retsize: 4;)
+		uses: eax:eax_111,Stack +0008:dwArg04
+		defs: edx:edx_121
+l00717228:
+	edxOut = edx_100
+	return 0<32>
+l007171E3:
+	word32 v11_135 = Mem70[eax_27:word32] + 0xFFFFFFFF<32>
+	Mem136[eax_27:word32] = v11_135
+	branch v11_135 != 0<32> l007171F4
+l007171E8:
+	word32 edx_139 = Mem136[eax_27 + 4<32>:word32]
+	call Mem136[edx_139 + 0x18<32>:word32] (retsize: 4;)
+		uses: edx:edx_139,Stack +0004:eax_27,Stack +0014:dwArg04
+l007171F4:
+	word32 edx_157
+	fn006FEE30(eax_10, out edx_157)
+	edxOut = edx_157
+	return eax_10
+l00717194:
+	edxOut = edx_12
+	return eax_10
+fn00717180_exit:
+
+
+word32 fn00717230(word32 dwArg04, ptr32 & ecxOut, ptr32 & edxOut)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn006E1970
+//      fn006E19F0
+//      fn006E9FA0
+//      fn006F5DD0
+//      fn006F62D0
+//      fn006F6490
+//      fn006F6D50
+//      fn006F7100
+//      fn006F7810
+//      fn006F8960
+//      fn0073AFB0
+// MayUse:  Stack +0004:[0..31]
+// LiveOut: eax ecx edx
+// Trashed: SCZO eax ecx edx esi Top
+// Preserved: esp
+fn00717230_entry:
+l00717230:
+	word32 eax_8 = Mem6[dwArg04 + 4<32>:word32]
+	branch eax_8 == 0xA215C0<32> l00717264
+l0071723F:
+	branch fn006D5670(eax_8, 0xA215C0<32>, out ecx, out edx) != 0<32> l00717264
+l00717264:
+	word32 eax_28 = Mem27[dwArg04 + 8<32>:word32]
+	branch eax_28 != 0<32> l00717273
+l0071726B:
+	eax_28 = fn006FDCC0(out ecx, out edx)
+	Mem40[dwArg04 + 8<32>:word32] = eax_28
+l00717273:
+	ecxOut = ecx
+	edxOut = edx
+	return eax_28
+l00717251:
+	word32 edx_53
+	ecxOut = fn006E1DC0(out edx_53)
+	edxOut = edx_53
+	return 0<32>
+fn00717230_exit:
+
+
+void fn00717280(word32 dwArg04)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn006E9FA0
+// MayUse:  Stack +0004:[0..31]
+// LiveOut:
+// Trashed: SCZO eax ecx edx esi Top
+// Preserved: esp
+fn00717280_entry:
+l00717280:
+	word32 eax_8 = Mem6[dwArg04 + 4<32>:word32]
+	branch eax_8 == 0xA215C0<32> l007172AA
+l0071728F:
+	word32 edx_160
+	word32 ecx_159
+	branch fn006D5670(eax_8, 0xA215C0<32>, out ecx_159, out edx_160) != 0<32> l007172AA
+l007172AA:
+	word32 eax_28 = Mem27[dwArg04 + 8<32>:word32]
+	branch eax_28 == 0<32> l007172EC
+l007172B1:
+	word32 ecx_164
+	word32 edx_165
+	word32 esi_166
+	word32 edi_167
+	word32 eax_39 = fn006FD8B0(eax_28, 0x8CA818<32>, out ecx_164, out edx_165, out esi_166, out edi_167)
+	branch eax_39 == 0<32> l007172EC
+l007172C5:
+	word32 eax_49 = Mem36[eax_39 + 4<32>:word32]
+	branch eax_49 == 0xA1B450<32> l007172E1
+l007172CF:
+	word32 ecx_171
+	word32 edx_172
+	branch fn006D5670(eax_49, 0xA1B450<32>, out ecx_171, out edx_172) == 0<32> l007172EC
+l007172EC:
+	word32 ecx_162
+	word32 edx_163
+	fn006E0F80(Mem67[0x00A18720<p32>:word32], dwArg04, out ecx_162, out edx_163)
+	return
+l007172E1:
+	word32 ecx_168
+	word32 edx_169
+	word32 esi_170
+	fn006ECC50(eax_39, out ecx_168, out edx_169, out esi_170)
+	return
+l007172A1:
+	word32 edx_161
+	fn006E11D0(out edx_161)
+	return
+fn00717280_exit:
+
+
+word32 fn007173A0(word32 dwArg04)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn006F5DD0
+// MayUse:  Stack +0004:[0..31]
+// LiveOut: edi
+// Trashed: SCZO eax ecx edi edx Top
+// Preserved: ebp ebx esi esp
+fn007173A0_entry:
+l007173A0:
+	word32 ebp_10 = Mem9[dwArg04 + 8<32>:word32]
+	branch ebp_10 == 0<32> l00717524
+l007173B6:
+	word32 ebx_114 = 0xA1B450<32>
+	word32 edx_482
+	branch fn006FC050(ebp_10, fp - 4<32>, fp + 4<32>, fp - 8<32>, out edx_482) == 0<32> l00717466
+l007173E0:
+	branch dwLoc08 == 0xA163B8<32> l00717446
+l007173EA:
+	branch Mem45[dwArg04 + 4<32>:word32] == ebx_114 l00717408
+l007173F3:
+	word32 ecx_488
+	word32 edx_489
+	branch fn006D5670(Mem45[dwArg04 + 4<32>:word32], ebx_114, out ecx_488, out edx_489) == 0<32> l00717446
+l00717404:
+l00717408:
+	word32 edx_486
+	word32 esi_487
+	word32 ecx_485
+	word32 eax_73 = fn006ECC50(dwArg04, out ecx_485, out edx_486, out esi_487)
+	branch Mem72[eax_73:byte] != 0x5F<8> l00717446
+l00717416:
+	branch Mem72[eax_73 + 1<32>:byte] == 0x5F<8> l00717446
+l0071741C:
+	branch Mem72[0x00A74AF0<p32>:word32] <= 1<32> l00717433
+l00717425:
+	word32 edx_492
+	fn00716B20(out edx_492)
+l00717433:
+	word32 ecx_490
+	word32 edx_491
+	fn006FBD90(ebp_10, dwArg04, 0xA163B8<32>, out ecx_490, out edx_491, out ebx_114, out edi)
+l00717446:
+	word32 edx_484
+	branch fn006FC050(ebp_10, fp - 4<32>, fp + 4<32>, fp - 8<32>, out edx_484) != 0<32> l007173E0
+l00717466:
+	word32 edx_483
+	branch fn006FC050(ebp_10, fp - 4<32>, fp + 4<32>, fp - 8<32>, out edx_483) == 0<32> l00717523
+l0071748A:
+l00717490:
+	branch dwLoc08 == 0xA163B8<32> l00717502
+l0071749A:
+	branch Mem185[dwArg04 + 4<32>:word32] == ebx_114 l007174B8
+l007174A3:
+	word32 edx_498
+	word32 ecx_497
+	branch fn006D5670(Mem185[dwArg04 + 4<32>:word32], ebx_114, out ecx_497, out edx_498) == 0<32> l00717502
+l007174B4:
+l007174B8:
+	word32 esi_496
+	word32 edx_495
+	word32 ecx_494
+	word32 eax_213 = fn006ECC50(dwArg04, out ecx_494, out edx_495, out esi_496)
+	branch Mem212[eax_213:byte] != 0x5F<8> l007174D8
+l007174C6:
+	word32 edi_224 = 0x8D41A4<32>
+	word32 esi_225 = eax_213
+	word32 ecx_226 = 0xD<32>
+	bool v17_337 = true
+l007174D4:
+	branch ecx_226 == 0<32> l007174D6
+l007174D4_1:
+	v17_337 = Mem212[esi_503:byte] == Mem212[edi_504:byte]
+	esi_225 = esi_503 + 1<i32>
+	edi_224 = edi_504 + 1<i32>
+	ecx_226 = ecx_226 - 1<32>
+	esi_503 = esi_225
+	edi_504 = edi_224
+	branch Mem212[esi_503:byte] != Mem212[edi_504:byte] l007174D4
+l007174D6:
+	branch v17_337 l00717502
+l007174D8:
+	branch Mem212[0x00A74AF0<p32>:word32] <= 1<32> l007174EF
+l007174E1:
+	word32 edx_502
+	fn00716B20(out edx_502)
+l007174EF:
+	word32 ecx_499
+	word32 edx_500
+	word32 edi_501
+	fn006FBD90(ebp_10, dwArg04, 0xA163B8<32>, out ecx_499, out edx_500, out ebx_114, out edi_501)
+l00717502:
+	word32 edx_493
+	branch fn006FC050(ebp_10, fp - 4<32>, fp + 4<32>, fp - 8<32>, out edx_493) != 0<32> l00717490
+l00717522:
+l00717523:
+l00717524:
+	return edi
+fn007173A0_exit:
+
+
+word32 fn00717680(word32 ebx, word32 esi, ptr32 & ecxOut, ptr32 & edxOut)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn00717740
+//      fn00717900
+// MayUse:  ebx:[0..31] esi:[0..31]
+// LiveOut: eax ecx edx
+// Trashed: SCZO eax ecx edi edx Top
+// Preserved: esp
+fn00717680_entry:
+l00717680:
+	word32 eax_6 = Mem0[esi + 8<32>:word32]
+	branch eax_6 == ebx l007176E9
+l00717688:
+	branch esi == Mem11[0x00A6DBB4<p32>:word32] l00717719
+l00717694:
+	branch eax_6 != 1<32> l007176B1
+l00717699:
+	word16 ax_19 = Mem11[Mem11[esi + 0xC<32>:word32]:word16]
+	branch ax_19 >=u 0x100<16> l007176B1
+l007176A5:
+	ecx = CONVERT(ax_19, word16, word32)
+	branch Mem11[ecx * 4<32> + 0xA6D7B0<32>:word32] == esi l00717719
+l00717719:
+	word32 ecx_38
+	word32 edx_39
+	fn006E0F80(Mem11[0x00A18720<p32>:word32], 0x8D9258<32>, out ecx_38, out edx_39)
+	ecxOut = ecx_38
+	edxOut = edx_39
+	return 0xFFFFFFFF<32>
+l007176B1:
+	word32 edi_50 = Mem11[esi + 0xC<32>:word32]
+	word32 eax_52 = ebx + 2<32> + ebx
+	branch eax_52 != 0<32> l007176C1
+l007176BC:
+	eax_52 = 1<32>
+l007176C1:
+	word32 eax_65 = realloc(edi_50, eax_52)
+	Mem70[esi + 0xC<32>:word32] = eax_65
+	branch eax_65 != 0<32> l007176E0
+l007176E0:
+	Mem73[eax_65 + ebx * 2<32>:word16] = 0<16>
+	Mem74[esi + 8<32>:word32] = ebx
+l007176E9:
+	word32 eax_77 = Mem76[esi + 0x14<32>:word32]
+	branch eax_77 == 0<32> l0071770E
+l007176F0:
+	Mem82[eax_77:word32] = Mem76[eax_77:word32] + 0xFFFFFFFF<32>
+	word32 eax_83 = Mem82[esi + 0x14<32>:word32]
+	branch Mem82[eax_83:word32] != 0<32> l00717707
+l007176FB:
+	word32 edx_86 = Mem82[eax_83 + 4<32>:word32]
+	call Mem89[edx_86 + 0x18<32>:word32] (retsize: 4;)
+		uses: ecx:ecx_98,edx:edx_86,Stack +0004:eax_83
+		defs: ecx:ecx_98,edx:edx_99
+l00717707:
+	Mem105[esi + 0x14<32>:word32] = 0<32>
+l0071770E:
+	Mem107[esi + 0x10<32>:word32] = 0xFFFFFFFF<32>
+	ecxOut = ecx
+	edxOut = edx
+	return 0<32>
+l007176D3:
+	Mem115[esi + 0xC<32>:word32] = edi_50
+	word32 ecx_118
+	word32 edx_119
+	fn006E1210(out ecx_118, out edx_119)
+	ecxOut = ecx_118
+	edxOut = edx_119
+	return 0xFFFFFFFF<32>
+fn00717680_exit:
+
+
+word32 fn00717740(word32 eax, ptr32 & ecxOut, ptr32 & edxOut)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn00717900
+//      fn00717A20
+//      fn00718610
+//      fn00718F10
+//      fn00719870
+//      fn00719DD0
+//      fn0071A5A0
+//      fn0071A870
+//      fn00721290
+// MayUse:  eax:[0..31]
+// LiveOut: eax ecx edx
+// Trashed: SCZO eax ebx ecx edx esi Top
+// Preserved: esp
+fn00717740_entry:
+l00717740:
+	branch eax != 0<32> l00717755
+l00717747:
+	word32 eax_12 = Mem6[0x00A6DBB4<p32>:word32]
+	branch eax_12 == 0<32> l00717755
+l00717755:
+	word32 edx_127
+	word32 esi_21 = Mem20[0x00A6DBB0<p32>:word32]
+	branch esi_21 == 0<32> l007177C6
+l007177C6:
+	word32 eax_31 = fn006DDD80(0xA23B20<32>, out ecx, out edx_127)
+	esi_21 = eax_31
+	branch eax_31 == 0<32> l00717808
+l007177D9:
+	word32 eax_42 = eax + 2<32> + eax
+	branch eax_42 != 0<32> l007177E6
+l007177E1:
+	eax_42 = 1<32>
+l007177E6:
+	Mem55[eax_31 + 0xC<32>:word32] = malloc(eax_42)
+l00717760:
+	word32 eax_56 = Mem20[esi_21:word32]
+	Mem58[0x00A6D7AC<p32>:word32] = Mem20[0x00A6D7AC<p32>:word32] - 1<32>
+	Mem60[0x00A6DBB0<p32>:word32] = eax_56
+	branch Mem58[esi_21 + 0xC<32>:word32] == 0<32> l0071779D
+l0071779D:
+	word32 eax_62 = eax + 2<32> + eax
+	branch eax_62 != 0<32> l007177AA
+l007177A5:
+	eax_62 = 1<32>
+l007177AA:
+	Mem75[esi_21 + 0xC<32>:word32] = malloc(eax_62)
+l00717774:
+	branch Mem60[esi_21 + 8<32>:word32] >= eax l007177B7
+l00717779:
+	word32 edx_229
+	branch fn00717680(eax, esi_21, out ecx, out edx_229) >= 0<32> l007177B7
+l007177B7:
+	Mem88[esi_21 + 4<32>:word32] = 0xA23B20<32>
+	Mem89[esi_21:word32] = 1<32>
+l007177F3:
+	word32 eax_92 = Mem91[esi_21 + 0xC<32>:word32]
+	branch eax_92 != 0<32> l0071780D
+l0071780D:
+	Mem96[eax_92:word16] = 0<16>
+	word32 edx_97 = Mem96[esi_21 + 0xC<32>:word32]
+	Mem102[edx_97 + eax * 2<32>:word16] = 0<16>
+	Mem103[esi_21 + 8<32>:word32] = eax
+	Mem104[esi_21 + 0x10<32>:word32] = 0xFFFFFFFF<32>
+	Mem105[esi_21 + 0x14<32>:word32] = 0<32>
+	ecxOut = ecx
+	edxOut = edx_97
+	return esi_21
+l007177FA:
+	word32 ecx_230
+	word32 edx_231
+	fn006E1210(out ecx_230, out edx_231)
+	fn007239C0(esi_21, out ecx, out edx_127)
+l00717808:
+	ecxOut = ecx
+	edxOut = edx_127
+	return 0<32>
+l00717782:
+	free(Mem60[esi_21 + 0xC<32>:word32])
+	word32 ecx_150
+	word32 edx_152
+	fn007239C0(esi_21, out ecx_150, out edx_152)
+	ecxOut = ecx_150
+	edxOut = edx_152
+	return 0<32>
+l00717750:
+	Mem166[eax_12:word32] = Mem6[eax_12:word32] + 1<32>
+	ecxOut = ecx
+	edxOut = edx
+	return eax_12
+fn00717740_exit:
+
+
+word32 fn00717900(word32 dwArg04, word32 dwArg08, ptr32 & ecxOut, ptr32 & edxOut)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn00717CB0
+//      fn00718610
+//      fn00718F10
+//      fn00719870
+//      fn0071A5A0
+//      fn0071A870
+// MayUse:  Stack +0004:[0..31] Stack +0008:[0..31]
+// LiveOut: eax ecx edx
+// Trashed: SCZO eax ebp ebx ecx edx esi Top
+// Preserved: edi esp
+fn00717900_entry:
+l00717900:
+	branch dwArg04 != 0<32> l00717920
+l00717920:
+	word32 esi_17 = Mem16[dwArg04:word32]
+	branch esi_17 == 0<32> l007179FA
+l0071792D:
+	word32 eax_21 = Mem16[esi_17 + 4<32>:word32]
+	branch eax_21 == 0xA23B20<32> l0071794D
+l00717937:
+	word32 edx_346
+	word32 ecx_345
+	branch fn006D5670(eax_21, 0xA23B20<32>, out ecx_345, out edx_346) == 0<32> l007179FA
+l0071794D:
+	branch Mem40[esi_17:word32] != 1<32> l007179FA
+l00717956:
+	word32 ebx_125 = dwArg08
+	branch dwArg08 < 0<32> l007179FA
+l007179FA:
+	word32 edx_62
+	ecxOut = fn006E1DC0(out edx_62)
+	edxOut = edx_62
+	return 0xFFFFFFFF<32>
+l00717962:
+	word32 eax_76 = Mem40[esi_17 + 8<32>:word32]
+	branch eax_76 == dwArg08 l007179F1
+l0071796D:
+	branch esi_17 == Mem40[0x00A6DBB4<p32>:word32] l0071797A
+l00717975:
+	branch eax_76 != 1<32> l007179F1
+l007179F1:
+	word32 edx_90
+	word32 ecx_91
+	word32 eax_89 = fn00717680(dwArg08, esi_17, out ecx_91, out edx_90)
+	ecxOut = ecx_91
+	edxOut = edx_90
+	return eax_89
+l0071797A:
+	word32 edx_114
+	word32 ecx_115
+	word32 eax_113 = fn00717740(dwArg08, out ecx_115, out edx_114)
+	branch eax_113 != 0<32> l00717990
+l00717990:
+	word32 eax_122 = Mem106[esi_17 + 8<32>:word32]
+	branch dwArg08 < eax_122 l00717999
+l00717997:
+	ebx_125 = eax_122
+l00717999:
+	word32 ecx_132 = ebx_125 * 2<32>
+	word32 eax_128 = Mem106[eax_113 + 0xC<32>:word32]
+	word32 edx_130 = Mem106[esi_17 + 0xC<32>:word32]
+	word24 ecx_24_8_274 = SLICE(ecx_132, word24, 8)
+	branch ecx_132 <u 0x10<32> l007179B4
+l007179B4:
+	branch ecx_132 <=u 0<32> l007179CD
+l007179B8:
+	edx_130 = edx_130 - eax_128
+	word32 esi_141 = ecx_132
+l007179C0:
+	byte cl_147 = Mem146[edx_130 + eax_128:byte]
+	Mem148[eax_128:byte] = cl_147
+	eax_128 = eax_128 + 1<32>
+	esi_141 = esi_141 - 1<32>
+	ecx_132 = SEQ(ecx_24_8_274, cl_147) (alias)
+	branch esi_141 != 0<32> l007179C0
+l007179A7:
+	memcpy(eax_128, edx_130, ecx_132)
+l007179CD:
+	word32 eax_167 = Mem166[dwArg04:word32]
+	Mem169[eax_167:word32] = Mem166[eax_167:word32] + 0xFFFFFFFF<32>
+	word32 eax_170 = Mem169[dwArg04:word32]
+	branch Mem169[eax_170:word32] != 0<32> l007179E7
+l007179DB:
+	word32 edx_173 = Mem169[eax_170 + 4<32>:word32]
+	call Mem177[edx_173 + 0x18<32>:word32] (retsize: 4;)
+		uses: edx:edx_173,Stack +0004:eax_170,Stack +0008:dwArg04,Stack +000C:dwArg08,Stack +001C:dwArg04,Stack +0020:dwArg08
+		defs: ecx:ecx_190,edx:edx_189
+l007179E7:
+	Mem197[dwArg04:word32] = eax_113
+	ecxOut = ecx_132
+	edxOut = edx_130
+	return 0<32>
+l00717988:
+	ecxOut = ecx_115
+	edxOut = edx_114
+	return 0xFFFFFFFF<32>
+l00717909:
+	word32 edx_227
+	ecxOut = fn006E1DC0(out edx_227)
+	edxOut = edx_227
+	return 0xFFFFFFFF<32>
+fn00717900_exit:
+
+
+word32 fn00717A20(word32 dwArg04, word32 dwArg08, ptr32 & edxOut)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn006E9BD0
+//      fn00720020
+//      fn007203E0
+//      fn00721290
+// MayUse:  Stack +0004:[0..31] Stack +0008:[0..31]
+// LiveOut: eax edx
+// Trashed: SCZO eax ebp ecx edi edx esi Top
+// Preserved: ebp esp
+fn00717A20_entry:
+l00717A20:
+	branch dwArg04 == 0<32> l00717A84
+l00717A2E:
+	branch dwArg08 != 0<32> l00717A41
+l00717A41:
+	branch dwArg08 != 1<32> l00717A84
+l00717A46:
+	word16 ax_21 = Mem12[dwArg04:word16]
+	branch ax_21 >=u 0x100<16> l00717A84
+l00717A4F:
+	word32 eax_25 = Mem12[CONVERT(ax_21, word16, word32) * 4<32> + 0xA6D7B0<32>:word32]
+	branch eax_25 != 0<32> l00717A7E
+l00717A5D:
+	word32 edx_32
+	word32 ecx_228
+	eax_25 = fn00717740(dwArg08, out ecx_228, out edx_32)
+	word16 edx_16_16_175 = SLICE(edx_32, word16, 16)
+	branch eax_25 != 0<32> l00717A6B
+l00717A6B:
+	word16 dx_40 = Mem12[dwArg04:word16]
+	Mem41[Mem12[eax_25 + 0xC<32>:word32]:word16] = dx_40
+	Mem43[CONVERT(Mem41[dwArg04:word16], word16, word32) * 4<32> + 0xA6D7B0<32>:word32] = eax_25
+	edx = SEQ(edx_16_16_175, dx_40) (alias)
+l00717A7E:
+	Mem47[eax_25:word32] = Mem45[eax_25:word32] + 1<32>
+	edxOut = edx
+	return eax_25
+l00717A68:
+	edxOut = edx_32
+	return eax_25
+l00717A32:
+	word32 eax_58 = Mem12[0x00A6DBB4<p32>:word32]
+	branch eax_58 == 0<32> l00717A84
+l00717A84:
+	word32 ecx_227
+	word32 edx_170
+	word32 eax_72 = fn00717740(dwArg08, out ecx_227, out edx_170)
+	branch eax_72 != 0<32> l00717A96
+l00717A96:
+	branch dwArg04 == 0<32> l00717ACD
+l00717A9A:
+	word32 eax_101 = Mem66[eax_72 + 0xC<32>:word32]
+	edx_170 = dwArg08 * 2<32>
+	word24 edx_24_8_172 = SLICE(dwArg08 * 2<32>, word24, 8)
+	branch dwArg08 * 2<32> <u 0x10<32> l00717AB6
+l00717AB6:
+	branch dwArg08 * 2<32> <=u 0<32> l00717ACD
+l00717ABA:
+	word32 ecx_93 = dwArg04 - eax_101
+	word32 esi_102 = dwArg08 * 2<32>
+l00717AC0:
+	byte dl_99 = Mem98[ecx_93 + eax_101:byte]
+	Mem100[eax_101:byte] = dl_99
+	eax_101 = eax_101 + 1<32>
+	esi_102 = esi_102 - 1<32>
+	edx_170 = SEQ(edx_24_8_172, dl_99) (alias)
+	branch esi_102 != 0<32> l00717AC0
+l00717ACD:
+	edxOut = edx_170
+	return eax_72
+l00717AA5:
+	memcpy(eax_101, dwArg04, dwArg08 * 2<32>)
+	edxOut = dwArg08 * 2<32>
+	return eax_72
+l00717A92:
+	edxOut = edx_170
+	return eax_72
+l00717A3B:
+	Mem141[eax_58:word32] = Mem12[eax_58:word32] + 1<32>
+	edxOut = edx
+	return eax_58
+fn00717A20_exit:
+
+
+void fn00717C60()
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn006E5C60
+// MayUse: 
+// LiveOut:
+// Trashed: eax Top
+// Preserved: esp
+fn00717C60_entry:
+l00717C60:
+	return
+fn00717C60_exit:
+
+
+word32 fn00717CB0(word32 eax, word32 ecx, word32 dwArg04, word32 dwArg08, word32 dwArg0C, word32 dwArg10, word32 dwArg14, word32 dwArg18, word32 dwArg1C, word32 dwArg20, word32 dwArg24, word32 dwArg28, ptr32 & ecxOut, ptr32 & edxOut)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn00718610
+//      fn00718F10
+//      fn00719870
+//      fn0071A5A0
+// MayUse:  eax:[0..31] ecx:[0..31] Stack +0004:[0..31] Stack +0008:[0..31] Stack +000C:[0..31] Stack +0010:[0..31] Stack +0014:[0..31] Stack +0018:[0..31] Stack +001C:[0..31] Stack +0020:[0..31] Stack +0024:[0..31] Stack +0028:[0..31]
+// LiveOut: eax ecx edx
+// Trashed: SCZO eax ebp ebx ecx edi edx esi Top
+// Preserved: esp
+fn00717CB0_entry:
+l00717CB0:
+	word32 edx_125
+	word32 ecx_124
+	word32 ebp_26 = Mem25[Mem19[dwArg20:word32] + 8<32>:word32]
+	branch Mem19[dwArg04:word32] != 0<32> l00717CF0
+l00717CDD:
+	word32 eax_33 = fn0074EFB0(edx, out ecx_124, out edx_125)
+	Mem41[dwArg04:word32] = eax_33
+	branch eax_33 == 0<32> l00717EE8
+l00717CF0:
+	word32 eax_45 = Mem44[eax:word32]
+	branch eax_45 != 0<32> l00717D28
+l00717D28:
+	branch fn006E3770(eax_45, 0xFFFFFFFF<32>, out ecx_124, out edx_125) != 0<32> l00717EE8
+l00717D40:
+	branch fn006E38B0(Mem55[eax:word32], 0xFFFFFFFF<32>, out ecx_124, out edx_125) != 0<32> l00717EE8
+l00717D5A:
+	branch fn006E3900(Mem76[eax:word32], 0xFFFFFFFF<32>, out ecx_124, out edx_125) != 0<32> l00717EE8
+l00717CF6:
+	word32 eax_123 = fn006E3E50(out ecx_124, out edx_125)
+	Mem131[eax:word32] = eax_123
+	branch eax_123 == 0<32> l00717EE8
+l00717D26:
+l00717D72:
+	word32 eax_150 = fn00703AF0(Mem134[dwArg04:word32], out ecx_124, out edx_125)
+	branch eax_150 == 0<32> l00717EE8
+l00717D90:
+	word32 eax_200
+	word32 eax_161 = Mem159[eax_150 + 4<32>:word32]
+	branch eax_161 == 0xA16588<32> l00717DCA
+l00717D9A:
+	word32 ecx_678
+	word32 edx_679
+	branch fn006D5670(eax_161, 0xA16588<32>, out ecx_678, out edx_679) != 0<32> l00717DCA
+l00717DCA:
+	eax_200 = fn006E7CB0(out ecx_124, out edx_125)
+	branch eax_200 == 0<32> l00717ED7
+l00717DF1:
+	word32 ecx_209 = dwLoc10
+	branch dwLoc10 >= 0<32> l00717E05
+l00717DF9:
+	ecx_209 = dwLoc10 + ecx
+	dwLoc10 = ecx_209
+	branch ecx_209 < 0<32> l00717EC3
+l00717E05:
+	branch ecx_209 > ecx l00717EC3
+l00717EC3:
+	eax_200 = fn006E15D0(Mem221[0x00A17CA4<p32>:word32], 0xFFFFFFFF<32>, out ecx_124, out edx_125)
+l00717E0D:
+	word32 edi_254 = Mem222[8<32>:word32]
+	word32 edx_253 = Mem222[0xC<32>:word32]
+	word32 eax_259 = Mem222[dwArg24:word32] - ecx_209 + edi_254 + ecx
+	branch eax_259 <= ebp_26 l00717E66
+l00717E66:
+l00717E2B:
+	branch eax_259 >= ebp_26 * 2<32> l00717E36
+l00717E33_1:
+l00717E36:
+	eax_200 = fn00717900(dwArg20, 0xFFFFFFFF<32>, out ecx_124, out edx_125)
+	branch eax_200 < 0<32> l00717ED7
+l00717E48:
+	Mem299[dwArg28:word32] = Mem275[Mem275[dwArg20:word32] + 0xC<32>:word32] + Mem275[dwArg24:word32] * 2<32>
+	ecx_209 = dwLoc10
+l00717E6A:
+	Mem305[dwArg18:word32] = ecx_209
+	ecx_124 = ecx_209 + dwArg10
+	Mem312[dwArg1C:word32] = ecx_124
+	edx_125 = edx_253
+	word24 edx_24_8_457 = SLICE(edx_253, word24, 8)
+	word32 eax_314 = Mem312[dwArg28:word32]
+	branch edi_254 * 2<32> <u 0x10<32> l00717E93
+l00717E93:
+	branch edi_254 * 2<32> <=u 0<32> l00717EAD
+l00717E97:
+	word32 ecx_322 = edx_253 - eax_314
+	word32 ebp_324 = edi_254 * 2<32>
+	ecx_124 = ecx_322
+l00717EA0:
+	byte dl_329 = Mem328[ecx_322 + eax_314:byte]
+	Mem330[eax_314:byte] = dl_329
+	eax_314 = eax_314 + 1<32>
+	ebp_324 = ebp_324 - 1<32>
+	edx_125 = SEQ(edx_24_8_457, dl_329) (alias)
+	branch ebp_324 != 0<32> l00717EA0
+l00717E86:
+	memcpy(eax_314, edx_253, edi_254 * 2<32>)
+l00717EAD:
+	Mem351[dwArg28:word32] = Mem347[dwArg28:word32] + edi_254 * 2<32>
+	Mem358[dwArg24:word32] = Mem351[dwArg24:word32] + edi_254
+	eax_200 = dwArg24
+l00717DAC:
+	eax_200 = fn006E15D0(Mem167[0x00A16B7C<p32>:word32], 0xFFFFFFFF<32>, out ecx_124, out edx_125)
+l00717ED7:
+	word32 v16_380 = Mem379[eax_150:word32] + 0xFFFFFFFF<32>
+	Mem381[eax_150:word32] = v16_380
+	branch v16_380 != 0<32> l00717EE8
+l00717EDC:
+	word32 ecx_384 = Mem381[eax_150 + 4<32>:word32]
+	word32 edx_385 = Mem381[ecx_384 + 0x18<32>:word32]
+	call edx_385 (retsize: 4;)
+		uses: eax:eax_393,ecx:ecx_384,edx:edx_385,Stack +0004:eax_150,Stack +0008:0xFFFFFFFF<32>,Stack +0018:dwLoc10_615,Stack +0024:dwArg20,Stack +002C:0xFFFFFFFF<32>,Stack +0030:dwArg08,Stack +0034:dwArg0C,Stack +0038:dwArg10,Stack +003C:dwArg14,Stack +0040:dwArg18,Stack +0044:dwArg1C,Stack +0048:dwArg20,Stack +004C:dwArg24,Stack +0050:dwArg28
+		defs: ecx:ecx_401,edx:edx_402
+l00717EE8:
+	ecxOut = ecx_124
+	edxOut = edx_125
+	return 0xFFFFFFFF<32>
+fn00717CB0_exit:
+
+
+word32 fn00718610(word32 dwArg04, word32 dwArg08, word32 dwArg10, ptr32 & edxOut)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn0071FC80
+//      fn0071FEB0
+// MayUse:  Stack +0004:[0..31] Stack +0008:[0..31] Stack +0010:[0..31]
+// LiveOut: eax edx
+// Trashed: SCZO eax ebp ebx ecx edi edx esi Top
+// Preserved: esp
+fn00718610_entry:
+l00718610:
+	word32 ecx_782
+	word32 edx_278
+	word32 eax_27 = fn00717740(dwArg08, out ecx_782, out edx_278)
+	word32 esi_14 = dwArg04
+	word24 ecx_24_8_524 = SLICE(eax_27, word24, 8)
+	branch eax_27 == 0<32> l00718987
+l00718640:
+	branch dwArg08 != 0<32> l00718658
+l00718658:
+	word32 edi_120 = Mem35[eax_27 + 0xC<32>:word32]
+	word32 edx_42 = dwArg04 + dwArg08
+	word32 dwLoc14_613 = edi_120
+	branch dwArg04 >=u edx_42 l007188D6
+l00718672:
+	byte cl_49 = Mem48[esi_14:byte]
+	word32 eax_50 = CONVERT(cl_49, byte, word32)
+	word24 edx_24_8_104 = SLICE(edx_42, word24, 8)
+	word16 ax_288 = SLICE(eax_50, word16, 0)
+	word32 ecx_93 = SEQ(ecx_24_8_524, cl_49)
+	branch eax_50 >=u 0x80<32> l00718694
+l00718694:
+	word32 eax_53 = CONVERT(Mem48[eax_50 + 0xA21708<32>:byte], byte, int32)
+	word24 eax_24_8_99 = SLICE(eax_53, word24, 8)
+	word32 ebx_54 = eax_53 + esi_14
+	branch ebx_54 <=u edx_42 l007186C9
+l007186C9:
+	branch eax_53 >u 4<32> l00718856
+l00718856:
+l007186D2:
+	word16 ecx_16_16_527
+	word16 cx_175
+	switch (eax_53) { l007186D9 l007186EC l007186FF l00718749 l007187A6 }
+l007187A6:
+	byte al_68 = Mem58[esi_14 + 1<32>:byte]
+	branch (al_68 & 0xC0<8>) != 0x80<8> l00718846
+l007187B7:
+	byte al_73 = Mem69[esi_14 + 2<32>:byte]
+	word32 eax_100 = SEQ(eax_24_8_99, al_73)
+	branch (al_73 & 0xC0<8>) != 0x80<8> l00718846
+l007187C8:
+	byte dl_78 = Mem69[esi_14 + 3<32>:byte]
+	word32 edx_105 = SEQ(edx_24_8_104, dl_78)
+	branch (dl_78 & 0xC0<8>) != 0x80<8> l00718846
+l00718846:
+l007187D5:
+	word32 ecx_107 = ((((ecx_93 & 7<32>) << 6<32>) + (CONVERT(al_68, byte, word32) & 0x3F<32>) << 6<32>) + (eax_100 & 0x3F<32>) << 6<32>) + (edx_105 & 0x3F<32>)
+	branch ecx_107 >u 0x10FFFF<32> l00718836
+l00718836:
+l00718803:
+	Mem121[edi_120:word16] = SLICE((ecx_107 + 0xFFFF0000<32> >>u 0xA<32>) - 0x2800<32>, word16, 0)
+	word32 ecx_122 = ecx_107 + 0xFFFF0000<32> & 0x3FF<32>
+	edi_120 = edi_120 + 2<32>
+	cx_175 = SLICE(ecx_122 - 0x2400<32>, word16, 0) (alias)
+	ecx_16_16_527 = SLICE(ecx_122 - 0x2400<32>, word16, 16) (alias)
+l00718749:
+	byte dl_126 = Mem58[esi_14 + 1<32>:byte]
+	word32 edx_146 = SEQ(edx_24_8_104, dl_126)
+	branch (dl_126 & 0xC0<8>) != 0x80<8> l00718793
+l00718754:
+	byte al_131 = Mem58[esi_14 + 2<32>:byte]
+	word32 eax_150 = SEQ(eax_24_8_99, al_131)
+	branch (al_131 & 0xC0<8>) != 0x80<8> l00718793
+l00718793:
+l00718761:
+	word32 ecx_152 = (((ecx_93 & 0xF<32>) << 6<32>) + (edx_146 & 0x3F<32>) << 6<32>) + (eax_150 & 0x3F<32>)
+	cx_175 = SLICE(ecx_152, word16, 0) (alias)
+	ecx_16_16_527 = SLICE(ecx_152, word16, 16) (alias)
+	branch ecx_152 >=u 0x800<32> l0071881F
+l00718780:
+l007186FF:
+	byte al_160 = Mem58[esi_14 + 1<32>:byte]
+	word32 eax_167 = SEQ(eax_24_8_99, al_160)
+	branch (al_160 & 0xC0<8>) == 0x80<8> l0071871F
+l0071871F:
+	word32 ecx_169 = ((ecx_93 & 0x1F<32>) << 6<32>) + (eax_167 & 0x3F<32>)
+	cx_175 = SLICE(ecx_169, word16, 0) (alias)
+	ecx_16_16_527 = SLICE(ecx_169, word16, 16) (alias)
+	branch ecx_169 >=u 0x80<32> l0071881F
+l0071881F:
+	Mem180[edi_120:word16] = cx_175
+	edi_120 = edi_120 + 2<32>
+	esi_14 = ebx_54
+	dwLoc14_613 = edi_120
+	ecx_24_8_524 = SEQ(ecx_16_16_527, SLICE(cx_175, byte, 8)) (alias)
+l00718736:
+l0071870C:
+l007186EC:
+l007186D9:
+l00718863:
+l007186A6:
+	branch dwArg10 != 0<32> l007188DF
+l007188DF:
+l007186B1:
+l00718867:
+	ecx_24_8_524 = SLICE(ecx_277, word24, 8) (alias)
+	word32 ecx_277
+	branch fn00717CB0(fp - 0xC<32>, dwArg08, fp - 0x10<32>, dwArg04, dwArg08, dwArg04, fp - 0x1C<32>, fp - 0x20<32>, fp + 4<32>, fp - 0x18<32>, fp - 8<32>, fp - 0x14<32>, out ecx_277, out edx_278) != 0<32> l00718940
+l00718940:
+l007188BA:
+	esi_14 = dwArg04
+	edi_120 = dwLoc14_613
+l0071867E:
+	Mem289[edi_120:word16] = ax_288
+	edi_120 = edi_120 + 2<32>
+	esi_14 = esi_14 + 1<32>
+	dwLoc14_613 = edi_120
+l007188C2:
+	branch esi_14 <u edx_42 l00718672
+l007188CE:
+l007188D6:
+	branch dwArg10 == 0<32> l007188EF
+l007188DD:
+l007188E3:
+	Mem318[dwArg10:word32] = esi_14 - dwArg04
+l007188EF:
+	word32 esp_352 = fp - 0x34<32>
+	word32 ecx_783
+	branch fn00717900(fp - 0x18<32>, dwArg04, out ecx_783, out edx_278) < 0<32> l00718944
+l00718944:
+	word32 esp_367 = fp - 0x34<32>
+	branch true l00718959
+l00718948:
+	word32 v24_361 = Mem360[0<32>:word32] + 0xFFFFFFFF<32>
+	Mem362[0<32>:word32] = v24_361
+	branch v24_361 != 0<32> l00718959
+l0071894D:
+	word32 eax_365 = Mem362[4<32>:word32]
+	word32 esp_374
+	call Mem362[eax_365 + 0x18<32>:word32] (retsize: 4;)
+		uses: eax:eax_365,Stack +0004:0<32>,Stack +0008:dwArg04,Stack +000C:dwArg08,Stack +0040:dwArg04,Stack +0044:dwArg08,Stack +004C:dwArg10
+		defs: edx:edx_377,esp:esp_374
+	esp_367 = esp_374 + 4<32>
+l00718959:
+	word32 eax_384 = Mem383[esp_367 + 0x28<32>:word32]
+	branch eax_384 == 0<32> l00718972
+l00718961:
+	word32 v25_388 = Mem383[eax_384:word32] + 0xFFFFFFFF<32>
+	Mem389[eax_384:word32] = v25_388
+	branch v25_388 != 0<32> l00718972
+l00718966:
+	word32 edx_392 = Mem389[eax_384 + 4<32>:word32]
+	Mem394[esp_367 - 4<i32>:word32] = eax_384
+	word32 esp_401
+	call Mem394[edx_392 + 0x18<32>:word32] (retsize: 4;)
+		uses: edx:edx_392,Stack +0008:dwArg04,Stack +000C:dwArg08,Stack +0014:dwArg10
+		defs: edx:edx_404,esp:esp_401
+	esp_367 = esp_401 + 4<32>
+l00718972:
+	word32 eax_411 = Mem410[esp_367 + 0x1C<32>:word32]
+	word32 v26_412 = Mem410[eax_411:word32] + 0xFFFFFFFF<32>
+	Mem413[eax_411:word32] = v26_412
+	branch v26_412 != 0<32> l00718987
+l0071897B:
+	word32 ecx_416 = Mem413[eax_411 + 4<32>:word32]
+	word32 edx_417 = Mem413[ecx_416 + 0x18<32>:word32]
+	Mem419[esp_367 - 4<i32>:word32] = eax_411
+	call edx_417 (retsize: 4;)
+		uses: ecx:ecx_416,Stack +0008:dwArg04,Stack +000C:dwArg08,Stack +0014:dwArg10
+		defs: edx:edx_428
+l00718987:
+	edxOut = edx_278
+	return 0<32>
+l00718906:
+	branch true l0071891B
+l0071890A:
+	word32 v17_449 = Mem335[0<32>:word32] + 0xFFFFFFFF<32>
+	Mem450[0<32>:word32] = v17_449
+	branch v17_449 != 0<32> l0071891B
+l0071890F:
+	word32 eax_453 = Mem450[4<32>:word32]
+	word32 esp_457
+	call Mem450[eax_453 + 0x18<32>:word32] (retsize: 4;)
+		uses: eax:eax_453,Stack +0004:0<32>,Stack +0008:dwArg04,Stack +000C:dwArg08,Stack +0040:dwArg04,Stack +0044:dwArg08,Stack +004C:dwArg10
+		defs: edx:edx_460,esp:esp_457
+	esp_352 = esp_457 + 4<32>
+l0071891B:
+	word32 eax_467 = Mem466[esp_352 + 0x28<32>:word32]
+	branch eax_467 == 0<32> l00718934
+l00718923:
+	word32 v19_471 = Mem466[eax_467:word32] + 0xFFFFFFFF<32>
+	Mem472[eax_467:word32] = v19_471
+	branch v19_471 != 0<32> l00718934
+l00718928:
+	word32 edx_475 = Mem472[eax_467 + 4<32>:word32]
+	Mem477[esp_352 - 4<i32>:word32] = eax_467
+	call Mem477[edx_475 + 0x18<32>:word32] (retsize: 4;)
+		uses: edx:edx_475,Stack +0008:dwArg04,Stack +000C:dwArg08,Stack +0014:dwArg10
+		defs: edx:edx_487
+l00718934:
+	edxOut = edx_278
+	return eax_27
+l00718644:
+	branch dwArg10 == 0<32> l0071864E
+l0071864C:
+	Mem509[dwArg10:word32] = 0<32>
+l0071864E:
+	edxOut = edx_278
+	return eax_27
+fn00718610_exit:
+
+
+word32 fn007189B0(word32 ebx, word32 ebp, word32 esi, word32 edi, selector es, selector ds, word32 dwArg04, word32 dwArg08, ptr32 & ecxOut, ptr32 & edxOut)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn00718B50
+// MayUse:  cs:[0..15] ds:[0..15] ebp:[0..31] ebx:[0..31] edi:[0..31] es:[0..15] esi:[0..31] fs:[0..15] gs:[0..15] ss:[0..15] Stack +0004:[0..31] Stack +0008:[0..31]
+// LiveOut: eax ecx edx
+// Trashed: SCZDOP eax ebp ebx ecx edi edx esi Top
+// Preserved: esi esp
+fn007189B0_entry:
+l007189B0:
+	word32 dwLoc04B8_355
+	word32 ecx_148
+	word32 eax_210
+	word32 eax_7 = Mem0[0x00A14188<p32>:word32] ^ fp - 0x4B8<32>
+	branch dwArg08 > 0x12C<32> l007189E0
+l007189E0:
+	int64 edx_eax_17 = CONVERT(dwArg08 * 4<32>, word32, int64)
+	branch SLICE(edx_eax_17, word32, 0) + (SLICE(edx_eax_17, word32, 32) & 3<32>) >> 2<32> == dwArg08 l00718A11
+l00718A11:
+	word32 edx_32
+	word32 ecx_464
+	eax_210 = fn006EC9B0(0<32>, dwArg08 * 4<32>, out ecx_464, out edx_32)
+	dwLoc04B8_355 = eax_210
+	branch eax_210 != 0<32> l00718A3A
+l00718A3A:
+	ecx_148 = eax_210 + 0x14<32>
+l00718A24:
+	word32 ecx_57
+	word32 eax_56 = fn00694B8E(eax_210, eax_7 ^ fp - 0x4B8<32>, edx_32, ebx, ebp, esi, edi, es, ds, ebx, out ecx_57)
+	ecxOut = ecx_57
+	edxOut = edx_32
+	return eax_56
+l007189F6:
+	word32 edx_69
+	word32 ecx_79
+	word32 ecx_465
+	word32 eax_78 = fn00694B8E(fn006E1210(out ecx_465, out edx_69), eax_7 ^ fp - 1208<i32>, edx_69, ebx, ebp, esi, edi, es, ds, ebx, out ecx_79)
+	ecxOut = ecx_79
+	edxOut = edx_69
+	return eax_78
+l007189D4:
+	eax_210 = 0<32>
+	dwLoc04B8_355 = 0<32>
+	ecx_148 = fp - 0x4B4<32>
+l00718A3D:
+	word32 edi_109 = 0<32>
+	branch dwArg08 <= 0<32> l00718AF9
+l00718A48:
+l00718A51:
+	word32 eax_111 = CONVERT(Mem110[dwArg04 + edi_109 * 2<32>:word16], word16, word32)
+	byte al_180 = SLICE(eax_111, byte, 0)
+	edi_109 = edi_109 + 1<32>
+	branch eax_111 <u 0x80<32> l00718AE6
+l00718A64:
+	byte dl_168
+	branch eax_111 >=u 0x800<32> l00718A75
+l00718A75:
+	byte dl_133
+	branch eax_111 >=u 0x10000<32> l00718AB5
+l00718A7C:
+	branch eax_111 >u 0xFFFF2401<32> l00718B0F
+l00718A8E:
+	branch edi_109 == dwArg08 l00718B0F
+l00718A92:
+	word32 esi_125 = CONVERT(Mem110[dwArg04 + edi_109 * 2<32>:word16], word16, word32)
+	branch esi_125 >u 0xFFFF2001<32> l00718B0F
+l00718B0F:
+	dl_133 = SLICE(eax_111 >>u 0xC<32>, byte, 0) | 0xE0<8>
+l00718AA5:
+	eax_111 = (eax_111 + 0xFFFF2800<32> << 0xA<32> | esi_125 + 0xFFFF2400<32>) + 0x10000<32>
+	edi_109 = edi_109 + 1<32>
+l00718AB5:
+	Mem149[ecx_148:byte] = SLICE(eax_111 >>u 0x12<32>, byte, 0) | 0xF0<8>
+	ecx_148 = ecx_148 + 1<32>
+	dl_133 = SLICE(eax_111 >>u 0xC<32>, byte, 0) & 0x3F<8> | 0x80<8>
+l00718ACD:
+	Mem161[ecx_148:byte] = dl_133
+	al_180 = SLICE(eax_111, byte, 0) (alias)
+	ecx_148 = ecx_148 + 1<32>
+	dl_168 = SLICE(eax_111 >>u 6<32>, byte, 0) & 0x3F<8> | 0x80<8>
+l00718A6B:
+	dl_168 = SLICE(eax_111 >>u 6<32>, byte, 0) | 0xC0<8>
+l00718ADD:
+	Mem179[ecx_148:byte] = dl_168
+	ecx_148 = ecx_148 + 1<32>
+	al_180 = al_180 & 0x3F<8> | 0x80<8>
+l00718AE6:
+	Mem190[ecx_148:byte] = al_180
+	ecx_148 = ecx_148 + 1<32>
+	branch edi_109 < dwArg08 l00718A51
+l00718AF3:
+	eax_210 = dwLoc04B8_355
+l00718AF9:
+	word32 edx_296
+	word32 eax_299
+	branch eax_210 != 0<32> l00718B19
+l00718B19:
+	word32 ecx_466
+	fn006EC4F0(fp - 0x4B8<32>, ecx_148 - eax_210 - 0x14<32>, out ecx_466, out edx_296)
+	eax_299 = dwLoc04B8_355
+l00718AFE:
+	word32 ecx_467
+	eax_299 = fn006EC9B0(fp - 0x4B4<32>, ecx_148 - (fp - 0x4B4<32>), out ecx_467, out edx_296)
+l00718B2D:
+	word32 ecx_335
+	word32 eax_334 = fn00694B8E(eax_299, eax_7 ^ fp - 1208<i32>, edx_296, ebx, ebp, esi, edi, es, ds, ebx, out ecx_335)
+	ecxOut = ecx_335
+	edxOut = edx_296
+	return eax_334
+fn007189B0_exit:
+
+
+word32 fn00718B50(word32 dwArg04, ptr32 & ecxOut, ptr32 & edxOut)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn0070BCC0
+//      fn0071FB20
+//      fn00735890
+//      fn007533F0
+//      fn007537A0
+//      fn007537F0
+// MayUse:  Stack +0004:[0..31]
+// LiveOut: eax ecx edx
+// Trashed: SCZO eax ecx edx esi Top
+// Preserved: esp
+fn00718B50_entry:
+l00718B50:
+	word32 eax_8 = Mem6[dwArg04 + 4<32>:word32]
+	branch eax_8 == 0xA23B20<32> l00718B7A
+l00718B5F:
+	word32 ecx_96
+	word32 edx_97
+	branch fn006D5670(eax_8, 0xA23B20<32>, out ecx_96, out edx_97) != 0<32> l00718B7A
+l00718B7A:
+	word32 ecx_40
+	word32 edx_42
+	word32 eax_39 = fn007189B0(ebx, ebp, dwArg04, edi, es, ds, Mem27[dwArg04 + 0xC<32>:word32], Mem27[dwArg04 + 8<32>:word32], out ecx_40, out edx_42)
+	ecxOut = ecx_40
+	edxOut = edx_42
+	return eax_39
+l00718B71:
+	word32 edx_52
+	ecxOut = fn006E11D0(out edx_52)
+	edxOut = edx_52
+	return 0<32>
+fn00718B50_exit:
+
+
+word32 fn00718F10(word32 dwArg04, word32 dwArg08, ptr32 & edxOut)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn0073D2A0
+// MayUse:  Stack +0004:[0..31] Stack +0008:[0..31]
+// LiveOut: eax edx
+// Trashed: SCZO eax ebp ebx ecx edi edx esi Top
+// Preserved: esp
+fn00718F10_entry:
+l00718F10:
+	word32 esi_14 = dwArg04
+	word32 ebp_19 = 0<32>
+	word32 ebx_20 = 0<32>
+	word32 ecx_1220
+	word32 edx_1027
+	word32 eax_1012 = fn00717740(dwArg08, out ecx_1220, out edx_1027)
+	word32 esp_122 = fp - 0x40<32>
+	branch eax_1012 == 0<32> l007194B6
+l00718F4A:
+	branch dwArg08 == 0<32> l0071944F
+l00718F52:
+	word32 edi_41 = Mem36[eax_1012 + 0xC<32>:word32]
+	branch dwArg04 >=u dwArg04 + dwArg08 l00719401
+l00718F6C:
+	esp_122 = fp - 0x40<32>
+l00718F70:
+	byte al_51 = Mem50[esi_14:byte]
+	branch al_51 == 0x5C<8> l00718F8C
+l00718F8C:
+	Mem59[esp_122 + 0x38<32>:word32] = esi_14 - Mem50[esp_122 + 0x30<32>:word32]
+	word32 esi_58 = esi_14 + 1<32>
+	byte al_60 = Mem59[esi_58:byte]
+	Mem63[esp_122 + 0x44<32>:word32] = esi_58 + 1<32>
+	esi_14 = esi_58 + 1<32>
+	branch esi_58 + 1<32> <=u Mem59[esp_122 + 0x34<32>:word32] l00718FAA
+l00718FA8:
+	al_60 = 0<8>
+l00718FAA:
+	word32 esp_190
+	word16 cx_609
+	word32 eax_69 = CONVERT(al_60, byte, word32)
+	branch eax_69 >u 0x78<32> l00719387
+l00718FB9:
+	word32 eax_141
+	word32 eax_126
+	word32 ecx_100
+	switch (eax_69 + 0xFFFFFFF6<32>) { l007193EF l00719387 l00719387 l00719387 l00719387 l00719387 l00719387 l00719387 l00719387 l00719387 l00719387 l00719387 l00719387 l00719387 l00719387 l00719387 l00719387 l00719387 l00719387 l00719387 l00719387 l00719387 l00719387 l00719387 l00718FDB l00719387 l00719387 l00719387 l00719387 l00718FD1 l00719387 l00719387 l00719387 l00719387 l00719387 l00719387 l00719387 l00719387 l0071902B l0071902B l0071902B l0071902B l0071902B l0071902B l0071902B l0071902B l00719387 l00719387 l00719387 l00719387 l00719387 l00719387 l00719387 l00719387 l00719387 l00719387 l00719387 l00719387 l00719387 l00719387 l00719387 l00719387 l00719387 l00719387 l00719387 l00719387 l00719387 l00719387 l007191FA l00719387 l00719387 l00719387 l00719387 l00719387 l00719387 l007190B0 l00719387 l00719387 l00719387 l00719387 l00719387 l00719387 l00718FC7 l00719387 l00719387 l00719387 l00719387 l00719021 l00718FE5 l00719387 l00719387 l00719387 l00718FEF l00719387 l00719387 l00719387 l00719387 l00719387 l00719387 l00719387 l00719003 l00719387 l00719387 l00719387 l0071900D l00719387 l00718FF9 l007190A1 l00719017 l00719387 l00719092 }
+l00719092:
+	Mem77[esp_122 + 0x2C<32>:word32] = 0x8D95A4<32>
+	ecx_100 = 2<32>
+l00719017:
+	Mem80[edi_41:word16] = 0xB<16>
+l007190A1:
+	Mem82[esp_122 + 0x2C<32>:word32] = 0x8D958C<32>
+	ecx_100 = 4<32>
+l00718FF9:
+	Mem83[edi_41:word16] = 9<16>
+l0071900D:
+	Mem84[edi_41:word16] = 0xD<16>
+l00719003:
+	Mem85[edi_41:word16] = 0xA<16>
+l00718FEF:
+	Mem86[edi_41:word16] = 0xC<16>
+l00718FE5:
+	Mem87[edi_41:word16] = 8<16>
+l00719021:
+	Mem88[edi_41:word16] = 7<16>
+l00718FC7:
+	Mem89[edi_41:word16] = 0x5C<16>
+l007190B0:
+	Mem91[esp_122 + 0x2C<32>:word32] = 0x8D9570<32>
+	ecx_100 = 8<32>
+l007190BD:
+	word32 ebp_94 = Mem93[esp_122 + 0x14<32>:word32]
+	Mem98[esp_122 + 0x18<32>:word32] = 0<32>
+	word32 ebx_99 = edi_41 - Mem98[ebp_94 + 0xC<32>:word32]
+	Mem101[esp_122 + 0x3C<32>:word32] = ecx_100
+	Mem103[esp_122 + 0x20<32>:word32] = ebx_99 >> 1<32>
+	eax_141 = 0<32>
+	branch ecx_100 + (esi_58 + 1<32>) <=u Mem103[esp_122 + 0x34<32>:word32] l0071913A
+l0071913A:
+	word32 ebp_109 = 0<32>
+	branch ecx_100 <= 0<32> l0071919A
+l00719140:
+	byte bl_115 = Mem114[esi_58 + 1<32> + ebp_109:byte]
+	word32 eax_116 = CONVERT(bl_115, byte, word32)
+	word32 esp_118 = esp_122 - 4<i32>
+	Mem119[esp_118:word32] = eax_116
+	Mem120[esp_118 + 0x20<32>:word32] = eax_116
+	esp_122 = esp_118 + 4<32>
+	branch isxdigit(Mem120[esp_118:int32]) == 0<32> l007191BB
+l007191BB:
+	eax_126 = Mem120[esp_118 + 0x34<32>:word32]
+	Mem130[esp_118 + 0x20<32>:word32] = esi_58 + 2<32> + (ebp_109 - eax_126)
+l00719158:
+	word32 eax_131 = Mem120[esp_118 + 0x1C<32>:word32]
+	branch bl_115 >u 0x39<8> l00719173
+l00719173:
+	branch bl_115 >u 0x66<8> l00719185
+l00719185:
+	eax_141 = (eax_131 << 4<32>) - 0x37<32> + Mem120[esp_118 + 0x20<32>:word32]
+l0071917B:
+	eax_141 = (eax_131 << 4<32>) - 0x57<32> + Mem120[esp_118 + 0x20<32>:word32]
+l00719169:
+	eax_141 = (eax_131 << 4<32>) - 0x30<32> + Mem120[esp_118 + 0x20<32>:word32]
+l0071918D:
+	Mem152[esp_118 + 0x1C<32>:word32] = eax_141
+	ebp_109 = ebp_109 + 1<32>
+	branch ebp_109 < Mem120[esp_118 + 0x40<32>:word32] l00719140
+l0071919A:
+	esi_14 = esi_58 + 1<32> + ebp_109
+	Mem161[esp_122 + 0x44<32>:word32] = esi_14
+	branch eax_141 != 0xFFFFFFFF<32> l007192E4
+l007191A9:
+	branch fn006E0FC0() == 0<32> l007192E0
+l007191B6:
+l007190DF:
+	word32 ecx_167 = Mem103[esp_122 + 0x48<32>:word32]
+	word32 esp_169 = esp_122 - 4<i32>
+	Mem170[esp_169:word32] = esp_122 + 0x10<32>
+	Mem173[esp_169 - 4<i32>:word32] = esp_169 + 0x24<32>
+	Mem176[esp_169 - 8<i32>:word32] = esp_169 + 0x18<32>
+	Mem179[esp_169 - 12<i32>:word32] = esp_169 + 0x48<32>
+	Mem182[esp_169 - 16<i32>:word32] = esp_169 + 0x20<32>
+	Mem185[esp_169 - 20<i32>:word32] = esp_169 + 0x3C<32>
+	Mem188[esp_169 - 24<i32>:word32] = Mem185[esp_169 + 0x34<32>:word32]
+	Mem189[esp_169 + 0x20<32>:word32] = ecx_167
+	Mem191[esp_169 - 28<i32>:word32] = 0x8D954C<32>
+	esp_190 = esp_169 - 28<i32>
+l007191FA:
+	word32 eax_192 = Mem63[0x00A6DBBC<p32>:word32]
+	Mem195[esp_122 + 0x2C<32>:word32] = 0x8D951C<32>
+	branch eax_192 != 0<32> l00719278
+l0071920B:
+	word32 esp_197 = esp_122 - 4<i32>
+	Mem198[esp_197:word32] = 0x8D9510<32>
+	// Failed to bind call argument.
+	// Please report this issue at https://github.com/uxmal/reko
+	word32 stackArg4 = <invalid>
+	word32 eax_206 = fn006F92B0(stackArg4)
+	esp_122 = esp_197 + 4<32>
+	branch eax_206 == 0<32> l00719457
+l00719222:
+	Mem217[esp_197:word32] = 0x8D9500<32>
+	Mem219[esp_197 - 4<i32>:word32] = eax_206
+	// Failed to bind call argument.
+	// Please report this issue at https://github.com/uxmal/reko
+	word32 stackArg4 = <invalid>
+	word32 edx_1237
+	word32 edi_1238
+	word32 eax_221 = fn006DF760(stackArg4, dwArg04, out edx_1237, out edi_1238)
+	word32 v24_227 = Mem219[eax_206:word32] + 0xFFFFFFFF<32>
+	Mem228[eax_206:word32] = v24_227
+	esp_122 = esp_197 + 4<32>
+	branch v24_227 != 0<32> l00719244
+l00719238:
+	word32 ecx_232 = Mem228[eax_206 + 4<32>:word32]
+	word32 edx_233 = Mem228[ecx_232 + 0x18<32>:word32]
+	Mem235[esp_197:word32] = eax_206
+	word32 esp_236
+	call edx_233 (retsize: 4;)
+		uses: ecx:ecx_232,Stack +0008:dwArg04,Stack +000C:dwArg08
+		defs: esp:esp_236
+	esp_122 = esp_236 + 4<32>
+l00719244:
+	branch eax_221 == 0<32> l00719457
+l0071924C:
+	word32 esp_249 = esp_122 - 4<i32>
+	Mem250[esp_249:word32] = eax_221
+	// Failed to bind call argument.
+	// Please report this issue at https://github.com/uxmal/reko
+	word32 stackArg4 = <invalid>
+	word32 edx_1240
+	eax_192 = fn0072E9C0(stackArg4, out edx_1240)
+	word32 v25_262 = Mem250[eax_221:word32] + 0xFFFFFFFF<32>
+	Mem263[eax_221:word32] = v25_262
+	Mem265[0x00A6DBBC<p32>:word32] = eax_192
+	esp_122 = esp_249 + 4<32>
+	branch v25_262 != 0<32> l00719270
+l0071925F:
+	word32 eax_267 = Mem265[eax_221 + 4<32>:word32]
+	word32 ecx_268 = Mem265[eax_267 + 0x18<32>:word32]
+	Mem270[esp_249:word32] = eax_221
+	word32 esp_271
+	call ecx_268 (retsize: 4;)
+		uses: eax:eax_267,Stack +0008:dwArg04,Stack +000C:dwArg08
+		defs: esp:esp_271
+	eax_192 = Mem270[0x00A6DBBC<p32>:word32]
+	esp_122 = esp_271 + 4<32>
+l00719270:
+	branch eax_192 == 0<32> l00719457
+l00719457:
+	word32 edx_287 = Mem284[0x00A17FB0<p32>:word32]
+	word32 esp_290 = esp_122 - 4<i32>
+	Mem291[esp_290:word32] = 0x8D9474<32>
+	Mem293[esp_290 - 4<i32>:word32] = edx_287
+	// Failed to bind call argument.
+	// Please report this issue at https://github.com/uxmal/reko
+	word32 stackArg4 = <invalid>
+	word32 ecx_1235
+	fn006E0F80(stackArg4, dwArg04, out ecx_1235, out edx_1027)
+	word32 eax_310 = Mem293[esp_290 + 0x18<32>:word32]
+	word32 esp_311 = esp_290 + 4<32>
+	branch eax_310 == 0<32> l00719484
+l00719473:
+	word32 v26_315 = Mem293[eax_310:word32] + 0xFFFFFFFF<32>
+	Mem316[eax_310:word32] = v26_315
+	branch v26_315 != 0<32> l00719484
+l00719478:
+	word32 ecx_319 = Mem316[eax_310 + 4<32>:word32]
+	word32 edx_320 = Mem316[ecx_319 + 0x18<32>:word32]
+	Mem322[esp_290:word32] = eax_310
+	word32 esp_323
+	call edx_320 (retsize: 4;)
+		uses: ecx:ecx_319,Stack +0008:dwArg04,Stack +000C:dwArg08
+		defs: edx:edx_326,esp:esp_323
+	esp_311 = esp_323 + 4<32>
+l00719484:
+	word32 eax_333 = Mem332[esp_311 + 0x24<32>:word32]
+	branch eax_333 == 0<32> l0071949D
+l0071948C:
+	word32 v27_337 = Mem332[eax_333:word32] + 0xFFFFFFFF<32>
+	Mem338[eax_333:word32] = v27_337
+	branch v27_337 != 0<32> l0071949D
+l00719491:
+	word32 ecx_341 = Mem338[eax_333 + 4<32>:word32]
+	word32 edx_342 = Mem338[ecx_341 + 0x18<32>:word32]
+	Mem344[esp_311 - 4<i32>:word32] = eax_333
+	word32 esp_350
+	call edx_342 (retsize: 4;)
+		uses: ecx:ecx_341,Stack +0008:dwArg04,Stack +000C:dwArg08
+		defs: edx:edx_353,esp:esp_350
+	esp_311 = esp_350 + 4<32>
+l0071949D:
+	word32 eax_360 = Mem359[esp_311 + 0x28<32>:word32]
+	branch eax_360 == 0<32> l007194B6
+l007194A5:
+	word32 v28_364 = Mem359[eax_360:word32] + 0xFFFFFFFF<32>
+	Mem365[eax_360:word32] = v28_364
+	branch v28_364 != 0<32> l007194B6
+l007194AA:
+	word32 ecx_368 = Mem365[eax_360 + 4<32>:word32]
+	word32 edx_369 = Mem365[ecx_368 + 0x18<32>:word32]
+	Mem371[esp_311 - 4<i32>:word32] = eax_360
+	call edx_369 (retsize: 4;)
+		uses: ecx:ecx_368,Stack +0008:dwArg04,Stack +000C:dwArg08
+		defs: edx:edx_380
+l00719278:
+	branch Mem386[esi_58 + 1<32>:byte] != 0x7B<8> l0071936B
+l00719281:
+	word32 edx_390 = Mem386[esp_122 + 0x34<32>:word32]
+l00719288:
+	branch esi_14 >=u edx_390 l00719294
+l0071928C:
+	esi_14 = esi_14 + 1<32>
+	branch Mem386[esi_14:byte] != 0x7D<8> l00719288
+l00719294:
+	Mem406[esp_122 + 0x44<32>:word32] = esi_14
+	branch esi_14 <=u esi_58 + 2<32> l0071936B
+l007192A0:
+	branch esi_14 >=u edx_390 l0071936B
+l007192A8:
+	branch Mem406[esi_14:byte] != 0x7D<8> l0071936B
+l007192B1:
+	word32 eax_416 = Mem406[eax_192 + 8<32>:word32]
+	word32 esp_418 = esp_122 - 4<i32>
+	Mem419[esp_418:word32] = esp_122 + 0x18<32>
+	esi_14 = esi_14 + 1<32>
+	word32 edx_422 = esi_14 - (esi_58 + 2<32>)
+	Mem426[esp_418 - 4<i32>:word32] = edx_422 - 1<32>
+	Mem428[esp_418 - 8<i32>:word32] = esi_58 + 2<32>
+	Mem430[esp_418 - 12<i32>:word32] = 0<32>
+	Mem431[esp_418 + 0x30<32>:word32] = 0x8D94E0<32>
+	Mem432[esp_418 + 0x48<32>:word32] = esi_14
+	word32 esp_445
+	word32 eax_446
+	call eax_416 (retsize: 4;)
+		uses: edx:edx_422 - 1<32>,Stack +0008:dwArg04,Stack +000C:dwArg08
+		defs: eax:eax_446,esp:esp_445
+	esp_122 = esp_445 + 0x10<32>
+	branch eax_446 == 0<32> l0071936B
+l0071936B:
+	eax_126 = Mem456[esp_122 + 0x30<32>:word32]
+	word32 edi_460 = edi_41 - Mem456[Mem456[esp_122 + 0x14<32>:word32] + 0xC<32>:word32]
+	Mem465[esp_122 + 0x1C<32>:word32] = esi_14 - eax_126
+	Mem466[esp_122 + 0x20<32>:word32] = edi_460 >> 1<32>
+l007191C9:
+	word32 esp_469 = esp_122 - 4<i32>
+	Mem470[esp_469:word32] = esp_122 + 0x10<32>
+	Mem473[esp_469 - 4<i32>:word32] = esp_469 + 0x24<32>
+	Mem476[esp_469 - 8<i32>:word32] = esp_469 + 0x18<32>
+	Mem479[esp_469 - 12<i32>:word32] = esp_469 + 0x48<32>
+	Mem482[esp_469 - 16<i32>:word32] = esp_469 + 0x20<32>
+	word32 edx_483 = Mem482[esp_469 + 0x30<32>:word32]
+	Mem486[esp_469 - 20<i32>:word32] = esp_469 + 0x3C<32>
+	Mem490[esp_469 - 24<i32>:word32] = eax_126
+	Mem492[esp_469 - 28<i32>:word32] = edx_483
+	esp_190 = esp_469 - 28<i32>
+l007192E0:
+	eax_141 = Mem495[esp_122 + 0x18<32>:word32]
+l007192E4:
+	word16 ax_553 = SLICE(eax_141, word16, 0)
+	branch eax_141 >u 0xFFFF<32> l007192F3
+l007192F3:
+	branch eax_141 >u 0x10FFFF<32> l00719323
+l00719323:
+	word32 edi_510 = edi_41 - Mem503[Mem503[esp_122 + 0x14<32>:word32] + 0xC<32>:word32]
+	word32 eax_511 = Mem503[esp_122 + 0x30<32>:word32]
+	word32 esp_513 = esp_122 - 4<i32>
+	Mem514[esp_513:word32] = esp_122 + 0x10<32>
+	Mem517[esp_513 - 4<i32>:word32] = esp_513 + 0x24<32>
+	Mem520[esp_513 - 8<i32>:word32] = esp_513 + 0x18<32>
+	Mem523[esp_513 - 12<i32>:word32] = esp_513 + 0x48<32>
+	Mem526[esp_513 - 16<i32>:word32] = esp_513 + 0x20<32>
+	Mem530[esp_513 - 20<i32>:word32] = esp_513 + 0x3C<32>
+	Mem538[esp_513 - 24<i32>:word32] = eax_511
+	Mem539[esp_513 + 0x20<32>:word32] = esi_14 - eax_511
+	Mem540[esp_513 + 0x24<32>:word32] = edi_510 >> 1<32>
+	Mem542[esp_513 - 28<i32>:word32] = 0x8D94C4<32>
+	esp_190 = esp_513 - 28<i32>
+l007192FA:
+	word32 eax_543 = eax_141 - 0x10000<32>
+	Mem544[esp_122 + 0x18<32>:word32] = eax_543
+	Mem548[edi_41:word16] = SLICE((eax_543 >>u 0xA<32>) - 0x2800<32>, word16, 0)
+	cx_609 = SLICE((Mem548[esp_122 + 0x18<32>:word32] & 0x3FF<32>) - 0x2400<32>, word16, 0) (alias)
+l007192EB:
+	Mem554[edi_41:word16] = ax_553
+l0071902B:
+	word32 eax_559 = CONVERT(CONVERT(Mem63[esi_58:byte], byte, int16) - 0x30<16>, word16, word32)
+	word16 ax_593 = SLICE(eax_559, word16, 0)
+	word32 edx_561 = Mem63[esp_122 + 0x34<32>:word32]
+	branch esi_58 + 1<32> >=u edx_561 l0071908A
+l0071903F:
+	byte cl_564 = Mem63[esi_58 + 1<32>:byte]
+	branch cl_564 < 0x30<8> l0071908A
+l00719046:
+	branch cl_564 > 0x37<8> l0071908A
+l0071904B:
+	word32 eax_578 = CONVERT(SLICE(eax_559 * 8<32>, word16, 0) + CONVERT(cl_564, byte, int16) - 0x30<16>, word16, word32)
+	esi_14 = esi_58 + 2<32>
+	ax_593 = SLICE(eax_578, word16, 0) (alias)
+	branch esi_58 + 2<32> >=u edx_561 l0071908A
+l00719066:
+	byte cl_580 = Mem63[esi_58 + 2<32>:byte]
+	branch cl_580 < 0x30<8> l0071908A
+l0071906D:
+	branch cl_580 > 0x37<8> l0071908A
+l00719072:
+	ax_593 = SLICE(eax_578 * 8<32>, word16, 0) + CONVERT(cl_580, byte, int16) - 0x30<16> (alias)
+	esi_14 = esi_58 + 3<32>
+l0071908A:
+	Mem599[edi_41:word16] = ax_593
+l00718FD1:
+	Mem600[edi_41:word16] = 0x27<16>
+l00718FDB:
+	Mem601[edi_41:word16] = 0x22<16>
+l00719387:
+	branch esi_58 + 1<32> <=u Mem63[esp_122 + 0x34<32>:word32] l007193D8
+l007193D8:
+	Mem608[edi_41:word16] = 0x5C<16>
+	cx_609 = CONVERT(Mem608[esi_58:byte], byte, word16)
+l007193E2:
+	edi_41 = edi_41 + 2<32>
+	Mem615[edi_41:word16] = cx_609
+l007193E8:
+	edi_41 = edi_41 + 2<32>
+l0071938D:
+	word32 edi_620 = edi_41 - Mem63[Mem63[esp_122 + 0x14<32>:word32] + 0xC<32>:word32]
+	word32 eax_621 = Mem63[esp_122 + 0x30<32>:word32]
+	word32 esp_623 = esp_122 - 4<i32>
+	Mem624[esp_623:word32] = esp_122 + 0x10<32>
+	Mem627[esp_623 - 4<i32>:word32] = esp_623 + 0x24<32>
+	Mem630[esp_623 - 8<i32>:word32] = esp_623 + 0x18<32>
+	Mem633[esp_623 - 12<i32>:word32] = esp_623 + 0x48<32>
+	Mem636[esp_623 - 16<i32>:word32] = esp_623 + 0x20<32>
+	Mem640[esp_623 - 20<i32>:word32] = esp_623 + 0x3C<32>
+	Mem642[esp_623 + 0x48<32>:word32] = esi_58
+	Mem647[esp_623 - 24<i32>:word32] = eax_621
+	Mem648[esp_623 + 0x20<32>:word32] = esi_58 - eax_621
+	Mem649[esp_623 + 0x24<32>:word32] = edi_620 >> 1<32>
+	Mem651[esp_623 - 28<i32>:word32] = 0x8D94B0<32>
+	esp_190 = esp_623 - 28<i32>
+l0071910F:
+	word32 esp_654 = esp_190 - 4<i32>
+	Mem655[esp_654:word32] = 0x8D953C<32>
+	Mem657[esp_654 - 4<i32>:word32] = esp_190 + 0x44<32>
+	// Failed to bind call argument.
+	// Please report this issue at https://github.com/uxmal/reko
+	// Failed to bind call argument.
+	// Please report this issue at https://github.com/uxmal/reko
+	// Failed to bind call argument.
+	// Please report this issue at https://github.com/uxmal/reko
+	// Failed to bind call argument.
+	// Please report this issue at https://github.com/uxmal/reko
+	// Failed to bind call argument.
+	// Please report this issue at https://github.com/uxmal/reko
+	// Failed to bind call argument.
+	// Please report this issue at https://github.com/uxmal/reko
+	// Failed to bind call argument.
+	// Please report this issue at https://github.com/uxmal/reko
+	// Failed to bind call argument.
+	// Please report this issue at https://github.com/uxmal/reko
+	word32 stackArg4 = <invalid>
+	word32 stackArg16 = <invalid>
+	word32 stackArg20 = <invalid>
+	word32 stackArg24 = <invalid>
+	word32 stackArg28 = <invalid>
+	word32 stackArg32 = <invalid>
+	word32 stackArg36 = <invalid>
+	word32 stackArg40 = <invalid>
+	esp_122 = esp_654 + 0x24<32>
+	word32 ecx_1232
+	branch fn00717CB0(esp_654 + 0x4C<32>, ecx, stackArg4, dwArg04, dwArg08, stackArg16, stackArg20, stackArg24, stackArg28, stackArg32, stackArg36, stackArg40, out ecx_1232, out edx_1027) != 0<32> l007194C0
+l007194C0:
+	ebp_19 = Mem657[esp_654 + 0x48<32>:word32]
+	ebx_20 = Mem657[esp_654 + 0x4C<32>:word32]
+l0071912D:
+	esi_14 = Mem657[esp_654 + 0x68<32>:word32]
+	edi_41 = Mem657[esp_654 + 0x34<32>:word32]
+l00718F7A:
+	Mem707[edi_41:word16] = CONVERT(al_51, byte, word16)
+	edi_41 = edi_41 + 2<32>
+	esi_14 = esi_14 + 1<32>
+l007193EB:
+	Mem716[esp_122 + 0x10<32>:word32] = edi_41
+l007193EF:
+	branch esi_14 <u Mem723[esp_122 + 0x34<32>:word32] l00718F70
+l007193F9:
+	ebp_19 = Mem723[esp_122 + 0x24<32>:word32]
+	ebx_20 = Mem723[esp_122 + 0x28<32>:word32]
+l00719401:
+	word32 esp_737 = esp_122 - 4<i32>
+	Mem738[esp_737:word32] = edi_41 - Mem729[Mem729[esp_122 + 0x14<32>:word32] + 0xC<32>:word32] >> 1<32>
+	Mem740[esp_737 - 4<i32>:word32] = esp_122 + 0x14<32>
+	// Failed to bind call argument.
+	// Please report this issue at https://github.com/uxmal/reko
+	word32 stackArg4 = <invalid>
+	esp_122 = esp_737 + 4<32>
+	word32 ecx_1222
+	branch fn00717900(stackArg4, dwArg04, out ecx_1222, out edx_1027) < 0<32> l007194C8
+l007194C8:
+	word32 eax_763 = Mem762[esp_122 + 0x14<32>:word32]
+	branch eax_763 == 0<32> l007194E1
+l007194D0:
+	word32 v29_767 = Mem762[eax_763:word32] + 0xFFFFFFFF<32>
+	Mem768[eax_763:word32] = v29_767
+	branch v29_767 != 0<32> l007194E1
+l007194D5:
+	word32 edx_771 = Mem768[eax_763 + 4<32>:word32]
+	Mem773[esp_122 - 4<i32>:word32] = eax_763
+	word32 esp_780
+	call Mem773[edx_771 + 0x18<32>:word32] (retsize: 4;)
+		uses: edx:edx_771,Stack +0008:dwArg04,Stack +000C:dwArg08
+		defs: edx:edx_783,esp:esp_780
+	esp_122 = esp_780 + 4<32>
+l007194E1:
+	branch ebp_19 == 0<32> l007194F7
+l007194E5:
+	word32 v30_793 = Mem792[ebp_19:word32] + 0xFFFFFFFF<32>
+	Mem794[ebp_19:word32] = v30_793
+	branch v30_793 != 0<32> l007194F7
+l007194EB:
+	word32 ecx_797 = Mem794[ebp_19 + 4<32>:word32]
+	word32 edx_798 = Mem794[ecx_797 + 0x18<32>:word32]
+	Mem801[esp_122 - 4<i32>:word32] = ebp_19
+	word32 esp_806
+	call edx_798 (retsize: 4;)
+		uses: ecx:ecx_797,Stack +0008:dwArg04,Stack +000C:dwArg08
+		defs: edx:edx_809,esp:esp_806
+	esp_122 = esp_806 + 4<32>
+l007194F7:
+	branch ebx_20 == 0<32> l007194B6
+l007194FB:
+	word32 v31_819 = Mem818[ebx_20:word32] + 0xFFFFFFFF<32>
+	Mem820[ebx_20:word32] = v31_819
+	branch v31_819 != 0<32> l007194B6
+l007194B6:
+	edxOut = edx_1027
+	return 0<32>
+l00719500:
+	word32 eax_837 = Mem820[ebx_20 + 4<32>:word32]
+	word32 ecx_838 = Mem820[eax_837 + 0x18<32>:word32]
+	Mem840[esp_122 - 4<i32>:word32] = ebx_20
+	word32 edx_848
+	call ecx_838 (retsize: 4;)
+		uses: eax:eax_837,Stack +0008:dwArg04,Stack +000C:dwArg08
+		defs: edx:edx_848
+	edxOut = edx_848
+	return 0<32>
+l00719420:
+	branch ebp_19 == 0<32> l00719436
+l00719424:
+	word32 v18_866 = Mem740[ebp_19:word32] + 0xFFFFFFFF<32>
+	Mem867[ebp_19:word32] = v18_866
+	branch v18_866 != 0<32> l00719436
+l0071942A:
+	word32 edx_870 = Mem867[ebp_19 + 4<32>:word32]
+	word32 eax_871 = Mem867[edx_870 + 0x18<32>:word32]
+	Mem873[esp_737:word32] = ebp_19
+	word32 esp_874
+	call eax_871 (retsize: 4;)
+		uses: edx:edx_870,Stack +0008:dwArg04,Stack +000C:dwArg08
+		defs: edx:edx_877,esp:esp_874
+	esp_122 = esp_874 + 4<32>
+l00719436:
+	branch ebx_20 == 0<32> l0071944B
+l0071943A:
+	word32 v19_887 = Mem886[ebx_20:word32] + 0xFFFFFFFF<32>
+	Mem888[ebx_20:word32] = v19_887
+	branch v19_887 != 0<32> l0071944B
+l0071943F:
+	word32 ecx_891 = Mem888[ebx_20 + 4<32>:word32]
+	word32 edx_892 = Mem888[ecx_891 + 0x18<32>:word32]
+	Mem895[esp_122 - 4<i32>:word32] = ebx_20
+	word32 esp_900
+	call edx_892 (retsize: 4;)
+		uses: ecx:ecx_891,Stack +0008:dwArg04,Stack +000C:dwArg08
+		defs: edx:edx_903,esp:esp_900
+	esp_122 = esp_900 + 4<32>
+l0071944B:
+	eax_1012 = Mem909[esp_122 + 0x14<32>:word32]
+l0071944F:
+	edxOut = edx_1027
+	return eax_1012
+fn00718F10_exit:
+
+
+word32 fn00719870(word32 dwArg04, word32 dwArg08, ptr32 & edxOut)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn0073D2A0
+// MayUse:  Stack +0004:[0..31] Stack +0008:[0..31]
+// LiveOut: eax edx
+// Trashed: SCZO eax ecx edx Top
+// Preserved: ebp ebx edi esi esp
+fn00719870_entry:
+l00719870:
+	word32 edx_769
+	word32 ecx_768
+	word32 eax_27 = fn00717740(dwArg08, out ecx_768, out edx_769)
+	word32 esi_104 = dwArg04
+	word32 edx_176 = eax_27
+	branch eax_27 == 0<32> l00719B45
+l007198A2:
+	branch dwArg08 == 0<32> l00719A8D
+l007198AA:
+	word32 ebp_185 = Mem34[eax_27 + 0xC<32>:word32]
+	word32 ecx_39 = dwArg04 + dwArg08
+	branch dwArg04 >=u ecx_39 l00719A40
+l007198BC:
+	ecx_186 = ecx_39
+l007198C0:
+	word32 ecx_186
+	byte al_46 = Mem45[esi_104:byte]
+	branch al_46 == 0x5C<8> l007198D9
+l007198D9:
+	branch esi_104 >=u ecx_186 l00719905
+l007198E9:
+l007198F0:
+	branch Mem59[esi_104:byte] != 0x5C<8> l00719905
+l007198F5:
+	Mem63[ebp_185:word16] = 0x5C<16>
+	esi_104 = esi_104 + 1<32>
+	ebp_185 = ebp_185 + 2<32>
+	branch esi_104 <u ecx_186 l007198F0
+l00719905:
+	branch (SLICE(esi_104 - esi_104, byte, 0) & 1<8>) == 0<8> l00719A30
+l00719912:
+	branch esi_104 >=u ecx_186 l00719A3C
+l0071991A:
+	byte al_82 = Mem81[esi_104:byte]
+	branch al_82 == 0x75<8> l00719928
+l00719920:
+	branch al_82 != 0x55<8> l00719A30
+l00719928:
+	word32 ebp_90 = ebp_185 - 2<32>
+	esi_104 = esi_104 + 1<32>
+	word32 edi_110 = 0<32>
+	word16 di_268 = 0<16>
+	word32 ebx_113 = CONVERT(CONVERT(al_82 != 0x75<8>, bool, int8), int8, uint32) * 4<32> + 4<32>
+	word32 dwLoc14_592 = 1<32>
+	branch ebx_113 <= 0<32> l00719A29
+l00719963:
+	byte bl_123 = Mem122[esi_104:byte]
+	branch isxdigit(CONVERT(bl_123, byte, word32)) == 0<32> l00719A95
+l00719A95:
+	word32 ecx_771
+	branch fn00717CB0(fp - 0x20<32>, dwArg08, fp - 0x24<32>, dwArg04, dwArg08, dwArg04, fp - 8<32>, fp - 0xC<32>, fp + 4<32>, fp - 0x2C<32>, fp - 0x10<32>, fp - 0x28<32>, out ecx_771, out edx_176) != 0<32> l00719AFA
+l00719AE9:
+	esi_104 = dwArg04
+	ebp_185 = ebp_90
+	ecx_186 = ecx_39
+l0071997E:
+	word32 edi_189 = edi_110 << 4<32>
+	branch bl_123 >u 0x39<8> l00719995
+l00719995:
+	branch bl_123 >u 0x66<8> l007199A7
+l007199A7:
+	edi_110 = edi_189 - 0x37<32> + dwArg04
+l0071999D:
+	edi_110 = edi_189 - 0x57<32> + dwArg04
+l0071998B:
+	edi_110 = edi_189 - 0x30<32> + dwArg04
+l007199AF:
+	di_268 = SLICE(edi_110, word16, 0) (alias)
+	esi_104 = esi_104 + 1<32>
+	dwLoc14_592 = dwLoc14_773 + 1<32>
+	dwLoc14_773 = dwLoc14_592
+	branch dwLoc14_773 + 0<32> < ebx_113 l00719963
+l007199C3:
+	branch edi_110 <=u 0x10000<32> l00719A25
+l007199CF:
+	word32 ecx_772
+	branch fn00717CB0(fp - 0x20<32>, dwArg08, fp - 0x24<32>, dwArg04, dwArg08, dwArg04, fp - 8<32>, fp - 0xC<32>, fp + 4<32>, fp - 0x2C<32>, fp - 0x10<32>, fp - 0x28<32>, out ecx_772, out edx_176) != 0<32> l00719AFA
+l00719AFA:
+l00719A1D:
+	esi_104 = dwArg04
+l00719A25:
+	ecx_186 = ecx_39
+l00719A29:
+	Mem274[ebp_90:word16] = di_268
+	ebp_185 = ebp_90 + 2<32>
+l007198C6:
+	Mem278[ebp_185:word16] = CONVERT(al_46, byte, word16)
+	ebp_185 = ebp_185 + 2<32>
+	esi_104 = esi_104 + 1<32>
+l00719A30:
+	branch esi_104 <u ecx_186 l007198C0
+l00719A3C:
+l00719A40:
+	word32 esp_336 = fp - 0x3C<32>
+	word32 ecx_770
+	branch fn00717900(fp - 0x2C<32>, dwArg04, out ecx_770, out edx_176) < 0<32> l00719AFE
+l00719AFE:
+	word32 esp_340 = fp - 0x3C<32>
+	branch eax_27 == 0<32> l00719B17
+l00719B06:
+	word32 v22_346 = Mem341[eax_27:word32] + 0xFFFFFFFF<32>
+	Mem347[eax_27:word32] = v22_346
+	branch v22_346 != 0<32> l00719B17
+l00719B0B:
+	word32 ecx_350 = Mem347[eax_27 + 4<32>:word32]
+	word32 esp_363
+	call Mem347[ecx_350 + 0x18<32>:word32] (retsize: 4;)
+		uses: ecx:ecx_350,Stack +0004:eax_27,Stack +0008:dwArg04,Stack +000C:dwArg08,Stack +0048:dwArg04,Stack +004C:dwArg08
+		defs: edx:edx_365,esp:esp_363
+	esp_340 = esp_363 + 4<32>
+l00719B17:
+	branch true l00719B2C
+l00719B1B:
+	word32 v24_376 = Mem375[0<32>:word32] + 0xFFFFFFFF<32>
+	Mem377[0<32>:word32] = v24_376
+	branch v24_376 != 0<32> l00719B2C
+l00719B20:
+	word32 eax_380 = Mem377[4<32>:word32]
+	word32 ecx_381 = Mem377[eax_380 + 0x18<32>:word32]
+	Mem384[esp_340 - 4<i32>:word32] = 0<32>
+	word32 esp_389
+	call ecx_381 (retsize: 4;)
+		uses: eax:eax_380,Stack +0008:dwArg04,Stack +000C:dwArg08
+		defs: edx:edx_391,esp:esp_389
+	esp_340 = esp_389 + 4<32>
+l00719B2C:
+	word32 eax_399 = Mem398[esp_340 + 0x1C<32>:word32]
+	branch eax_399 == 0<32> l00719B45
+l00719B34:
+	word32 v25_403 = Mem398[eax_399:word32] + 0xFFFFFFFF<32>
+	Mem404[eax_399:word32] = v25_403
+	branch v25_403 != 0<32> l00719B45
+l00719B39:
+	word32 edx_407 = Mem404[eax_399 + 4<32>:word32]
+	Mem409[esp_340 - 4<i32>:word32] = eax_399
+	call Mem409[edx_407 + 0x18<32>:word32] (retsize: 4;)
+		uses: edx:edx_407,Stack +0008:dwArg04,Stack +000C:dwArg08
+		defs: edx:edx_418
+l00719B45:
+	edxOut = edx_176
+	return 0<32>
+l00719A5B:
+	branch true l00719A70
+l00719A5F:
+	word32 v20_440 = Mem311[0<32>:word32] + 0xFFFFFFFF<32>
+	Mem441[0<32>:word32] = v20_440
+	branch v20_440 != 0<32> l00719A70
+l00719A64:
+	word32 ecx_444 = Mem441[4<32>:word32]
+	word32 esp_448
+	call Mem441[ecx_444 + 0x18<32>:word32] (retsize: 4;)
+		uses: ecx:ecx_444,Stack +0004:0<32>,Stack +0008:dwArg04,Stack +000C:dwArg08,Stack +0048:dwArg04,Stack +004C:dwArg08
+		defs: edx:edx_450,esp:esp_448
+	esp_336 = esp_448 + 4<32>
+l00719A70:
+	word32 eax_458 = Mem457[esp_336 + 0x1C<32>:word32]
+	branch eax_458 == 0<32> l00719A89
+l00719A78:
+	word32 v21_462 = Mem457[eax_458:word32] + 0xFFFFFFFF<32>
+	Mem463[eax_458:word32] = v21_462
+	branch v21_462 != 0<32> l00719A89
+l00719A7D:
+	word32 ecx_466 = Mem463[eax_458 + 4<32>:word32]
+	word32 edx_467 = Mem463[ecx_466 + 0x18<32>:word32]
+	Mem469[esp_336 - 4<i32>:word32] = eax_458
+	word32 esp_475
+	call edx_467 (retsize: 4;)
+		uses: ecx:ecx_466,Stack +0008:dwArg04,Stack +000C:dwArg08
+		defs: edx:edx_477,esp:esp_475
+	esp_336 = esp_475 + 4<32>
+l00719A89:
+	eax_27 = Mem484[esp_336 + 0x10<32>:word32]
+l00719A8D:
+	edxOut = edx_176
+	return eax_27
+fn00719870_exit:
+
+
+word32 fn00719DD0(word32 dwArg04, word32 dwArg08, ptr32 & edxOut)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn0071FEB0
+// MayUse:  Stack +0004:[0..31] Stack +0008:[0..31]
+// LiveOut: eax edx
+// Trashed: SCZO eax ecx edi edx esi Top
+// Preserved: esp
+fn00719DD0_entry:
+l00719DD0:
+	word32 edx_127
+	word32 esi_32 = dwArg08
+	branch dwArg08 != 1<32> l00719E3C
+l00719E3C:
+	word32 ecx_181
+	word32 eax_15 = fn00717740(dwArg08, out ecx_181, out edx_127)
+	branch eax_15 != 0<32> l00719E4C
+l00719E4C:
+	branch dwArg08 == 0<32> l00719E74
+l00719E50:
+	word32 ecx_26 = Mem11[eax_15 + 0xC<32>:word32]
+	branch dwArg08 <= 0<32> l00719E74
+l00719E55:
+	edx_127 = dwArg04
+l00719E60:
+	Mem35[ecx_26:word16] = CONVERT(Mem30[edx_127:byte], byte, word16)
+	esi_32 = esi_32 - 1<32>
+	ecx_26 = ecx_26 + 2<32>
+	edx_127 = edx_127 + 1<32>
+	branch esi_32 > 0<32> l00719E60
+l00719E74:
+	edxOut = edx_127
+	return eax_15
+l00719DDB:
+	word32 edi_49 = CONVERT(CONVERT(Mem11[dwArg04:byte], byte, word16), word16, word32)
+	word16 di_50 = SLICE(edi_49, word16, 0)
+	word16 wArg08_172 = SLICE(edi_49, word16, 0)
+	branch di_50 >=u 0x100<16> l00719E20
+l00719E20:
+	word32 ecx_182
+	word32 eax_56 = fn00717740(1<32>, out ecx_182, out edx_127)
+	word16 edx_16_16_131 = SLICE(edx_127, word16, 16)
+	branch eax_56 == 0<32> l00719E47
+l00719E2E:
+	Mem68[Mem52[eax_56 + 0xC<32>:word32]:word16] = wArg08_172
+	edxOut = SEQ(edx_16_16_131, wArg08_172)
+	return eax_56
+l00719DF1:
+	word32 esi_71 = CONVERT(di_50, word16, word32)
+	word32 eax_72 = Mem52[esi_71 * 4<32> + 0xA6D7B0<32>:word32]
+	branch eax_72 != 0<32> l00719E1A
+l00719DFF:
+	word32 ecx_183
+	eax_72 = fn00717740(1<32>, out ecx_183, out edx_127)
+	branch eax_72 == 0<32> l00719E47
+l00719E47:
+	edxOut = edx_127
+	return 0<32>
+l00719E0D:
+	edx = Mem52[eax_72 + 0xC<32>:word32]
+	Mem96[edx:word16] = di_50
+	Mem97[esi_71 * 4<32> + 0xA6D7B0<32>:word32] = eax_72
+l00719E1A:
+	Mem101[eax_72:word32] = Mem99[eax_72:word32] + 1<32>
+	edxOut = edx
+	return eax_72
+fn00719DD0_exit:
+
+
+word32 fn00719E80(word32 esi, word32 dwArg04, word32 dwArg08, word32 dwArg0C, ptr32 & edxOut)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn00719F20
+//      fn0071A060
+// MayUse:  esi:[0..31] Stack +0004:[0..31] Stack +0008:[0..31] Stack +000C:[0..31]
+// LiveOut: ecx edx
+// Trashed: SCZO eax ecx edx Top
+// Preserved: esp
+fn00719E80_entry:
+l00719E80:
+	word32 eax_6 = Mem0[esi:word32]
+	branch eax_6 != 0<32> l00719EA3
+l00719EA3:
+	word32 ecx_129
+	word32 edx_132
+	branch fn006E3770(eax_6, ecx, out ecx_129, out edx_132) != 0<32> l00719ED1
+l00719EB1:
+	branch fn006E38B0(Mem14[esi:word32], edi, out ecx_129, out edx_132) != 0<32> l00719ED1
+l00719EC1:
+	branch fn006E3900(Mem30[esi:word32], ebx, out ecx_129, out edx_132) == 0<32> l00719EEF
+l00719ED1:
+	word32 eax_59 = Mem58[esi:word32]
+	Mem61[eax_59:word32] = Mem58[eax_59:word32] + 0xFFFFFFFF<32>
+	word32 eax_62 = Mem61[esi:word32]
+	branch Mem61[eax_62:word32] != 0<32> l00719EE9
+l00719EDD:
+	word32 edx_65 = Mem61[eax_62 + 4<32>:word32]
+	call Mem68[edx_65 + 0x18<32>:word32] (retsize: 4;)
+		uses: ecx:ecx_70,edx:edx_65,Stack +0004:eax_62,Stack +000C:dwArg04,Stack +0010:dwArg08,Stack +0014:dwArg0C
+		defs: ecx:ecx_77,edx:edx_76
+l00719EE9:
+	Mem83[esi:word32] = 0<32>
+l00719EEF:
+	edxOut = edx_132
+	return ecx_129
+l00719E86:
+	word32 edx_101
+	word32 ecx_102
+	Mem107[esi:word32] = fn006E3D10(out ecx_102, out edx_101)
+	edxOut = edx_101
+	return ecx_102
+fn00719E80_exit:
+
+
+word32 fn00719F20(word32 ecx, word32 dwArg04, word32 dwArg08, word32 dwArg0C, word32 dwArg10, word32 dwArg14, word32 dwArg18, word32 dwArg1C, ptr32 & ecxOut, ptr32 & edxOut)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn0071A060
+// MayUse:  ecx:[0..31] Stack +0004:[0..31] Stack +0008:[0..31] Stack +000C:[0..31] Stack +0010:[0..31] Stack +0014:[0..31] Stack +0018:[0..31] Stack +001C:[0..31]
+// LiveOut: eax ecx edx
+// Trashed: SCZO eax ebp ecx edi edx esi Top
+// Preserved: esp
+fn00719F20_entry:
+l00719F20:
+	branch Mem6[dwArg04:word32] != 0<32> l00719F41
+l00719F2E:
+	word32 ecx_19
+	word32 edx_21
+	word32 eax_20 = fn0074EFB0(eax, out ecx_19, out edx_21)
+	Mem27[dwArg04:word32] = eax_20
+	branch eax_20 != 0<32> l00719F41
+l00719F41:
+	word32 edx_117
+	word32 ecx_115 = fn00719E80(ecx, dwArg08, dwArg04, dwArg10, out edx_117)
+	branch Mem45[ecx:word32] == 0<32> l0071A056
+l00719F6B:
+	word32 eax_69 = fn00703AF0(Mem45[dwArg04:word32], out ecx_115, out edx_117)
+	branch eax_69 == 0<32> l0071A056
+l00719F84:
+	word32 eax_160
+	word32 eax_78 = Mem66[eax_69 + 4<32>:word32]
+	branch eax_78 == 0xA16588<32> l00719FBD
+l00719F8E:
+	word32 edx_418
+	word32 ecx_417
+	branch fn006D5670(eax_78, 0xA16588<32>, out ecx_417, out edx_418) != 0<32> l00719FBD
+l00719FBD:
+	branch fn006E7CB0(out ecx_115, out edx_117) != 0<32> l00719FF7
+l00719FF7:
+	word32 eax_124 = Mem111[dwArg1C:word32]
+	branch eax_124 >= 0<32> l0071A007
+l00719FFD:
+	word32 eax_129 = eax_124 + dwArg10
+	Mem131[dwArg1C:word32] = eax_129
+	ecx_115 = dwArg10
+	branch eax_129 < 0<32> l0071A02F
+l0071A007:
+	word32 edx_135 = dwArg10
+	branch Mem134[dwArg1C:word32] > dwArg10 l0071A02F
+l0071A02F:
+	eax_160 = fn006E15D0(Mem140[0x00A17CA4<p32>:word32], dwArg04, out ecx_115, out edx_117)
+l0071A00F:
+	Mem168[dwArg04:word32] = Mem134[dwArg04:word32] + 1<32>
+	word32 v18_169 = Mem168[eax_69:word32] + 0xFFFFFFFF<32>
+	Mem170[eax_69:word32] = v18_169
+	branch v18_169 != 0<32> l0071A027
+l0071A01B:
+	word32 eax_173 = Mem170[eax_69 + 4<32>:word32]
+	word32 ecx_174 = Mem170[eax_173 + 0x18<32>:word32]
+	call ecx_174 (retsize: 4;)
+		uses: eax:eax_173,ecx:ecx_174,Stack +0004:eax_69,Stack +0008:dwArg04,Stack +0018:dwArg04,Stack +001C:dwArg08,Stack +0020:dwArg0C,Stack +0024:dwArg10,Stack +0028:dwArg14,Stack +002C:dwArg18,Stack +0030:dwArg1C
+		defs: ecx:ecx_178,edx:edx_180
+l0071A027:
+	ecxOut = ecx_115
+	edxOut = edx_135
+	return dwArg04
+l00719FE0:
+	word32 v14_194 = Mem111[eax_69:word32] + 0xFFFFFFFF<32>
+	Mem195[eax_69:word32] = v14_194
+	branch v14_194 != 0<32> l0071A056
+l00719FE5:
+	word32 edx_198 = Mem195[eax_69 + 4<32>:word32]
+	word32 eax_199 = Mem195[edx_198 + 0x18<32>:word32]
+	word32 ecx_203
+	word32 edx_205
+	call eax_199 (retsize: 4;)
+		uses: eax:eax_199,ecx:ecx_115,edx:edx_198,Stack +0004:eax_69,Stack +0008:dwArg04,Stack +0018:dwArg04,Stack +001C:dwArg08,Stack +0020:dwArg0C,Stack +0024:dwArg10,Stack +0028:dwArg14,Stack +002C:dwArg18,Stack +0030:dwArg1C
+		defs: ecx:ecx_203,edx:edx_205
+	ecxOut = ecx_203
+	edxOut = edx_205
+	return 0<32>
+l00719FA0:
+	eax_160 = fn006E15D0(Mem84[0x00A16B7C<p32>:word32], dwArg04, out ecx_115, out edx_117)
+l0071A045:
+	word32 v13_236 = Mem235[eax_69:word32] + 0xFFFFFFFF<32>
+	Mem237[eax_69:word32] = v13_236
+	branch v13_236 != 0<32> l0071A056
+l0071A04A:
+	word32 ecx_240 = Mem237[eax_69 + 4<32>:word32]
+	call Mem237[ecx_240 + 0x18<32>:word32] (retsize: 4;)
+		uses: eax:eax_246,ecx:ecx_240,Stack +0004:eax_69,Stack +0008:dwArg04,Stack +0018:dwArg04,Stack +001C:dwArg08,Stack +0020:dwArg0C,Stack +0024:dwArg10,Stack +0028:dwArg14,Stack +002C:dwArg18,Stack +0030:dwArg1C
+		defs: ecx:ecx_250,edx:edx_252
+l0071A056:
+	ecxOut = ecx_115
+	edxOut = edx_117
+	return 0<32>
+l00719F3E:
+	ecxOut = ecx_19
+	edxOut = edx_21
+	return eax_20
+fn00719F20_exit:
+
+
+word32 fn0071A060(word32 eax, word32 dwArg04, word32 dwArg0C, ptr32 & ecxOut, ptr32 & edxOut)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn0071A550
+//      fn0071A7D0
+// MayUse:  eax:[0..31] Stack +0004:[0..31] Stack +000C:[0..31]
+// LiveOut: eax ecx edx
+// Trashed: SCZO eax ebp ebx ecx edi edx esi Top
+// Preserved: esp
+fn0071A060_entry:
+l0071A060:
+	word32 ebx_18 = eax
+	word32 ebp_19 = eax + dwArg04 * 2<32>
+	branch dwArg0C != 0x100<32> l0071A094
+l0071A094:
+l0071A082:
+l0071A0A4:
+	word32 ecx_1245
+	word32 edx_1016
+	word32 eax_1000 = fn006EC9B0(0<32>, dwArg04, out ecx_1245, out edx_1016)
+	word32 edi_30 = 0<32>
+	word32 ecx_1004 = eax_1000
+	word32 esp_361 = fp - 0x44<32>
+	branch eax_1000 == 0<32> l0071A4BF
+l0071A0CE:
+	branch dwArg04 == 0<32> l0071A412
+l0071A0D6:
+	word32 eax_62 = eax_1000 + 0x14<32>
+	branch eax >=u ebp_19 l0071A3C7
+l0071A0E9:
+	esp_361 = fp - 0x44<32>
+l0071A0F0:
+	word32 eax_69 = CONVERT(Mem68[ebx_18:word16], word16, word32)
+	byte al_768 = SLICE(eax_69, byte, 0)
+	word32 ecx_71 = Mem68[esp_361 + 0x50<32>:word32]
+	edx_1016 = CONVERT(SLICE(eax_69, word16, 0), word16, word32)
+	branch edx_1016 >= ecx_71 l0071A113
+l0071A113:
+	word32 eax_77 = ebx_18 - Mem68[esp_361 + 0x24<32>:word32]
+	Mem78[esp_361 + 0x1C<32>:word32] = ebx_18
+	Mem80[esp_361 + 0x3C<32>:word32] = eax_77 >> 1<32>
+	word32 eax_81 = Mem80[esp_361 + 0x2C<32>:word32]
+	word32 ebp_217 = ebx_18
+	branch ebx_18 >=u eax_81 l0071A13F
+l0071A12D:
+l0071A130:
+	edx_1016 = CONVERT(Mem80[ebp_217:word16], word16, word32)
+	branch edx_1016 < ecx_71 l0071A13F
+l0071A138:
+	ebp_217 = ebp_217 + 2<32>
+	branch ebp_217 <u eax_81 l0071A130
+l0071A13F:
+	word32 eax_124 = Mem80[esp_361 + 0x20<32>:word32]
+	branch eax_124 != 0xFFFFFFFF<32> l0071A1B8
+l0071A148:
+	word32 eax_102 = Mem80[esp_361 + 0x4C<32>:word32]
+	branch eax_102 == 0<32> l0071A1AF
+l0071A150:
+	word32 edi_106 = 0x8D1DC8<32>
+	word32 esi_107 = eax_102
+	word32 ecx_108 = 7<32>
+	edx_1016 = 0<32>
+	bool v29_893 = true
+l0071A15E:
+	branch ecx_108 == 0<32> l0071A160
+l0071A15E_1:
+	v29_893 = Mem80[esi_1260:byte] == Mem80[edi_1261:byte]
+	esi_107 = esi_1260 + 1<i32>
+	edi_106 = edi_1261 + 1<i32>
+	ecx_108 = ecx_108 - 1<32>
+	esi_1260 = esi_107
+	edi_1261 = edi_106
+	branch Mem80[esi_1260:byte] != Mem80[edi_1261:byte] l0071A15E
+l0071A160:
+	branch v29_893 l0071A1AF
+l0071A1AF:
+	eax_124 = 1<32>
+l0071A162:
+	word32 edi_125 = 0x8D46D8<32>
+	word32 esi_128 = eax_102
+	word32 ecx_129 = 8<32>
+	edx_1016 = 0<32>
+	bool v33_897 = false
+l0071A170:
+	branch ecx_129 == 0<32> l0071A172
+l0071A170_2:
+	v33_897 = Mem80[esi_1262:byte] != Mem80[edi_1263:byte]
+	esi_128 = esi_1262 + 1<i32>
+	edi_125 = edi_1263 + 1<i32>
+	ecx_129 = ecx_129 - 1<32>
+	esi_1262 = esi_128
+	edi_1263 = edi_125
+	branch Mem80[esi_1262:byte] != Mem80[edi_1263:byte] l0071A170
+l0071A172:
+	branch v33_897 l0071A17B
+l0071A17B:
+	word32 edi_145 = 0x8B056C<32>
+	word32 esi_148 = eax_102
+	word32 ecx_149 = 7<32>
+	edx_1016 = 0<32>
+	bool v37_901 = false
+l0071A189:
+	branch ecx_149 == 0<32> l0071A18B
+l0071A189_1:
+	v37_901 = Mem80[esi_1264:byte] != Mem80[edi_1265:byte]
+	esi_148 = esi_1264 + 1<i32>
+	edi_145 = edi_1265 + 1<i32>
+	ecx_149 = ecx_149 - 1<32>
+	esi_1264 = esi_148
+	edi_1265 = edi_145
+	branch Mem80[esi_1264:byte] != Mem80[edi_1265:byte] l0071A189
+l0071A18B:
+	branch v37_901 l0071A194
+l0071A194:
+	word32 esi_167 = eax_102
+	bool v41_905 = false
+	word32 edi_171 = 0x8D9620<32>
+	word32 ecx_172 = 0x12<32>
+l0071A1A2:
+	branch ecx_172 == 0<32> l0071A1A4
+l0071A1A2_1:
+	v41_905 = Mem80[esi_1266:byte] != Mem80[edi_1267:byte]
+	esi_167 = esi_1266 + 1<i32>
+	edi_171 = edi_1267 + 1<i32>
+	ecx_172 = ecx_172 - 1<32>
+	esi_1266 = esi_167
+	edi_1267 = edi_171
+	branch Mem80[esi_1266:byte] != Mem80[edi_1267:byte] l0071A1A2
+l0071A1A4:
+	eax_124 = CONVERT(CONVERT(v41_905, bool, int8), int8, uint32) - 1<32> & 4<32>
+l0071A18D:
+	eax_124 = 3<32>
+l0071A174:
+	eax_124 = 2<32>
+l0071A1B4:
+	Mem207[esp_361 + 0x20<32>:word32] = eax_124
+l0071A1B8:
+	word32 esp_293
+	word32 esi_399
+	word32 eax_209 = eax_124 + 0xFFFFFFFF<32>
+	branch eax_209 >u 3<32> l0071A2C3
+l0071A2C3:
+	word32 eax_214 = Mem213[esp_361 + 0x24<32>:word32]
+	word32 esp_231 = esp_361 - 4<i32>
+	Mem232[esp_231:word32] = esp_361 + 0x40<32>
+	word32 edx_233 = Mem232[esp_231 + 0x40<32>:word32]
+	Mem237[esp_231 - 4<i32>:word32] = ebp_217 - eax_214 >> 1<32>
+	word32 ecx_238 = Mem237[esp_231 + 0x4C<32>:word32]
+	Mem240[esp_231 - 8<i32>:word32] = edx_233
+	word32 edx_241 = Mem240[esp_231 + 0x34<32>:word32]
+	Mem243[esp_231 - 12<i32>:word32] = ecx_238
+	Mem245[esp_231 - 16<i32>:word32] = eax_214
+	Mem247[esp_231 - 20<i32>:word32] = edx_241
+	Mem250[esp_231 - 24<i32>:word32] = esp_231 + 0x3C<32>
+	// Failed to bind call argument.
+	// Please report this issue at https://github.com/uxmal/reko
+	// Failed to bind call argument.
+	// Please report this issue at https://github.com/uxmal/reko
+	// Failed to bind call argument.
+	// Please report this issue at https://github.com/uxmal/reko
+	// Failed to bind call argument.
+	// Please report this issue at https://github.com/uxmal/reko
+	// Failed to bind call argument.
+	// Please report this issue at https://github.com/uxmal/reko
+	word32 stackArg4 = <invalid>
+	word32 stackArg12 = <invalid>
+	word32 stackArg20 = <invalid>
+	word32 stackArg24 = <invalid>
+	word32 stackArg28 = <invalid>
+	word32 eax_288 = fn00719F20(esp_231 + 0x1C<32>, stackArg4, dwArg04, stackArg12, dwArg0C, stackArg20, stackArg24, stackArg28, out ecx_1004, out edx_1016)
+	Mem296[esp_231 + 0x20<32>:word32] = eax_288
+	esp_293 = esp_231 + 4<32>
+	branch eax_288 == 0<32> l0071A46D
+l0071A308:
+	word32 ecx_298 = Mem296[esp_231 + 0x14<32>:word32]
+	word32 ebx_304 = Mem296[eax_288 + 8<32>:word32]
+	word32 edi_302 = ecx_298 - Mem296[esp_231 + 0x18<32>:word32]
+	word32 eax_305 = Mem296[esp_231 + 0x2C<32>:word32]
+	word32 esi_309 = (Mem296[esp_231 + 0x30<32>:word32] - ebp_217 >> 1<32>) + ebx_304 + (edi_302 - 0x14<32>)
+	branch esi_309 <= eax_305 l0071A35B
+l0071A32E:
+	branch esi_309 >= eax_305 * 2<32> l0071A335
+l0071A332_1:
+	esi_309 = eax_305 * 2<32>
+l0071A335:
+	Mem320[esp_231:word32] = esi_309
+	Mem322[esp_231 - 4<32>:word32] = esp_231 + 0x18<32>
+	// Failed to bind call argument.
+	// Please report this issue at https://github.com/uxmal/reko
+	word32 stackArg4 = <invalid>
+	esp_293 = esp_231 + 4<32>
+	branch fn006EC4F0(stackArg4, dwArg04, out ecx_1004, out edx_1016) != 0<32> l0071A458
+l0071A458:
+	word32 eax_337 = Mem322[esp_231 + 0x20<32>:word32]
+	word32 v24_338 = Mem322[eax_337:word32] + 0xFFFFFFFF<32>
+	Mem339[eax_337:word32] = v24_338
+	branch v24_338 != 0<32> l0071A46D
+l0071A461:
+	word32 ecx_342 = Mem339[eax_337 + 4<32>:word32]
+	word32 edx_343 = Mem339[ecx_342 + 0x18<32>:word32]
+	Mem345[esp_231:word32] = eax_337
+	word32 esp_346
+	call edx_343 (retsize: 4;)
+		uses: eax:eax_337,ecx:ecx_342,Stack +0008:dwArg04,Stack +0010:dwArg0C
+		defs: ecx:ecx_348,edx:edx_349,esp:esp_346
+	esp_293 = esp_346 + 4<32>
+l0071A34B:
+	ecx_298 = edi_302 + Mem322[esp_231 + 0x18<32>:word32]
+	Mem356[esp_231 + 0x14<32>:word32] = ecx_298
+	Mem357[esp_231 + 0x2C<32>:word32] = esi_309
+l0071A35B:
+	edx_1016 = Mem362[Mem362[esp_361 + 0x1C<32>:word32] + 0xC<32>:word32]
+	branch ebx_304 <= 0<32> l0071A391
+l0071A366:
+	word32 esi_365 = Mem362[esp_361 + 0x50<32>:word32]
+	word32 ebx_366 = ebx_304
+l0071A370:
+	word32 eax_369 = CONVERT(Mem368[edx_1016:word16], word16, word32)
+	byte al_438 = SLICE(eax_369, byte, 0)
+	ebx_366 = ebx_366 - 1<32>
+	branch CONVERT(SLICE(eax_369, word16, 0), word16, word32) >= esi_365 l0071A4C9
+l0071A4C9:
+	word32 edx_379 = Mem368[esp_361 + 0x24<32>:word32]
+	word32 esp_382 = esp_361 - 4<i32>
+	Mem383[esp_382:word32] = Mem368[esp_361 + 0x48<32>:word32]
+	word32 eax_384 = Mem383[esp_382 + 0x34<32>:word32]
+	Mem386[esp_382 - 4<i32>:word32] = edx_379
+	Mem389[esp_382 - 8<i32>:word32] = eax_384
+	// Failed to bind call argument.
+	// Please report this issue at https://github.com/uxmal/reko
+	// Failed to bind call argument.
+	// Please report this issue at https://github.com/uxmal/reko
+	word32 stackArg4 = <invalid>
+	word32 stackArg12 = <invalid>
+	ecx_1004 = fn00719E80(esp_382 + 0x1C<32>, stackArg4, dwArg04, stackArg12, out edx_1016)
+	esi_399 = Mem389[esp_382 + 0x1C<32>:word32]
+	branch esi_399 == 0<32> l0071A500
+l0071A4F7:
+	Mem405[esp_382:word32] = esi_399
+	// Failed to bind call argument.
+	// Please report this issue at https://github.com/uxmal/reko
+	word32 stackArg4 = <invalid>
+	ecx_1004 = fn0074E280(stackArg4, out edx_1016)
+l0071A500:
+	word32 eax_416 = Mem415[esp_361 + 0x1C<32>:word32]
+	word32 v25_417 = Mem415[eax_416:word32] + 0xFFFFFFFF<32>
+	Mem418[eax_416:word32] = v25_417
+	esp_293 = esp_361
+	branch v25_417 != 0<32> l0071A471
+l0071A50D:
+	word32 ecx_421 = Mem418[eax_416 + 4<32>:word32]
+	word32 edx_422 = Mem418[ecx_421 + 0x18<32>:word32]
+	Mem424[esp_361 - 4<i32>:word32] = eax_416
+	word32 esp_430
+	call edx_422 (retsize: 4;)
+		uses: eax:eax_416,ecx:ecx_421,Stack +0008:dwArg04,Stack +0010:dwArg0C
+		defs: ecx:ecx_432,edx:edx_433,esp:esp_430
+	esp_293 = esp_430 + 4<32>
+l0071A381:
+	Mem440[ecx_298:byte] = al_438
+	ecx_298 = ecx_298 + 1<32>
+	Mem445[esp_361 + 0x10<32>:word32] = ecx_298
+	edx_1016 = edx_1016 + 2<32>
+	branch ebx_366 > 0<32> l0071A370
+l0071A391:
+	word32 eax_451 = Mem447[esp_361 + 0x1C<32>:word32]
+	ebx_18 = Mem447[esp_361 + 0x24<32>:word32] + Mem447[esp_361 + 0x40<32>:word32] * 2<32>
+	word32 v23_452 = Mem447[eax_451:word32] + 0xFFFFFFFF<32>
+	Mem453[eax_451:word32] = v23_452
+	branch v23_452 != 0<32> l0071A3B1
+l0071A3A5:
+	word32 edx_456 = Mem453[eax_451 + 4<32>:word32]
+	Mem458[esp_361 - 4<i32>:word32] = eax_451
+	word32 eax_459 = Mem458[edx_456 + 0x18<32>:word32]
+	word32 esp_468
+	call eax_459 (retsize: 4;)
+		uses: eax:eax_459,edx:edx_456,Stack +0008:dwArg04,Stack +0010:dwArg0C
+		defs: edx:edx_471,esp:esp_468
+	esp_361 = esp_468 + 4<32>
+l0071A1C4:
+	switch (eax_209) { l0071A41A l0071A1CB l0071A1F1 l0071A1F8 }
+l0071A1F8:
+	word32 edi_477 = Mem213[esp_361 + 0x10<32>:word32] - Mem213[esp_361 + 0x14<32>:word32]
+	word32 ecx_478 = 0<32>
+	branch ebx_18 >=u ebp_217 l0071A249
+l0071A209:
+l0071A210:
+	word16 ax_499 = Mem213[ebx_18:word16]
+	branch ax_499 >=u 0xA<16> l0071A21E
+l0071A21E:
+	branch ax_499 >=u 0x64<16> l0071A229
+l0071A229:
+	branch ax_499 >=u 0x3E8<16> l0071A234
+l0071A234:
+	branch ax_499 >=u 0x2710<16> l0071A23F
+l0071A23F:
+	ecx_478 = ecx_478 + 8<32>
+l0071A23A:
+	ecx_478 = ecx_478 + 7<32>
+l0071A22F:
+	ecx_478 = ecx_478 + 6<32>
+l0071A224:
+	ecx_478 = ecx_478 + 5<32>
+l0071A219:
+	ecx_478 = ecx_478 + 4<32>
+l0071A242:
+	ebx_18 = ebx_18 + 2<32>
+	branch ebx_18 <u ebp_217 l0071A210
+l0071A249:
+	word32 eax_531 = Mem213[esp_361 + 0x28<32>:word32]
+	word32 esi_541 = (Mem213[esp_361 + 0x2C<32>:word32] - ebp_217 >> 1<32>) + ecx_478 + (edi_477 - 0x14<32>)
+	branch esi_541 <= eax_531 l0071A28A
+l0071A25D:
+	branch esi_541 >= eax_531 * 2<32> l0071A264
+l0071A261_1:
+	esi_541 = eax_531 * 2<32>
+l0071A264:
+	word32 esp_550 = esp_361 - 4<i32>
+	Mem552[esp_550:word32] = esi_541
+	Mem554[esp_550 - 4<i32>:word32] = esp_361 + 0x14<32>
+	// Failed to bind call argument.
+	// Please report this issue at https://github.com/uxmal/reko
+	word32 stackArg4 = <invalid>
+	esp_293 = esp_550 + 4<32>
+	branch fn006EC4F0(stackArg4, dwArg04, out ecx_1004, out edx_1016) != 0<32> l0071A46D
+l0071A46D:
+	esi_399 = Mem575[esp_293 + 0x18<32>:word32]
+l0071A27A:
+	edx_1016 = Mem554[esp_550 + 0x18<32>:word32]
+	Mem579[esp_550 + 0x14<32>:word32] = edi_477 + edx_1016
+	Mem580[esp_550 + 0x2C<32>:word32] = esi_541
+l0071A28A:
+	word32 esi_583 = Mem582[esp_361 + 0x1C<32>:word32]
+	branch esi_583 >=u ebp_217 l0071A1F1
+l0071A296:
+	word32 edi_588 = Mem582[esp_361 + 0x10<32>:word32]
+l0071A2A0:
+	word32 esp_593 = esp_361 - 4<i32>
+	Mem594[esp_593:word32] = CONVERT(Mem590[esi_583:word16], word16, word32)
+	Mem596[esp_593 - 4<i32>:word32] = 0x8A8448<32>
+	Mem599[esp_593 - 8<i32>:word32] = edi_588
+	esi_583 = esi_583 + 2<32>
+	esp_361 = esp_593 + 4<32>
+	edi_588 = edi_588 + sprintf(Mem599[esp_593 - 8<i32>:(ptr32 charconst )], Mem599[esp_593 - 4<i32>:(ptr32 charconst )], Mem599[esp_593:int32])
+	branch esi_583 <u ebp_217 l0071A2A0
+l0071A2B8:
+	Mem607[esp_593 + 0x14<32>:word32] = edi_588
+	ebx_18 = ebp_217
+l0071A1CB:
+	branch ebx_18 >=u ebp_217 l0071A1F1
+l0071A1CF:
+	word32 edi_611 = Mem213[esp_361 + 0x10<32>:word32]
+	word32 esi_615 = ebp_217 - ebx_18 - 1<32> >>u 1<32>
+	word32 esp_617 = esp_361 - 4<i32>
+	Mem618[esp_617:word32] = esi_615 + 1<32>
+	Mem620[esp_617 - 4<i32>:word32] = 0x3F<32>
+	Mem622[esp_617 - 8<i32>:word32] = edi_611
+	memset(Mem622[esp_617 - 8<i32>:(ptr32 void)], Mem622[esp_617 - 4<i32>:int32], Mem622[esp_617:size_t])
+	Mem627[esp_617 + 0x14<32>:word32] = edi_611 + (esi_615 + 1<32>)
+l0071A1F1:
+	ebx_18 = ebp_217
+l0071A41A:
+	word32 eax_630 = Mem213[esp_361 + 0x24<32>:word32]
+	word32 esp_632 = esp_361 - 4<i32>
+	Mem633[esp_632:word32] = Mem213[esp_361 + 0x48<32>:word32]
+	Mem640[esp_632 - 4<i32>:word32] = eax_630
+	Mem646[esp_632 - 8<i32>:word32] = Mem640[esp_632 + 0x34<32>:word32]
+	// Failed to bind call argument.
+	// Please report this issue at https://github.com/uxmal/reko
+	// Failed to bind call argument.
+	// Please report this issue at https://github.com/uxmal/reko
+	word32 stackArg4 = <invalid>
+	word32 stackArg12 = <invalid>
+	ecx_1004 = fn00719E80(esp_632 + 0x1C<32>, stackArg4, dwArg04, stackArg12, out edx_1016)
+	esi_399 = Mem646[esp_632 + 0x1C<32>:word32]
+	esp_293 = esp_632 + 4<32>
+	branch esi_399 == 0<32> l0071A471
+l0071A44D:
+	Mem660[esp_632:word32] = esi_399
+	// Failed to bind call argument.
+	// Please report this issue at https://github.com/uxmal/reko
+	word32 stackArg4 = <invalid>
+	ecx_1004 = fn0074E280(stackArg4, out edx_1016)
+	esp_293 = esp_632 + 4<32>
+l0071A471:
+	word32 eax_671 = Mem670[esp_293 + 0x14<32>:word32]
+	branch eax_671 == 0<32> l0071A491
+l0071A479:
+	Mem676[eax_671:word32] = Mem670[eax_671:word32] + 0xFFFFFFFF<32>
+	word32 eax_677 = Mem676[esp_293 + 0x14<32>:word32]
+	branch Mem676[eax_677:word32] != 0<32> l0071A491
+l0071A485:
+	word32 ecx_680 = Mem676[eax_677 + 4<32>:word32]
+	word32 edx_681 = Mem676[ecx_680 + 0x18<32>:word32]
+	Mem683[esp_293 - 4<i32>:word32] = eax_677
+	word32 esp_693
+	call edx_681 (retsize: 4;)
+		uses: eax:eax_677,ecx:ecx_680,Stack +0008:dwArg04,Stack +0010:dwArg0C
+		defs: ecx:ecx_695,edx:edx_696,esp:esp_693
+	esp_293 = esp_693 + 4<32>
+l0071A491:
+	word32 eax_703 = Mem702[esp_293 + 0x38<32>:word32]
+	branch eax_703 == 0<32> l0071A4AA
+l0071A499:
+	word32 v21_707 = Mem702[eax_703:word32] + 0xFFFFFFFF<32>
+	Mem708[eax_703:word32] = v21_707
+	branch v21_707 != 0<32> l0071A4AA
+l0071A49E:
+	word32 ecx_711 = Mem708[eax_703 + 4<32>:word32]
+	word32 edx_712 = Mem708[ecx_711 + 0x18<32>:word32]
+	Mem714[esp_293 - 4<i32>:word32] = eax_703
+	word32 esp_720
+	call edx_712 (retsize: 4;)
+		uses: eax:eax_703,ecx:ecx_711,Stack +0008:dwArg04,Stack +0010:dwArg0C
+		defs: ecx:ecx_722,edx:edx_723,esp:esp_720
+	esp_293 = esp_720 + 4<32>
+l0071A4AA:
+	branch esi_399 == 0<32> l0071A4BF
+l0071A4AE:
+	word32 v22_733 = Mem732[esi_399:word32] + 0xFFFFFFFF<32>
+	Mem734[esi_399:word32] = v22_733
+	branch v22_733 != 0<32> l0071A4BF
+l0071A4B3:
+	word32 eax_737 = Mem734[esi_399 + 4<32>:word32]
+	word32 ecx_738 = Mem734[eax_737 + 0x18<32>:word32]
+	Mem741[esp_293 - 4<i32>:word32] = esi_399
+	call ecx_738 (retsize: 4;)
+		uses: eax:eax_737,Stack +0008:dwArg04,Stack +0010:dwArg0C
+		defs: ecx:ecx_748,edx:edx_749
+l0071A4BF:
+	ecxOut = ecx_1004
+	edxOut = edx_1016
+	return 0<32>
+l0071A0FE:
+	word32 ecx_767 = Mem68[esp_361 + 0x10<32>:word32]
+	Mem769[ecx_767:byte] = al_768
+	Mem771[esp_361 + 0x10<32>:word32] = ecx_767 + 1<32>
+	ebx_18 = ebx_18 + 2<32>
+l0071A3B1:
+	branch ebx_18 <u Mem777[esp_361 + 0x2C<32>:word32] l0071A0F0
+l0071A3BB:
+	edi_30 = Mem777[esp_361 + 0x38<32>:word32]
+	eax_62 = Mem777[esp_361 + 0x10<32>:word32]
+	ecx_1004 = Mem777[esp_361 + 0x14<32>:word32]
+l0071A3C7:
+	word32 eax_786 = eax_62 - ecx_1004
+	branch eax_786 - 0x14<32> >= Mem789[esp_361 + 0x28<32>:word32] l0071A3E0
+l0071A3D2:
+	word32 esp_792 = esp_361 - 4<i32>
+	Mem793[esp_792:word32] = eax_786 - 0x14<32>
+	Mem796[esp_792 - 4<i32>:word32] = esp_792 + 0x18<32>
+	// Failed to bind call argument.
+	// Please report this issue at https://github.com/uxmal/reko
+	word32 stackArg4 = <invalid>
+	fn006EC4F0(stackArg4, dwArg04, out ecx_1004, out edx_1016)
+l0071A3E0:
+	word32 esp_829 = esp_361
+	branch edi_30 == 0<32> l0071A3F5
+l0071A3E4:
+	word32 v17_823 = Mem822[edi_30:word32] + 0xFFFFFFFF<32>
+	Mem824[edi_30:word32] = v17_823
+	branch v17_823 != 0<32> l0071A3F5
+l0071A3E9:
+	word32 eax_827 = Mem824[edi_30 + 4<32>:word32]
+	word32 ecx_828 = Mem824[eax_827 + 0x18<32>:word32]
+	Mem831[esp_361 - 4<i32>:word32] = edi_30
+	word32 esp_836
+	call ecx_828 (retsize: 4;)
+		uses: eax:eax_827,Stack +0008:dwArg04,Stack +0010:dwArg0C
+		defs: ecx:ecx_838,edx:edx_839,esp:esp_836
+	esp_829 = esp_836 + 4<32>
+l0071A3F5:
+	word32 eax_846 = Mem845[esp_829 + 0x18<32>:word32]
+	branch eax_846 == 0<32> l0071A40E
+l0071A3FD:
+	word32 v18_850 = Mem845[eax_846:word32] + 0xFFFFFFFF<32>
+	Mem851[eax_846:word32] = v18_850
+	branch v18_850 != 0<32> l0071A40E
+l0071A402:
+	word32 edx_854 = Mem851[eax_846 + 4<32>:word32]
+	Mem856[esp_829 - 4<i32>:word32] = eax_846
+	word32 eax_857 = Mem856[edx_854 + 0x18<32>:word32]
+	word32 esp_863
+	call eax_857 (retsize: 4;)
+		uses: eax:eax_857,edx:edx_854,Stack +0008:dwArg04,Stack +0010:dwArg0C
+		defs: ecx:ecx_865,edx:edx_866,esp:esp_863
+	esp_829 = esp_863 + 4<32>
+l0071A40E:
+	eax_1000 = Mem872[esp_829 + 0x14<32>:word32]
+l0071A412:
+	ecxOut = ecx_1004
+	edxOut = edx_1016
+	return eax_1000
+fn0071A060_exit:
+
+
+word32 fn0071A550(word32 dwArg04, ptr32 & ecxOut, ptr32 & edxOut)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn0071FB20
+// MayUse:  Stack +0004:[0..31]
+// LiveOut: eax ecx edx
+// Trashed: SCZO eax ecx edx esi Top
+// Preserved: esp
+fn0071A550_entry:
+l0071A550:
+	word32 eax_8 = Mem6[dwArg04 + 4<32>:word32]
+	branch eax_8 == 0xA23B20<32> l0071A57A
+l0071A55F:
+	word32 ecx_91
+	word32 edx_92
+	branch fn006D5670(eax_8, 0xA23B20<32>, out ecx_91, out edx_92) != 0<32> l0071A57A
+l0071A57A:
+	word32 ecx_40
+	word32 edx_42
+	word32 eax_39 = fn0071A060(Mem27[dwArg04 + 0xC<32>:word32], Mem27[dwArg04 + 8<32>:word32], 0x100<32>, out ecx_40, out edx_42)
+	ecxOut = ecx_40
+	edxOut = edx_42
+	return eax_39
+l0071A571:
+	word32 edx_52
+	ecxOut = fn006E11D0(out edx_52)
+	edxOut = edx_52
+	return 0<32>
+fn0071A550_exit:
+
+
+word32 fn0071A5A0(word32 dwArg04, word32 dwArg08, ptr32 & edxOut)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn0071FEB0
+// MayUse:  Stack +0004:[0..31] Stack +0008:[0..31]
+// LiveOut: eax edx
+// Trashed: SCZO eax ebp ebx ecx edi edx esi Top
+// Preserved: esp
+fn0071A5A0_entry:
+l0071A5A0:
+	word32 esi_114 = dwArg04
+	branch dwArg08 != 1<32> l0071A632
+l0071A5C0:
+	byte al_25 = Mem23[dwArg04:byte]
+	branch al_25 >=u 0x80<8> l0071A632
+l0071A632:
+	word32 ecx_582
+	word32 eax_220 = fn00717740(dwArg08, out ecx_582, out edx)
+	word32 ebp_115 = eax_220
+	branch eax_220 == 0<32> l0071A75C
+l0071A647:
+	branch dwArg08 == 0<32> l0071A79E
+l0071A64F:
+	word32 eax_116 = Mem44[eax_220 + 0xC<32>:word32]
+	edx = dwArg04 + dwArg08
+	word32 dwLoc1C_481 = eax_116
+	branch dwArg04 >=u edx l0071A6F5
+l0071A665:
+	byte cl_57 = Mem56[esi_114:byte]
+	branch cl_57 >=u 0x80<8> l0071A683
+l0071A683:
+	word32 ecx_585
+	branch fn00717CB0(fp - 0x14<32>, dwArg08, fp - 0x18<32>, dwArg04, dwArg08, dwArg04, fp - 8<32>, fp - 0xC<32>, fp + 4<32>, fp + 8<32>, fp - 0x10<32>, fp - 0x1C<32>, out ecx_585, out edx) != 0<32> l0071A711
+l0071A6DD:
+	esi_114 = dwArg04
+	ebp_115 = dwArg08
+	eax_116 = dwLoc1C_481
+l0071A66C:
+	Mem119[eax_116:word16] = CONVERT(cl_57, byte, word16)
+	eax_116 = eax_116 + 2<32>
+	esi_114 = esi_114 + 1<32>
+	dwLoc1C_481 = eax_116
+l0071A6ED:
+	branch esi_114 <u edx l0071A665
+l0071A6F5:
+	branch eax_116 - Mem134[ebp_115 + 0xC<32>:word32] >> 1<32> >= Mem134[ebp_115 + 8<32>:word32] l0071A76A
+l0071A6FF:
+	word32 ecx_586
+	branch fn00717900(fp + 8<32>, dwArg04, out ecx_586, out edx) >= 0<32> l0071A766
+l0071A766:
+	ebp_115 = dwArg08
+l0071A76A:
+	word32 esp_165 = fp - 0x2C<32>
+	branch true l0071A783
+l0071A772:
+	word32 v23_171 = Mem166[0<32>:word32] + 0xFFFFFFFF<32>
+	Mem172[0<32>:word32] = v23_171
+	branch v23_171 != 0<32> l0071A783
+l0071A777:
+	word32 ecx_175 = Mem172[4<32>:word32]
+	word32 esp_184
+	call Mem172[ecx_175 + 0x18<32>:word32] (retsize: 4;)
+		uses: ecx:ecx_175,edx:edx_187,Stack +0004:0<32>,Stack +0008:dwArg04,Stack +000C:dwArg08,Stack +0038:dwArg04,Stack +003C:dwArg08
+		defs: edx:edx_187,esp:esp_184
+	esp_165 = esp_184 + 4<32>
+l0071A783:
+	word32 eax_194 = Mem193[esp_165 + 0x18<32>:word32]
+	branch eax_194 == 0<32> l0071A79C
+l0071A78B:
+	word32 v25_198 = Mem193[eax_194:word32] + 0xFFFFFFFF<32>
+	Mem199[eax_194:word32] = v25_198
+	branch v25_198 != 0<32> l0071A79C
+l0071A790:
+	word32 ecx_202 = Mem199[eax_194 + 4<32>:word32]
+	word32 edx_203 = Mem199[ecx_202 + 0x18<32>:word32]
+	Mem205[esp_165 - 4<i32>:word32] = eax_194
+	call edx_203 (retsize: 4;)
+		uses: ecx:ecx_202,edx:edx_214,Stack +0008:dwArg04,Stack +000C:dwArg08
+		defs: edx:edx_214
+l0071A79C:
+	eax_220 = ebp_115
+l0071A79E:
+	edxOut = edx
+	return eax_220
+l0071A711:
+	word32 esp_235 = fp - 0x2C<32>
+	branch dwArg08 == 0<32> l0071A72A
+l0071A719:
+	word32 v21_241 = Mem236[dwArg08:word32] + 0xFFFFFFFF<32>
+	Mem242[dwArg08:word32] = v21_241
+	branch v21_241 != 0<32> l0071A72A
+l0071A71E:
+	word32 ecx_245 = Mem242[dwArg08 + 4<32>:word32]
+	word32 esp_254
+	call Mem242[ecx_245 + 0x18<32>:word32] (retsize: 4;)
+		uses: ecx:ecx_245,edx:edx_257,Stack +0004:dwArg08,Stack +0008:dwArg04,Stack +000C:dwArg08,Stack +0038:dwArg04,Stack +003C:dwArg08
+		defs: edx:edx_257,esp:esp_254
+	esp_235 = esp_254 + 4<32>
+l0071A72A:
+	word32 eax_264 = Mem263[esp_235 + 0x14<32>:word32]
+	branch eax_264 == 0<32> l0071A743
+l0071A732:
+	word32 v22_268 = Mem263[eax_264:word32] + 0xFFFFFFFF<32>
+	Mem269[eax_264:word32] = v22_268
+	branch v22_268 != 0<32> l0071A743
+l0071A737:
+	word32 ecx_272 = Mem269[eax_264 + 4<32>:word32]
+	word32 edx_273 = Mem269[ecx_272 + 0x18<32>:word32]
+	Mem275[esp_235 - 4<i32>:word32] = eax_264
+	word32 esp_281
+	call edx_273 (retsize: 4;)
+		uses: ecx:ecx_272,edx:edx_284,Stack +0008:dwArg04,Stack +000C:dwArg08
+		defs: edx:edx_284,esp:esp_281
+	esp_235 = esp_281 + 4<32>
+l0071A743:
+	word32 eax_291 = Mem290[esp_235 + 0x18<32>:word32]
+	branch eax_291 == 0<32> l0071A75C
+l0071A74B:
+	word32 v24_295 = Mem290[eax_291:word32] + 0xFFFFFFFF<32>
+	Mem296[eax_291:word32] = v24_295
+	branch v24_295 != 0<32> l0071A75C
+l0071A750:
+	word32 ecx_299 = Mem296[eax_291 + 4<32>:word32]
+	word32 edx_300 = Mem296[ecx_299 + 0x18<32>:word32]
+	Mem302[esp_235 - 4<i32>:word32] = eax_291
+	call edx_300 (retsize: 4;)
+		uses: ecx:ecx_299,edx:edx_311,Stack +0008:dwArg04,Stack +000C:dwArg08
+		defs: edx:edx_311
+l0071A5C6:
+	word32 edi_317 = CONVERT(CONVERT(al_25, byte, word16), word16, word32)
+	word16 di_318 = SLICE(edi_317, word16, 0)
+	word16 wArg04_553 = SLICE(edi_317, word16, 0)
+	branch di_318 >=u 0x100<16> l0071A60D
+l0071A60D:
+	word32 ecx_583
+	word32 eax_324 = fn00717740(1<32>, out ecx_583, out edx)
+	word16 edx_16_16_443 = SLICE(edx, word16, 16)
+	branch eax_324 == 0<32> l0071A75C
+l0071A61F:
+	Mem339[Mem320[eax_324 + 0xC<32>:word32]:word16] = wArg04_553
+	edxOut = SEQ(edx_16_16_443, wArg04_553)
+	return eax_324
+l0071A5D8:
+	word32 esi_344 = CONVERT(di_318, word16, word32)
+	word32 eax_345 = Mem320[esi_344 * 4<32> + 0xA6D7B0<32>:word32]
+	branch eax_345 != 0<32> l0071A602
+l0071A5E6:
+	word32 ecx_584
+	eax_345 = fn00717740(dwArg08, out ecx_584, out edx)
+	branch eax_345 == 0<32> l0071A75C
+l0071A75C:
+	edxOut = edx
+	return 0<32>
+l0071A5F5:
+	Mem371[Mem320[eax_345 + 0xC<32>:word32]:word16] = di_318
+	Mem372[esi_344 * 4<32> + 0xA6D7B0<32>:word32] = eax_345
+l0071A602:
+	Mem376[eax_345:word32] = Mem374[eax_345:word32] + 1<32>
+	edxOut = edx
+	return eax_345
+fn0071A5A0_exit:
+
+
+word32 fn0071A7D0(word32 dwArg04, ptr32 & ecxOut, ptr32 & edxOut)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn0071FB20
+// MayUse:  Stack +0004:[0..31]
+// LiveOut: eax ecx edx
+// Trashed: SCZO eax ecx edx esi Top
+// Preserved: esp
+fn0071A7D0_entry:
+l0071A7D0:
+	word32 eax_8 = Mem6[dwArg04 + 4<32>:word32]
+	branch eax_8 == 0xA23B20<32> l0071A7FA
+l0071A7DF:
+	word32 ecx_91
+	word32 edx_92
+	branch fn006D5670(eax_8, 0xA23B20<32>, out ecx_91, out edx_92) != 0<32> l0071A7FA
+l0071A7FA:
+	word32 ecx_40
+	word32 edx_42
+	word32 eax_39 = fn0071A060(Mem27[dwArg04 + 0xC<32>:word32], Mem27[dwArg04 + 8<32>:word32], 0x80<32>, out ecx_40, out edx_42)
+	ecxOut = ecx_40
+	edxOut = edx_42
+	return eax_39
+l0071A7F1:
+	word32 edx_52
+	ecxOut = fn006E11D0(out edx_52)
+	edxOut = edx_52
+	return 0<32>
+fn0071A7D0_exit:
+
+
+word32 fn0071A820(word32 eax, word32 ecx)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn0071A870
+// MayUse:  eax:[0..31] ecx:[0..31]
+// LiveOut: eax
+// Trashed: SCZO eax ecx edx Top
+// Preserved: ebx edi esi esp
+fn0071A820_entry:
+l0071A820:
+	word32 esi_18 = ecx + eax
+	branch IsDBCSLeadByte(Mem13[ecx + eax:byte]) == 0<32> l0071A861
+l0071A839:
+	word32 eax_30 = CharPrevA(ecx, esi_18)
+	branch eax_30 == esi_18 l0071A858
+l0071A847:
+	branch IsDBCSLeadByte(Mem29[eax_30:byte]) == 0<32> l0071A858
+l0071A851:
+	branch esi_18 - eax_30 != 2<32> l0071A861
+l0071A861:
+	return 0<32>
+l0071A858:
+	return 1<32>
+fn0071A820_exit:
+
+
+word32 fn0071A870(word32 eax, word32 dwArg04, word32 dwArg08, word32 dwArg0C, ptr32 & ecxOut, ptr32 & edxOut)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn0071A9A0
+// MayUse:  eax:[0..31] Stack +0004:[0..31] Stack +0008:[0..31] Stack +000C:[0..31]
+// LiveOut: eax ecx edx
+// Trashed: SCZO eax ebp ebx ecx edi edx esi Top
+// Preserved: esp
+fn0071A870_entry:
+l0071A870:
+	word32 ebx_117 = 0<32>
+	word32 esi_15 = 0<32>
+	word32 edi_21 = eax
+	branch dwArg0C != 0<32> l0071A8A1
+l0071A884:
+	branch eax < 1<32> l0071A8A1
+l0071A889:
+	branch fn0071A820(eax - 1<32>, dwArg08) == 0<32> l0071A8A1
+l0071A89D:
+	edi_21 = eax - 1<32>
+l0071A8A1:
+	word32 edx_110
+	word32 ecx_113
+	branch edi_21 <= 0<32> l0071A8D3
+l0071A8A5:
+	word32 eax_57 = MultiByteToWideChar(0<32>, 0<32>, dwArg08, edi_21, 0<32>, 0<32>)
+	esi_15 = eax_57
+	branch eax_57 != 0<32> l0071A8D3
+l0071A8D3:
+	word32 eax_66 = Mem65[dwArg04:word32]
+	branch eax_66 != 0<32> l0071A8F0
+l0071A8F0:
+	ebx_117 = Mem65[eax_66 + 8<32>:word32]
+	branch fn00717900(dwArg04, esi_15 + ebx_117, out ecx_113, out edx_110) < 0<32> l0071A8CB
+l0071A8DA:
+	word32 eax_96 = fn00717740(esi_15, out ecx_113, out edx_110)
+	Mem103[dwArg04:word32] = eax_96
+	branch eax_96 != 0<32> l0071A904
+l0071A904:
+	branch edi_21 <= 0<32> l0071A927
+l0071A908:
+	edx_110 = Mem109[dwArg04:word32]
+	ecx_113 = dwArg08
+	branch MultiByteToWideChar(0<32>, 0<32>, dwArg08, edi_21, Mem109[edx_110 + 0xC<32>:word32] + ebx_117 * 2<32>, esi_15) == 0<32> l0071A8BF
+l0071A927:
+	ecxOut = ecx_113
+	edxOut = edx_110
+	return edi_21
+l0071A8E8:
+	ecxOut = ecx_113
+	edxOut = edx_110
+	return 0xFFFFFFFF<32>
+l0071A8BF:
+	ecx_113 = fn006E1520(0<32>, dwArg04, out edx_110)
+l0071A8CB:
+	ecxOut = ecx_113
+	edxOut = edx_110
+	return 0xFFFFFFFF<32>
+fn0071A870_exit:
+
+
+word32 fn0071A9A0(word32 dwArg04, word32 dwArg08, ptr32 & edxOut)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn0071FEB0
+// MayUse:  Stack +0004:[0..31] Stack +0008:[0..31]
+// LiveOut: eax edx
+// Trashed: SCZO eax ecx edx Top
+// Preserved: esp
+fn0071A9A0_entry:
+l0071A9A0:
+	word32 ecx_18
+	word32 edx_20
+	branch fn0071A870(dwArg08, fp - 4<32>, dwArg04, 1<32>, out ecx_18, out edx_20) >= 0<32> l0071A9DF
+l0071A9C8:
+	branch true l0071A9DD
+l0071A9CC:
+	word32 v10_31 = Mem16[0<32>:word32] + 0xFFFFFFFF<32>
+	Mem32[0<32>:word32] = v10_31
+	branch v10_31 != 0<32> l0071A9DD
+l0071A9D1:
+	word32 edx_35 = Mem32[4<32>:word32]
+	call Mem37[edx_35 + 0x18<32>:word32] (retsize: 4;)
+		uses: ecx:ecx_18,edx:edx_35,Stack +0004:0<32>,Stack +0008:dwArg04,Stack +000C:dwArg08,Stack +0010:dwArg04,Stack +0014:dwArg08
+		defs: edx:edx_42
+l0071A9DD:
+l0071A9DF:
+	edxOut = edx_20
+	return 0<32>
+fn0071A9A0_exit:
+
+
+word32 fn0071A9F0(word32 edi, word32 dwArg04, word32 dwArg08, ptr32 & ecxOut, ptr32 & edxOut)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn0071AAE0
+// MayUse:  edi:[0..31] Stack +0004:[0..31] Stack +0008:[0..31]
+// LiveOut: eax ecx edx
+// Trashed: SCZO eax ebp ebx ecx edx esi Top
+// Preserved: esp
+fn0071A9F0_entry:
+l0071A9F0:
+	word32 edx_157
+	word32 ecx_158
+	word32 esi_14 = 0<32>
+	word32 ebx_106 = 0<32>
+	branch edi <= 0<32> l0071AA2A
+l0071A9FF:
+	word32 eax_36 = WideCharToMultiByte(0<32>, 0<32>, dwArg08, edi, 0<32>, 0<32>, 0<32>, 0<32>)
+	esi_14 = eax_36
+	branch eax_36 != 0<32> l0071AA2A
+l0071AA2A:
+	word32 eax_44 = Mem43[dwArg04:word32]
+	branch eax_44 != 0<32> l0071AA49
+l0071AA49:
+	ebx_106 = fn006ECC00(eax_44)
+	branch fn006EC4F0(dwArg04, dwArg04, out ecx_158, out edx_157) < 0<32> l0071AA23
+l0071AA31:
+	word32 eax_82 = fn006EC9B0(eax_44, esi_14, out ecx_158, out edx_157)
+	Mem90[dwArg04:word32] = eax_82
+	branch eax_82 != 0<32> l0071AA62
+l0071AA62:
+	branch edi <= 0<32> l0071AA87
+l0071AA66:
+	edx_157 = Mem96[dwArg04:word32]
+	branch WideCharToMultiByte(0<32>, 0<32>, dwArg08, edi, edx_157 + 0x14<32> + ebx_106, esi_14, 0<32>, 0<32>) == 0<32> l0071AA17
+l0071AA87:
+	ecxOut = ecx_158
+	edxOut = edx_157
+	return 0<32>
+l0071AA42:
+	ecxOut = ecx_158
+	edxOut = edx_157
+	return 0xFFFFFFFF<32>
+l0071AA17:
+	ecx_158 = fn006E1520(0<32>, dwArg04, out edx_157)
+l0071AA23:
+	ecxOut = ecx_158
+	edxOut = edx_157
+	return 0xFFFFFFFF<32>
+fn0071A9F0_exit:
+
+
+word32 fn0071AAE0(word32 dwArg04, ptr32 & ecxOut, ptr32 & edxOut)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn0071FB20
+// MayUse:  Stack +0004:[0..31]
+// LiveOut: eax ecx edx
+// Trashed: SCZO eax ecx edi edx esi Top
+// Preserved: esp
+fn0071AAE0_entry:
+l0071AAE0:
+	word32 eax_8 = Mem6[dwArg04 + 4<32>:word32]
+	branch eax_8 == 0xA23B20<32> l0071AB0A
+l0071AAEF:
+	word32 ecx_146
+	word32 edx_147
+	branch fn006D5670(eax_8, 0xA23B20<32>, out ecx_146, out edx_147) != 0<32> l0071AB0A
+l0071AB0A:
+	word32 ecx_107
+	word32 edx_113
+	branch fn0071A9F0(Mem30[dwArg04 + 8<32>:word32], fp + 4<32>, Mem30[dwArg04 + 0xC<32>:word32], out ecx_107, out edx_113) >= 0<32> l0071AB4E
+l0071AB30:
+	branch true l0071AB4C
+l0071AB34:
+	Mem58[0<32>:word32] = Mem39[0<32>:word32] + 0xFFFFFFFF<32>
+	branch Mem58[0<32>:word32] != 0<32> l0071AB4C
+l0071AB40:
+	word32 ecx_62 = Mem58[4<32>:word32]
+	call Mem58[ecx_62 + 0x18<32>:word32] (retsize: 4;)
+		uses: ecx:ecx_62,Stack +0004:0<32>,Stack +0008:0<32>,Stack +0010:0<32>
+		defs: ecx:ecx_68,edx:edx_69
+l0071AB4C:
+l0071AB4E:
+	ecxOut = ecx_107
+	edxOut = edx_113
+	return <invalid>
+l0071AB01:
+	word32 edx_86
+	ecxOut = fn006E11D0(out edx_86)
+	edxOut = edx_86
+	return <invalid>
+fn0071AAE0_exit:
+
+
+void fn0071F9C0(word32 ebp)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn006E8910
+// MayUse:  ebp:[0..31]
+// LiveOut:
+// Trashed: SCZO eax ebp ecx edx Top
+// Preserved: ebx edi esi esp
+fn0071F9C0_entry:
+l0071F9C0:
+	word32 eax_5 = Mem0[0x00A6DBB4<p32>:word32]
+	word32 esp_14 = fp - 12<i32>
+	branch eax_5 == 0<32> l0071F9DF
+l0071F9CE:
+	word32 v11_18 = Mem16[eax_5:word32] + 0xFFFFFFFF<32>
+	Mem19[eax_5:word32] = v11_18
+	branch v11_18 != 0<32> l0071F9DF
+l0071F9D3:
+	word32 ecx_22 = Mem19[eax_5 + 4<32>:word32]
+	word32 esp_26
+	word32 edx_29
+	call Mem19[ecx_22 + 0x18<32>:word32] (retsize: 4;)
+		uses: ecx:ecx_22,edx:edx_29,Stack +0004:eax_5
+		defs: edx:edx_29,esp:esp_26
+	esp_14 = esp_26 + 4<32>
+l0071F9DF:
+	Mem35[0x00A6DBB4<p32>:word32] = 0<32>
+	word32 esi_36 = 0xA6D7B0<32>
+l0071F9F0:
+	word32 eax_40 = Mem39[esi_36:word32]
+	branch eax_40 == 0<32> l0071FA0D
+l0071F9F6:
+	Mem45[eax_40:word32] = Mem39[eax_40:word32] + 0xFFFFFFFF<32>
+	word32 eax_46 = Mem45[esi_36:word32]
+	branch Mem45[eax_46:word32] != 0<32> l0071FA0B
+l0071F9FF:
+	word32 ecx_49 = Mem45[eax_46 + 4<32>:word32]
+	word32 edx_50 = Mem45[ecx_49 + 0x18<32>:word32]
+	Mem53[esp_14 - 4<i32>:word32] = eax_46
+	word32 esp_56
+	word32 edx_59
+	call edx_50 (retsize: 4;)
+		uses: ecx:ecx_49,edx:edx_59
+		defs: edx:edx_59,esp:esp_56
+	esp_14 = esp_56 + 4<32>
+l0071FA0B:
+	Mem66[esi_36:word32] = 0<32>
+l0071FA0D:
+	esi_36 = esi_36 + 4<32>
+	branch esi_36 < 0xA6DBB0<32> l0071F9F0
+l0071FA18:
+	word32 edi_72 = Mem71[0x00A6DBB0<p32>:word32]
+	branch edi_72 == 0<32> l0071FA6D
+l0071FA22:
+	word32 esp_78 = esp_14 - 4<i32>
+	Mem84[esp_78:word32] = ebp
+	word32 esp_140 = esp_78
+l0071FA30:
+	word32 eax_90 = Mem89[edi_72 + 0xC<32>:word32]
+	edi_72 = Mem89[edi_72:word32]
+	branch eax_90 == 0<32> l0071FA41
+l0071FA3B:
+	word32 esp_96 = esp_140 - 4<i32>
+	Mem97[esp_96:word32] = eax_90
+	free(Mem97[esp_96:(ptr32 void)])
+l0071FA41:
+	word32 esp_113 = esp_140
+	branch Mem101[edi_72 + 0x14<32>:word32] == 0<32> l0071FA5F
+l0071FA46:
+	word32 eax_105 = Mem101[edi_72 + 0x14<32>:word32]
+	Mem107[eax_105:word32] = Mem101[eax_105:word32] + 0xFFFFFFFF<32>
+	word32 eax_108 = Mem107[edi_72 + 0x14<32>:word32]
+	branch Mem107[eax_108:word32] != 0<32> l0071FA5F
+l0071FA53:
+	word32 ecx_111 = Mem107[eax_108 + 4<32>:word32]
+	word32 edx_112 = Mem107[ecx_111 + 0x18<32>:word32]
+	Mem115[esp_140 - 4<i32>:word32] = eax_108
+	word32 esp_121
+	word32 edx_124
+	call edx_112 (retsize: 4;)
+		uses: ecx:ecx_111,edx:edx_124
+		defs: edx:edx_124,esp:esp_121
+	esp_113 = esp_121 + 4<32>
+l0071FA5F:
+	word32 esp_130 = esp_113 - 4<i32>
+	Mem132[esp_130:word32] = edi_72
+	word32 ecx_225
+	word32 edx_226
+	fn007239C0(Mem132[esp_130:word32], out ecx_225, out edx_226)
+	esp_140 = esp_130 + 4<32>
+	branch edi_72 != 0<32> l0071FA30
+l0071FA6C:
+l0071FA6D:
+	Mem154[0x00A6D7AC<p32>:word32] = 0<32>
+	Mem155[0x00A6DBB0<p32>:word32] = 0<32>
+	return
+fn0071F9C0_exit:
+
+
+word32 fn0071FB20(word32 dwArg04, word32 dwArg08, word32 dwArg0C, ptr32 & ecxOut, ptr32 & edxOut)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn006DDEB0
+//      fn006DDF70
+//      fn006DE430
+//      fn006E5C60
+//      fn006F2090
+//      fn0071FC50
+//      fn00720020
+//      fn00731B10
+//      fn0073D240
+//      fn0073D450
+//      fn00753A60
+//      fn00754FD0
+// MayUse:  Stack +0004:[0..31] Stack +0008:[0..31] Stack +000C:[0..31]
+// LiveOut: eax ecx edx
+// Trashed: SCZO eax ebp ebx ecx edi edx esi Top
+// Preserved: esp
+fn0071FB20_entry:
+l0071FB20:
+	word32 eax_8 = Mem6[dwArg04 + 4<32>:word32]
+	branch eax_8 == 0xA23B20<32> l0071FB50
+l0071FB32:
+	word32 edx_570
+	word32 ecx_569
+	branch fn006D5670(eax_8, 0xA23B20<32>, out ecx_569, out edx_570) != 0<32> l0071FB50
+l0071FB50:
+	word32 eax_37 = dwArg08
+	branch dwArg08 != 0<32> l0071FB5D
+l0071FB58:
+	eax_37 = 0xA6D748<32>
+l0071FB5D:
+	branch dwArg0C != 0<32> l0071FBE9
+l0071FB69:
+	word32 edi_48 = 0x8D9880<32>
+	word32 esi_50 = eax_37
+	word32 ecx_51 = 6<32>
+	bool v18_379 = false
+l0071FB77:
+	branch ecx_51 == 0<32> l0071FB79
+l0071FB77_1:
+	v18_379 = Mem36[esi_571:byte] != Mem36[edi_572:byte]
+	esi_50 = esi_571 + 1<i32>
+	edi_48 = edi_572 + 1<i32>
+	ecx_51 = ecx_51 - 1<32>
+	esi_571 = esi_50
+	edi_572 = edi_48
+	branch Mem36[esi_571:byte] != Mem36[edi_572:byte] l0071FB77
+l0071FB79:
+	branch v18_379 l0071FB89
+l0071FB89:
+	word32 edi_67 = 0x8D9674<32>
+	word32 esi_70 = eax_37
+	word32 ecx_71 = 8<32>
+	bool v22_383 = false
+l0071FB97:
+	branch ecx_71 == 0<32> l0071FB99
+l0071FB97_1:
+	v22_383 = Mem36[esi_573:byte] != Mem36[edi_574:byte]
+	esi_70 = esi_573 + 1<i32>
+	edi_67 = edi_574 + 1<i32>
+	ecx_71 = ecx_71 - 1<32>
+	esi_573 = esi_70
+	edi_574 = edi_67
+	branch Mem36[esi_573:byte] != Mem36[edi_574:byte] l0071FB97
+l0071FB99:
+	branch v22_383 l0071FBA9
+l0071FBA9:
+	word32 edi_101 = 0x8D9878<32>
+	word32 esi_100 = eax_37
+	word32 ecx_102 = 5<32>
+	bool v26_387 = false
+l0071FBB7:
+	branch ecx_102 == 0<32> l0071FBB9
+l0071FBB7_1:
+	v26_387 = Mem36[esi_575:byte] != Mem36[edi_576:byte]
+	esi_100 = esi_575 + 1<i32>
+	edi_101 = edi_576 + 1<i32>
+	ecx_102 = ecx_102 - 1<32>
+	esi_575 = esi_100
+	edi_576 = edi_101
+	branch Mem36[esi_575:byte] != Mem36[edi_576:byte] l0071FBB7
+l0071FBB9:
+	branch v26_387 l0071FBC9
+l0071FBC9:
+	word32 edi_107 = 0x8D9650<32>
+	word32 esi_110 = eax_37
+	word32 ecx_111 = 6<32>
+	bool v30_391 = false
+l0071FBD7:
+	branch ecx_111 == 0<32> l0071FBD9
+l0071FBD7_1:
+	v30_391 = Mem36[esi_577:byte] != Mem36[edi_578:byte]
+	esi_110 = esi_577 + 1<i32>
+	edi_107 = edi_578 + 1<i32>
+	ecx_111 = ecx_111 - 1<32>
+	esi_577 = esi_110
+	edi_578 = edi_107
+	branch Mem36[esi_577:byte] != Mem36[edi_578:byte] l0071FBD7
+l0071FBD9:
+	branch v30_391 l0071FBE9
+l0071FBE9:
+	word32 edx_191
+	word32 ecx_192
+	word32 eax_190 = fn0074ED80(eax_37, out ecx_192, out edx_191)
+	branch eax_190 == 0<32> l0071FC42
+l0071FBFA:
+	word32 eax_200 = Mem164[eax_190 + 4<32>:word32]
+	branch eax_200 == 0xA1B450<32> l0071FC49
+l0071FC04:
+	branch fn006D5670(eax_200, 0xA1B450<32>, out ecx_192, out edx_191) != 0<32> l0071FC49
+l0071FC49:
+	ecxOut = ecx_192
+	edxOut = edx_191
+	return eax_190
+l0071FC16:
+	fn006E15D0(Mem206[0x00A16B7C<p32>:word32], dwArg04, out ecx_192, out edx_191)
+	word32 v14_246 = Mem238[eax_190:word32] + 0xFFFFFFFF<32>
+	Mem247[eax_190:word32] = v14_246
+	branch v14_246 != 0<32> l0071FC42
+l0071FC36:
+	word32 eax_250 = Mem247[eax_190 + 4<32>:word32]
+	call Mem247[eax_250 + 0x18<32>:word32] (retsize: 4;)
+		uses: eax:eax_250,Stack +0004:eax_190,Stack +0008:dwArg04,Stack +000C:dwArg08,Stack +0010:dwArg0C,Stack +001C:dwArg04,Stack +0020:dwArg08,Stack +0024:dwArg0C
+		defs: ecx:ecx_257,edx:edx_256
+l0071FC42:
+	ecxOut = ecx_192
+	edxOut = edx_191
+	return 0<32>
+l0071FBDB:
+	word32 edx_279
+	word32 ecx_280
+	word32 eax_278 = fn0071A7D0(dwArg04, out ecx_280, out edx_279)
+	ecxOut = ecx_280
+	edxOut = edx_279
+	return eax_278
+l0071FBBB:
+	word32 edx_301
+	word32 ecx_302
+	word32 eax_300 = fn0071AAE0(dwArg04, out ecx_302, out edx_301)
+	ecxOut = ecx_302
+	edxOut = edx_301
+	return eax_300
+l0071FB9B:
+	word32 edx_323
+	word32 ecx_324
+	word32 eax_322 = fn0071A550(dwArg04, out ecx_324, out edx_323)
+	ecxOut = ecx_324
+	edxOut = edx_323
+	return eax_322
+l0071FB7B:
+	word32 edx_345
+	word32 ecx_346
+	word32 eax_344 = fn00718B50(dwArg04, out ecx_346, out edx_345)
+	ecxOut = ecx_346
+	edxOut = edx_345
+	return eax_344
+l0071FB44:
+	word32 edx_361
+	ecxOut = fn006E11D0(out edx_361)
+	edxOut = edx_361
+	return 0<32>
+fn0071FB20_exit:
+
+
+word32 fn0071FC50(word32 dwArg04, word32 dwArg08, ptr32 & ecxOut, ptr32 & edxOut)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn006DE330
+//      fn006E5C60
+//      fn006EA420
+// MayUse:  Stack +0004:[0..31] Stack +0008:[0..31]
+// LiveOut: eax ecx edx
+// Trashed: SCZO eax esi Top
+// Preserved: edi esp
+fn0071FC50_entry:
+l0071FC50:
+	word32 eax_23 = Mem6[dwArg04 + 0x14<32>:word32]
+	branch eax_23 != 0<32> l0071FC78
+l0071FC5C:
+	word32 ecx_75
+	word32 edx_76
+	eax_23 = fn0071FB20(dwArg04, eax_23, dwArg08, out ecx_75, out edx_76)
+	branch eax_23 == 0<32> l0071FC77
+l0071FC70:
+	branch dwArg08 != 0<32> l0071FC77
+l0071FC74:
+	Mem33[dwArg04 + 0x14<32>:word32] = eax_23
+l0071FC77:
+l0071FC78:
+	ecxOut = <invalid>
+	edxOut = <invalid>
+	return eax_23
+fn0071FC50_exit:
+
+
+word32 fn0071FC80(ptr32 & edxOut)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn006F2090
+//      fn007367D0
+//      fn0073D240
+//      fn0073D450
+//      fn00754FD0
+// MayUse: 
+// LiveOut: eax edx
+// Trashed: SCZO eax ecx edx Top
+// Preserved: esp
+fn0071FC80_entry:
+l0071FC80:
+	word32 edx_19
+	word32 eax_17 = fn00718610(dwArg04, dwArg08, 0<32>, out edx_19)
+	edxOut = edx_19
+	return eax_17
+fn0071FC80_exit:
+
+
+word32 fn0071FEB0(word32 dwArg04, word32 dwArg08, word32 dwArg0C, word32 dwArg10, ptr32 & edxOut)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn00720070
+//      fn007537A0
+//      fn007537F0
+//      fn00753A60
+// MayUse:  Stack +0004:[0..31] Stack +0008:[0..31] Stack +000C:[0..31] Stack +0010:[0..31]
+// LiveOut: eax edx
+// Trashed: SCZO eax ebx ecx edi edx esi Top
+// Preserved: esp
+fn0071FEB0_entry:
+l0071FEB0:
+	word32 ebx_17 = dwArg0C
+	branch dwArg0C != 0<32> l0071FEC0
+l0071FEBB:
+	ebx_17 = 0xA6D748<32>
+l0071FEC0:
+	word32 edi_18 = 0x8D9880<32>
+	word32 esi_20 = ebx_17
+	word32 ecx_21 = 6<32>
+	bool v19_376 = false
+l0071FECE:
+	branch ecx_21 == 0<32> l0071FED0
+l0071FECE_1:
+	v19_376 = Mem15[esi_579:byte] != Mem15[edi_580:byte]
+	esi_20 = esi_579 + 1<i32>
+	edi_18 = edi_580 + 1<i32>
+	ecx_21 = ecx_21 - 1<32>
+	esi_579 = esi_20
+	edi_580 = edi_18
+	branch Mem15[esi_579:byte] != Mem15[edi_580:byte] l0071FECE
+l0071FED0:
+	branch v19_376 l0071FEEE
+l0071FEEE:
+	word32 edi_37 = 0x8D9674<32>
+	word32 esi_40 = ebx_17
+	word32 ecx_41 = 8<32>
+	bool v23_380 = false
+l0071FEFC:
+	branch ecx_41 == 0<32> l0071FEFE
+l0071FEFC_1:
+	v23_380 = Mem15[esi_581:byte] != Mem15[edi_582:byte]
+	esi_40 = esi_581 + 1<i32>
+	edi_37 = edi_582 + 1<i32>
+	ecx_41 = ecx_41 - 1<32>
+	esi_581 = esi_40
+	edi_582 = edi_37
+	branch Mem15[esi_581:byte] != Mem15[edi_582:byte] l0071FEFC
+l0071FEFE:
+	branch v23_380 l0071FF1B
+l0071FF1B:
+	word32 edi_57 = 0x8D9878<32>
+	word32 esi_60 = ebx_17
+	word32 ecx_61 = 5<32>
+	bool v27_384 = false
+l0071FF29:
+	branch ecx_61 == 0<32> l0071FF2B
+l0071FF29_1:
+	v27_384 = Mem15[esi_583:byte] != Mem15[edi_584:byte]
+	esi_60 = esi_583 + 1<i32>
+	edi_57 = edi_584 + 1<i32>
+	ecx_61 = ecx_61 - 1<32>
+	esi_583 = esi_60
+	edi_584 = edi_57
+	branch Mem15[esi_583:byte] != Mem15[edi_584:byte] l0071FF29
+l0071FF2B:
+	branch v27_384 l0071FF48
+l0071FF48:
+	word32 edi_77 = 0x8D9650<32>
+	word32 esi_80 = ebx_17
+	word32 ecx_81 = 6<32>
+	bool v31_388 = false
+l0071FF56:
+	branch ecx_81 == 0<32> l0071FF58
+l0071FF56_1:
+	v31_388 = Mem15[esi_585:byte] != Mem15[edi_586:byte]
+	esi_80 = esi_585 + 1<i32>
+	edi_77 = edi_586 + 1<i32>
+	ecx_81 = ecx_81 - 1<32>
+	esi_585 = esi_80
+	edi_586 = edi_77
+	branch Mem15[esi_585:byte] != Mem15[edi_586:byte] l0071FF56
+l0071FF58:
+	branch v31_388 l0071FF75
+l0071FF75:
+	word32 edx_129
+	word32 eax_128 = fn007514B0(dwArg04, dwArg08, out edx_129)
+	branch eax_128 == 0<32> l0071FFFB
+l0071FF8D:
+	word32 eax_146 = fn0074EE90(dwArg04, out edx_129)
+	word32 esp_151 = fp - 0xC<32>
+	branch eax_146 == 0<32> l0071FFEA
+l0071FFA2:
+	word32 eax_155 = Mem143[eax_146 + 4<32>:word32]
+	branch eax_155 == 0xA23B20<32> l00720001
+l0071FFAC:
+	word32 ecx_577
+	branch fn006D5670(eax_155, 0xA23B20<32>, out ecx_577, out edx_129) != 0<32> l00720001
+l00720001:
+	word32 v15_175 = Mem174[eax_128:word32] + 0xFFFFFFFF<32>
+	Mem176[eax_128:word32] = v15_175
+	branch v15_175 != 0<32> l00720012
+l00720006:
+	word32 ecx_179 = Mem176[eax_128 + 4<32>:word32]
+	call Mem176[ecx_179 + 0x18<32>:word32] (retsize: 4;)
+		uses: ecx:ecx_179,Stack +0004:eax_128,Stack +0008:dwArg04,Stack +000C:dwArg08,Stack +0010:dwArg0C,Stack +0018:dwArg04,Stack +001C:dwArg08,Stack +0020:dwArg0C,Stack +0024:dwArg10
+		defs: edx:edx_190
+l00720012:
+	edxOut = edx_129
+	return eax_146
+l0071FFBE:
+	word32 ecx_578
+	fn006E15D0(Mem161[0x00A16B7C<p32>:word32], dwArg04, out ecx_578, out edx_129)
+	word32 v13_221 = Mem213[eax_146:word32] + 0xFFFFFFFF<32>
+	Mem222[eax_146:word32] = v13_221
+	esp_151 = fp - 0xC<32>
+	branch v13_221 != 0<32> l0071FFEA
+l0071FFDE:
+	word32 eax_225 = Mem222[eax_146 + 4<32>:word32]
+	word32 esp_229
+	call Mem222[eax_225 + 0x18<32>:word32] (retsize: 4;)
+		uses: eax:eax_225,Stack +0004:eax_146,Stack +0008:dwArg04,Stack +000C:dwArg08,Stack +0010:dwArg0C,Stack +0018:dwArg04,Stack +001C:dwArg08,Stack +0020:dwArg0C,Stack +0024:dwArg10
+		defs: edx:edx_232,esp:esp_229
+	esp_151 = esp_229 + 4<32>
+l0071FFEA:
+	word32 v14_239 = Mem238[eax_128:word32] + 0xFFFFFFFF<32>
+	Mem240[eax_128:word32] = v14_239
+	branch v14_239 != 0<32> l0071FFFB
+l0071FFEF:
+	word32 edx_243 = Mem240[eax_128 + 4<32>:word32]
+	word32 eax_244 = Mem240[edx_243 + 0x18<32>:word32]
+	Mem247[esp_151 - 4<i32>:word32] = eax_128
+	call eax_244 (retsize: 4;)
+		uses: edx:edx_243,Stack +0008:dwArg04,Stack +000C:dwArg08,Stack +0010:dwArg0C,Stack +0014:dwArg10
+		defs: edx:edx_254
+l0071FFFB:
+	edxOut = edx_129
+	return 0<32>
+l0071FF5A:
+	word32 edx_282
+	word32 eax_281 = fn0071A5A0(dwArg04, dwArg08, out edx_282)
+	edxOut = edx_282
+	return eax_281
+l0071FF2D:
+	word32 edx_308
+	word32 eax_307 = fn0071A9A0(dwArg04, dwArg08, out edx_308)
+	edxOut = edx_308
+	return eax_307
+l0071FF00:
+	word32 edx_334
+	word32 eax_333 = fn00719DD0(dwArg04, dwArg08, out edx_334)
+	edxOut = edx_334
+	return eax_333
+l0071FED2:
+	word32 edx_364
+	word32 eax_363 = fn00718610(dwArg04, dwArg08, 0<32>, out edx_364)
+	edxOut = edx_364
+	return eax_363
+fn0071FEB0_exit:
+
+
+word32 fn00720020(word32 dwArg04, word32 dwArg08, word32 dwArg0C, word32 dwArg10, ptr32 & edxOut)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn006F7890
+// MayUse:  Stack +0004:[0..31] Stack +0008:[0..31] Stack +000C:[0..31] Stack +0010:[0..31]
+// LiveOut: eax edx
+// Trashed: SCZO eax ecx edx esi Top
+// Preserved: edi esp
+fn00720020_entry:
+l00720020:
+	word32 edx_17
+	word32 eax_15 = fn00717A20(dwArg04, dwArg08, out edx_17)
+	branch eax_15 != 0<32> l0072003B
+l0072003B:
+	word32 ecx_117
+	word32 edx_39
+	word32 eax_37 = fn0071FB20(eax_15, dwArg04, dwArg08, out ecx_117, out edx_39)
+	word32 v12_43 = Mem35[eax_15:word32] + 0xFFFFFFFF<32>
+	Mem44[eax_15:word32] = v12_43
+	branch v12_43 != 0<32> l00720062
+l00720056:
+	word32 ecx_48 = Mem44[eax_15 + 4<32>:word32]
+	call Mem44[ecx_48 + 0x18<32>:word32] (retsize: 4;)
+		uses: ecx:ecx_48,Stack +0004:eax_15,Stack +0008:dwArg04,Stack +000C:dwArg08,Stack +0014:dwArg04,Stack +0018:dwArg08,Stack +001C:dwArg0C,Stack +0020:dwArg10
+		defs: edx:edx_55
+l00720062:
+	edxOut = edx_39
+	return eax_37
+l00720039:
+	edxOut = edx_17
+	return eax_15
+fn00720020_exit:
+
+
+word32 fn00720070(word32 dwArg04, ptr32 & edxOut)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn007203E0
+//      fn00721290
+// MayUse:  Stack +0004:[0..31]
+// LiveOut: eax edx
+// Trashed: SCZO eax ecx edx esi Top
+// Preserved: esp
+fn00720070_entry:
+l00720070:
+	word32 dwLoc04_199 = 0<32>
+	branch dwArg04 != 0<32> l00720099
+l00720099:
+	word32 edx_139
+	word32 eax_15 = Mem13[dwArg04 + 4<32>:word32]
+	branch eax_15 == 0xA23B20<32> l00720161
+l007200A7:
+	word32 ecx_281
+	word32 edx_221
+	branch fn006D5670(eax_15, 0xA23B20<32>, out ecx_281, out edx_221) != 0<32> l00720161
+l00720161:
+	word32 ecx_280
+	fn006E0F80(Mem33[0x00A16B7C<p32>:word32], 0x8D98C0<32>, out ecx_280, out edx_139)
+l007200BD:
+	word32 esi_71
+	word32 eax_50 = Mem21[dwArg04 + 4<32>:word32]
+	branch eax_50 == 0xA1B450<32> l00720123
+l007200C7:
+	word32 ecx_282
+	branch fn006D5670(eax_50, 0xA1B450<32>, out ecx_282, out edx_221) != 0<32> l00720123
+l00720123:
+	esi_71 = Mem70[dwArg04 + 8<32>:word32]
+	dwLoc04_199 = dwArg04 + 0x14<32>
+	dwArg04 = esi_71
+l007200D9:
+	branch fn00701880(dwArg04, fp - 4<32>, fp + 4<32>, out edx_221) == 0<32> l00720133
+l00720133:
+	esi_71 = dwArg04
+l00720137:
+	branch esi_71 != 0<32> l00720146
+l00720146:
+	word32 edx_116
+	word32 eax_115 = fn0071FEB0(dwLoc04_199, dwArg04, dwArg08, dwArg0C, out edx_116)
+	edxOut = edx_116
+	return eax_115
+l0072013B:
+	word32 eax_125 = Mem99[0x00A6DBB4<p32>:word32]
+	Mem127[eax_125:word32] = Mem99[eax_125:word32] + 1<32>
+	edxOut = edx_221
+	return eax_125
+l007200F0:
+	word32 ecx_283
+	branch fn006E1110(out ecx_283, out edx_139) == 0<32> l00720175
+l00720175:
+	edxOut = edx_139
+	return 0<32>
+l00720103:
+	word32 edx_167
+	word32 ecx_284
+	fn006E15D0(Mem135[0x00A16B7C<p32>:word32], dwArg04, out ecx_284, out edx_167)
+	edxOut = edx_167
+	return 0<32>
+l00720082:
+	word32 edx_185
+	fn006E1DC0(out edx_185)
+	edxOut = edx_185
+	return 0<32>
+fn00720070_exit:
+
+
+word32 fn007203E0(word32 dwArg04, ptr32 & edxOut)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn006E5C60
+//      fn00721290
+// MayUse:  Stack +0004:[0..31]
+// LiveOut: eax edx
+// Trashed: SCZO eax ecx edx esi Top
+// Preserved: esp
+fn007203E0_entry:
+l007203E0:
+	word32 eax_8 = Mem6[dwArg04 + 4<32>:word32]
+	branch eax_8 != 0xA23B20<32> l007203F6
+l007203F6:
+	word32 ecx_102
+	word32 edx_103
+	branch fn006D5670(eax_8, 0xA23B20<32>, out ecx_102, out edx_103) != 0<32> l00720419
+l00720419:
+	word32 edx_36
+	word32 eax_33 = fn00717A20(Mem14[dwArg04 + 0xC<32>:word32], Mem14[dwArg04 + 8<32>:word32], out edx_36)
+	edxOut = edx_36
+	return eax_33
+l00720408:
+	word32 edx_52
+	word32 eax_49 = fn00720070(dwArg04, out edx_52)
+	edxOut = edx_52
+	return eax_49
+l007203EF:
+	Mem59[dwArg04:word32] = Mem6[dwArg04:word32] + 1<32>
+	edxOut = edx
+	return dwArg04
+fn007203E0_exit:
+
+

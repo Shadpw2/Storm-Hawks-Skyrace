@@ -1,0 +1,27 @@
+void fn00581360(word32 dwArg04, word32 dwArg08, word32 dwArg0C)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn005A5370
+// MayUse:  Stack +0004:[0..31] Stack +0008:[0..31] Stack +000C:[0..31]
+// LiveOut:
+// Trashed: SCZO eax ecx edx Top
+// Preserved: esi esp
+fn00581360_entry:
+l00581360:
+	word32 eax_16 = dwArg04
+	branch dwArg04 == dwArg08 l0058138F
+l0058136C:
+l00581371:
+	Mem17[eax_16:word32] = Mem14[dwArg0C:word32]
+	Mem19[eax_16 + 4<32>:word32] = Mem17[dwArg0C + 4<32>:word32]
+	Mem21[eax_16 + 8<32>:word32] = Mem19[dwArg0C + 8<32>:word32]
+	Mem23[eax_16 + 0xC<32>:word32] = Mem21[dwArg0C + 0xC<32>:word32]
+	eax_16 = eax_16 + 0x10<32>
+	branch eax_16 != dwArg08 l00581371
+l0058138E:
+l0058138F:
+	return
+fn00581360_exit:
+
+

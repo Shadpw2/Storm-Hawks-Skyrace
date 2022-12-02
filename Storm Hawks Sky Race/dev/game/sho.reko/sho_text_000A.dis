@@ -1,0 +1,32 @@
+void fn004AB550(word32 dwArg04, word32 dwArg08, word32 dwArg0C, word32 dwArg10)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn00621C70
+// MayUse:  Stack +0004:[0..31] Stack +0008:[0..31] Stack +000C:[0..31] Stack +0010:[0..31]
+// LiveOut:
+// Trashed: SCZO eax ecx edx Top
+// Preserved: edi esi esp
+fn004AB550_entry:
+l004AB550:
+	word32 edx_28 = dwArg10
+	word32 ecx_23 = dwArg0C
+	branch dwArg08 >=u dwArg10 l004AB567
+l004AB567:
+	branch dwArg10 <=u 0<32> l004AB586
+l004AB56F:
+	word32 esi_21 = dwArg04 - dwArg0C
+l004AB575:
+	Mem27[esi_21 + ecx_23:word32] = Mem24[ecx_23:word32]
+	edx_28 = edx_28 - 1<32>
+	ecx_23 = ecx_23 + 4<32>
+	branch edx_28 >u 0<32> l004AB575
+l004AB584:
+l004AB586:
+	return
+l004AB55E:
+	_invalid_parameter_noinfo()
+	return
+fn004AB550_exit:
+
+

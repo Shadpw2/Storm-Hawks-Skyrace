@@ -1,0 +1,41 @@
+word32 fn004C8820()
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn005B62A0
+//      fn005B65B0
+// MayUse: 
+// LiveOut: eax
+// Trashed: SCZO eax ecx Top
+// Preserved: esp
+fn004C8820_entry:
+l004C8820:
+	word32 eax_6 = operator new(0xC<32>)
+	branch eax_6 == 0<32> l004C8830
+l004C882E:
+	Mem11[eax_6:word32] = eax_6
+l004C8830:
+	branch eax_6 == 4<32> l004C8839
+l004C8837:
+	Mem17[eax_6 + 4<32>:word32] = eax_6
+l004C8839:
+	return eax_6
+fn004C8820_exit:
+
+
+word32 fn004CDDA0(word32 dwArg04, word32 dwArg08, word32 dwArg0C)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn00414B80
+// MayUse:  Stack +0004:[0..31] Stack +0008:[0..31] Stack +000C:[0..31]
+// LiveOut: eax
+// Trashed: SCZO eax ecx edx Top
+// Preserved: edi esi esp
+fn004CDDA0_entry:
+l004CDDA0:
+	fn00417C60(dwArg04, dwArg08, dwArg0C)
+	return dwArg04 + dwArg08 * 4<32>
+fn004CDDA0_exit:
+
+

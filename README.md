@@ -2,6 +2,7 @@ Contained within this repository is the entire Storm Hawks Skyrace Game launcher
 There is a good chance that the client can boot into an offline mode which is being investigated.
 
 Currently within the file BWPersonailty.pyc seems to be the key to this idea, specifically this codeblock:
+
 ```Python
 IS_RELEASE_VERSION = True
 IS_BETA = False
@@ -62,3 +63,11 @@ def enterGame():
     return
 
 ```
+
+2/12/22 UPDATE
+
+After editing the Binary pyc file with the help of H4v0c21 (who located the bits in the hex editor)
+We have discovered that the issue lies elsewhere, as the edit still gives the init Account Class error.
+
+Current investigation is into Const.pyc in ./dev/res/entites/client/bitcasters has shown the location of the previously hosted ip and port which also opens up the posibility of running an alt server.
+Further more netinfo.pyc located in ./client directory looks to hold some key data to sniff if an alt server is required.

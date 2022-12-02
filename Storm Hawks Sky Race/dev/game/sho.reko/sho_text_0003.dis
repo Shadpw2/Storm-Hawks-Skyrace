@@ -1,0 +1,33 @@
+word32 fn0043D330(word32 ebx, word32 esi, word32 edi, ptr32 & ebxOut, ptr32 & esiOut, ptr32 & ediOut)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn0042DF20
+// MayUse:  ebx:[0..31] edi:[0..31] esi:[0..31] fs:[0..15]
+// LiveOut: eax ebx edi esi
+// Trashed: SCZO eax ebp ebx ecx edi esi Top
+// Preserved: esp
+fn0043D330_entry:
+l0043D330:
+	word32 eax_9 = Mem7[fs:0<32>:word32]
+	Mem17[fs:0<32>:word32] = fp - 0xC<32>
+	branch (Mem17[0x00A55808<p32>:byte] & 1<8>) != 0<8> l0043D391
+l0043D35D:
+	Mem24[0x00A55808<p32>:word32] = Mem17[0x00A55808<p32>:word32] | 1<32>
+	Mem31[0x00A557F0<p32>:word32] = 0<32>
+	Mem32[0x00A557F4<p32>:word32] = 0<32>
+	Mem33[0x00A557F8<p32>:word32] = 0<32>
+	Mem34[0x00A557FC<p32>:word32] = 0<32>
+	Mem35[0x00A55800<p32>:byte] = 1<8>
+	Mem36[0x00A55804<p32>:word32] = 0<32>
+	word32 ebp_82
+	ebx = fn00694C8C(ebx, esi, edi, out ebp_82, out esi, out edi)
+l0043D391:
+	Mem57[fs:0x00000000<p32>:word32] = eax_9
+	ebxOut = ebx
+	esiOut = esi
+	ediOut = edi
+	return 0xA557EC<32>
+fn0043D330_exit:
+
+

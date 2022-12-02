@@ -1,0 +1,36 @@
+void fn00529B70(word32 ecx, word32 dwArg04)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn004100F0
+//      fn00418D40
+//      fn007B22E0
+// MayUse:  ecx:[0..31] Stack +0004:[0..31]
+// LiveOut:
+// Trashed: SCZO eax ecx edx Top
+// Preserved: esi esp
+fn00529B70_entry:
+l00529B70:
+	word32 eax_6 = Mem0[dwArg04:word32]
+	word32 ecx_12 = Mem9[ecx:word32]
+	branch ecx_12 == eax_6 l00529B9B
+l00529B7F:
+	Mem17[ecx:word32] = eax_6
+	branch eax_6 == 0<32> l00529B89
+l00529B85:
+	Mem20[eax_6 + 4<32>:word32] = Mem17[eax_6 + 4<32>:word32] + 1<32>
+l00529B89:
+	branch ecx_12 == 0<32> l00529B9B
+l00529B8D:
+	word32 v11_27 = Mem26[ecx_12 + 4<32>:word32] + 0xFFFFFFFF<32>
+	Mem28[ecx_12 + 4<32>:word32] = v11_27
+	branch v11_27 != 0<32> l00529B9B
+l00529B93:
+	word32 edx_31 = Mem28[ecx_12:word32]
+	call Mem28[edx_31:word32] (retsize: 4;)
+		uses: ecx:ecx_12,edx:edx_31,Stack +0004:1<32>,Stack +0010:dwArg04
+l00529B9B:
+	return
+fn00529B70_exit:
+
+

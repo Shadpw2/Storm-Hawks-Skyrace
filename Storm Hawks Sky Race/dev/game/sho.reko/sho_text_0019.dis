@@ -1,0 +1,19 @@
+word32 fn0059EB70(word32 dwArg04, word32 dwArg08, word32 dwArg0C, ptr32 & edxOut)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn005A5370
+//      fn005A5680
+// MayUse:  Stack +0004:[0..31] Stack +0008:[0..31] Stack +000C:[0..31]
+// LiveOut: eax edx
+// Trashed: SCZO eax ecx edx Top
+// Preserved: esp
+fn0059EB70_entry:
+l0059EB70:
+	word32 edx_27
+	word32 eax_25 = fn005F9240(dwArg04, dwArg08, dwArg0C, out edx_27)
+	edxOut = edx_27
+	return eax_25
+fn0059EB70_exit:
+
+

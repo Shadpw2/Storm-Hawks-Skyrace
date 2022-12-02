@@ -1,0 +1,31 @@
+void fn007C2D70(word32 dwArg04, word32 dwArg08, word32 dwArg0C)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn005BB700
+//      fn00623210
+// MayUse:  Stack +0004:[0..31] Stack +0008:[0..31] Stack +000C:[0..31]
+// LiveOut:
+// Trashed: SCZO eax ecx edx Top
+// Preserved: esi esp
+fn007C2D70_entry:
+l007C2D70:
+	word32 ecx_26 = dwArg08
+	branch dwArg08 <=u 0<32> l007C2D9A
+l007C2D78:
+	word32 eax_11 = dwArg04
+l007C2D81:
+	branch eax_11 == 0<32> l007C2D8F
+l007C2D85:
+	Mem22[eax_11:word32] = Mem20[dwArg0C:word32]
+	Mem24[eax_11 + 4<32>:word32] = Mem22[dwArg0C + 4<32>:word32]
+l007C2D8F:
+	ecx_26 = ecx_26 - 1<32>
+	eax_11 = eax_11 + 8<32>
+	branch ecx_26 >u 0<32> l007C2D81
+l007C2D99:
+l007C2D9A:
+	return
+fn007C2D70_exit:
+
+

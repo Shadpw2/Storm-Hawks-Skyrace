@@ -1,0 +1,102 @@
+word32 fn004E2250(word32 ecx, word32 dwArg04)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn004070F0
+//      fn0040AB90
+//      fn00424A20
+//      fn00426100
+// MayUse:  ecx:[0..31] Stack +0004:[0..31]
+// LiveOut: edx
+// Trashed: SCZO eax ecx edx Top
+// Preserved: esi esp
+fn004E2250_entry:
+l004E2250:
+	word32 eax_6 = Mem0[dwArg04 + 8<32>:word32]
+	Mem11[dwArg04 + 8<32>:word32] = Mem9[eax_6:word32]
+	word32 esi_12 = Mem11[eax_6:word32]
+	branch Mem11[esi_12 + 0x2D<32>:byte] != 0<8> l004E2268
+l004E2265:
+	Mem15[esi_12 + 4<32>:word32] = dwArg04
+l004E2268:
+	Mem20[eax_6 + 4<32>:word32] = Mem17[dwArg04 + 4<32>:word32]
+	word32 ecx_23 = Mem20[ecx + 4<32>:word32]
+	branch dwArg04 != Mem20[ecx_23 + 4<32>:word32] l004E2282
+l004E2282:
+	word32 ecx_29 = Mem20[dwArg04 + 4<32>:word32]
+	branch dwArg04 != Mem20[ecx_29:word32] l004E2293
+l004E2293:
+	Mem32[ecx_29 + 8<32>:word32] = eax_6
+	Mem33[eax_6:word32] = dwArg04
+	Mem34[dwArg04 + 4<32>:word32] = eax_6
+	return
+l004E2289:
+	Mem35[ecx_29:word32] = eax_6
+	Mem36[eax_6:word32] = dwArg04
+	Mem37[dwArg04 + 4<32>:word32] = eax_6
+	return
+l004E2277:
+	Mem38[ecx_23 + 4<32>:word32] = eax_6
+	Mem39[eax_6:word32] = dwArg04
+	Mem40[dwArg04 + 4<32>:word32] = eax_6
+	return
+fn004E2250_exit:
+
+
+word32 fn004E6960(word32 dwArg04)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn004070F0
+//      fn00426100
+// MayUse:  Stack +0004:[0..31]
+// LiveOut: eax
+// Trashed: SCZO eax ecx Top
+// Preserved: esp
+fn004E6960_entry:
+l004E6960:
+	word32 eax_11 = dwArg04
+	word32 ecx_6 = Mem0[dwArg04 + 8<32>:word32]
+	branch Mem0[ecx_6 + 0x2D<32>:byte] != 0<8> l004E697B
+l004E696D:
+	word32 ecx_10 = ecx_6
+l004E6970:
+	eax_11 = ecx_10
+	ecx_10 = Mem0[ecx_10 + 8<32>:word32]
+	branch Mem0[ecx_10 + 0x2D<32>:byte] == 0<8> l004E6970
+l004E697B:
+	return eax_11
+fn004E6960_exit:
+
+
+word32 fn004EA120(word32 dwArg04, word32 dwArg08, word32 dwArg0C)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn00411F00
+// MayUse:  Stack +0004:[0..31] Stack +0008:[0..31] Stack +000C:[0..31]
+// LiveOut: eax
+// Trashed: SCZO eax ecx edx Top
+// Preserved: esp
+fn004EA120_entry:
+l004EA120:
+	return fn005F8FB0(dwArg04, dwArg08, dwArg0C)
+fn004EA120_exit:
+
+
+void fn004EC030(word32 ecx)
+// stackDelta: 0; fpuStackDelta: 0; fpuMaxParam: -1
+
+// Called from:
+//      fn00420510
+// MayUse:  ecx:[0..31]
+// LiveOut:
+// Trashed: Top
+// Preserved: esp
+fn004EC030_entry:
+l004EC030:
+	Mem5[ecx:word32] = 0<32>
+	return
+fn004EC030_exit:
+
+
