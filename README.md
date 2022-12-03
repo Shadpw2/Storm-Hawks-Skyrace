@@ -71,4 +71,5 @@ We have discovered that the issue lies elsewhere, as the edit still gives the in
 
 Current investigation is into Const.pyc in ./dev/res/entites/client/bitcasters has shown the location of the previously hosted ip and port which also opens up the posibility of running an alt server.
 ![ip address located](https://cdn.discordapp.com/attachments/993060496557224018/1047799723051991100/SPOILER_image.png)
+
 Further more netinfo.pyc located in ./client directory looks to hold some key data to sniff if an alt server is required.
