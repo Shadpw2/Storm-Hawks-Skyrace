@@ -1,0 +1,572 @@
+# uncompyle6 version 3.9.0
+# Python bytecode version base 2.5 (62131)
+# Decompiled from: Python 2.7.13 (v2.7.13:a06454b1afa1, Dec 17 2016, 20:53:40) [MSC v.1500 64 bit (AMD64)]
+# Embedded file name: /entities/client/Avatar.py
+# Compiled at: 2008-12-16 09:35:38
+import BigWorld, BWPersonality, Pixie, GUI
+from keys import STANDARD_PHYSICS, RIPPER_PHYSICS, DUMMY_PHYSICS
+from Bitcasters.RepeatedTask import RepeatedTask
+from Math import Vector3, Matrix
+from Bitcasters.Const import isOnline
+from Util import ignore, YELL
+from Sound import *
+from InventoryItem import *
+
+class Avatar(BigWorld.Entity):
+
+    def enterWorld(self):
+        print 'AVATAR ENTERWORLD:', self.id
+        self.filter = BigWorld.AvatarFilter()
+        self.queued = None
+        self.transforming = False
+        from Bitcasters.CharacterModel import HumanCharacter
+        self.cm = HumanCharacter(self, self.hair, {'eyeColour': self.eyeColour, 
+           'skinColour': self.skinColour, 
+           'hairColour1': self.hairColour1, 
+           'hairColour2': self.hairColour2}, self.gender)
+        self.refreshEquipment()
+        BigWorld.addShadowEntity(self)
+        self.matcher = self.model.motors[0]
+        self.matcher.matchCaps = []
+        self.targetCaps = [1]
+        from User import User
+        self.user = User(self)
+        if self.mountType == 0:
+            physics_name = 'Dummy'
+        elif self.flying == False:
+            physics_name = 'Bike'
+        else:
+            physics_name = 'Plane'
+        self.user.setVehicle(self.mountType, physics_name)
+        if self.flying:
+            action = self.model.action('fly')
+            action()
+        if self == BigWorld.player():
+            return
+        model = self.model
+        from Bitcasters.Math import MatrixProduct, TranslationMatrix
+        from Bitcasters.layers.Factory import create
+        self.info_gui = create('target', 0.03, None, player_name=self.name, matrix=MatrixProduct(TranslationMatrix(0, model.height, 0), model.matrix), trap_background_clicks=False)
+        for (k, v) in self.proposals.items():
+            self.info_gui.set(k, 0 in v or self.id in v)
+
+        self.info_gui.set('name', False)
+        return
+
+    def getCoordsFromCell(self, entID, position, yaw):
+        pass
+
+    def dropOpponent(self, entID):
+        pass
+
+    def highlight(self, setting):
+        self.cm.highlight = setting
+        if setting:
+            self.info_gui.set('name', False)
+
+    def swapInventory(self, old_slot, new_slot):
+        pass
+
+    def browseShop(self, inventory):
+        pass
+
+    def refreshEquipment(self):
+        e = deserialize(self.equipped)
+        assert len(e) < 2
+        for (k, v) in e.items():
+            assert equipment(k)
+            v.apply_to(self.cm)
+
+    def leaveWorld(self):
+        print 'LEFT:', self
+        BigWorld.delShadowEntity(self)
+        self.info_gui.cleanup()
+        try:
+            BWPersonality.do('select_nothing')
+        except:
+            pass
+
+    def showLeaderboard(self, name, times):
+        pass
+
+    def initFriendsList(self, friends):
+        pass
+
+    def setFriendStatus(self, ID, status):
+        pass
+
+    def addedFriend(self, friend, online):
+        pass
+
+    def receiveMessage(self, messageType, friendID, messageCode):
+        pass
+
+    def yelled(self, messageCode):
+        BWPersonality.do('receiveMessage', YELL, self.id, list(messageCode))
+
+    def meetOtherPlayer(self, other):
+        pass
+
+    def notifyOfProposal(self, other, action):
+        assert other == self.id
+        print 'PLAYER', other, 'WANTS TO', action
+        assert action.startswith('race')
+        try:
+            self.info_gui.set(action, True)
+        except:
+            pass
+
+    def tradeEnded(self):
+        pass
+
+    def tradeStarted(self):
+        pass
+
+    def tradeRefused(self):
+        pass
+
+    def tradeChangedAdd(self, slotID, thing, mine):
+        pass
+
+    def tradeChangedRemove(self, thing, mine):
+        pass
+
+    def tradeUpdated(self, giving, getting, getting_details):
+        pass
+
+    def received(self, thing):
+        print 'AVATAR RECEIVED', thing
+
+    def startGesture(self, actionName):
+        self.user.startGesture(actionName)
+
+    def abortGesture(self):
+        self.user.abortGesture()
+
+    def targetName(self):
+        return self.name
+
+    def ackRace(self):
+        pass
+
+    def prepareRace(self, racers, track):
+        self.user.setVehicle(1, 'Dummy')
+
+    def abandonRace(self):
+        pass
+
+    def startRaceCountdown(self):
+        self.user.race.startCountdown()
+
+    def unlock(self):
+        pass
+
+    def holdStill(self):
+        pass
+
+    def resumeMoving(self):
+        pass
+
+    def context_options(self, player_friends):
+        return [
+         ('race_1', 'Race Tent City.'),
+         ('race_2', 'Race The Tunnels.'),
+         ('trade', 'Trade items.'),
+         ('remove_friend', 'Remove from friends list.') if self.name in player_friends else ('add_friend',
+                                                                                    'Add to friends list.')]
+
+    def name_for_context_menu(self):
+        return self.name
+
+    def is_challenged_by(self, user, track):
+        user.beginHeadToHeadRace(self.id, track)
+
+    def is_trade_target_of(self, user):
+        user.avatar.proposeTrade(self.id)
+
+    def setGold(self, amount):
+        pass
+
+    def cantAfford(self, balance, amount):
+        pass
+
+    def traded(self):
+        pass
+
+    def sold(self, id):
+        pass
+
+    def transform(self):
+        SKYRIDE_MODES = {'Bike': 'Plane', 'Plane': 'Bike'}
+        TRANSFORM_ANIMS = {'Bike': 'bike_to_fly', 'Plane': 'fly_to_bike'}
+        if self.ph_name not in SKYRIDE_MODES:
+            return False
+        if self.transforming:
+            return False
+        self.transforming = True
+        StopContinuousEffect('effects/engineidle')
+        StopContinuousEffect('effects/enginerunning')
+        StopContinuousEffect('effects/engineskyride')
+        tf = self.model.getSound('effects/transform')
+        tf.play()
+        if self == BigWorld.player():
+            self.cell.transform()
+
+        def finishTransform():
+            self.transforming = False
+            __import__('Physics').attach(self, SKYRIDE_MODES[self.ph_name])
+
+        action = self.model.action(TRANSFORM_ANIMS[self.ph_name])
+        action()
+        BigWorld.callback(action.duration - action.blendOutTime - 0.0001, finishTransform)
+        if self != BigWorld.player():
+            if self.flying:
+                action = self.model.action('fly')
+            else:
+                action = self.model.action('bike')
+            action()
+        return True
+
+    def updateRaceCrystals(self, crystals):
+        pass
+
+    def rank(self, value):
+        assert self == BigWorld.player()
+        self.user.race.set_rank(value)
+
+    def changedVehicle(self, type):
+        self.user.setVehicle(self.mountType, 'Dummy')
+
+    def unlock(self):
+        from Bitcasters.Math import MatrixProduct, TranslationMatrix
+        self.fixPosServo = BigWorld.Servo(MatrixProduct(self.model.matrix, TranslationMatrix(y=-0.75)))
+        self.model.addMotor(self.fixPosServo)
+        self.fxMakerPS = {}
+        self.fxMaker(0, 'HP_dirt')
+        __import__('Physics').attach(self, 'Bike')
+        print 'bike unlocked'
+
+    def fxMaker(self, effectID, attachTo, remove=False):
+        fxPath = [
+         'vfx\\particles\\skimmer_sand_kickedup.xml',
+         'vfx\\particles\\skimmer_trails.xml'][effectID]
+        node = self.model.node(attachTo)
+        mapping = self.fxMakerPS.setdefault(attachTo, {})
+        if remove:
+            if effectID in mapping.keys():
+                node.detach(mapping[effectID])
+                del mapping[effectID]
+            else:
+                print 'fxMaker: effect %d is already not attached to %s' % (effectID, attachTo)
+        elif effectID not in mapping.keys():
+            mapping[effectID] = Pixie.create(fxPath)
+            node.attach(mapping[effectID])
+        else:
+            print 'fxMaker: effect %d is already attached to %s' % (effectID, attachTo)
+
+    def usedBy(self, user):
+        self.is_trade_target_of(user.user)
+
+    def Version0_3_3(self, messageType):
+        pass
+
+
+class PlayerAvatar(Avatar):
+
+    def enterWorld(self):
+        self.friends_gui = None
+        print 'PLAYERAVATAR ENTERWORLD'
+        from LoadScreenController import LoadScreenController
+        screen = BWPersonality.changeMode('Loading', 'WorldMode')
+        LoadScreenController(screen, callback=(lambda : screen.setProgress(1)))
+        BWPersonality.fixCamera()
+
+        def increaseDrawDistance():
+            BigWorld.projection().farPlane = 1500
+
+        BigWorld.callback(0.1, increaseDrawDistance)
+        Avatar.enterWorld(self)
+        __import__('Physics').attach(self, 'Biped')
+        target = BigWorld.target
+        target.isEnabled = True
+        target.caps(1, 7)
+        target.maxDistance = 10
+        target.exclude = self
+        leftFoot = self.model.node('HP_foot_L')
+        rightFoot = self.model.node('HP_foot_R')
+        leftFootSound = self.model.getSound('effects/footstep1')
+        rightFootSound = self.model.getSound('effects/footstep2')
+
+        def playFootSound(velocity, odd):
+            if odd:
+                leftFootSound.play()
+            else:
+                rightFootSound.play()
+
+        leftTrigger = BigWorld.FootTrigger(1)
+        leftTrigger.footstepCallback = playFootSound
+        rightTrigger = BigWorld.FootTrigger(0)
+        rightTrigger.footstepCallback = playFootSound
+        leftFoot.attach(leftTrigger)
+        rightFoot.attach(rightTrigger)
+        self.hadSkyrideModel = True
+        self.positionRequests = set()
+        from Bitcasters.RepeatedTask import RepeatedTask
+        self.thread = RepeatedTask(self.pollForPositions, 1)
+        self.thread.start()
+        return
+
+    def pollForPositions(self):
+        for entityID in self.positionRequests:
+            self.base.getPos(entityID)
+
+    def updateAOIStatus(self, entityID, isInAOI):
+        pr = self.positionRequests
+        if not isInAOI:
+            pr.add(entityID)
+        elif entityID in pr:
+            pr.remove(entityID)
+
+    def getCoordsFromCell(self, entID, position, yaw):
+        BWPersonality.storage().mode.layers['player'].updateEntity(entID, (position, yaw))
+
+    def dropOpponent(self, entID):
+        print 'DROP OPPONENT:', entID
+        BWPersonality.storage().mode.layers['player'].remove_dot(entID)
+        self.updateAOIStatus(self, entID, False)
+
+    def meetOtherPlayer(self, other):
+        """Both players want to talk. Hide the notification icon if present, seek the players to a conversational distance, and pop up a chat interface."""
+        BigWorld.entities[other].info_gui.set('talk', False)
+        other = BigWorld.entities[other]
+        direction = other.model.position - self.model.position
+        direction.normalise()
+        center = (self.model.position + other.model.position).scale(0.5)
+        target = center - direction.scale(1.5)
+        self.ph.seekTo(target, yaw=direction.yaw, successAction=BWPersonality.storage().mode.context_menu)
+
+    def notifyOfProposal(self, other, action):
+        """Add a notification icon above the other player's head."""
+        print 'PLAYER', other, 'WANTS TO', action
+        if action == 'exchange':
+            BWPersonality.do('setAccepted', True)
+        else:
+            BigWorld.entities[other].info_gui.set(action, True)
+
+    def initFriendsList(self, friends):
+        self.friend_name_ID_map = {}
+        self.friends = [
+         set(), set()]
+        for friend in friends:
+            self.addedFriend(friend, False)
+
+    def setFriendStatus(self, ID, status):
+        self.friends[not status].discard(ID)
+        self.friends[status].add(ID)
+        self.updateFriendsGUI()
+
+    def addFriendByName(self, name):
+        if name not in self.friend_name_ID_map:
+            self.base.addFriend(name)
+
+    def addFriendByID(self, ID):
+        BigWorld.entities[ID].cell.addAdmirer()
+
+    def addedFriend(self, friend, online):
+        name, ID = friend['name'], friend['ID']
+        self.friend_name_ID_map[name] = ID
+        self.friend_name_ID_map[ID] = name
+        self.setFriendStatus(ID, online)
+
+    def removeFriend(self, friendName):
+        try:
+            ID = self.friend_name_ID_map[friendName]
+        except:
+            return
+
+        self.friends[False].discard(ID)
+        self.friends[True].discard(ID)
+        del self.friend_name_ID_map[friendName]
+        assert self.friend_name_ID_map[ID] == friendName
+        del self.friend_name_ID_map[ID]
+        self.updateFriendsGUI()
+        self.base.removeFriend(ID)
+
+    def updateFriendsGUI(self, layer=None):
+        if layer:
+            self.friends_gui = layer
+        if self.friends_gui:
+            self.friends_gui.setFriendsList(('\n').join((self.friend_name_ID_map[id] for id in self.friends[True])))
+
+    def sendToAllFriends(self, code):
+        self.base.sendToAllFriends(code)
+
+    def sendToAnyone(self, friendName, messageCode):
+        if friendName in self.friend_name_ID_map:
+            self.sendMessage(friendName, messageCode)
+            return
+        targets = [ x for x in BigWorld.entities.values() if isinstance(x, Avatar) if x.name == friendName
+                  ]
+        assert len(targets) < 2
+        if targets != []:
+            self.base.sendToStranger(targets[0].id, messageCode)
+
+    def sendMessage(self, friendName, messageCode):
+        if friendName not in self.friend_name_ID_map:
+            return
+        ID = self.friend_name_ID_map[friendName]
+        if ID not in self.friends[True]:
+            print friendName, "not online as far as you know, but I'll try..."
+        self.base.sendMessage(ID, messageCode)
+
+    def receiveMessage(self, messageType, friendID, messageCode):
+        self.friends_gui.receiveMessage(messageType, friendID, list(messageCode))
+
+    def ackRace(self):
+        print 'ACK RACE PA'
+        self.user.race.acknowledge()
+
+    def prepareRace(self, racers, track):
+        print 'PREPARE RACE PA'
+        self.user.race.prepare(racers, track)
+
+    def abandonRace(self):
+        self.user.race.abandon()
+
+    def showLeaderboard(self, name, times):
+        BWPersonality.do('updateLeaderboard', name, times)
+
+    def swapInventory(self, old_slot, new_slot):
+        print 'I WAS TOLD TO SWAP', old_slot, 'AND', new_slot
+        print 'INVENTORY BEFORE:', self.inventory
+        swapInventorySlots(self.inventory, old_slot, new_slot)
+        print 'INVENTORY AFTER:', self.inventory
+        try:
+            BWPersonality.do('updateInventory')
+        except:
+            pass
+
+    def browseShop(self, inventory):
+        print 'BROWSE SHOP INVENTORY:', inventory
+        BWPersonality.do('browseShop', deserialize(inventory))
+
+    def change(self, inventorySlot):
+        if inventorySlot in self.inventory:
+            self.base.attemptToWear(self.inventory[inventorySlot])
+
+    def proposeTrade(self, id):
+        self.expected_trader = id
+        self.cell.proposeActionTo('trade', id)
+
+    def tradeEnded(self):
+        self.expected_trader = 0
+        BWPersonality.do('endTrade')
+
+    def tradeStarted(self):
+        trader = BigWorld.entities[self.expected_trader]
+        trader.info_gui.set('trade', False)
+        BWPersonality.changeMode('Trading', trader.name)
+
+    def tradeRefused(self):
+        BWPersonality.do('setAccepted', False)
+
+    def tradeChangedAdd(self, slotID, thing, mine):
+        items = deserialize(thing)
+        assert items.keys() == [slotID]
+        BWPersonality.do('tradeChangedAdd', slotID, deserialize(thing)[slotID], mine)
+
+    def tradeChangedRemove(self, inventoryID, mine):
+        BWPersonality.do('tradeChangedRemove', inventoryID, mine)
+
+    def tradeUpdated(self, giving, getting, getting_details):
+        print 'I AM GETTING:', getting
+        print 'IN DETAIL:', getting_details
+        items = deserialize(getting_details)
+        assert set(items.keys()) == set(getting)
+        BWPersonality.do('tradeUpdated', giving, items)
+
+    def received(self, stuff):
+        if not hasattr(self, 'inventory'):
+            self.inventory = {}
+        things = deserialize(stuff)
+        assert not set(things.keys()).intersection(set(self.inventory.keys())), 'Server is trying to stuff something in a slot we think is full'
+        self.inventory.update(things)
+        print 'INVENTORY IS NOW', self.inventory
+        try:
+            BWPersonality.do('updateInventory', True)
+        except:
+            pass
+
+    def checkAnims(self):
+        self.ph.checkAnims()
+
+    def onCollide(self, newMomentum, collidePosition, severity, triangleFlags):
+        pass
+
+    def boost(self):
+        self.ph.boost()
+        self.fxMaker(1, 'HP_thrustjet_L')
+        self.fxMaker(1, 'HP_thrustjet_R')
+        PlayEffect('effects/boost')
+
+        def turnOff():
+            self.fxMaker(1, 'HP_thrustjet_L', True)
+            self.fxMaker(1, 'HP_thrustjet_R', True)
+
+        BigWorld.callback(1.5, turnOff)
+
+    def walk(self):
+        """While moving, hold this key down to walk slowly"""
+        self.ph.walk()
+
+    def run(self):
+        self.ph.run()
+
+    def toggleTurboMode(self):
+        """Toggle Turbo mode (dev)"""
+        self.ph.toggleTurboMode()
+
+    def holdStill(self):
+        self.ph.holdStill()
+
+    def resumeMoving(self):
+        self.ph.resumeMoving()
+
+    def targetFocus(self, focussedEntity):
+        try:
+            BWPersonality.do('targetFocus', focussedEntity)
+        except:
+            pass
+
+    def targetBlur(self, focussedEntity):
+        try:
+            BWPersonality.do('targetBlur', focussedEntity)
+        except:
+            pass
+
+    def handleKeyEvent(self, isDown, key, mods):
+        pass
+
+    def setGold(self, amount):
+        self.gold = amount
+
+    def cantAfford(self, balance, amount):
+        from Bitcasters.layers.Factory import notify
+        from Bitcasters.layers.dialog import ICON_ERROR
+        notify(ICON_ERROR, 'Not enough gold', 'That costs %s gold\nand you only have %s gold.' % (amount, balance))
+
+    def traded(self):
+        BWPersonality.do('clearGiveGet')
+
+    def sold(self, id):
+        del self.inventory[id]
+        try:
+            BWPersonality.do('updateInventory', True)
+        except:
+            pass
+
+    def updateRaceCrystals(self, crystals):
+        try:
+            BWPersonality.do('updateRaceCrystals', crystals)
+        except:
+            pass

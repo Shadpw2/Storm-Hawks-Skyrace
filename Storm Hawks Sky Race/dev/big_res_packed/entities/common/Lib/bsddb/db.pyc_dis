@@ -1,9 +1,0 @@
-# Embedded file name: /entities/common/Lib/bsddb/db.py
-if __name__.startswith('bsddb3.'):
-    from _pybsddb import *
-    from _pybsddb import __version__
-else:
-    from _bsddb import *
-    from _bsddb import __version__
-if version() < (3, 2, 0):
-    raise ImportError, 'correct BerkeleyDB symbols not found.  Perhaps python was statically linked with an older version?'

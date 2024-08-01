@@ -1,12 +1,1212 @@
 
 /------------------------------------------------------------------------------\
-BigWorld Release Client (compiled at 14:20:05 Dec  9 2008) starting on Fri Aug 12 21:30:42 2022
+BigWorld Release Client (compiled at 14:20:05 Dec  9 2008) starting on Sat Oct 07 16:50:20 2023
 \--------------------------------------------------------------------------------/
 
 /------------------------------------------------------------------------------\
-BigWorld Release Client (compiled at 14:20:05 Dec  9 2008) starting on Tue Oct 25 15:33:09 2022
+BigWorld Release Client (compiled at 14:20:05 Dec  9 2008) starting on Wed Oct 18 20:32:58 2023
 \--------------------------------------------------------------------------------/
 
 /------------------------------------------------------------------------------\
-BigWorld Release Client (compiled at 14:20:05 Dec  9 2008) starting on Fri Dec 02 14:03:09 2022
+BigWorld Release Client (compiled at 14:20:05 Dec  9 2008) starting on Wed Oct 18 20:34:29 2023
 \--------------------------------------------------------------------------------/
+
+/------------------------------------------------------------------------------\
+BigWorld Release Client (compiled at 14:20:05 Dec  9 2008) starting on Wed Oct 18 20:38:07 2023
+Traceback (most recent call last):
+  File "/entities/client/Account.py", line 1, in <module>
+  File "entities/client\BWPersonality.py", line 57
+    except Exception as detail:
+                      ^
+SyntaxError: invalid syntax
+
+/------------------------------------------------------------------------------\
+BigWorld Release Client (compiled at 14:20:05 Dec  9 2008) starting on Wed Oct 18 20:44:36 2023
+Traceback (most recent call last):
+  File "/entities/client/Account.py", line 1, in <module>
+  File "entities/client\BWPersonality.py", line 1
+SyntaxError: Non-ASCII character '\xb3' in file entities/client\BWPersonality.py on line 1, but no encoding declared; see http://www.python.org/peps/pep-0263.html for details
+
+/------------------------------------------------------------------------------\
+BigWorld Release Client (compiled at 14:20:05 Dec  9 2008) starting on Tue Oct 24 19:02:01 2023
+\--------------------------------------------------------------------------------/
+
+/------------------------------------------------------------------------------\
+BigWorld Release Client (compiled at 14:20:05 Dec  9 2008) starting on Tue Oct 24 19:05:49 2023
+Const:: ERROR: Could not find text file with port number. Please run the appropriate batch file. Using default port for now.
+Offline mode requested. Using space:  saharr_test_2
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (300, 330)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+AVATAR ENTERWORLD: 1073741826
+TARGET SET: name True
+TARGET SET: name False
+PLAYERAVATAR ENTERWORLD
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (300, 330)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+AVATAR ENTERWORLD: 1073741826
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+Free Camera off at  (-272.698090, 23.282911, 154.174240)  facing  (-0.710397, -0.057802, 0.701451)
+Free Camera off at  (-274.786774, 23.402157, 155.800980)  facing  (-0.783998, -0.115387, 0.609967)
+Traceback (most recent call last):
+  File "entities/client\BWPersonality.py", line 166, in handleKeyEvent
+    _handler.handleKeyEvent(down, key, mods)
+  File "/entities/client/KeyHandler.py", line 67, in handleKeyEvent
+  File "/entities/client/Bitcasters/mode/Mode.py", line 19, in key
+  File "/entities/client/Bitcasters/mode/handlers.py", line 96, in exitbikehandler
+AttributeError: 'User' object has no attribute 'alight'
+Traceback (most recent call last):
+  File "entities/client\BWPersonality.py", line 166, in handleKeyEvent
+    _handler.handleKeyEvent(down, key, mods)
+  File "/entities/client/KeyHandler.py", line 67, in handleKeyEvent
+  File "/entities/client/Bitcasters/mode/Mode.py", line 19, in key
+  File "/entities/client/Bitcasters/mode/handlers.py", line 96, in exitbikehandler
+AttributeError: 'User' object has no attribute 'alight'
+bike unlocked
+bike unlocked
+bike unlocked
+COULD NOT SAVE CONFIG
+COULD NOT SAVE CONFIG
+LEFT: PlayerAvatar at 0x19AE2280
+\--------------------------------------------------------------------------------/
+
+/------------------------------------------------------------------------------\
+BigWorld Release Client (compiled at 14:20:05 Dec  9 2008) starting on Tue Oct 24 19:12:16 2023
+Const:: ERROR: Could not find text file with port number. Please run the appropriate batch file. Using default port for now.
+Offline mode requested. Using space:  saharr_test_2
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (300, 330)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+AVATAR ENTERWORLD: 1073741826
+TARGET SET: name True
+TARGET SET: name False
+PLAYERAVATAR ENTERWORLD
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (300, 330)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+AVATAR ENTERWORLD: 1073741826
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+LEFT: PlayerAvatar at 0x19D924C8
+\--------------------------------------------------------------------------------/
+
+/------------------------------------------------------------------------------\
+BigWorld Release Client (compiled at 14:20:05 Dec  9 2008) starting on Tue Oct 24 19:13:50 2023
+Const:: ERROR: Could not find text file with port number. Please run the appropriate batch file. Using default port for now.
+Offline mode requested. Using space:  saharr_test_2
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (300, 330)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+AVATAR ENTERWORLD: 1073741826
+TARGET SET: name True
+TARGET SET: name False
+PLAYERAVATAR ENTERWORLD
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (300, 330)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+AVATAR ENTERWORLD: 1073741826
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+bike unlocked
+LEFT: PlayerAvatar at 0x18A39DC0
+\--------------------------------------------------------------------------------/
+
+/------------------------------------------------------------------------------\
+BigWorld Release Client (compiled at 14:20:05 Dec  9 2008) starting on Tue Oct 24 19:18:22 2023
+Const:: ERROR: Could not find text file with port number. Please run the appropriate batch file. Using default port for now.
+Offline mode requested. Using space:  saharr_test_2
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (300, 330)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+AVATAR ENTERWORLD: 1073741826
+TARGET SET: name True
+TARGET SET: name False
+PLAYERAVATAR ENTERWORLD
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (300, 330)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+AVATAR ENTERWORLD: 1073741826
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+LEFT: PlayerAvatar at 0x19A7AF60
+\--------------------------------------------------------------------------------/
+
+/------------------------------------------------------------------------------\
+BigWorld Release Client (compiled at 14:20:05 Dec  9 2008) starting on Tue Oct 24 19:19:15 2023
+Const:: ERROR: Could not find text file with port number. Please run the appropriate batch file. Using default port for now.
+Offline mode requested. Using space:  saharr_test_2
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (300, 330)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+AVATAR ENTERWORLD: 1073741826
+TARGET SET: name True
+TARGET SET: name False
+PLAYERAVATAR ENTERWORLD
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (300, 330)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+AVATAR ENTERWORLD: 1073741826
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+Traceback (most recent call last):
+  File "entities/client\BWPersonality.py", line 166, in handleKeyEvent
+    _handler.handleKeyEvent(down, key, mods)
+  File "/entities/client/KeyHandler.py", line 67, in handleKeyEvent
+  File "/entities/client/Bitcasters/mode/Mode.py", line 19, in key
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 241, in click_leftgui_inventory
+  File "entities/client\BWPersonality.py", line 32, in changeMode
+    continuation = getattr(globals()[name], name)(*args, **kwargs)
+  File "/entities/client/Bitcasters/mode/Inventory.py", line 23, in __init__
+  File "/entities/client/Bitcasters/mode/Inventory.py", line 48, in updateInventory
+AttributeError: 'PlayerAvatar' object has no attribute 'gold'
+Traceback (most recent call last):
+  File "entities/client\BWPersonality.py", line 166, in handleKeyEvent
+    _handler.handleKeyEvent(down, key, mods)
+  File "/entities/client/KeyHandler.py", line 67, in handleKeyEvent
+  File "/entities/client/Bitcasters/mode/Mode.py", line 19, in key
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 241, in click_leftgui_inventory
+  File "entities/client\BWPersonality.py", line 32, in changeMode
+    continuation = getattr(globals()[name], name)(*args, **kwargs)
+  File "/entities/client/Bitcasters/mode/Inventory.py", line 23, in __init__
+  File "/entities/client/Bitcasters/mode/Inventory.py", line 48, in updateInventory
+AttributeError: 'PlayerAvatar' object has no attribute 'gold'
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+Traceback (most recent call last):
+  File "entities/client\BWPersonality.py", line 166, in handleKeyEvent
+    _handler.handleKeyEvent(down, key, mods)
+  File "/entities/client/KeyHandler.py", line 67, in handleKeyEvent
+  File "/entities/client/Bitcasters/mode/Mode.py", line 19, in key
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 241, in click_leftgui_inventory
+  File "entities/client\BWPersonality.py", line 32, in changeMode
+    continuation = getattr(globals()[name], name)(*args, **kwargs)
+  File "/entities/client/Bitcasters/mode/Inventory.py", line 23, in __init__
+  File "/entities/client/Bitcasters/mode/Inventory.py", line 48, in updateInventory
+AttributeError: 'PlayerAvatar' object has no attribute 'gold'
+Traceback (most recent call last):
+  File "entities/client\BWPersonality.py", line 166, in handleKeyEvent
+    _handler.handleKeyEvent(down, key, mods)
+  File "/entities/client/KeyHandler.py", line 67, in handleKeyEvent
+  File "/entities/client/Bitcasters/mode/Mode.py", line 19, in key
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 241, in click_leftgui_inventory
+  File "entities/client\BWPersonality.py", line 32, in changeMode
+    continuation = getattr(globals()[name], name)(*args, **kwargs)
+  File "/entities/client/Bitcasters/mode/Inventory.py", line 23, in __init__
+  File "/entities/client/Bitcasters/mode/Inventory.py", line 48, in updateInventory
+AttributeError: 'PlayerAvatar' object has no attribute 'gold'
+Traceback (most recent call last):
+  File "entities/client\BWPersonality.py", line 166, in handleKeyEvent
+    _handler.handleKeyEvent(down, key, mods)
+  File "/entities/client/KeyHandler.py", line 67, in handleKeyEvent
+  File "/entities/client/Bitcasters/mode/Mode.py", line 19, in key
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 241, in click_leftgui_inventory
+  File "entities/client\BWPersonality.py", line 32, in changeMode
+    continuation = getattr(globals()[name], name)(*args, **kwargs)
+  File "/entities/client/Bitcasters/mode/Inventory.py", line 23, in __init__
+  File "/entities/client/Bitcasters/mode/Inventory.py", line 48, in updateInventory
+AttributeError: 'PlayerAvatar' object has no attribute 'gold'
+Traceback (most recent call last):
+  File "entities/client\BWPersonality.py", line 166, in handleKeyEvent
+    _handler.handleKeyEvent(down, key, mods)
+  File "/entities/client/KeyHandler.py", line 67, in handleKeyEvent
+  File "/entities/client/Bitcasters/mode/Mode.py", line 19, in key
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 241, in click_leftgui_inventory
+  File "entities/client\BWPersonality.py", line 32, in changeMode
+    continuation = getattr(globals()[name], name)(*args, **kwargs)
+  File "/entities/client/Bitcasters/mode/Inventory.py", line 23, in __init__
+  File "/entities/client/Bitcasters/mode/Inventory.py", line 48, in updateInventory
+AttributeError: 'PlayerAvatar' object has no attribute 'gold'
+Traceback (most recent call last):
+  File "entities/client\BWPersonality.py", line 166, in handleKeyEvent
+    _handler.handleKeyEvent(down, key, mods)
+  File "/entities/client/KeyHandler.py", line 67, in handleKeyEvent
+  File "/entities/client/Bitcasters/mode/Mode.py", line 19, in key
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 241, in click_leftgui_inventory
+  File "entities/client\BWPersonality.py", line 32, in changeMode
+    continuation = getattr(globals()[name], name)(*args, **kwargs)
+  File "/entities/client/Bitcasters/mode/Inventory.py", line 23, in __init__
+  File "/entities/client/Bitcasters/mode/Inventory.py", line 48, in updateInventory
+AttributeError: 'PlayerAvatar' object has no attribute 'gold'
+bike unlocked
+Traceback (most recent call last):
+  File "entities/client\BWPersonality.py", line 166, in handleKeyEvent
+    _handler.handleKeyEvent(down, key, mods)
+  File "/entities/client/KeyHandler.py", line 67, in handleKeyEvent
+  File "/entities/client/Bitcasters/mode/Mode.py", line 19, in key
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 241, in click_leftgui_inventory
+  File "entities/client\BWPersonality.py", line 32, in changeMode
+    continuation = getattr(globals()[name], name)(*args, **kwargs)
+  File "/entities/client/Bitcasters/mode/Inventory.py", line 23, in __init__
+  File "/entities/client/Bitcasters/mode/Inventory.py", line 48, in updateInventory
+AttributeError: 'PlayerAvatar' object has no attribute 'gold'
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+LEFT: PlayerAvatar at 0x18AE4DD8
+\--------------------------------------------------------------------------------/
+
+/------------------------------------------------------------------------------\
+BigWorld Release Client (compiled at 14:20:05 Dec  9 2008) starting on Tue Oct 24 20:14:39 2023
+Const:: ERROR: Could not find text file with port number. Please run the appropriate batch file. Using default port for now.
+Offline mode requested. Using space:  saharr_test_2
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (300, 330)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+RESTART LOGIN
+RESTART LOGIN
+RESTART LOGIN
+RESTART LOGIN
+RESTART LOGIN
+AVATAR ENTERWORLD: 1073741826
+TARGET SET: name True
+TARGET SET: name False
+PLAYERAVATAR ENTERWORLD
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (300, 330)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+AVATAR ENTERWORLD: 1073741826
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+bike unlocked
+bike unlocked
+bike unlocked
+bike unlocked
+bike unlocked
+bike unlocked
+bike unlocked
+bike unlocked
+LEFT: PlayerAvatar at 0x19A424F0
+\--------------------------------------------------------------------------------/
+
+/------------------------------------------------------------------------------\
+BigWorld Release Client (compiled at 14:20:05 Dec  9 2008) starting on Tue Oct 24 20:22:48 2023
+Const:: ERROR: Could not find text file with port number. Please run the appropriate batch file. Using default port for now.
+Offline mode requested. Using space:  saharr_test_2
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (300, 330)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+AVATAR ENTERWORLD: 1073741826
+TARGET SET: name True
+TARGET SET: name False
+PLAYERAVATAR ENTERWORLD
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (300, 330)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+AVATAR ENTERWORLD: 1073741826
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+bike unlocked
+bike unlocked
+Traceback (most recent call last):
+  File "entities/client\BWPersonality.py", line 166, in handleKeyEvent
+    _handler.handleKeyEvent(down, key, mods)
+  File "/entities/client/KeyHandler.py", line 67, in handleKeyEvent
+  File "/entities/client/Bitcasters/mode/Mode.py", line 19, in key
+  File "/entities/client/Bitcasters/mode/handlers.py", line 96, in exitbikehandler
+AttributeError: 'User' object has no attribute 'alight'
+Traceback (most recent call last):
+  File "entities/client\BWPersonality.py", line 166, in handleKeyEvent
+    _handler.handleKeyEvent(down, key, mods)
+  File "/entities/client/KeyHandler.py", line 67, in handleKeyEvent
+  File "/entities/client/Bitcasters/mode/Mode.py", line 19, in key
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 241, in click_leftgui_inventory
+  File "entities/client\BWPersonality.py", line 32, in changeMode
+    continuation = getattr(globals()[name], name)(*args, **kwargs)
+  File "/entities/client/Bitcasters/mode/Inventory.py", line 23, in __init__
+  File "/entities/client/Bitcasters/mode/Inventory.py", line 48, in updateInventory
+AttributeError: 'PlayerAvatar' object has no attribute 'gold'
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+LEFT: PlayerAvatar at 0x18C36400
+\--------------------------------------------------------------------------------/
+
+/------------------------------------------------------------------------------\
+BigWorld Release Client (compiled at 14:20:05 Dec  9 2008) starting on Wed Oct 25 18:56:28 2023
+Const:: ERROR: Could not find text file with port number. Please run the appropriate batch file. Using default port for now.
+Offline mode requested. Using space:  saharr_test_2
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (300, 330)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+COULD NOT LOG OFF: 'PlayerSpaceViewer' object has no attribute 'user'
+\--------------------------------------------------------------------------------/
+
+/------------------------------------------------------------------------------\
+BigWorld Release Client (compiled at 14:20:05 Dec  9 2008) starting on Wed Oct 25 20:22:52 2023
+Const:: ERROR: Could not find text file with port number. Please run the appropriate batch file. Using default port for now.
+Offline mode requested. Using space:  saharr_test_2
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (300, 330)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+AVATAR ENTERWORLD: 1073741826
+TARGET SET: name True
+TARGET SET: name False
+PLAYERAVATAR ENTERWORLD
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (300, 330)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+AVATAR ENTERWORLD: 1073741826
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+COULD NOT SAVE CONFIG
+COULD NOT SAVE CONFIG
+COULD NOT SAVE CONFIG
+bike unlocked
+bike unlocked
+bike unlocked
+LEFT: PlayerAvatar at 0x19ABDBC8
+\--------------------------------------------------------------------------------/
+
+/------------------------------------------------------------------------------\
+BigWorld Release Client (compiled at 14:20:05 Dec  9 2008) starting on Wed Oct 25 20:26:30 2023
+Const:: ERROR: Could not find text file with port number. Please run the appropriate batch file. Using default port for now.
+Offline mode requested. Using space:  saharr_test_2
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (300, 330)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+COULD NOT LOG OFF: 'PlayerSpaceViewer' object has no attribute 'user'
+\--------------------------------------------------------------------------------/
+
+/------------------------------------------------------------------------------\
+BigWorld Release Client (compiled at 14:20:05 Dec  9 2008) starting on Wed Oct 25 20:27:27 2023
+Const:: ERROR: Could not find text file with port number. Please run the appropriate batch file. Using default port for now.
+Offline mode requested. Using space:  saharr_test_2
+BWPersonality::checkAndFixGraphicsState: Forcing window resize.
+BWPersonality::checkAndFixGraphicsState: Forcing window resize.
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (300, 330)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+BWPersonality::checkAndFixGraphicsState: Forcing window resize.
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 67, in <lambda>
+  File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 85, in mouseEventWrapper
+  File "/entities/client/Bitcasters/GUI/Clickable.py", line 88, in click
+  File "/entities/client/Bitcasters/GUI/Button.py", line 28, in <lambda>
+  File "/entities/client/Bitcasters/GUI/Component.py", line 542, in dispatch
+  File "/entities/client/Bitcasters/GUI/Component.py", line 554, in _dispatch_to
+  File "/entities/client/Bitcasters/mode/CharCreation.py", line 44, in click_cancel
+AttributeError: 'PlayerSpaceViewer' object has no attribute 'cancelCharCreation'
+BWPersonality::checkAndFixGraphicsState: Forcing window resize.
+NO NAME
+RESTART LOGIN
+RESTART LOGIN
+RESTART LOGIN
+RESTART LOGIN
+RESTART LOGIN
+RESTART LOGIN
+RESTART LOGIN
+RESTART LOGIN
+AVATAR ENTERWORLD: 1073741826
+TARGET SET: name True
+TARGET SET: name False
+PLAYERAVATAR ENTERWORLD
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (300, 330)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+AVATAR ENTERWORLD: 1073741826
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+LEFT: PlayerAvatar at 0x19860668
+\--------------------------------------------------------------------------------/
+
+/------------------------------------------------------------------------------\
+BigWorld Release Client (compiled at 14:20:05 Dec  9 2008) starting on Wed Oct 25 20:36:21 2023
+Const:: ERROR: Could not find text file with port number. Please run the appropriate batch file. Using default port for now.
+Offline mode requested. Using space:  saharr_test_2
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (300, 330)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+BWPersonality::checkAndFixGraphicsState: Forcing window resize.
+BWPersonality::checkAndFixGraphicsState: Forcing window resize.
+AVATAR ENTERWORLD: 1073741826
+TARGET SET: name True
+TARGET SET: name False
+PLAYERAVATAR ENTERWORLD
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (480.0, 252.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (300, 330)
+CELLSIZE: (480.0, 252.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (480.0, 252.0)
+AVATAR ENTERWORLD: 1073741826
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+LEFT: PlayerAvatar at 0x14FE4828
+\--------------------------------------------------------------------------------/
+
+/------------------------------------------------------------------------------\
+BigWorld Release Client (compiled at 14:20:05 Dec  9 2008) starting on Wed Oct 25 20:37:03 2023
+Const:: ERROR: Could not find text file with port number. Please run the appropriate batch file. Using default port for now.
+Offline mode requested. Using space:  saharr_test_2
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (300, 330)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+BWPersonality::checkAndFixGraphicsState: Forcing window resize.
+BWPersonality::checkAndFixGraphicsState: Forcing window resize.
+AVATAR ENTERWORLD: 1073741826
+TARGET SET: name True
+TARGET SET: name False
+PLAYERAVATAR ENTERWORLD
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (480.0, 252.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (300, 330)
+CELLSIZE: (480.0, 252.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (480.0, 252.0)
+AVATAR ENTERWORLD: 1073741826
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
+  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
+  File "/entities/client/Avatar.py", line 687, in updateFriendsGUI
+AttributeError: 'PlayerAvatar' object has no attribute 'friends'
+LEFT: PlayerAvatar at 0x199F65A8
+\--------------------------------------------------------------------------------/
+
+/------------------------------------------------------------------------------\
+BigWorld Release Client (compiled at 14:20:05 Dec  9 2008) starting on Wed Oct 25 20:41:21 2023
+Const:: ERROR: Could not find text file with port number. Please run the appropriate batch file. Using default port for now.
+Offline mode requested. Using space:  saharr_test_2
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (300, 330)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 67, in <lambda>
+  File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 85, in mouseEventWrapper
+  File "/entities/client/Bitcasters/GUI/Clickable.py", line 88, in click
+  File "/entities/client/Bitcasters/GUI/Button.py", line 28, in <lambda>
+  File "/entities/client/Bitcasters/GUI/Component.py", line 542, in dispatch
+  File "/entities/client/Bitcasters/GUI/Component.py", line 554, in _dispatch_to
+  File "/entities/client/Bitcasters/mode/CharCreation.py", line 54, in click_done
+  File "/entities/client/Bitcasters/mode/Prelogin.py", line 59, in create
+  File "/entities/client/Bitcasters/mode/Prelogin.py", line 37, in selectCharacters
+  File "entities/client\BWPersonality.py", line 32, in changeMode
+    continuation = getattr(globals()[name], name)(*args, **kwargs)
+  File "entities/client\Bitcasters\mode\CharSelection.py", line 14, in __init__
+    raise characters or AssertionError
+TypeError: exceptions must be classes, instances, or strings (deprecated), not list
+ALREADY EXISTS
+ALREADY EXISTS
+ALREADY EXISTS
+ALREADY EXISTS
+ALREADY EXISTS
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 67, in <lambda>
+  File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 85, in mouseEventWrapper
+  File "/entities/client/Bitcasters/GUI/Clickable.py", line 88, in click
+  File "/entities/client/Bitcasters/GUI/Button.py", line 28, in <lambda>
+  File "/entities/client/Bitcasters/GUI/Component.py", line 542, in dispatch
+  File "/entities/client/Bitcasters/GUI/Component.py", line 554, in _dispatch_to
+  File "/entities/client/Bitcasters/mode/CharCreation.py", line 54, in click_done
+  File "/entities/client/Bitcasters/mode/Prelogin.py", line 59, in create
+  File "/entities/client/Bitcasters/mode/Prelogin.py", line 37, in selectCharacters
+  File "entities/client\BWPersonality.py", line 32, in changeMode
+    continuation = getattr(globals()[name], name)(*args, **kwargs)
+  File "entities/client\Bitcasters\mode\CharSelection.py", line 14, in __init__
+    raise characters or AssertionError
+TypeError: exceptions must be classes, instances, or strings (deprecated), not list
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 67, in <lambda>
+  File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 85, in mouseEventWrapper
+  File "/entities/client/Bitcasters/GUI/Clickable.py", line 88, in click
+  File "/entities/client/Bitcasters/GUI/Button.py", line 28, in <lambda>
+  File "/entities/client/Bitcasters/GUI/Component.py", line 542, in dispatch
+  File "/entities/client/Bitcasters/GUI/Component.py", line 554, in _dispatch_to
+  File "/entities/client/Bitcasters/mode/CharCreation.py", line 44, in click_cancel
+AttributeError: 'PlayerSpaceViewer' object has no attribute 'cancelCharCreation'
+ALREADY EXISTS
+ALREADY EXISTS
+ALREADY EXISTS
+ALREADY EXISTS
+ALREADY EXISTS
+ALREADY EXISTS
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 67, in <lambda>
+  File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 85, in mouseEventWrapper
+  File "/entities/client/Bitcasters/GUI/Clickable.py", line 88, in click
+  File "/entities/client/Bitcasters/GUI/Button.py", line 28, in <lambda>
+  File "/entities/client/Bitcasters/GUI/Component.py", line 542, in dispatch
+  File "/entities/client/Bitcasters/GUI/Component.py", line 554, in _dispatch_to
+  File "/entities/client/Bitcasters/mode/CharCreation.py", line 44, in click_cancel
+AttributeError: 'PlayerSpaceViewer' object has no attribute 'cancelCharCreation'
+COULD NOT LOG OFF: 'PlayerSpaceViewer' object has no attribute 'user'
+\--------------------------------------------------------------------------------/
+
+/------------------------------------------------------------------------------\
+BigWorld Release Client (compiled at 14:20:05 Dec  9 2008) starting on Wed Oct 25 20:42:31 2023
+Const:: ERROR: Could not find text file with port number. Please run the appropriate batch file. Using default port for now.
+Offline mode requested. Using space:  saharr_test_2
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (300, 330)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 67, in <lambda>
+  File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 85, in mouseEventWrapper
+  File "/entities/client/Bitcasters/GUI/Clickable.py", line 88, in click
+  File "/entities/client/Bitcasters/GUI/Button.py", line 28, in <lambda>
+  File "/entities/client/Bitcasters/GUI/Component.py", line 542, in dispatch
+  File "/entities/client/Bitcasters/GUI/Component.py", line 554, in _dispatch_to
+  File "/entities/client/Bitcasters/mode/CharCreation.py", line 54, in click_done
+  File "/entities/client/Bitcasters/mode/Prelogin.py", line 59, in create
+  File "/entities/client/Bitcasters/mode/Prelogin.py", line 37, in selectCharacters
+  File "entities/client\BWPersonality.py", line 32, in changeMode
+    continuation = getattr(globals()[name], name)(*args, **kwargs)
+  File "entities/client\Bitcasters\mode\CharSelection.py", line 14, in __init__
+    raise characters or AssertionError
+TypeError: exceptions must be classes, instances, or strings (deprecated), not list
+ALREADY EXISTS
+ALREADY EXISTS
+ALREADY EXISTS
+ALREADY EXISTS
+ALREADY EXISTS
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 67, in <lambda>
+  File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 85, in mouseEventWrapper
+  File "/entities/client/Bitcasters/GUI/Clickable.py", line 88, in click
+  File "/entities/client/Bitcasters/GUI/Button.py", line 28, in <lambda>
+  File "/entities/client/Bitcasters/GUI/Component.py", line 542, in dispatch
+  File "/entities/client/Bitcasters/GUI/Component.py", line 554, in _dispatch_to
+  File "/entities/client/Bitcasters/mode/CharCreation.py", line 44, in click_cancel
+AttributeError: 'PlayerSpaceViewer' object has no attribute 'cancelCharCreation'
+COULD NOT LOG OFF: 'PlayerSpaceViewer' object has no attribute 'user'
+\--------------------------------------------------------------------------------/
+
+/------------------------------------------------------------------------------\
+BigWorld Release Client (compiled at 14:20:05 Dec  9 2008) starting on Wed Oct 25 20:43:15 2023
+Const:: ERROR: Could not find text file with port number. Please run the appropriate batch file. Using default port for now.
+Offline mode requested. Using space:  saharr_test_2
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (300, 330)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 67, in <lambda>
+  File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 85, in mouseEventWrapper
+  File "/entities/client/Bitcasters/GUI/Clickable.py", line 98, in drop
+  File "/entities/client/Bitcasters/GUI/Clickable.py", line 88, in click
+  File "/entities/client/Bitcasters/GUI/Button.py", line 28, in <lambda>
+  File "/entities/client/Bitcasters/GUI/Component.py", line 542, in dispatch
+  File "/entities/client/Bitcasters/GUI/Component.py", line 554, in _dispatch_to
+  File "/entities/client/Bitcasters/mode/CharCreation.py", line 54, in click_done
+  File "/entities/client/Bitcasters/mode/Prelogin.py", line 59, in create
+  File "/entities/client/Bitcasters/mode/Prelogin.py", line 37, in selectCharacters
+  File "entities/client\BWPersonality.py", line 32, in changeMode
+    continuation = getattr(globals()[name], name)(*args, **kwargs)
+  File "entities/client\Bitcasters\mode\CharSelection.py", line 14, in __init__
+    raise characters or AssertionError
+TypeError: exceptions must be classes, instances, or strings (deprecated), not list
+ALREADY EXISTS
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 67, in <lambda>
+  File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 85, in mouseEventWrapper
+  File "/entities/client/Bitcasters/GUI/Clickable.py", line 88, in click
+  File "/entities/client/Bitcasters/GUI/Button.py", line 28, in <lambda>
+  File "/entities/client/Bitcasters/GUI/Component.py", line 542, in dispatch
+  File "/entities/client/Bitcasters/GUI/Component.py", line 554, in _dispatch_to
+  File "/entities/client/Bitcasters/mode/CharCreation.py", line 44, in click_cancel
+AttributeError: 'PlayerSpaceViewer' object has no attribute 'cancelCharCreation'
+COULD NOT LOG OFF: 'PlayerSpaceViewer' object has no attribute 'user'
+\--------------------------------------------------------------------------------/
+
+/------------------------------------------------------------------------------\
+BigWorld Release Client (compiled at 14:20:05 Dec  9 2008) starting on Wed Oct 25 20:43:55 2023
+Const:: ERROR: Could not find text file with port number. Please run the appropriate batch file. Using default port for now.
+Offline mode requested. Using space:  saharr_test_2
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (300, 330)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 67, in <lambda>
+  File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 85, in mouseEventWrapper
+  File "/entities/client/Bitcasters/GUI/Clickable.py", line 88, in click
+  File "/entities/client/Bitcasters/GUI/Button.py", line 28, in <lambda>
+  File "/entities/client/Bitcasters/GUI/Component.py", line 542, in dispatch
+  File "/entities/client/Bitcasters/GUI/Component.py", line 554, in _dispatch_to
+  File "/entities/client/Bitcasters/mode/CharCreation.py", line 54, in click_done
+  File "/entities/client/Bitcasters/mode/Prelogin.py", line 59, in create
+  File "/entities/client/Bitcasters/mode/Prelogin.py", line 37, in selectCharacters
+  File "entities/client\BWPersonality.py", line 32, in changeMode
+    continuation = getattr(globals()[name], name)(*args, **kwargs)
+  File "entities/client\Bitcasters\mode\CharSelection.py", line 14, in __init__
+    raise characters or AssertionError
+TypeError: exceptions must be classes, instances, or strings (deprecated), not list
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 67, in <lambda>
+  File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 85, in mouseEventWrapper
+  File "/entities/client/Bitcasters/GUI/Clickable.py", line 88, in click
+  File "/entities/client/Bitcasters/GUI/Button.py", line 28, in <lambda>
+  File "/entities/client/Bitcasters/GUI/Component.py", line 542, in dispatch
+  File "/entities/client/Bitcasters/GUI/Component.py", line 554, in _dispatch_to
+  File "/entities/client/Bitcasters/mode/CharCreation.py", line 54, in click_done
+  File "/entities/client/Bitcasters/mode/Prelogin.py", line 59, in create
+  File "/entities/client/Bitcasters/mode/Prelogin.py", line 37, in selectCharacters
+  File "entities/client\BWPersonality.py", line 32, in changeMode
+    continuation = getattr(globals()[name], name)(*args, **kwargs)
+  File "entities/client\Bitcasters\mode\CharSelection.py", line 14, in __init__
+    raise characters or AssertionError
+TypeError: exceptions must be classes, instances, or strings (deprecated), not list
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 67, in <lambda>
+  File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 85, in mouseEventWrapper
+  File "/entities/client/Bitcasters/GUI/Clickable.py", line 88, in click
+  File "/entities/client/Bitcasters/GUI/Button.py", line 28, in <lambda>
+  File "/entities/client/Bitcasters/GUI/Component.py", line 542, in dispatch
+  File "/entities/client/Bitcasters/GUI/Component.py", line 554, in _dispatch_to
+  File "/entities/client/Bitcasters/mode/CharCreation.py", line 44, in click_cancel
+AttributeError: 'PlayerSpaceViewer' object has no attribute 'cancelCharCreation'
+COULD NOT LOG OFF: 'PlayerSpaceViewer' object has no attribute 'user'
+\--------------------------------------------------------------------------------/
+
+/------------------------------------------------------------------------------\
+BigWorld Release Client (compiled at 14:20:05 Dec  9 2008) starting on Wed Oct 25 20:45:23 2023
+Const:: ERROR: Could not find text file with port number. Please run the appropriate batch file. Using default port for now.
+Offline mode requested. Using space:  saharr_test_2
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (300, 330)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 67, in <lambda>
+  File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 85, in mouseEventWrapper
+  File "/entities/client/Bitcasters/GUI/Clickable.py", line 88, in click
+  File "/entities/client/Bitcasters/GUI/Button.py", line 28, in <lambda>
+  File "/entities/client/Bitcasters/GUI/Component.py", line 542, in dispatch
+  File "/entities/client/Bitcasters/GUI/Component.py", line 554, in _dispatch_to
+  File "/entities/client/Bitcasters/mode/CharCreation.py", line 54, in click_done
+  File "/entities/client/Bitcasters/mode/Prelogin.py", line 59, in create
+  File "/entities/client/Bitcasters/mode/Prelogin.py", line 37, in selectCharacters
+  File "entities/client\BWPersonality.py", line 32, in changeMode
+    continuation = getattr(globals()[name], name)(*args, **kwargs)
+  File "entities/client\Bitcasters\mode\CharSelection.py", line 14, in __init__
+TypeError: exceptions must be classes, instances, or strings (deprecated), not list
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 67, in <lambda>
+  File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 85, in mouseEventWrapper
+  File "/entities/client/Bitcasters/GUI/Clickable.py", line 88, in click
+  File "/entities/client/Bitcasters/GUI/Button.py", line 28, in <lambda>
+  File "/entities/client/Bitcasters/GUI/Component.py", line 542, in dispatch
+  File "/entities/client/Bitcasters/GUI/Component.py", line 554, in _dispatch_to
+  File "/entities/client/Bitcasters/mode/CharCreation.py", line 44, in click_cancel
+AttributeError: 'PlayerSpaceViewer' object has no attribute 'cancelCharCreation'
+COULD NOT LOG OFF: 'PlayerSpaceViewer' object has no attribute 'user'
+\--------------------------------------------------------------------------------/
+
+/------------------------------------------------------------------------------\
+BigWorld Release Client (compiled at 14:20:05 Dec  9 2008) starting on Wed Oct 25 20:45:56 2023
+Const:: ERROR: Could not find text file with port number. Please run the appropriate batch file. Using default port for now.
+Offline mode requested. Using space:  saharr_test_2
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (300, 330)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 67, in <lambda>
+  File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 85, in mouseEventWrapper
+  File "/entities/client/Bitcasters/GUI/Clickable.py", line 88, in click
+  File "/entities/client/Bitcasters/GUI/Button.py", line 28, in <lambda>
+  File "/entities/client/Bitcasters/GUI/Component.py", line 542, in dispatch
+  File "/entities/client/Bitcasters/GUI/Component.py", line 554, in _dispatch_to
+  File "/entities/client/Bitcasters/mode/CharCreation.py", line 54, in click_done
+  File "/entities/client/Bitcasters/mode/Prelogin.py", line 59, in create
+  File "/entities/client/Bitcasters/mode/Prelogin.py", line 37, in selectCharacters
+  File "entities/client\BWPersonality.py", line 32, in changeMode
+    continuation = getattr(globals()[name], name)(*args, **kwargs)
+  File "entities/client\Bitcasters\mode\CharSelection.py", line 14, in __init__
+TypeError: exceptions must be classes, instances, or strings (deprecated), not list
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 67, in <lambda>
+  File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 85, in mouseEventWrapper
+  File "/entities/client/Bitcasters/GUI/Clickable.py", line 88, in click
+  File "/entities/client/Bitcasters/GUI/Button.py", line 28, in <lambda>
+  File "/entities/client/Bitcasters/GUI/Component.py", line 542, in dispatch
+  File "/entities/client/Bitcasters/GUI/Component.py", line 554, in _dispatch_to
+  File "/entities/client/Bitcasters/mode/CharCreation.py", line 54, in click_done
+  File "/entities/client/Bitcasters/mode/Prelogin.py", line 59, in create
+  File "/entities/client/Bitcasters/mode/Prelogin.py", line 37, in selectCharacters
+  File "entities/client\BWPersonality.py", line 32, in changeMode
+    continuation = getattr(globals()[name], name)(*args, **kwargs)
+  File "entities/client\Bitcasters\mode\CharSelection.py", line 14, in __init__
+TypeError: exceptions must be classes, instances, or strings (deprecated), not list
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 67, in <lambda>
+  File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 85, in mouseEventWrapper
+  File "/entities/client/Bitcasters/GUI/Clickable.py", line 88, in click
+  File "/entities/client/Bitcasters/GUI/Button.py", line 28, in <lambda>
+  File "/entities/client/Bitcasters/GUI/Component.py", line 542, in dispatch
+  File "/entities/client/Bitcasters/GUI/Component.py", line 554, in _dispatch_to
+  File "/entities/client/Bitcasters/mode/CharCreation.py", line 44, in click_cancel
+AttributeError: 'PlayerSpaceViewer' object has no attribute 'cancelCharCreation'
+ALREADY EXISTS
+COULD NOT LOG OFF: 'PlayerSpaceViewer' object has no attribute 'user'
+\--------------------------------------------------------------------------------/
+
+/------------------------------------------------------------------------------\
+BigWorld Release Client (compiled at 14:20:05 Dec  9 2008) starting on Sat Jan 20 11:38:10 2024
+Const:: ERROR: Could not find text file with port number. Please run the appropriate batch file. Using default port for now.
+Offline mode requested. Using space:  saharr_test_2
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (300, 330)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+Traceback (most recent call last):
+  File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 67, in <lambda>
+  File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 85, in mouseEventWrapper
+  File "/entities/client/Bitcasters/GUI/Clickable.py", line 88, in click
+  File "/entities/client/Bitcasters/GUI/Button.py", line 28, in <lambda>
+  File "/entities/client/Bitcasters/GUI/Component.py", line 542, in dispatch
+  File "/entities/client/Bitcasters/GUI/Component.py", line 554, in _dispatch_to
+  File "/entities/client/Bitcasters/mode/CharCreation.py", line 44, in click_cancel
+AttributeError: 'PlayerSpaceViewer' object has no attribute 'cancelCharCreation'
+COULD NOT LOG OFF: 'PlayerSpaceViewer' object has no attribute 'user'
+\--------------------------------------------------------------------------------/
+
+/------------------------------------------------------------------------------\
+BigWorld Release Client (compiled at 14:20:05 Dec  9 2008) starting on Fri Jan 26 15:03:46 2024
+Traceback (most recent call last):
+  File "entities/client\Account.py", line 6, in <module>
+    import BigWorld, BWPersonality
+  File "entities/client\BWPersonality.py", line 8, in <module>
+    import BigWorld, keys, GUI
+  File "entities/client\keys.py", line 12
+    from .Math import *
+SyntaxError: 'import *' not allowed with 'from .'
+
+/------------------------------------------------------------------------------\
+BigWorld Release Client (compiled at 14:20:05 Dec  9 2008) starting on Fri Jan 26 18:19:29 2024
+entities/client\BWPersonality.py:257: Warning: 'with' will become a reserved keyword in Python 2.6
+Traceback (most recent call last):
+  File "entities/client\Account.py", line 6, in <module>
+    import BigWorld, BWPersonality
+  File "entities/client\BWPersonality.py", line 257
+    with open(filename, 'w') as file:
+            ^
+SyntaxError: invalid syntax

@@ -1,4 +1,0 @@
-# Embedded file name: /entities/common/Lib/xml/parsers/expat.py
-"""Interface to the Expat non-validating XML parser."""
-__version__ = '$Revision$'
-from pyexpat import *

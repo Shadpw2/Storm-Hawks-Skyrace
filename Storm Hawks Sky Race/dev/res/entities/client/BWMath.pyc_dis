@@ -1,2 +1,0 @@
-# Embedded file name: /entities/client/BWMath.py
-from Math import Matrix, Vector3, MatrixProduct
