@@ -197,6 +197,13 @@ def onRecreateDevice():
 
 def storage():
     return _handler.data
+    
+def spawn_console():
+    spaceID = BigWorld.player().spaceID
+    pos     = Vector3(-160, 0, 360)
+    dir     = (0.0, 0.0, 0.0)
+    props   = {'itemType': 0}
+    BigWorld.createEntity('Console', spaceID, 0, pos, dir, props)
 
 
 def EnterOfflineWorld(data):
@@ -231,6 +238,7 @@ def EnterOfflineWorld(data):
     BigWorld.controlEntity(BigWorld.player(), True)
     BigWorld.player().enterWorld()
     fixCamera()
+    BigWorld.callback(0.1, spawn_console)
     return
 
 
