@@ -6,9 +6,15 @@ There is issues:
     - both map starts (Tent Town is facing the wrong way, Caves spawns you in the map idk which direction)
     - Once started, the race never 'ends' as the GUI never clears and you are never awarded anything or sent back to tent town.
 
-26/3/24 Update
+14/8/25 UPDATE
+Figured out how to get one of the race consoles to spawn, if you try to initiate a race though it will load indefinitely.
+
+
+26/3/24 UPDATE
+
 Offline mode has been achieved via correctly 'decompyling' and 'recompyling' the BWPersonailty file, video here: https://www.youtube.com/watch?v=Dh4fTCtOTpo by Lu.
 Additionally a WPF exe was made to simplify the offline boot process and was posted into the linked discord in the yt video.
+
 
 2/12/22 UPDATE
 
