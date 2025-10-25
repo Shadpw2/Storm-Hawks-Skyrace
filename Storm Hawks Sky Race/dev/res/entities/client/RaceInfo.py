@@ -44,16 +44,16 @@ class RaceInfo:
         BigWorld.player().cell.proposeActionTo('race_' + trackName(trackID), opponent)
 
     def beginSolo(self, trackID):
-        self.startspace = BigWorld.player().spaceID
-        if isOnline():
-            print 'REQUEST TIME TRIAL'
-            BigWorld.player().base.startTimeTrial(trackName(trackID))
+       self.startspace = BigWorld.player().spaceID 
+       if isOnline(): 
+            print 'REQUEST TIME TRIAL' 
+            BigWorld.player().base.startTimeTrial(trackName(trackID)) 
             return
-        self.space = BigWorld.createSpace()
-        addGeometry(self.space, trackName(trackID))
-        BigWorld.player().user.teleportSpace(self.space)
-        self.acknowledge()
-        self.prepare([BigWorld.player().id, trackID])
+       self.space = BigWorld.createSpace()
+       addGeometry(self.space, trackName(trackID)) 
+       BigWorld.player().user.teleportSpace(self.space)
+       self.acknowledge()
+       self.prepare([BigWorld.player().id], trackID)
 
     def acknowledge(self):
         __import__('Physics').attach(BigWorld.player(), 'Dummy')
@@ -74,10 +74,26 @@ class RaceInfo:
         self.screen = BWPersonality.changeMode('Loading', '')
 
     def prepare(self, racers, trackID):
+        user = BigWorld.player().user
         self._setup(trackID)
         self.laps = -1
         self.targetWaypoint = 0
         self.startTime = -1
+        print "self ",self,"Racers ", racers,"Track ", trackID, "Startpos ", self.startpos, "current pos ", BigWorld.player().position, "BigWorld Player spaceID",BigWorld.player().spaceID 
+        if BigWorld.player().position != self.startpos:
+            print "[RACE] failed to move to space, trying again"
+            user.setVehicle(0, 'Biped')
+            user.teleport(self.startpos, (0, 0, 0,))
+            print "[RACE] offset after teleport attempt 2", self.startpos-BigWorld.player().position
+            if BigWorld.player().position != self.startpos:
+                print "[RACE] Teleport attempts failed, exit if possible"
+            else:
+                print "[Race] Teleported to correct space and setting bike"
+                user.setVehicle(1, 'Dummy')
+        else:
+            print "[RACE] teleported to correct space"
+        if not racers:
+            racers = [None]
         self.racers = racers
         from LoadScreenController import LoadScreenController
         LoadScreenController(self.screen, callback=self.begin)
@@ -132,6 +148,7 @@ class RaceInfo:
             self.guilayer.setText('race_bg', 'timer', str(round(time - 3.0, 1)))
 
     def hitPot(self, enteredTrap, handle):
+        print "[RACE] Waypoint reached"
         handleIndex = self.pots.index(handle)
         if handleIndex != self.targetWaypoint:
             return
@@ -155,6 +172,7 @@ class RaceInfo:
             p.user.avatar.cell.crossedFinishLine()
         else:
             p.user.avatar.cell.gaveUp()
+        print "[RACE] race concluded"
         print 'CHRIS: DONE WITH RACE'
         BigWorld.callback(2, self.cleanup)
 
@@ -197,9 +215,13 @@ class RaceInfo:
     def collect_crystal(self):
         if isOnline():
             self.crystals += 1
+        else:
+            self.crystals += 1
 
     def collect_boost(self):
         if isOnline():
+            self.boosts += 1
+        else:
             self.boosts += 1
 
     def postcleanup(self):

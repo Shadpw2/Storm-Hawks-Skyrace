@@ -11,6 +11,15 @@ from LoadScreenController import LoadScreenController
 from Bitcasters.mode import *
 from Math import Vector3
 import Startup
+
+import sys
+
+# Redirect stdout/stderr to log file manually
+logfile = open("python.log", "w")
+sys.stdout = logfile
+sys.stderr = logfile
+
+
 __import__('__main__').Startup = Startup
 myconfig = None
 _handler = None
@@ -18,7 +27,7 @@ modes = None
 VideoModeBeingChanged = False
 CheckGraphicsFlag = False
 CM = None
-LOCK_FULLSCREEN = IS_RELEASE_VERSION
+LOCK_FULLSCREEN = False
 import Bitcasters.Const
 
 def do(func, *args, **kwargs):
@@ -198,6 +207,12 @@ def onRecreateDevice():
 def storage():
     return _handler.data
 
+def spawn_console():
+    spaceID = BigWorld.player().spaceID
+    pos     = Vector3(-160, 0, 360)
+    dir     = (0.0, 0.0, 0.0)
+    props   = {'itemType': 0}
+    BigWorld.createEntity('Console', spaceID, 0, pos, dir, props)
 
 def EnterOfflineWorld(data):
     spacePosMap = {'saharr_test_2': (-183.354, 10.819, 442.787), 
@@ -225,12 +240,15 @@ def EnterOfflineWorld(data):
         print 'BWPersonality::EnterOfflineWorld: Error setting up start position:', details, '. Using default start position instead.'
         startPosition = spacePosMap[defaultSpaceName]
 
+
     playerID = BigWorld.createEntity(myconfig.readString('player/entityType'), spaceID, 0, startPosition, myconfig.readVector3('player/startDirection'), data)
     storage.startPosition = startPosition
     BigWorld.player(BigWorld.entities[playerID])
     BigWorld.controlEntity(BigWorld.player(), True)
     BigWorld.player().enterWorld()
     fixCamera()
+    # schedule the console spawn on the next frame
+    BigWorld.callback(0.1, spawn_console)
     return
 
 

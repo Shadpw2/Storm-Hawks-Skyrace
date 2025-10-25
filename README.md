@@ -1,4 +1,10 @@
-Contained within this repository is the entire Storm Hawks Skyrace Game launcher.
+Contained within this repository is the entire Storm Hawks Skyrace Game.
+
+25/10/25 Update
+I don't know how and im surprised it's to this state, but solo races can finally be started.
+There is issues:
+    - both map starts (Tent Town is facing the wrong way, Caves spawns you in the map idk which direction)
+    - Once started, the race never 'ends' as the GUI never clears and you are never awarded anything or sent back to tent town.
 
 26/3/24 Update
 Offline mode has been achieved via correctly 'decompyling' and 'recompyling' the BWPersonailty file, video here: https://www.youtube.com/watch?v=Dh4fTCtOTpo by Lu.
