@@ -30,11 +30,45 @@ class CharCreation(Mode):
         """Go back to character selection"""
         BigWorld.player().cancelCharCreation()
 
+    #def click_done(self):
+    #    """Create this character"""
+    #    if self.online:
+    #        account = BigWorld.player()
+    #    else:
+    #        account = BWPersonality.CM.account
+    #    account.create(self.layer.character_data())
     def click_done(self):
-        """Create this character"""
+        """Create this character, then append the name to characters.txt (one line)."""
+
+        # Get the data ONCE
+        try:
+            data = self.layer.character_data()
+        except Exception:
+            data = {}
+
+        # Original behavior (unchanged)
         if self.online:
             account = BigWorld.player()
         else:
             account = BWPersonality.CM.account
-        account.create(self.layer.character_data())
-        
+        account.create(data)
+
+        try:
+            name = data.get('name', 'Unnamed')
+        except:
+            try:
+                name = data.name
+            except:
+                name = 'Unnamed'
+
+        try:
+            payload = repr({'name': name, 'data': data})
+        except:
+            payload = repr({'name': name})
+
+        try:
+            f = open('characters.txt', 'a')
+            f.write(payload + '\n')
+            f.close()
+        except:
+            pass
