@@ -55,6 +55,7 @@ class CharCreation(Mode):
 
         try:
             name = data.get('name', 'Unnamed')
+            char_class = data.get('class', 'Unknown')
         except:
             try:
                 name = data.name
@@ -62,7 +63,7 @@ class CharCreation(Mode):
                 name = 'Unnamed'
 
         try:
-            payload = repr({'name': name, 'data': data})
+            payload = repr({'name': name, 'class': char_class, 'data': data})
         except:
             payload = repr({'name': name})
 
