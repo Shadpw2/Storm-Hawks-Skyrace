@@ -10,8 +10,8 @@ from Bitcasters.RepeatedTask import RepeatedTask
 from LoadScreenController import LoadScreenController
 from Bitcasters.mode import *
 from Math import Vector3
+import Math
 import Startup
-
 import sys
 
 # Redirect stdout/stderr to log file manually
@@ -114,11 +114,12 @@ def checkAndFixGraphicsState():
 def start():
     global VideoModeBeingChanged
     global modes
-    modes = filter((lambda x: x[1] == 800 and x[2] == 600), BigWorld.listVideoModes())
+    modes = filter((lambda x: x[1] == 1920 and x[2] == 1080), BigWorld.listVideoModes())
     VideoModeBeingChanged = True
     if modes:
         if LOCK_FULLSCREEN:
             BigWorld.changeVideoMode(modes[0][0], False)
+            BigWorld.FullScreenApsectRatio(1920.0/1080.0)
         else:
             BigWorld.changeVideoMode(modes[0][0], True)
             BigWorld.resizeWindow(800, 600)
@@ -214,8 +215,30 @@ def spawn_console():
     props   = {'itemType': 0}
     BigWorld.createEntity('Console', spaceID, 0, pos, dir, props)
 
+from Vendor import Vendor
+
+def spawn_vendor(x, y, z, yaw=0.0,
+                            vendor_type=Vendor.WALLOP_M_1, costume_num=0,
+                            retries=50):
+    pos = Math.Vector3(float(x), float(y), float(z))
+    dir = (float(yaw), 0.0, 0.0)
+    data = {'vendorType': int(vendor_type), 'costumeNum': int(costume_num)}
+
+    def _try(remaining):
+        p = BigWorld.player()
+        if p and getattr(p, 'spaceID', 0):
+            BigWorld.createEntity('Vendor', p.spaceID, 0, pos, dir, data)
+            print "[Vendor] spawned at", pos
+            return
+        if remaining <= 0:
+            print "[Vendor][WARN] player not ready; gave up"
+            return
+        BigWorld.callback(0.1, lambda: _try(remaining - 1))
+
+    _try(retries)
+
 def EnterOfflineWorld(data):
-    spacePosMap = {'saharr_test_2': (-183.354, 10.819, 442.787), 
+    spacePosMap = {'saharr_test_2': (-165, 0, 365), 
        'cave_track': (-417.07, 6.38, 306.81), 
        'short_track': (112.198, -4.7, -200)}
     defaultSpaceName = 'saharr_test_2'
@@ -249,6 +272,7 @@ def EnterOfflineWorld(data):
     fixCamera()
     # schedule the console spawn on the next frame
     BigWorld.callback(0.1, spawn_console)
+    BigWorld.callback(0.2, lambda: spawn_vendor(-165, 0, 365, yaw=0.0))
     return
 
 
