@@ -20,7 +20,8 @@ class FakeAccount(object):
         CM = BWPersonality.CM
         from Bitcasters.Math import DEGREES
         self.scene = CM.makeScene()
-        self.createCharacter()
+        self.selectCharacters()
+        #self.createCharacter()
 
     def cancelCreation(self):
         self.selectCharacters()
