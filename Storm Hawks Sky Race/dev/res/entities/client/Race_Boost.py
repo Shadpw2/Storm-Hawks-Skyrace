@@ -100,10 +100,16 @@ class Race_Boost(BigWorld.Entity):
         del self.pot
 
     def hitItemPot(self, enteredTrap, handle):
+        print "[Race_Boost] hitItemPot called! enteredTrap:", enteredTrap, "collected:", self.collected
         if enteredTrap and not self.collected:
+            print "[Race_Boost] COLLECTING BOOST!"
             self.collect()
             collectorEntity = BigWorld.player()
-            self.cell.collect(collectorEntity.id)
+
+            from Bitcasters.Const import isOnline
+            if isOnline():
+                self.cell.collect(collectorEntity.id)
+                
             if self.boostType == Race_Boost.AIR_1:
                 print 'AIR BOOST-- MODEL OF TYPE: ' + `(type(self.model))`
             elif self.boostType == Race_Boost.GROUND_1 or self.boostType == Race_Boost.GROUND_2:

@@ -37,7 +37,9 @@ class Inventory(Mode):
     def click_exit(self):
         """Return to the game world."""
         from BWPersonality import changeMode
-        AimCursorCameraAt(BigWorld.player())
+        player = BigWorld.player()
+        BigWorld.dcursor().yawPitch(player.yaw)
+        AimCursorCameraAt(player)
         changeMode('WorldMode')
 
     def updateInventory(self, *ignored):

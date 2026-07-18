@@ -12,6 +12,7 @@ from Util import ignore, YELL
 from Sound import *
 from InventoryItem import *
 
+
 class Avatar(BigWorld.Entity):
 
     def enterWorld(self):
@@ -19,11 +20,60 @@ class Avatar(BigWorld.Entity):
         self.filter = BigWorld.AvatarFilter()
         self.queued = None
         self.transforming = False
+        
+        # Load appearance data BEFORE creating the character model
+        appearance_data = {
+            'eyeColour': getattr(self, 'eyeColour', 128),
+            'skinColour': getattr(self, 'skinColour', 128),
+            'hairColour1': getattr(self, 'hairColour1', 128),
+            'hairColour2': getattr(self, 'hairColour2', 128),
+            'clothesColour1': getattr(self, 'clothesColour1', 128),
+            'clothesColour2': getattr(self, 'clothesColour2', 128)
+        }
+        
+        # For PlayerAvatar, try to load from player.dat first
+        if isinstance(self, PlayerAvatar):
+            try:
+                f = open("player.dat", "r")
+                lines = f.readlines()
+                f.close()
+                
+                name = getattr(self, "name", None)
+                for line in lines:
+                    try:
+                        rec = eval(line.strip(), {"__builtins__": {}}, {})
+                    except:
+                        continue
+                    
+                    if rec.get("name") == name:
+                        # Update appearance data with saved values
+                        dye_fields = ["clothesColour1", "clothesColour2", "hairColour1", 
+                                     "hairColour2", "eyeColour", "skinColour"]
+                        for key in dye_fields:
+                            if key in rec:
+                                appearance_data[key] = rec[key]
+                                setattr(self, key, rec[key])
+                        
+                        # Also save clothes ID for later
+                        if "clothes" in rec:
+                            self._saved_clothes = rec["clothes"]
+                        
+                        print "[PATCH] Loaded appearance data from player.dat:", appearance_data
+                        break
+            except Exception, e:
+                print "[PATCH] Could not preload appearance data:", e
+        
         from Bitcasters.CharacterModel import HumanCharacter
-        self.cm = HumanCharacter(self, self.hair, {'eyeColour': self.eyeColour, 
-           'skinColour': self.skinColour, 
-           'hairColour1': self.hairColour1, 
-           'hairColour2': self.hairColour2}, self.gender)
+        self.cm = HumanCharacter(self, self.hair, appearance_data, self.gender)
+        
+        # Apply clothes if we loaded it
+        if isinstance(self, PlayerAvatar) and hasattr(self, '_saved_clothes'):
+            try:
+                self.cm.clothes = self._saved_clothes
+                print "[PATCH] Applied clothes:", self._saved_clothes
+            except Exception, e:
+                print "[PATCH] Failed to apply clothes:", e
+
         self.refreshEquipment()
         BigWorld.addShadowEntity(self)
         self.matcher = self.model.motors[0]
@@ -545,7 +595,16 @@ class PlayerAvatar(Avatar):
             pass
 
     def handleKeyEvent(self, isDown, key, mods):
-        pass
+        #pass
+        import keys
+        if isDown and key == keys.KEY_SPACE:
+            pos = self.position
+            yaw, pitch, roll = self.yaw, self.pitch, self.roll
+            print "="*60
+            print "PLAYER POSITION: x=%.2f, y=%.2f, z=%.2f" % (pos.x, pos.y, pos.z)
+            print "PLAYER ROTATION: yaw=%.2f, pitch=%.2f, roll=%.2f" % (yaw, pitch, roll)
+            print "="*60
+        return False
 
     def setGold(self, amount):
         self.gold = amount

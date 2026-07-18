@@ -31,6 +31,10 @@ class Race_Crystal(BigWorld.Entity):
        AIR_HELI: 'environments/shared/tracks/power ups/crystalholder_air.model'}
     REPLENISH_TIME = 10
 
+    def __init__(self):
+        BigWorld.Entity.__init__(self)
+        self.collected = False
+
     def prerequisites(self):
         return [
          Race_Crystal.modelNames]
@@ -78,21 +82,28 @@ class Race_Crystal(BigWorld.Entity):
     def replenish(self):
         if self.crystalModel.visible:
             return
+        self.collected = False
         self.crystalModel.visible = 1
 
     def hitItemPot(self, enteredTrap, handle):
+        print "[Crystal] Attempted collection"
         if not enteredTrap:
             return
         assert handle == self.pot
+        print "[Crystal] Asserted self pickup"
         if not self.collected:
+            print "[Crystal] not self collected"
             BigWorld.player().user.race.collect_crystal()
             self.animateCollection()
             BigWorld.callback(Race_Crystal.REPLENISH_TIME, self.replenish)
-        BigWorld.player().user.avatar.cell.attemptToCollect(self.id)
+        from Bitcasters.Const import isOnline
+        if isOnline():
+            BigWorld.player().user.avatar.cell.attemptToCollect(self.id)
 
     def animateCollection(self):
         if not self.crystalModel.visible:
             return
+        self.collected = True
         self.crystalModel.visible = 0
         attachNode = self.model.node(self.attachPoint)
         PlayEffect('effects/gotcrystal')

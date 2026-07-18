@@ -55,15 +55,71 @@ class Inventorybutton(Component):
         self.removePolicy('Tooltip')
 
     def setItem(self, item):
-        """Set the button to display the indicated item.
-                item -> (InventoryItem) object providing information about the item."""
+        # Set the sprite frames based on clothes setting
         clothes = item.clothes()
         base = 12 + clothes * 4
         self._set_mappings(range(base + 1, base + 4))
-        from Bitcasters.CharacterModel import translateColour
-        for (layer, colour) in zip((self.layers[2], self.layers[1]), item.colours):
-            layer.bg.colour = tuple((int(x * 256) for x in translateColour(colour, 'clothesColour2')))[:3] + (255, )
 
+        # -----------------------------------------------
+        #   NEW COLOUR SYSTEM - SERVER STYLE PALETTE
+        # -----------------------------------------------
+
+        PALETTE = [
+            (200, 200, 200),   # grey
+            (0, 180, 255),     # cyan
+            (255, 0, 200),     # magenta
+            (255, 255, 0),     # yellow
+            (0, 255, 0),       # green
+            (210, 150, 0),     # brown
+            (255, 100, 0)      # orange red
+        ]
+
+        # Choose a stable colour based on item ID
+        try:
+            base_col = PALETTE[item.id % len(PALETTE)]
+        except:
+            base_col = (200, 200, 200)
+
+        # Highlight is a lighter version
+        high_col = (
+            min(255, base_col[0] + 40),
+            min(255, base_col[1] + 40),
+            min(255, base_col[2] + 40)
+        )
+
+        # Tint strengths from OfflineShopItem
+        try:
+            strengthA, strengthB = item.colours
+        except:
+            strengthA, strengthB = (1.0, 0.8)
+
+        # Compute highlight layer colour (layer 2)
+        bright_r = int((high_col[0] / 255.0) * strengthA * 255)
+        bright_g = int((high_col[1] / 255.0) * strengthA * 255)
+        bright_b = int((high_col[2] / 255.0) * strengthA * 255)
+        bright_rgba = (bright_r, bright_g, bright_b, 255)
+
+        # Compute shadow layer colour (layer 1)
+        dark_r = int((base_col[0] / 255.0) * strengthB * 255)
+        dark_g = int((base_col[1] / 255.0) * strengthB * 255)
+        dark_b = int((base_col[2] / 255.0) * strengthB * 255)
+        dark_rgba = (dark_r, dark_g, dark_b, 255)
+
+        # Apply the tint colours
+        try:
+            self.layers[2].bg.colour = bright_rgba
+        except:
+            pass
+
+        try:
+            self.layers[1].bg.colour = dark_rgba
+        except:
+            pass
+
+        # Tooltip
         from items import CLOTHES_DESC
         from Component import make_tooltip_for
-        make_tooltip_for(self, {'tooltip': CLOTHES_DESC[clothes]})
+        make_tooltip_for(self, {"tooltip": CLOTHES_DESC[clothes]})
+
+
+

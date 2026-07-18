@@ -10,7 +10,7 @@ from Util import ignore
 from Mode import Mode
 
 from Bitcasters.Const import isOnline
-CHAR_FILE = 'characters.txt'
+CHAR_FILE = 'player.dat'
 
 def _write_offline_characters(char_list):
     """Rewrite characters.txt from a list of dicts; one repr-record per line."""

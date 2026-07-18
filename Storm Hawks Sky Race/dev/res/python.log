@@ -1,0 +1,40 @@
+Offline mode requested. Using space:  saharr_test_2
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (300, 330)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+[Character Model] Human Character Called 0
+Traceback (most recent call last):
+  File "entities/client\Bitcasters\mode\CharSelection.py", line 90, in <lambda>
+    BigWorld.callback(0.01, (lambda: self.layer.click_char(0)))
+  File "/entities/client/Bitcasters/layers/CharSelection.py", line 160, in click_char
+  File "/entities/client/CharCreationScene.py", line 85, in adjustModel
+  File "entities/client\Bitcasters\CharacterModel.py", line 204, in __setattr__
+KeyError: 'gold'
+AVATAR ENTERWORLD: 1073741826
+[Character Model] Human Character Called 0
+TARGET SET: name True
+TARGET SET: name False
+PLAYERAVATAR ENTERWORLD
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (300, 330)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+AVATAR ENTERWORLD: 1073741826
+[PATCH] Loaded appearance data from player.dat: {'clothesColour2': 128, 'skinColour': 225, 'clothesColour1': 128, 'eyeColour': 79, 'hairColour2': 89, 'hairColour1': 81}
+[Character Model] Human Character Called 0
+[EnterOfflineWorld] Loaded character - Gold: 110 Inventory items: 0
+[RACE] _patchOfflineFriendsAndInventory applied to PlayerAvatar at 0x1CD58F38
+[Vendor] spawned at (-179.000000, 0.000000, 301.000000)
+[Vendor] spawned at (-178.000000, 0.000000, 294.000000)
+LEFT: PlayerAvatar at 0x1CD58F38

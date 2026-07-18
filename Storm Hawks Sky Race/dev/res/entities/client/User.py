@@ -13,6 +13,8 @@ class User(object):
 
     def __init__(self, avatar):
         self.race = RaceInfo()
+        self.race.crystals = 0 
+        self.race.boosts = 0
         self.avatar = avatar
         self.model = avatar.model
         self.cm = avatar.cm

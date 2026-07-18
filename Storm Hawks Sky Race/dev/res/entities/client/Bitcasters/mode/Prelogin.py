@@ -15,13 +15,14 @@ class FakeAccount(object):
     def __init__(self):
         self.characters = []
 
+
     def loaded(self, characters):
         self.characters = list(characters)
         CM = BWPersonality.CM
         from Bitcasters.Math import DEGREES
         self.scene = CM.makeScene()
         self.selectCharacters()
-        #self.createCharacter()
+        
 
     def cancelCreation(self):
         self.selectCharacters()
