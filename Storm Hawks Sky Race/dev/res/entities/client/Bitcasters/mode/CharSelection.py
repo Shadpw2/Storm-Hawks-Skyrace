@@ -100,6 +100,16 @@ class CharSelection(Mode):
         # Flatten + defaults so the layer never KeyErrors
         self.characters = [ _coerce_char(c) for c in raw_chars ] + characters
 
+        # Defensive cap: Bitcasters/layers/CharSelection.py's preinit()
+        # hard-asserts charcount is between 1 and 5 (matching the
+        # new_character button's own charcount < 5 visibility check).
+        # player.dat has no cap of its own -- it only ever grows across
+        # sessions -- so once it holds more than 5 characters this mode
+        # crashes outright on the very first entry, with no fallback.
+        # Keep the 5 most recently created/loaded characters.
+        if len(self.characters) > 5:
+            self.characters = self.characters[-5:]
+
         # If still empty, drop into creation instead of crashing
         if not self.characters:
             BWPersonality.changeMode('CharCreation', scene, self.online)

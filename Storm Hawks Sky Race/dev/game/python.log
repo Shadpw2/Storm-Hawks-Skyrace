@@ -580,3 +580,54 @@ SyntaxError: non-default argument follows default argument
 BigWorld Release Client (compiled at 14:20:05 Dec  9 2008) starting on Sat Jul 18 17:59:52 2026
 Const:: ERROR: Could not find text file with port number. Please run the appropriate batch file. Using default port for now.
 \--------------------------------------------------------------------------------/
+
+/------------------------------------------------------------------------------\
+BigWorld Release Client (compiled at 14:20:05 Dec  9 2008) starting on Sat Jul 18 22:47:15 2026
+Const:: ERROR: Could not find text file with port number. Please run the appropriate batch file. Using default port for now.
+\--------------------------------------------------------------------------------/
+
+/------------------------------------------------------------------------------\
+BigWorld Release Client (compiled at 14:20:05 Dec  9 2008) starting on Sat Jul 18 22:48:30 2026
+Const:: ERROR: Could not find text file with port number. Please run the appropriate batch file. Using default port for now.
+\--------------------------------------------------------------------------------/
+
+/------------------------------------------------------------------------------\
+BigWorld Release Client (compiled at 14:20:05 Dec  9 2008) starting on Sat Jul 18 22:58:10 2026
+Const:: ERROR: Could not find text file with port number. Please run the appropriate batch file. Using default port for now.
+\--------------------------------------------------------------------------------/
+
+/------------------------------------------------------------------------------\
+BigWorld Release Client (compiled at 14:20:05 Dec  9 2008) starting on Sat Jul 18 23:00:34 2026
+Const:: ERROR: Could not find text file with port number. Please run the appropriate batch file. Using default port for now.
+\--------------------------------------------------------------------------------/
+
+/------------------------------------------------------------------------------\
+BigWorld Release Client (compiled at 14:20:05 Dec  9 2008) starting on Sat Jul 18 23:01:49 2026
+Const:: ERROR: Could not find text file with port number. Please run the appropriate batch file. Using default port for now.
+\--------------------------------------------------------------------------------/
+
+/------------------------------------------------------------------------------\
+BigWorld Release Client (compiled at 14:20:05 Dec  9 2008) starting on Sat Jul 18 23:02:57 2026
+Const:: ERROR: Could not find text file with port number. Please run the appropriate batch file. Using default port for now.
+\--------------------------------------------------------------------------------/
+
+/------------------------------------------------------------------------------\
+BigWorld Release Client (compiled at 14:20:05 Dec  9 2008) starting on Sat Jul 18 23:08:52 2026
+Const:: ERROR: Could not find text file with port number. Please run the appropriate batch file. Using default port for now.
+\--------------------------------------------------------------------------------/
+
+/------------------------------------------------------------------------------\
+BigWorld Release Client (compiled at 14:20:05 Dec  9 2008) starting on Sat Jul 18 23:54:36 2026
+Const:: ERROR: Could not find text file with port number. Please run the appropriate batch file. Using default port for now.
+\--------------------------------------------------------------------------------/
+
+/------------------------------------------------------------------------------\
+BigWorld Release Client (compiled at 14:20:05 Dec  9 2008) starting on Sat Jul 18 23:58:51 2026
+Traceback (most recent call last):
+  File "entities/client\Account.py", line 6, in <module>
+    import BigWorld, BWPersonality
+  File "entities/client\BWPersonality.py", line 8, in <module>
+    import BigWorld, keys, GUI
+  File "entities/client\keys.py", line 12
+    from .Math import *
+SyntaxError: 'import *' not allowed with 'from .'
