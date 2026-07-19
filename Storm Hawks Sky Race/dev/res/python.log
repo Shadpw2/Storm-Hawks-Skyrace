@@ -15,18 +15,6 @@ Traceback (most recent call last):
   File "/entities/client/Bitcasters/layers/CharSelection.py", line 160, in click_char
   File "/entities/client/CharCreationScene.py", line 85, in adjustModel
   File "entities/client\Bitcasters\CharacterModel.py", line 204, in __setattr__
-KeyError: 'offline'
-Traceback (most recent call last):
-  File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 67, in <lambda>
-  File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 85, in mouseEventWrapper
-  File "/entities/client/Bitcasters/GUI/Clickable.py", line 88, in click
-  File "/entities/client/Bitcasters/GUI/Checkbox.py", line 36, in _act
-  File "/entities/client/Bitcasters/GUI/Component.py", line 542, in dispatch
-  File "/entities/client/Bitcasters/GUI/Component.py", line 560, in _dispatch_to
-  File "/entities/client/Bitcasters/GUI/Component.py", line 554, in _dispatch_to
-  File "/entities/client/Bitcasters/layers/CharSelection.py", line 160, in click_char
-  File "/entities/client/CharCreationScene.py", line 85, in adjustModel
-  File "entities/client\Bitcasters\CharacterModel.py", line 204, in __setattr__
 KeyError: 'gold'
 Traceback (most recent call last):
   File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 67, in <lambda>
@@ -40,86 +28,23 @@ Traceback (most recent call last):
   File "/entities/client/CharCreationScene.py", line 85, in adjustModel
   File "entities/client\Bitcasters\CharacterModel.py", line 204, in __setattr__
 KeyError: 'offline'
-Traceback (most recent call last):
-  File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 67, in <lambda>
-  File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 85, in mouseEventWrapper
-  File "/entities/client/Bitcasters/GUI/Clickable.py", line 98, in drop
-  File "/entities/client/Bitcasters/GUI/Clickable.py", line 88, in click
-  File "/entities/client/Bitcasters/GUI/Checkbox.py", line 36, in _act
-  File "/entities/client/Bitcasters/GUI/Component.py", line 542, in dispatch
-  File "/entities/client/Bitcasters/GUI/Component.py", line 560, in _dispatch_to
-  File "/entities/client/Bitcasters/GUI/Component.py", line 554, in _dispatch_to
-  File "/entities/client/Bitcasters/layers/CharSelection.py", line 160, in click_char
-  File "/entities/client/CharCreationScene.py", line 85, in adjustModel
-  File "entities/client\Bitcasters\CharacterModel.py", line 204, in __setattr__
-KeyError: 'offline'
-Traceback (most recent call last):
-  File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 67, in <lambda>
-  File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 85, in mouseEventWrapper
-  File "/entities/client/Bitcasters/GUI/Clickable.py", line 88, in click
-  File "/entities/client/Bitcasters/GUI/Checkbox.py", line 36, in _act
-  File "/entities/client/Bitcasters/GUI/Component.py", line 542, in dispatch
-  File "/entities/client/Bitcasters/GUI/Component.py", line 560, in _dispatch_to
-  File "/entities/client/Bitcasters/GUI/Component.py", line 554, in _dispatch_to
-  File "/entities/client/Bitcasters/layers/CharSelection.py", line 160, in click_char
-  File "/entities/client/CharCreationScene.py", line 85, in adjustModel
-  File "entities/client\Bitcasters\CharacterModel.py", line 204, in __setattr__
-KeyError: 'gold'
-Traceback (most recent call last):
-  File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 67, in <lambda>
-  File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 85, in mouseEventWrapper
-  File "/entities/client/Bitcasters/GUI/Clickable.py", line 98, in drop
-  File "/entities/client/Bitcasters/GUI/Clickable.py", line 88, in click
-  File "/entities/client/Bitcasters/GUI/Checkbox.py", line 36, in _act
-  File "/entities/client/Bitcasters/GUI/Component.py", line 542, in dispatch
-  File "/entities/client/Bitcasters/GUI/Component.py", line 560, in _dispatch_to
-  File "/entities/client/Bitcasters/GUI/Component.py", line 554, in _dispatch_to
-  File "/entities/client/Bitcasters/layers/CharSelection.py", line 160, in click_char
-  File "/entities/client/CharCreationScene.py", line 85, in adjustModel
-  File "entities/client\Bitcasters\CharacterModel.py", line 204, in __setattr__
-KeyError: 'offline'
-Traceback (most recent call last):
-  File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 67, in <lambda>
-  File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 85, in mouseEventWrapper
-  File "/entities/client/Bitcasters/GUI/Clickable.py", line 98, in drop
-  File "/entities/client/Bitcasters/GUI/Clickable.py", line 88, in click
-  File "/entities/client/Bitcasters/GUI/Checkbox.py", line 36, in _act
-  File "/entities/client/Bitcasters/GUI/Component.py", line 542, in dispatch
-  File "/entities/client/Bitcasters/GUI/Component.py", line 560, in _dispatch_to
-  File "/entities/client/Bitcasters/GUI/Component.py", line 554, in _dispatch_to
-  File "/entities/client/Bitcasters/layers/CharSelection.py", line 160, in click_char
-  File "/entities/client/CharCreationScene.py", line 85, in adjustModel
-  File "entities/client\Bitcasters\CharacterModel.py", line 204, in __setattr__
-KeyError: 'offline'
-Traceback (most recent call last):
-  File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 67, in <lambda>
-  File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 85, in mouseEventWrapper
-  File "/entities/client/Bitcasters/GUI/Clickable.py", line 98, in drop
-  File "/entities/client/Bitcasters/GUI/Clickable.py", line 88, in click
-  File "/entities/client/Bitcasters/GUI/Checkbox.py", line 36, in _act
-  File "/entities/client/Bitcasters/GUI/Component.py", line 542, in dispatch
-  File "/entities/client/Bitcasters/GUI/Component.py", line 560, in _dispatch_to
-  File "/entities/client/Bitcasters/GUI/Component.py", line 554, in _dispatch_to
-  File "/entities/client/Bitcasters/layers/CharSelection.py", line 160, in click_char
-  File "/entities/client/CharCreationScene.py", line 85, in adjustModel
-  File "entities/client\Bitcasters\CharacterModel.py", line 204, in __setattr__
-KeyError: 'offline'
-Traceback (most recent call last):
-  File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 67, in <lambda>
-  File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 85, in mouseEventWrapper
-  File "/entities/client/Bitcasters/GUI/Clickable.py", line 88, in click
-  File "/entities/client/Bitcasters/GUI/Checkbox.py", line 36, in _act
-  File "/entities/client/Bitcasters/GUI/Component.py", line 542, in dispatch
-  File "/entities/client/Bitcasters/GUI/Component.py", line 560, in _dispatch_to
-  File "/entities/client/Bitcasters/GUI/Component.py", line 554, in _dispatch_to
-  File "/entities/client/Bitcasters/layers/CharSelection.py", line 160, in click_char
-  File "/entities/client/CharCreationScene.py", line 85, in adjustModel
-  File "entities/client\Bitcasters\CharacterModel.py", line 204, in __setattr__
-KeyError: 'gold'
+[EnterOfflineWorld] creating entity, entityType='Avatar' startPosition=(-170, 0, 354)
 AVATAR ENTERWORLD: 1073741826
 [Character Model] Human Character Called 0
 TARGET SET: name True
 TARGET SET: name False
+[EnterOfflineWorld] createEntity returned playerID=1073741826
+[EnterOfflineWorld] controlEntity granted, seeding properties...
+[EnterOfflineWorld] gold was MISSING -- seeded default: 1000
+[EnterOfflineWorld] inventory was MISSING -- seeded default: {}
+[EnterOfflineWorld] equipped set to: [{'inventoryLocation': 0, 'socketCode': 1, 'colour2': 56, 'colour1': 221, 'prototype_id': 1, 'condition': 0}]
+[EnterOfflineWorld] friends was MISSING -- seeded default: [[], []]
+[EnterOfflineWorld] race_crystals was MISSING -- seeded default: 0
+[EnterOfflineWorld] rank already present: <bound method PlayerAvatar.rank of PlayerAvatar at 0x1C8061D0>
+[EnterOfflineWorld] proposals already present: {}
+[EnterOfflineWorld] offered was MISSING -- seeded default: []
+[EnterOfflineWorld] trading_with was MISSING -- seeded default: 0
+[EnterOfflineWorld] calling enterWorld()...
 PLAYERAVATAR ENTERWORLD
 WARNING: component didn't fit: window loading None
 REQUIRED SPACE: (330, 300)
@@ -131,26 +56,78 @@ WARNING: component didn't fit: window loading None
 REQUIRED SPACE: (330, 300)
 CELLSIZE: (200.0, 150.0)
 AVATAR ENTERWORLD: 1073741826
-[PATCH] Loaded appearance data from player.dat: {'clothesColour2': 128, 'skinColour': 225, 'clothesColour1': 128, 'eyeColour': 79, 'hairColour2': 89, 'hairColour1': 81}
+[PATCH] Loaded appearance data from player.dat: {'clothesColour2': 128, 'skinColour': 71, 'clothesColour1': 128, 'eyeColour': 60, 'hairColour2': 79, 'hairColour1': 79}
 [Character Model] Human Character Called 0
+[EnterOfflineWorld] enterWorld() completed OK
 [Vendor] spawned at (-165.000000, 0.000000, 365.000000)
+[Inventory] __init__ start
+[Inventory] cursor locked, building command map
+[Inventory] creating layer...
+[Inventory] layer created OK, calling updateInventory()
+[Inventory] updateInventory: gold=1000 inventory={}
+[Inventory] updateInventory: layer.update() completed OK
+[Inventory] updateInventory() OK, aiming camera
+[Inventory] camera aimed OK, unlocking cursor
+[Inventory] __init__ complete, cursor unlocked
+[Inventory] click_exit start
+[Inventory] click_exit camera done, calling changeMode(WorldMode)
+[Inventory] cleanup() called
+[Inventory] cleanup() complete
+[Inventory] click_exit changeMode() returned -- if cursor is still locked, WorldMode never actually resumed
+[DEBUG] beginSolo (pre) BigWorld.player(): PlayerAvatar at 0x1C8061D0 id=1073741826 type=PlayerAvatar
+[RACE] beginSolo startspace: 1073741825
+[RACE] world_player_id: 1073741826
+[RACE] spawning new Avatar in fresh space: saharr_test_2
+[RACE] new_space: 1073741826
+[RACE] mapped geometry for saharr_test_2
+[RACE] creating Avatar entity...
+AVATAR ENTERWORLD: 1073741829
+[Character Model] Human Character Called 0
+TARGET SET: name True
+TARGET SET: name False
+[RACE] new Avatar entity id: 1073741829
+[RACE] BigWorld.player() now: 1073741829
+[RACE] controlEntity TRUE
+PLAYERAVATAR ENTERWORLD
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (300, 330)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+AVATAR ENTERWORLD: 1073741829
+[PATCH] Loaded appearance data from player.dat: {'clothesColour2': 128, 'skinColour': 71, 'clothesColour1': 128, 'eyeColour': 60, 'hairColour2': 79, 'hairColour1': 79}
+[Character Model] Human Character Called 0
+[RACE] Avatar.enterWorld() called in race space
+[RACE] race space: 1073741826  race avatar id: 1073741829
+[DEBUG] beginSolo (post spawn) BigWorld.player(): PlayerAvatar at 0x1C809388 id=1073741829 type=PlayerAvatar
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (300, 330)
+CELLSIZE: (200.0, 150.0)
+WARNING: component didn't fit: window loading None
+REQUIRED SPACE: (330, 300)
+CELLSIZE: (200.0, 150.0)
+[RACE] prepare() confirm teleport (-185.164001, 10.043000, 443.092987) (0.000000, 0.000000, 0.000000)
+[Collectables] Running Start
+[RACE] user.teleport FAILED: cannot import name spawn_crystal
+*** REPEATEDTASK DIED ***
 Traceback (most recent call last):
-  File "/entities/client/Bitcasters/mode/WorldMode.py", line 170, in attachChatConsole
-  File "/entities/client/Bitcasters/layers/ChatConsole.py", line 142, in getFriendNames
-  File "entities/client\Avatar.py", line 449, in updateFriendsGUI
-    self.friends_gui.setFriendsList(('\n').join((self.friend_name_ID_map[id] for id in self.friends[True])))
-AttributeError: 'PlayerAvatar' object has no attribute 'friends'
-Traceback (most recent call last):
-  File "entities/client\BWPersonality.py", line 176, in handleKeyEvent
-    _handler.handleKeyEvent(down, key, mods)
-  File "/entities/client/KeyHandler.py", line 67, in handleKeyEvent
-  File "/entities/client/Bitcasters/mode/Mode.py", line 19, in key
-  File "/entities/client/Bitcasters/mode/WorldMode.py", line 241, in click_leftgui_inventory
-  File "entities/client\BWPersonality.py", line 41, in changeMode
-    continuation = getattr(globals()[name], name)(*args, **kwargs)
-  File "entities/client\Bitcasters\mode\Inventory.py", line 25, in __init__
-    self.updateInventory()
-  File "entities/client\Bitcasters\mode\Inventory.py", line 47, in updateInventory
-    self.layer.update(p.gold, p.inventory)
-AttributeError: 'PlayerAvatar' object has no attribute 'gold'
-LEFT: PlayerAvatar at 0x1C6E7600
+  File "/entities/client/Bitcasters/RepeatedTask.py", line 70, in run
+  File "/entities/client/LoadScreenController.py", line 27, in check
+  File "entities/client\Bitcasters\mode\Loading.py", line 28, in setProgress
+  File "/entities/client/Bitcasters/layers/Loading.py", line 40, in set
+KeyError: 'progress'
+[DEBUG] begin (Countdown) BigWorld.player(): PlayerAvatar at 0x1C809388 id=1073741829 type=PlayerAvatar
+[RACE] START COUNTDOWN
+[Debug - RACE] Check vars, Crystals: 0  Boosts: 0
+bike unlocked
+[RACE] Waypoint reached 0 / 2
+[RACE] Waypoint reached 1 / 2
+LEFT: Avatar at 0x1C8061D0
+LEFT: PlayerAvatar at 0x1C809388

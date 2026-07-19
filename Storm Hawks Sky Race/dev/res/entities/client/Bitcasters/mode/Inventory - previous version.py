@@ -14,50 +14,34 @@ from InventoryItem import keyToSlotID, slotIDToKey
 class Inventory(Mode):
 
     def __init__(self, handler):
-        print '[Inventory] __init__ start'
         cursor('mouse')
         cursor.locked = True
-        print '[Inventory] cursor locked, building command map'
         Mode.__init__(self, handler, {KEY_ESCAPE: [
                       ignore, self.click_exit], 
            KEY_I: [
                  ignore, self.click_exit]})
         from Bitcasters.layers.Factory import create
-        print '[Inventory] creating layer...'
         self.layer = create('inventory', 0.75, owner=self, full=True)
-        print '[Inventory] layer created OK, calling updateInventory()'
         self.updateInventory()
-        print '[Inventory] updateInventory() OK, aiming camera'
         AimInventoryCameraAt(BigWorld.player())
-        print '[Inventory] camera aimed OK, unlocking cursor'
         cursor.locked = False
-        print '[Inventory] __init__ complete, cursor unlocked'
 
     def cleanup(self):
-        print '[Inventory] cleanup() called'
         self.layer.cleanup()
-        print '[Inventory] cleanup() complete'
 
     def click_icon(self, component):
-        print '[Inventory] click_icon(%r)' % (component,)
         slotID = keyToSlotID((0, int(component)))
-        print '[Inventory] click_icon slotID=%r, player.inventory=%r' % (slotID, getattr(BigWorld.player(), 'inventory', '<MISSING>'))
         if slotID in BigWorld.player().inventory:
             BigWorld.player().base.manageInventory(slotID)
 
     def click_exit(self):
         """Return to the game world."""
-        print '[Inventory] click_exit start'
         from BWPersonality import changeMode
         player = BigWorld.player()
         BigWorld.dcursor().yawPitch(player.yaw)
         AimCursorCameraAt(player)
-        print '[Inventory] click_exit camera done, calling changeMode(WorldMode)'
         changeMode('WorldMode')
-        print '[Inventory] click_exit changeMode() returned -- if cursor is still locked, WorldMode never actually resumed'
 
     def updateInventory(self, *ignored):
         p = BigWorld.player()
-        print '[Inventory] updateInventory: gold=%r inventory=%r' % (getattr(p, 'gold', '<MISSING>'), getattr(p, 'inventory', '<MISSING>'))
         self.layer.update(p.gold, p.inventory)
-        print '[Inventory] updateInventory: layer.update() completed OK'

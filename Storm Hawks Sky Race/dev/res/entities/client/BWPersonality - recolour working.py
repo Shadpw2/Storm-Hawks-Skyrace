@@ -287,70 +287,18 @@ def EnterOfflineWorld(data):
         print 'BWPersonality::EnterOfflineWorld: Error setting up start position:', details, '. Using default start position instead.'
         startPosition = spacePosMap[defaultSpaceName]
 
-    # BigWorld.createEntity only initializes the properties explicitly
-    # present in `data` -- offline entities never go through base/cell,
-    # so anything not listed here is simply never set at all (accessing
-    # it later throws AttributeError, not a default value). This has
-    # bitten us one property at a time (gold, then inventory...), so
-    # rather than keep guessing, log every property we touch: whether it
-    # was already there (and what value) or had to be seeded, so the
-    # next failure (if any) shows up immediately in the log instead of
-    # needing another round trip.
-    def _ensure_property(entity, name, default):
-        try:
-            current = getattr(entity, name)
-            print '[EnterOfflineWorld] %s already present: %r' % (name, current)
-        except AttributeError:
-            try:
-                setattr(entity, name, default)
-                print '[EnterOfflineWorld] %s was MISSING -- seeded default: %r' % (name, default)
-            except Exception, details:
-                print '[EnterOfflineWorld] %s FAILED to seed default %r: %s' % (name, default, details)
-
-    print '[EnterOfflineWorld] creating entity, entityType=%r startPosition=%r' % (myconfig.readString('player/entityType'), startPosition)
     playerID = BigWorld.createEntity(myconfig.readString('player/entityType'), spaceID, 0, startPosition, myconfig.readVector3('player/startDirection'), data)
-    print '[EnterOfflineWorld] createEntity returned playerID=%r' % (playerID,)
     storage.startPosition = startPosition
     BigWorld.player(BigWorld.entities[playerID])
     BigWorld.controlEntity(BigWorld.player(), True)
-    print '[EnterOfflineWorld] controlEntity granted, seeding properties...'
-
-    _ensure_property(BigWorld.player(), 'gold', data.get('offline', {}).get('gold', 0))
-    _ensure_property(BigWorld.player(), 'inventory', {})
-
-    # 'equipped' always gets rebuilt fresh from the character's current
-    # clothes choice rather than left alone if present, since it needs
-    # to reflect data['clothes']/data['clothesColour1']/data['clothesColour2']
-    # every time, not just be "not missing".
-    wardrobe = _build_starting_wardrobe(data)
-    BigWorld.player().equipped = wardrobe
-    print '[EnterOfflineWorld] equipped set to: %r' % (wardrobe,)
-
-    _ensure_property(BigWorld.player(), 'friends', [[], []])
-
-    # Lower-confidence extras -- not yet confirmed missing by a
-    # traceback, but same category as gold/inventory/friends (account
-    # progress properties, not part of the original character-creation
-    # payload), so seeding them defensively now to head off the next
-    # round of whack-a-mole. Logged either way so it's obvious if one of
-    # these turns out to already be fine or turns out to be the next
-    # thing that breaks.
-    _ensure_property(BigWorld.player(), 'race_crystals', 0)
-    _ensure_property(BigWorld.player(), 'rank', 0)
-    _ensure_property(BigWorld.player(), 'proposals', [])
-    _ensure_property(BigWorld.player(), 'offered', [])
-    _ensure_property(BigWorld.player(), 'trading_with', 0)
-
-    print '[EnterOfflineWorld] calling enterWorld()...'
-    try:
-        BigWorld.player().enterWorld()
-        print '[EnterOfflineWorld] enterWorld() completed OK'
-    except Exception, details:
-        import traceback
-        print '[EnterOfflineWorld] enterWorld() RAISED:', details
-        traceback.print_exc()
-        raise
-
+    # Set 'equipped' as a live attribute on the entity, after it already
+    # exists, rather than through createEntity's initial properties dict.
+    # 'equipped' is an ARRAY-of-FIXED_DICT property; seeding it at
+    # creation time goes through different engine handling than a plain
+    # post-creation assignment, and this is called before enterWorld()
+    # runs refreshEquipment(), so the timing still works out.
+    BigWorld.player().equipped = _build_starting_wardrobe(data)
+    BigWorld.player().enterWorld()
     fixCamera()
     # schedule the console spawn on the next frame
     BigWorld.callback(0.1, spawn_console)
