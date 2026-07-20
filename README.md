@@ -1,5 +1,12 @@
 Contained within this repository is the entire Storm Hawks Skyrace Game.
 
+20/7/26 UPDATE:
+SO it's been a while since I did an update but I have some progress!
+- Inventory no longer crashes or locks the game up (yay)
+- Shop mode in the works, with this version you can buy (and sell back), some very janky coloured items.
+- Equiping items is in a half functional state (as once you equip something you can never unequip it), but you can change items!
+- The most exciting part, a bug that has been in the base game since launch, player characters now load their custom colours & hairstyles on launch!
+
 25/10/25 Update
 I don't know how and im surprised it's to this state, but solo races can finally be started.
 There is issues:
