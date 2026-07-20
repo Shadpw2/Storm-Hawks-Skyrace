@@ -9,10 +9,30 @@ import BWPersonality
 import ResMgr
 from cursor import cursor
 from keys import *
-from InventoryItem import keyToSlotID, slotIDToKey
+from InventoryItem import keyToSlotID, slotIDToKey, serialize, deserialize, InventoryItem, WEAR_SLOT_COUNT
 from Mode import Mode
 import BigWorld
 import items as game_items
+
+# NOTE: this used to be hardcoded to "characters.txt" in updateInventory(),
+# which is stale -- CharCreation.py and CharSelection.py both moved to
+# player.dat a while ago. Reading from the old file meant the shop was
+# always working from disconnected/out-of-date data regardless of what
+# was actually saved.
+CHAR_FILE = 'player.dat'
+
+# Kept identical to the PALETTE inside Inventorybutton.setItem() -- this
+# copy exists only so build_stock_from_items_map() can log the real
+# swatch colour an item will render as. If you change one, change both.
+_SWATCH_PALETTE = [
+    (200, 200, 200),   # grey
+    (0, 180, 255),     # cyan
+    (255, 0, 200),     # magenta
+    (255, 255, 0),     # yellow
+    (0, 255, 0),       # green
+    (210, 150, 0),     # brown
+    (255, 100, 0)      # orange red
+]
 
 
 def _colour_strengths_for_setting(cs):
@@ -112,7 +132,7 @@ class OfflineShopItem(object):
         return None
 
 
-def build_stock_from_items_map(max_items=12):
+def build_stock_from_items_map(max_items=12, vendor_type=None):
     """
     Build the vendor stock dict that layers/shop.py expects:
       { 0: OfflineShopItem(...),
@@ -125,7 +145,21 @@ def build_stock_from_items_map(max_items=12):
 
     So keys MUST be numeric slot indices (0,1,2...)
     and values MUST be OfflineShopItem objects.
+
+    vendor_type, if given, filters ITEM_MAP down to items matching that
+    vendor's configured clothes_setting(s) in VENDOR_STOCK_FILTERS --
+    see that dict below to give a custom vendor its own stock. Every
+    item in items.ITEM_MAP has a 'clothes_setting' of 0 (civilian), 1
+    (military dress) or 2 (flight suit); vendor_type=None (or a type
+    with no entry in VENDOR_STOCK_FILTERS) sells the full unfiltered
+    catalog, same as before.
     """
+    allowed_settings = None
+    if vendor_type is not None:
+        cfg = VENDOR_STOCK_FILTERS.get(vendor_type)
+        if cfg:
+            allowed_settings = cfg.get('clothes_settings')
+
     stock_dict = {}
     try:
         try:
@@ -136,6 +170,10 @@ def build_stock_from_items_map(max_items=12):
         slot_index = 0
         for item_id in item_ids:
             raw = game_items.ITEM_MAP[item_id]
+
+            if allowed_settings is not None:
+                if raw.get('clothes_setting', 0) not in allowed_settings:
+                    continue
 
             # description: try CLOTHES_DESC[clothes_setting]
             desc_txt = 'No description.'
@@ -148,6 +186,26 @@ def build_stock_from_items_map(max_items=12):
             stock_item = OfflineShopItem(item_id, raw, desc_txt)
             stock_dict[slot_index] = stock_item
 
+            # Log what colour this item will actually render as. The
+            # PALETTE here is duplicated from Inventorybutton.setItem()
+            # on purpose -- it's the exact same lookup, so this prints
+            # the real swatch colour, not just the raw strength floats.
+            try:
+                strengthA, strengthB = stock_item.colours
+                base_col = _SWATCH_PALETTE[stock_item.id % len(_SWATCH_PALETTE)]
+                bright_rgb = (int(base_col[0] * strengthA),
+                              int(base_col[1] * strengthA),
+                              int(base_col[2] * strengthA))
+                dark_rgb = (int(base_col[0] * strengthB),
+                            int(base_col[1] * strengthB),
+                            int(base_col[2] * strengthB))
+                print "[Shop] load slot=%2d id=%3d clothes_setting=%s cost=%-5s strengths=(%.1f, %.1f) bright=%s dark=%s" % (
+                    slot_index, stock_item.id, stock_item.clothes(), stock_item.cost(),
+                    strengthA, strengthB, bright_rgb, dark_rgb
+                )
+            except Exception, e:
+                print "[Shop] load slot=%d id=%s -- colour logging failed: %s" % (slot_index, item_id, e)
+
             slot_index += 1
             if slot_index >= max_items:
                 break
@@ -156,12 +214,24 @@ def build_stock_from_items_map(max_items=12):
         print "[Shop] build_stock_from_items_map failed:", e
         stock_dict = {}
 
+    print "[Shop] Loaded %d items for vendor_type=%s (order above matches display order)" % (len(stock_dict), vendor_type)
     return stock_dict
+
+
+# Custom vendors: add an entry here keyed by the vendor's vendorType
+# (see Vendor.py -- WALLOP_M_1 = 0, HUMAN_M_1 = 1, and any new type you
+# add there) to give that vendor a restricted stock list. Any
+# vendorType not listed here (or with no 'clothes_settings' entry)
+# falls back to selling the full catalog.
+VENDOR_STOCK_FILTERS = {
+    0: {'clothes_settings': [0, 1]},   # WALLOP_M_1 / Endo -- civilian + military dress
+    1: {'clothes_settings': [1, 2]},   # HUMAN_M_1  / Arix -- military dress + flight suits
+}
 
 
 def _safe_eval_line(line):
     """
-    We can't rely on 'ast' in this Python version, but your characters.txt lines
+    We can't rely on 'ast' in this Python version, but player.dat lines
     are written using repr(dict). We'll eval them with no builtins allowed.
 
     If it fails or isn't a dict, return None.
@@ -174,6 +244,86 @@ def _safe_eval_line(line):
     if not isinstance(obj, dict):
         return None
     return obj
+
+
+def _load_all_records():
+    """Read every character record out of player.dat, one repr(dict) per line."""
+    try:
+        f = open(CHAR_FILE, "r")
+        lines = f.readlines()
+        f.close()
+    except Exception, e:
+        print "[Shop] Failed to open", CHAR_FILE, ":", e
+        return []
+
+    records = []
+    for line in lines:
+        rec = _safe_eval_line(line)
+        if rec:
+            records.append(rec)
+    return records
+
+
+def _write_all_records(records):
+    """Rewrite player.dat from a list of dicts, one repr(dict) per line."""
+    try:
+        f = open(CHAR_FILE, "w")
+        for rec in records:
+            f.write(repr(rec) + "\n")
+        f.close()
+    except Exception, e:
+        print "[Shop] Failed to write", CHAR_FILE, ":", e
+
+
+def _find_char_record(char_name):
+    for rec in _load_all_records():
+        if rec.get("name") == char_name:
+            return rec
+    return None
+
+
+def _next_free_bag_slot(inventory_dict):
+    """Lowest unused bag slotID (>= WEAR_SLOT_COUNT) in a {slotID: InventoryItem} dict."""
+    slot = WEAR_SLOT_COUNT
+    while slot in inventory_dict:
+        slot += 1
+    return slot
+
+
+def _save_offline_state(char_name, player):
+    """
+    Write player.gold and player.inventory back into this character's
+    record in player.dat, under the same 'offline' block CharCreation.py
+    already writes (gold / inventory_equipped / inventory_bag).
+    """
+    records = _load_all_records()
+    updated = False
+    for rec in records:
+        if rec.get("name") == char_name:
+            offline = rec.get("offline", {})
+            offline["gold"] = getattr(player, "gold", 0)
+
+            inv = getattr(player, "inventory", {}) or {}
+            equipped = dict((k, v) for (k, v) in inv.items() if k < WEAR_SLOT_COUNT)
+            bag = dict((k, v) for (k, v) in inv.items() if k >= WEAR_SLOT_COUNT)
+            try:
+                offline["inventory_equipped"] = serialize(equipped)
+            except Exception, e:
+                print "[Shop] serialize(equipped) failed:", e
+            try:
+                offline["inventory_bag"] = serialize(bag)
+            except Exception, e:
+                print "[Shop] serialize(bag) failed:", e
+
+            rec["offline"] = offline
+            updated = True
+            break
+
+    if updated:
+        _write_all_records(records)
+        print "[Shop] Saved offline state for '%s'" % char_name
+    else:
+        print "[Shop] WARNING: could not find '%s' in %s to save" % (char_name, CHAR_FILE)
 
 
 class ShopMode(Mode):
@@ -189,6 +339,7 @@ class ShopMode(Mode):
         self.sale = -1
         self.player_inventory = None
         self.npc_inventory = None
+        self.char_name = None
 
         from Bitcasters.layers.Factory import create
         self.inventory = create('inventory', 0.7, owner=self, full=False)
@@ -216,11 +367,18 @@ class ShopMode(Mode):
         except:
             pass
 
-        # Left panel (player inv + gold) - now pulled from characters.txt
+        # Left panel (player inv + gold) - now pulled from player.dat
         self.updateInventory()
 
-        # Right panel (vendor stock) - generated offline from ITEM_MAP
-        stock_dict = build_stock_from_items_map(12)
+        # Right panel (vendor stock) - generated offline from ITEM_MAP,
+        # filtered by this vendor's vendorType if VENDOR_STOCK_FILTERS
+        # has an entry for it (see that dict above build_stock_from_items_map).
+        vendor_type = None
+        try:
+            vendor_type = BigWorld.entities[npc_id].vendorType
+        except:
+            pass
+        stock_dict = build_stock_from_items_map(12, vendor_type=vendor_type)
         self.browseShop(stock_dict)
 
         # Live code would call npc.cell.windowShop() to refresh.
@@ -234,9 +392,12 @@ class ShopMode(Mode):
 
     def updateInventory(self, *ignored):
         """
-        Load the current character's saved info (gold, inventory) from characters.txt
-        and push it into:
-          - self.player_inventory
+        Load the current character's saved info (gold, inventory) from
+        player.dat and push it into:
+          - self.player_inventory  (real {slotID: InventoryItem} shape --
+            this is also what BigWorld.player().inventory gets set to,
+            since that property is shared with the real Inventory mode,
+            which can't understand any other shape)
           - the left-side inventory UI layer
         """
         p = BigWorld.player()
@@ -248,36 +409,34 @@ class ShopMode(Mode):
             char_name = None
         if not char_name:
             char_name = "Unnamed"
+        self.char_name = char_name
 
-        # read characters.txt, find this char's record
-        char_data = None
-        try:
-            f = open("characters.txt", "r")
-            lines = f.readlines()
-            f.close()
-        except Exception, e:
-            print "[Shop] Failed to open characters.txt:", e
-            lines = []
-
-        for line in lines:
-            rec = _safe_eval_line(line)
-            if not rec:
-                continue
-            if rec.get("name") == char_name:
-                char_data = rec
-                break
+        char_data = _find_char_record(char_name)
 
         # pull offline fields or fallback
         gold_val = 0
-        inv_obj = {"equipped": [], "bag": []}
+        equipped_desc = []
+        bag_desc = []
 
         if char_data:
             offline = char_data.get("offline", {})
             gold_val = offline.get("gold", 0)
-            inv_obj["equipped"] = offline.get("inventory_equipped", [])
-            inv_obj["bag"] = offline.get("inventory_bag", [])
+            equipped_desc = offline.get("inventory_equipped", [])
+            bag_desc = offline.get("inventory_bag", [])
         else:
             print "[Shop] No matching char record; using fallback inventory."
+
+        # build the real {slotID: InventoryItem} shape from the saved
+        # serialized descriptions
+        inv = {}
+        try:
+            inv.update(deserialize(equipped_desc))
+        except Exception, e:
+            print "[Shop] failed to deserialize equipped:", e
+        try:
+            inv.update(deserialize(bag_desc))
+        except Exception, e:
+            print "[Shop] failed to deserialize bag:", e
 
         # push these into player object so other systems see them
         try:
@@ -286,11 +445,11 @@ class ShopMode(Mode):
             p.__dict__["gold"] = gold_val
 
         try:
-            p.inventory = inv_obj
+            p.inventory = inv
         except:
-            p.__dict__["inventory"] = inv_obj
+            p.__dict__["inventory"] = inv
 
-        self.player_inventory = inv_obj
+        self.player_inventory = inv
 
         # update the left panel layer
         try:
@@ -298,13 +457,8 @@ class ShopMode(Mode):
         except Exception, e:
            print "[Shop] inventory.update() failed:", e
 
-        # debug
-        try:
-            inv_keys = self.player_inventory.keys()
-        except:
-            inv_keys = type(self.player_inventory)
-        print "[Shop] UpdateInventory gold=%s inv_keys=%s" % (
-            str(gold_val), str(inv_keys)
+        print "[Shop] UpdateInventory gold=%s slots=%s" % (
+            str(gold_val), str(inv.keys())
         )
 
     def browseShop(self, shop_inventory):
@@ -344,14 +498,46 @@ class ShopMode(Mode):
 
     def click_ok(self):
         """
-        Confirm buy or sell. Offline we just log what would've happened.
+        Confirm buy or sell. There's no base/cell for offline entities
+        (vendor and player are both created with BigWorld.createEntity
+        directly, so neither has .base/.cell), which is why the old
+        BigWorld.player().base.sell(...) / cell.sellTo(...) calls always
+        threw and silently fell through to a debug print with no actual
+        transaction. This does the transaction directly against
+        gold/inventory and persists the result to player.dat.
         """
+        p = BigWorld.player()
+
         if self.sale >= 16:
-            # selling a player item
-            try:
-                BigWorld.player().base.sell(self.sale)
-            except:
-                print "[Shop] offline sell stub sale=%s" % str(self.sale)
+            # selling a player item back to the vendor
+            slot = self.sale
+            inv = getattr(p, 'inventory', {}) or {}
+
+            if slot not in inv:
+                print "[Shop] sell failed: slot %s not in inventory" % str(slot)
+            else:
+                item_obj = inv[slot]
+                try:
+                    sell_value = item_obj.cost() / 2
+                except Exception, e:
+                    print "[Shop] sell failed: could not price item in slot %s: %s" % (str(slot), e)
+                    sell_value = None
+
+                if sell_value is not None:
+                    del inv[slot]
+                    p.gold = getattr(p, 'gold', 0) + sell_value
+                    p.inventory = inv
+                    self.player_inventory = inv
+
+                    try:
+                        self.inventory.update(p.gold, self.player_inventory)
+                    except Exception, e:
+                        print "[Shop] inventory.update() after sell failed:", e
+
+                    _save_offline_state(self.char_name or getattr(p, 'name', 'Unnamed'), p)
+                    print "[Shop] Sold slot=%s value=%s remaining_gold=%s" % (
+                        str(slot), str(sell_value), str(p.gold)
+                    )
 
         elif self.sale >= 0:
             # buying from vendor stock
@@ -365,37 +551,61 @@ class ShopMode(Mode):
                 item_obj = None
 
             if item_obj is not None:
-                # Dict-style access
+                # Method/attr-style access first (real OfflineShopItem API)
                 try:
-                    item_id = item_obj['id']
+                    item_id = item_obj.id
                 except:
-                    pass
-                try:
-                    item_cost = item_obj['cost']
-                except:
-                    pass
-
-                # Method/attr-style access
-                if item_id is None:
                     try:
-                        item_id = item_obj.id
+                        item_id = item_obj['id']
                     except:
                         pass
-                if not item_cost:
+                try:
+                    item_cost = item_obj.cost()
+                except:
                     try:
-                        item_cost = item_obj.cost()
+                        item_cost = item_obj['cost']
                     except:
-                        try:
-                            item_cost = item_obj.cost
-                        except:
-                            pass
+                        item_cost = 0
 
-            try:
-                BigWorld.entities[self.npc_id].cell.sellTo(self.sale)
-            except:
-                print "[Shop] offline buy stub idx=%s id=%s cost=%s" % (
-                    str(self.sale), str(item_id), str(item_cost)
-                )
+            if item_id is None:
+                print "[Shop] buy failed: could not resolve item id for sale=%s" % str(self.sale)
+            else:
+                current_gold = getattr(p, 'gold', 0)
+                if current_gold < item_cost:
+                    print "[Shop] buy failed: not enough gold (have %s, need %s)" % (
+                        str(current_gold), str(item_cost)
+                    )
+                else:
+                    inv = getattr(p, 'inventory', {}) or {}
+
+                    new_item = InventoryItem()
+                    # NOTE: colour1/colour2 default to neutral (128, 128)
+                    # here since OfflineShopItem doesn't carry real
+                    # 0-255 palette colours yet (it uses its own
+                    # separate PALETTE/strength scheme for the shop
+                    # icon only -- see Inventorybutton.setItem()). Once
+                    # that's unified with the real clothesColour system,
+                    # this is the place to feed in the real values.
+                    new_item.insert({'prototype_id': item_id,
+                                      'colour1': 128,
+                                      'colour2': 128,
+                                      'condition': 0}, 1)
+
+                    slot = _next_free_bag_slot(inv)
+                    inv[slot] = new_item
+                    p.gold = current_gold - item_cost
+                    p.inventory = inv
+                    self.player_inventory = inv
+
+                    try:
+                        self.inventory.update(p.gold, self.player_inventory)
+                    except Exception, e:
+                        print "[Shop] inventory.update() after buy failed:", e
+
+                    _save_offline_state(self.char_name or getattr(p, 'name', 'Unnamed'), p)
+                    print "[Shop] Bought item_id=%s cost=%s new_slot=%s remaining_gold=%s" % (
+                        str(item_id), str(item_cost), str(slot), str(p.gold)
+                    )
 
         self.clearPrice(False)
         self.sale = -1
@@ -412,12 +622,10 @@ class ShopMode(Mode):
         self.clearPrice(True)
         self.sale = keyToSlotID((0, comp_i))
 
-        # Estimate sell value. Offline fallback = 0.
+        # Estimate sell value from the real item in that slot, if any.
         price_val = 0
         try:
-            if isinstance(self.player_inventory, dict):
-                price_val = 0
-            else:
+            if self.sale in self.player_inventory:
                 item_obj = self.player_inventory[self.sale]
                 price_val = item_obj.cost() / 2
         except:

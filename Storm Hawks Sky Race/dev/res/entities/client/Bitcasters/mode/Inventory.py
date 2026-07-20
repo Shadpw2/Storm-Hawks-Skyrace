@@ -9,7 +9,8 @@ from Util import ignore
 from keys import *
 from Mode import Mode
 from Cameras import AimInventoryCameraAt, AimCursorCameraAt
-from InventoryItem import keyToSlotID, slotIDToKey
+from InventoryItem import keyToSlotID, slotIDToKey, serialize
+from Bitcasters.OfflineSave import save_offline_state
 
 class Inventory(Mode):
 
@@ -41,9 +42,49 @@ class Inventory(Mode):
     def click_icon(self, component):
         print '[Inventory] click_icon(%r)' % (component,)
         slotID = keyToSlotID((0, int(component)))
-        print '[Inventory] click_icon slotID=%r, player.inventory=%r' % (slotID, getattr(BigWorld.player(), 'inventory', '<MISSING>'))
-        if slotID in BigWorld.player().inventory:
-            BigWorld.player().base.manageInventory(slotID)
+        p = BigWorld.player()
+        inv = getattr(p, 'inventory', {}) or {}
+        print '[Inventory] click_icon slotID=%r, player.inventory=%r' % (slotID, inv)
+
+        if slotID not in inv:
+            print '[Inventory] click_icon: slot %r is empty, nothing to equip' % (slotID,)
+            return
+
+        # There's no .base for offline entities (same category of bug
+        # as the old shop buy stub -- see ShopMode.click_ok()), so the
+        # equip swap is done directly here instead of relying on
+        # BigWorld.player().base.manageInventory(slotID), which always
+        # threw and silently did nothing. Move the clicked bag item
+        # into the equipped slot (0); whatever was equipped before (if
+        # anything) goes back into the now-free bag slot.
+        clicked_item = inv[slotID]
+        previously_equipped = inv.get(0)
+
+        del inv[slotID]
+        inv[0] = clicked_item
+        if previously_equipped is not None:
+            inv[slotID] = previously_equipped
+
+        p.inventory = inv
+        try:
+            p.equipped = serialize({0: clicked_item})
+        except Exception, e:
+            print '[Inventory] click_icon: failed to serialize equipped item:', e
+
+        try:
+            p.refreshEquipment()
+            print '[Inventory] click_icon: refreshEquipment() OK'
+        except Exception, e:
+            print '[Inventory] click_icon: refreshEquipment() failed:', e
+
+        self.updateInventory()
+
+        try:
+            save_offline_state(getattr(p, 'name', 'Unnamed'), p)
+        except Exception, e:
+            print '[Inventory] click_icon: failed to persist equip change:', e
+
+        print '[Inventory] click_icon: equipped item from slot %r' % (slotID,)
 
     def click_exit(self):
         """Return to the game world."""
