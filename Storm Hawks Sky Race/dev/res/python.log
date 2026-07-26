@@ -9,6 +9,8 @@ WARNING: component didn't fit: window loading None
 REQUIRED SPACE: (330, 300)
 CELLSIZE: (200.0, 150.0)
 [Character Model] Human Character Called 0
+[GUI-DEBUG] dispatch('set') on ID='scrollbar_knob' enabled=True parent='scrollbar_middle' handlers=['Layer', 'CharSelection']
+[GUI-DEBUG] -- no handler matched 'set_scrollbar_knob' on any of ['Layer', 'CharSelection']
 Traceback (most recent call last):
   File "entities/client\Bitcasters\mode\CharSelection.py", line 90, in <lambda>
     BigWorld.callback(0.01, (lambda: self.layer.click_char(0)))
@@ -16,67 +18,42 @@ Traceback (most recent call last):
   File "/entities/client/CharCreationScene.py", line 85, in adjustModel
   File "entities/client\Bitcasters\CharacterModel.py", line 204, in __setattr__
 KeyError: 'gold'
+[GUI-DEBUG] dispatch('click') on ID='down' enabled=True parent='scrollbar' handlers=['Layer', 'CharSelection']
+[GUI-DEBUG] dispatch('set') on ID='scrollbar_knob' enabled=True parent='scrollbar_middle' handlers=['Layer', 'CharSelection']
+[GUI-DEBUG] -- no handler matched 'set_scrollbar_knob' on any of ['Layer', 'CharSelection']
+[GUI-DEBUG] -- no handler matched 'click_down' on any of ['Layer', 'CharSelection']
+[GUI-DEBUG] dispatch('click') on ID='char_3' enabled=True parent='character_pane' handlers=['Layer', 'CharSelection']
 Traceback (most recent call last):
   File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 67, in <lambda>
   File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 85, in mouseEventWrapper
   File "/entities/client/Bitcasters/GUI/Clickable.py", line 88, in click
   File "/entities/client/Bitcasters/GUI/Checkbox.py", line 36, in _act
-  File "/entities/client/Bitcasters/GUI/Component.py", line 542, in dispatch
-  File "/entities/client/Bitcasters/GUI/Component.py", line 560, in _dispatch_to
-  File "/entities/client/Bitcasters/GUI/Component.py", line 554, in _dispatch_to
+  File "entities/client\Bitcasters\GUI\Component.py", line 430, in dispatch
+    if self._dispatch_to(handler, type + '_' + self.ID, args):
+  File "entities/client\Bitcasters\GUI\Component.py", line 444, in _dispatch_to
+    return self._dispatch_to(handler, base, (firstarg,) + args)
+  File "entities/client\Bitcasters\GUI\Component.py", line 440, in _dispatch_to
+    return getattr(handler, base)(*args)
   File "/entities/client/Bitcasters/layers/CharSelection.py", line 160, in click_char
   File "/entities/client/CharCreationScene.py", line 85, in adjustModel
   File "entities/client\Bitcasters\CharacterModel.py", line 204, in __setattr__
-KeyError: 'data'
-Traceback (most recent call last):
-  File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 67, in <lambda>
-  File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 85, in mouseEventWrapper
-  File "/entities/client/Bitcasters/GUI/Clickable.py", line 88, in click
-  File "/entities/client/Bitcasters/GUI/Checkbox.py", line 36, in _act
-  File "/entities/client/Bitcasters/GUI/Component.py", line 542, in dispatch
-  File "/entities/client/Bitcasters/GUI/Component.py", line 560, in _dispatch_to
-  File "/entities/client/Bitcasters/GUI/Component.py", line 554, in _dispatch_to
-  File "/entities/client/Bitcasters/layers/CharSelection.py", line 160, in click_char
-  File "/entities/client/CharCreationScene.py", line 85, in adjustModel
-  File "entities/client\Bitcasters\CharacterModel.py", line 204, in __setattr__
-KeyError: 'data'
-Traceback (most recent call last):
-  File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 67, in <lambda>
-  File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 85, in mouseEventWrapper
-  File "/entities/client/Bitcasters/GUI/Clickable.py", line 88, in click
-  File "/entities/client/Bitcasters/GUI/Checkbox.py", line 36, in _act
-  File "/entities/client/Bitcasters/GUI/Component.py", line 542, in dispatch
-  File "/entities/client/Bitcasters/GUI/Component.py", line 560, in _dispatch_to
-  File "/entities/client/Bitcasters/GUI/Component.py", line 554, in _dispatch_to
-  File "/entities/client/Bitcasters/layers/CharSelection.py", line 160, in click_char
-  File "/entities/client/CharCreationScene.py", line 85, in adjustModel
-  File "entities/client\Bitcasters\CharacterModel.py", line 204, in __setattr__
-KeyError: 'data'
-Traceback (most recent call last):
-  File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 67, in <lambda>
-  File "/entities/client/Bitcasters/GUI/MouseEventHandler.py", line 85, in mouseEventWrapper
-  File "/entities/client/Bitcasters/GUI/Clickable.py", line 88, in click
-  File "/entities/client/Bitcasters/GUI/Checkbox.py", line 36, in _act
-  File "/entities/client/Bitcasters/GUI/Component.py", line 542, in dispatch
-  File "/entities/client/Bitcasters/GUI/Component.py", line 560, in _dispatch_to
-  File "/entities/client/Bitcasters/GUI/Component.py", line 554, in _dispatch_to
-  File "/entities/client/Bitcasters/layers/CharSelection.py", line 160, in click_char
-  File "/entities/client/CharCreationScene.py", line 85, in adjustModel
-  File "entities/client\Bitcasters\CharacterModel.py", line 204, in __setattr__
-KeyError: 'data'
+KeyError: 'offline'
+[GUI-DEBUG] dispatch('click') on ID='done' enabled=True parent='char_selection' handlers=['Layer', 'CharSelection']
 [EnterOfflineWorld] creating entity, entityType='Avatar' startPosition=(-170, 0, 354)
 AVATAR ENTERWORLD: 1073741826
 [Character Model] Human Character Called 0
+[Avatar] refreshEquipment: nothing equipped, reset cm to base outfit (clothes=0, colour1=128, colour2=128), stripped armour pieces
 TARGET SET: name True
 TARGET SET: name False
 [EnterOfflineWorld] createEntity returned playerID=1073741826
 [EnterOfflineWorld] controlEntity granted, seeding properties...
 [EnterOfflineWorld] gold was MISSING -- seeded default: 8560
-[EnterOfflineWorld] inventory was MISSING -- seeded default: {}
-[EnterOfflineWorld] equipped set to: [{'inventoryLocation': 0, 'socketCode': 1, 'colour2': 56, 'colour1': 221, 'prototype_id': 1, 'condition': 0}]
+[EnterOfflineWorld] no equipped item saved -- staying unequipped
+[EnterOfflineWorld] inventory was MISSING -- seeded default: {16: <InventoryItem.InventoryItem object at 0x1C7D8670>, 17: <InventoryItem.InventoryItem object at 0x1C7D8790>}
+[EnterOfflineWorld] equipped set to: []
 [EnterOfflineWorld] friends was MISSING -- seeded default: [[], []]
 [EnterOfflineWorld] race_crystals was MISSING -- seeded default: 0
-[EnterOfflineWorld] rank already present: <bound method PlayerAvatar.rank of PlayerAvatar at 0x1F78C928>
+[EnterOfflineWorld] rank already present: <bound method PlayerAvatar.rank of PlayerAvatar at 0x1C32D378>
 [EnterOfflineWorld] proposals already present: {}
 [EnterOfflineWorld] offered was MISSING -- seeded default: []
 [EnterOfflineWorld] trading_with was MISSING -- seeded default: 0
@@ -92,26 +69,53 @@ WARNING: component didn't fit: window loading None
 REQUIRED SPACE: (330, 300)
 CELLSIZE: (200.0, 150.0)
 AVATAR ENTERWORLD: 1073741826
-[PATCH] Loaded appearance data from player.dat: {'clothesColour2': 56, 'skinColour': 71, 'clothesColour1': 221, 'eyeColour': 60, 'hairColour2': 79, 'hairColour1': 79}
+[PATCH] Loaded appearance data from player.dat: {'clothesColour2': 36, 'skinColour': 255, 'clothesColour1': 67, 'eyeColour': 0, 'hairColour2': 83, 'hairColour1': 77}
 [Character Model] Human Character Called 0
-[PATCH] Applied clothes: 0
+[PATCH] Applied clothes: 1
+[Avatar] refreshEquipment: nothing equipped, reset cm to base outfit (clothes=1, colour1=67, colour2=36), stripped armour pieces
 [EnterOfflineWorld] enterWorld() completed OK
+[GUI-DEBUG] -- no handler matched 'click_done' on any of ['Layer', 'CharSelection']
 [Vendor] spawned at (-165.000000, 0.000000, 365.000000)
+[GUI-DEBUG] dispatch('set') on ID='knob' enabled=True parent='scroll' handlers=['Layer', 'NoneType']
+[GUI-DEBUG] -- no handler matched 'set_knob' on any of ['Layer', 'NoneType']
 [Inventory] __init__ start
 [Inventory] cursor locked, building command map
 [Inventory] creating layer...
 [Inventory] layer created OK, calling updateInventory()
-[Inventory] updateInventory: gold=8560 inventory={}
+[Inventory] updateInventory: gold=8560 inventory={16: <InventoryItem.InventoryItem object at 0x1C7D8670>, 17: <InventoryItem.InventoryItem object at 0x1C7D8790>}
 [Inventory] updateInventory: layer.update() completed OK
 [Inventory] updateInventory() OK, aiming camera
 [Inventory] camera aimed OK, unlocking cursor
 [Inventory] __init__ complete, cursor unlocked
+[GUI-DEBUG] dispatch('click') on ID='shirt' enabled=True parent='lframe' handlers=['Layer', 'Inventory']
+[Inventory] click_shirt (unequip) start
+[Inventory] click_shirt: nothing equipped, nothing to unequip
+[GUI-DEBUG] -- no handler matched 'click_shirt' on any of ['Layer', 'Inventory']
+[GUI-DEBUG] dispatch('click') on ID='icon_0' enabled=True parent='frame' handlers=['Layer', 'Inventory']
+[Inventory] click_icon('0')
+[Inventory] click_icon slotID=16, player.inventory={16: <InventoryItem.InventoryItem object at 0x1C7D8670>, 17: <InventoryItem.InventoryItem object at 0x1C7D8790>}
+[Inventory] click_icon: refreshEquipment() OK
+[Inventory] updateInventory: gold=8560 inventory={0: <InventoryItem.InventoryItem object at 0x1C7D8670>, 17: <InventoryItem.InventoryItem object at 0x1C7D8790>}
+[Inventory] updateInventory: layer.update() completed OK
+[OfflineSave] Saved offline state for 'Mark'
+[Inventory] click_icon: equipped item from slot 16
+[GUI-DEBUG] -- no handler matched 'click_icon_0' on any of ['Layer', 'Inventory']
+[GUI-DEBUG] dispatch('click') on ID='shirt' enabled=True parent='lframe' handlers=['Layer', 'Inventory']
+[Inventory] click_shirt (unequip) start
+[Avatar] refreshEquipment: nothing equipped, reset cm to base outfit (clothes=1, colour1=67, colour2=36), stripped armour pieces
+[Inventory] click_shirt: refreshEquipment() OK
+[Inventory] updateInventory: gold=8560 inventory={16: <InventoryItem.InventoryItem object at 0x1C7D8670>, 17: <InventoryItem.InventoryItem object at 0x1C7D8790>}
+[Inventory] updateInventory: layer.update() completed OK
+[OfflineSave] Saved offline state for 'Mark'
+[Inventory] click_shirt: unequipped, moved to bag slot 16
+[GUI-DEBUG] -- no handler matched 'click_shirt' on any of ['Layer', 'Inventory']
 [Inventory] click_exit start
 [Inventory] click_exit camera done, calling changeMode(WorldMode)
 [Inventory] cleanup() called
 [Inventory] cleanup() complete
 [Inventory] click_exit changeMode() returned -- if cursor is still locked, WorldMode never actually resumed
-[Shop] UpdateInventory gold=8560 slots=[]
+[GUI-DEBUG] dispatch('click') on ID='menu_trade' enabled=True parent='fade' handlers=['Layer', 'WorldMode']
+[Shop] UpdateInventory gold=8560 slots=[16, 17]
 [Shop] load slot= 0 id=  1 clothes_setting=0 cost=1000  strengths=(1.0, 0.7) bright=(0, 180, 255) dark=(0, 125, 178)
 [Shop] load slot= 1 id=  2 clothes_setting=1 cost=1000  strengths=(0.9, 0.6) bright=(229, 0, 180) dark=(153, 0, 120)
 [Shop] load slot= 2 id=  4 clothes_setting=0 cost=2440  strengths=(1.0, 0.7) bright=(0, 255, 0) dark=(0, 178, 0)
@@ -126,130 +130,121 @@ AVATAR ENTERWORLD: 1073741826
 [Shop] load slot=11 id= 19 clothes_setting=0 cost=3680  strengths=(1.0, 0.7) bright=(210, 150, 0) dark=(147, 105, 0)
 [Shop] Loaded 12 items for vendor_type=0 (order above matches display order)
 [Shop] Init run
-[Shop] Saved offline state for 'Mac'
-[Shop] Bought item_id=14 cost=3320 new_slot=16 remaining_gold=5240
+[GUI-DEBUG] -- no handler matched 'click_menu_trade' on any of ['Layer', 'WorldMode']
+[GUI-DEBUG] dispatch('click') on ID='fade' enabled=True parent=None handlers=['Layer', 'ShopMode']
+[GUI-DEBUG] -- no handler matched 'click_fade' on any of ['Layer', 'ShopMode']
+[GUI-DEBUG] dispatch('click') on ID='buy_8' enabled=True parent='shop_frame' handlers=['Layer', 'ShopMode']
+[GUI-DEBUG] -- no handler matched 'click_buy_8' on any of ['Layer', 'ShopMode']
+[GUI-DEBUG] dispatch('click') on ID='unused_6' enabled=True parent='rframe' handlers=['Layer', 'ShopMode']
+[GUI-DEBUG] -- no handler matched 'click_unused_6' on any of ['Layer', 'ShopMode']
+[GUI-DEBUG] dispatch('click') on ID='ok' enabled=True parent='fade' handlers=['Layer', 'ShopMode']
+[Shop] Saved offline state for 'Mark'
+[Shop] Bought item_id=14 cost=3320 new_slot=18 remaining_gold=5240
+[GUI-DEBUG] -- no handler matched 'click_ok' on any of ['Layer', 'ShopMode']
 [Shop] Cleanup
 [Inventory] __init__ start
 [Inventory] cursor locked, building command map
 [Inventory] creating layer...
 [Inventory] layer created OK, calling updateInventory()
-[Inventory] updateInventory: gold=5240 inventory={16: <InventoryItem.InventoryItem object at 0x2C62E610>}
+[Inventory] updateInventory: gold=5240 inventory={16: <InventoryItem.InventoryItem object at 0x288A8430>, 17: <InventoryItem.InventoryItem object at 0x288A8410>, 18: <InventoryItem.InventoryItem object at 0x286B7890>}
 [Inventory] updateInventory: layer.update() completed OK
 [Inventory] updateInventory() OK, aiming camera
 [Inventory] camera aimed OK, unlocking cursor
 [Inventory] __init__ complete, cursor unlocked
-[Inventory] click_icon('0')
-[Inventory] click_icon slotID=16, player.inventory={16: <InventoryItem.InventoryItem object at 0x2C62E610>}
+[GUI-DEBUG] dispatch('click') on ID='icon_2' enabled=True parent='frame' handlers=['Layer', 'Inventory']
+[Inventory] click_icon('2')
+[Inventory] click_icon slotID=18, player.inventory={16: <InventoryItem.InventoryItem object at 0x288A8430>, 17: <InventoryItem.InventoryItem object at 0x288A8410>, 18: <InventoryItem.InventoryItem object at 0x286B7890>}
 [Inventory] click_icon: refreshEquipment() OK
-[Inventory] updateInventory: gold=5240 inventory={0: <InventoryItem.InventoryItem object at 0x2C62E610>}
+[Inventory] updateInventory: gold=5240 inventory={16: <InventoryItem.InventoryItem object at 0x288A8430>, 17: <InventoryItem.InventoryItem object at 0x288A8410>, 0: <InventoryItem.InventoryItem object at 0x286B7890>}
 [Inventory] updateInventory: layer.update() completed OK
-[OfflineSave] Saved offline state for 'Mac'
+[OfflineSave] Saved offline state for 'Mark'
+[Inventory] click_icon: equipped item from slot 18
+[GUI-DEBUG] -- no handler matched 'click_icon_2' on any of ['Layer', 'Inventory']
+[GUI-DEBUG] dispatch('click') on ID='fade' enabled=True parent=None handlers=['Layer', 'Inventory']
+[GUI-DEBUG] -- no handler matched 'click_fade' on any of ['Layer', 'Inventory']
+[GUI-DEBUG] dispatch('click') on ID='shirt' enabled=True parent='lframe' handlers=['Layer', 'Inventory']
+[Inventory] click_shirt (unequip) start
+[Avatar] refreshEquipment: nothing equipped, reset cm to base outfit (clothes=1, colour1=67, colour2=36), stripped armour pieces
+[Inventory] click_shirt: refreshEquipment() OK
+[Inventory] updateInventory: gold=5240 inventory={16: <InventoryItem.InventoryItem object at 0x288A8430>, 17: <InventoryItem.InventoryItem object at 0x288A8410>, 18: <InventoryItem.InventoryItem object at 0x286B7890>}
+[Inventory] updateInventory: layer.update() completed OK
+[OfflineSave] Saved offline state for 'Mark'
+[Inventory] click_shirt: unequipped, moved to bag slot 18
+[GUI-DEBUG] -- no handler matched 'click_shirt' on any of ['Layer', 'Inventory']
+[GUI-DEBUG] dispatch('click') on ID='icon_2' enabled=True parent='frame' handlers=['Layer', 'Inventory']
+[Inventory] click_icon('2')
+[Inventory] click_icon slotID=18, player.inventory={16: <InventoryItem.InventoryItem object at 0x288A8430>, 17: <InventoryItem.InventoryItem object at 0x288A8410>, 18: <InventoryItem.InventoryItem object at 0x286B7890>}
+[Inventory] click_icon: refreshEquipment() OK
+[Inventory] updateInventory: gold=5240 inventory={16: <InventoryItem.InventoryItem object at 0x288A8430>, 17: <InventoryItem.InventoryItem object at 0x288A8410>, 0: <InventoryItem.InventoryItem object at 0x286B7890>}
+[Inventory] updateInventory: layer.update() completed OK
+[OfflineSave] Saved offline state for 'Mark'
+[Inventory] click_icon: equipped item from slot 18
+[GUI-DEBUG] -- no handler matched 'click_icon_2' on any of ['Layer', 'Inventory']
+[GUI-DEBUG] dispatch('click') on ID='icon_0' enabled=True parent='frame' handlers=['Layer', 'Inventory']
+[Inventory] click_icon('0')
+[Inventory] click_icon slotID=16, player.inventory={16: <InventoryItem.InventoryItem object at 0x288A8430>, 17: <InventoryItem.InventoryItem object at 0x288A8410>, 0: <InventoryItem.InventoryItem object at 0x286B7890>}
+[Inventory] click_icon: refreshEquipment() OK
+[Inventory] updateInventory: gold=5240 inventory={16: <InventoryItem.InventoryItem object at 0x286B7890>, 17: <InventoryItem.InventoryItem object at 0x288A8410>, 0: <InventoryItem.InventoryItem object at 0x288A8430>}
+[Inventory] updateInventory: layer.update() completed OK
+[OfflineSave] Saved offline state for 'Mark'
 [Inventory] click_icon: equipped item from slot 16
+[GUI-DEBUG] -- no handler matched 'click_icon_0' on any of ['Layer', 'Inventory']
+[GUI-DEBUG] dispatch('click') on ID='icon_0' enabled=True parent='frame' handlers=['Layer', 'Inventory']
+[Inventory] click_icon('0')
+[Inventory] click_icon slotID=16, player.inventory={16: <InventoryItem.InventoryItem object at 0x286B7890>, 17: <InventoryItem.InventoryItem object at 0x288A8410>, 0: <InventoryItem.InventoryItem object at 0x288A8430>}
+[Inventory] click_icon: refreshEquipment() OK
+[Inventory] updateInventory: gold=5240 inventory={16: <InventoryItem.InventoryItem object at 0x288A8430>, 17: <InventoryItem.InventoryItem object at 0x288A8410>, 0: <InventoryItem.InventoryItem object at 0x286B7890>}
+[Inventory] updateInventory: layer.update() completed OK
+[OfflineSave] Saved offline state for 'Mark'
+[Inventory] click_icon: equipped item from slot 16
+[GUI-DEBUG] -- no handler matched 'click_icon_0' on any of ['Layer', 'Inventory']
+[GUI-DEBUG] dispatch('click') on ID='icon_0' enabled=True parent='frame' handlers=['Layer', 'Inventory']
+[Inventory] click_icon('0')
+[Inventory] click_icon slotID=16, player.inventory={16: <InventoryItem.InventoryItem object at 0x288A8430>, 17: <InventoryItem.InventoryItem object at 0x288A8410>, 0: <InventoryItem.InventoryItem object at 0x286B7890>}
+[Inventory] click_icon: refreshEquipment() OK
+[Inventory] updateInventory: gold=5240 inventory={16: <InventoryItem.InventoryItem object at 0x286B7890>, 17: <InventoryItem.InventoryItem object at 0x288A8410>, 0: <InventoryItem.InventoryItem object at 0x288A8430>}
+[Inventory] updateInventory: layer.update() completed OK
+[OfflineSave] Saved offline state for 'Mark'
+[Inventory] click_icon: equipped item from slot 16
+[GUI-DEBUG] -- no handler matched 'click_icon_0' on any of ['Layer', 'Inventory']
+[GUI-DEBUG] dispatch('click') on ID='icon_1' enabled=True parent='frame' handlers=['Layer', 'Inventory']
+[Inventory] click_icon('1')
+[Inventory] click_icon slotID=17, player.inventory={16: <InventoryItem.InventoryItem object at 0x286B7890>, 17: <InventoryItem.InventoryItem object at 0x288A8410>, 0: <InventoryItem.InventoryItem object at 0x288A8430>}
+[Inventory] click_icon: refreshEquipment() OK
+[Inventory] updateInventory: gold=5240 inventory={16: <InventoryItem.InventoryItem object at 0x286B7890>, 17: <InventoryItem.InventoryItem object at 0x288A8430>, 0: <InventoryItem.InventoryItem object at 0x288A8410>}
+[Inventory] updateInventory: layer.update() completed OK
+[OfflineSave] Saved offline state for 'Mark'
+[Inventory] click_icon: equipped item from slot 17
+[GUI-DEBUG] -- no handler matched 'click_icon_1' on any of ['Layer', 'Inventory']
+[GUI-DEBUG] dispatch('click') on ID='icon_1' enabled=True parent='frame' handlers=['Layer', 'Inventory']
+[Inventory] click_icon('1')
+[Inventory] click_icon slotID=17, player.inventory={16: <InventoryItem.InventoryItem object at 0x286B7890>, 17: <InventoryItem.InventoryItem object at 0x288A8430>, 0: <InventoryItem.InventoryItem object at 0x288A8410>}
+[Inventory] click_icon: refreshEquipment() OK
+[Inventory] updateInventory: gold=5240 inventory={16: <InventoryItem.InventoryItem object at 0x286B7890>, 17: <InventoryItem.InventoryItem object at 0x288A8410>, 0: <InventoryItem.InventoryItem object at 0x288A8430>}
+[Inventory] updateInventory: layer.update() completed OK
+[OfflineSave] Saved offline state for 'Mark'
+[Inventory] click_icon: equipped item from slot 17
+[GUI-DEBUG] -- no handler matched 'click_icon_1' on any of ['Layer', 'Inventory']
+[GUI-DEBUG] dispatch('click') on ID='shirt' enabled=True parent='lframe' handlers=['Layer', 'Inventory']
+[Inventory] click_shirt (unequip) start
+[Avatar] refreshEquipment: nothing equipped, reset cm to base outfit (clothes=1, colour1=67, colour2=36), stripped armour pieces
+[Inventory] click_shirt: refreshEquipment() OK
+[Inventory] updateInventory: gold=5240 inventory={16: <InventoryItem.InventoryItem object at 0x286B7890>, 17: <InventoryItem.InventoryItem object at 0x288A8410>, 18: <InventoryItem.InventoryItem object at 0x288A8430>}
+[Inventory] updateInventory: layer.update() completed OK
+[OfflineSave] Saved offline state for 'Mark'
+[Inventory] click_shirt: unequipped, moved to bag slot 18
+[GUI-DEBUG] -- no handler matched 'click_shirt' on any of ['Layer', 'Inventory']
+[GUI-DEBUG] dispatch('click') on ID='fade' enabled=True parent=None handlers=['Layer', 'Inventory']
+[GUI-DEBUG] -- no handler matched 'click_fade' on any of ['Layer', 'Inventory']
+[GUI-DEBUG] dispatch('click') on ID='exit' enabled=True parent='inventory_bg' handlers=['Layer', 'Inventory']
 [Inventory] click_exit start
 [Inventory] click_exit camera done, calling changeMode(WorldMode)
 [Inventory] cleanup() called
 [Inventory] cleanup() complete
 [Inventory] click_exit changeMode() returned -- if cursor is still locked, WorldMode never actually resumed
-[Inventory] __init__ start
-[Inventory] cursor locked, building command map
-[Inventory] creating layer...
-[Inventory] layer created OK, calling updateInventory()
-[Inventory] updateInventory: gold=5240 inventory={0: <InventoryItem.InventoryItem object at 0x2C62E610>}
-[Inventory] updateInventory: layer.update() completed OK
-[Inventory] updateInventory() OK, aiming camera
-[Inventory] camera aimed OK, unlocking cursor
-[Inventory] __init__ complete, cursor unlocked
-[Inventory] click_exit start
-[Inventory] click_exit camera done, calling changeMode(WorldMode)
-[Inventory] cleanup() called
-[Inventory] cleanup() complete
-[Inventory] click_exit changeMode() returned -- if cursor is still locked, WorldMode never actually resumed
-[Shop] UpdateInventory gold=5240 slots=[0]
-[Shop] load slot= 0 id=  1 clothes_setting=0 cost=1000  strengths=(1.0, 0.7) bright=(0, 180, 255) dark=(0, 125, 178)
-[Shop] load slot= 1 id=  2 clothes_setting=1 cost=1000  strengths=(0.9, 0.6) bright=(229, 0, 180) dark=(153, 0, 120)
-[Shop] load slot= 2 id=  4 clothes_setting=0 cost=2440  strengths=(1.0, 0.7) bright=(0, 255, 0) dark=(0, 178, 0)
-[Shop] load slot= 3 id=  5 clothes_setting=1 cost=1960  strengths=(0.9, 0.6) bright=(189, 135, 0) dark=(126, 90, 0)
-[Shop] load slot= 4 id=  6 clothes_setting=0 cost=3960  strengths=(1.0, 0.7) bright=(255, 100, 0) dark=(178, 70, 0)
-[Shop] load slot= 5 id=  9 clothes_setting=0 cost=2880  strengths=(1.0, 0.7) bright=(255, 0, 200) dark=(178, 0, 140)
-[Shop] load slot= 6 id= 10 clothes_setting=1 cost=1800  strengths=(0.9, 0.6) bright=(229, 229, 0) dark=(153, 153, 0)
-[Shop] load slot= 7 id= 11 clothes_setting=1 cost=4160  strengths=(0.9, 0.6) bright=(0, 229, 0) dark=(0, 153, 0)
-[Shop] load slot= 8 id= 14 clothes_setting=0 cost=3320  strengths=(1.0, 0.7) bright=(200, 200, 200) dark=(140, 140, 140)
-[Shop] load slot= 9 id= 16 clothes_setting=1 cost=2040  strengths=(0.9, 0.6) bright=(229, 0, 180) dark=(153, 0, 120)
-[Shop] load slot=10 id= 17 clothes_setting=0 cost=1400  strengths=(1.0, 0.7) bright=(255, 255, 0) dark=(178, 178, 0)
-[Shop] load slot=11 id= 19 clothes_setting=0 cost=3680  strengths=(1.0, 0.7) bright=(210, 150, 0) dark=(147, 105, 0)
-[Shop] Loaded 12 items for vendor_type=0 (order above matches display order)
-[Shop] Init run
-[Shop] Saved offline state for 'Mac'
-[Shop] Bought item_id=4 cost=2440 new_slot=16 remaining_gold=2800
-[Shop] Cleanup
-[Inventory] __init__ start
-[Inventory] cursor locked, building command map
-[Inventory] creating layer...
-[Inventory] layer created OK, calling updateInventory()
-[Inventory] updateInventory: gold=2800 inventory={0: <InventoryItem.InventoryItem object at 0x2CD26E70>, 16: <InventoryItem.InventoryItem object at 0x2CA0B290>}
-[Inventory] updateInventory: layer.update() completed OK
-[Inventory] updateInventory() OK, aiming camera
-[Inventory] camera aimed OK, unlocking cursor
-[Inventory] __init__ complete, cursor unlocked
-[Inventory] click_icon('0')
-[Inventory] click_icon slotID=16, player.inventory={0: <InventoryItem.InventoryItem object at 0x2CD26E70>, 16: <InventoryItem.InventoryItem object at 0x2CA0B290>}
-[Inventory] click_icon: refreshEquipment() OK
-[Inventory] updateInventory: gold=2800 inventory={0: <InventoryItem.InventoryItem object at 0x2CA0B290>, 16: <InventoryItem.InventoryItem object at 0x2CD26E70>}
-[Inventory] updateInventory: layer.update() completed OK
-[OfflineSave] Saved offline state for 'Mac'
-[Inventory] click_icon: equipped item from slot 16
-[Inventory] click_icon('0')
-[Inventory] click_icon slotID=16, player.inventory={0: <InventoryItem.InventoryItem object at 0x2CA0B290>, 16: <InventoryItem.InventoryItem object at 0x2CD26E70>}
-[Inventory] click_icon: refreshEquipment() OK
-[Inventory] updateInventory: gold=2800 inventory={0: <InventoryItem.InventoryItem object at 0x2CD26E70>, 16: <InventoryItem.InventoryItem object at 0x2CA0B290>}
-[Inventory] updateInventory: layer.update() completed OK
-[OfflineSave] Saved offline state for 'Mac'
-[Inventory] click_icon: equipped item from slot 16
-[Inventory] click_icon('0')
-[Inventory] click_icon slotID=16, player.inventory={0: <InventoryItem.InventoryItem object at 0x2CD26E70>, 16: <InventoryItem.InventoryItem object at 0x2CA0B290>}
-[Inventory] click_icon: refreshEquipment() OK
-[Inventory] updateInventory: gold=2800 inventory={0: <InventoryItem.InventoryItem object at 0x2CA0B290>, 16: <InventoryItem.InventoryItem object at 0x2CD26E70>}
-[Inventory] updateInventory: layer.update() completed OK
-[OfflineSave] Saved offline state for 'Mac'
-[Inventory] click_icon: equipped item from slot 16
-[Inventory] click_icon('0')
-[Inventory] click_icon slotID=16, player.inventory={0: <InventoryItem.InventoryItem object at 0x2CA0B290>, 16: <InventoryItem.InventoryItem object at 0x2CD26E70>}
-[Inventory] click_icon: refreshEquipment() OK
-[Inventory] updateInventory: gold=2800 inventory={0: <InventoryItem.InventoryItem object at 0x2CD26E70>, 16: <InventoryItem.InventoryItem object at 0x2CA0B290>}
-[Inventory] updateInventory: layer.update() completed OK
-[OfflineSave] Saved offline state for 'Mac'
-[Inventory] click_icon: equipped item from slot 16
-[Inventory] click_icon('0')
-[Inventory] click_icon slotID=16, player.inventory={0: <InventoryItem.InventoryItem object at 0x2CD26E70>, 16: <InventoryItem.InventoryItem object at 0x2CA0B290>}
-[Inventory] click_icon: refreshEquipment() OK
-[Inventory] updateInventory: gold=2800 inventory={0: <InventoryItem.InventoryItem object at 0x2CA0B290>, 16: <InventoryItem.InventoryItem object at 0x2CD26E70>}
-[Inventory] updateInventory: layer.update() completed OK
-[OfflineSave] Saved offline state for 'Mac'
-[Inventory] click_icon: equipped item from slot 16
-[Inventory] click_icon('0')
-[Inventory] click_icon slotID=16, player.inventory={0: <InventoryItem.InventoryItem object at 0x2CA0B290>, 16: <InventoryItem.InventoryItem object at 0x2CD26E70>}
-[Inventory] click_icon: refreshEquipment() OK
-[Inventory] updateInventory: gold=2800 inventory={0: <InventoryItem.InventoryItem object at 0x2CD26E70>, 16: <InventoryItem.InventoryItem object at 0x2CA0B290>}
-[Inventory] updateInventory: layer.update() completed OK
-[OfflineSave] Saved offline state for 'Mac'
-[Inventory] click_icon: equipped item from slot 16
-[Inventory] click_icon('0')
-[Inventory] click_icon slotID=16, player.inventory={0: <InventoryItem.InventoryItem object at 0x2CD26E70>, 16: <InventoryItem.InventoryItem object at 0x2CA0B290>}
-[Inventory] click_icon: refreshEquipment() OK
-[Inventory] updateInventory: gold=2800 inventory={0: <InventoryItem.InventoryItem object at 0x2CA0B290>, 16: <InventoryItem.InventoryItem object at 0x2CD26E70>}
-[Inventory] updateInventory: layer.update() completed OK
-[OfflineSave] Saved offline state for 'Mac'
-[Inventory] click_icon: equipped item from slot 16
-[Inventory] click_icon('0')
-[Inventory] click_icon slotID=16, player.inventory={0: <InventoryItem.InventoryItem object at 0x2CA0B290>, 16: <InventoryItem.InventoryItem object at 0x2CD26E70>}
-[Inventory] click_icon: refreshEquipment() OK
-[Inventory] updateInventory: gold=2800 inventory={0: <InventoryItem.InventoryItem object at 0x2CD26E70>, 16: <InventoryItem.InventoryItem object at 0x2CA0B290>}
-[Inventory] updateInventory: layer.update() completed OK
-[OfflineSave] Saved offline state for 'Mac'
-[Inventory] click_icon: equipped item from slot 16
-[Inventory] click_exit start
-[Inventory] click_exit camera done, calling changeMode(WorldMode)
-[Inventory] cleanup() called
-[Inventory] cleanup() complete
-[Inventory] click_exit changeMode() returned -- if cursor is still locked, WorldMode never actually resumed
-LEFT: PlayerAvatar at 0x1F78C928
+[GUI-DEBUG] -- no handler matched 'click_exit' on any of ['Layer', 'Inventory']
+[GUI-DEBUG] dispatch('click') on ID='main_1' enabled=True parent='window' handlers=['Layer', 'WorldMode']
+[GUI-DEBUG] -- no handler matched 'click_main_1' on any of ['Layer', 'WorldMode']
+[GUI-DEBUG] dispatch('click') on ID='ok' enabled=True parent='panel_b' handlers=['Layer', 'NoneType']
+[GUI-DEBUG] -- no handler matched 'click_ok' on any of ['Layer', 'NoneType']
+LEFT: PlayerAvatar at 0x1C32D378

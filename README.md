@@ -1,5 +1,12 @@
 Contained within this repository is the entire Storm Hawks Skyrace Game.
 
+26/7/26 Update:
+- Player clothes now correctly equip & unequip
+TODO: 
+- going to look at colouring the items in the shop correctly.
+- Racemode needs to place crystals & boosters along the tracks (will have to place by hand)
+- [BUG] Racemode exits the map before allowing the player to click off the UI which soft locks the player and needs a restart.
+
 20/7/26 UPDATE:
 SO it's been a while since I did an update but I have some progress!
 - Inventory no longer crashes or locks the game up (yay)

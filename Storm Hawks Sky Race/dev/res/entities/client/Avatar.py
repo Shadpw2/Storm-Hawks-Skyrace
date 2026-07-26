@@ -46,17 +46,33 @@ class Avatar(BigWorld.Entity):
                         continue
                     
                     if rec.get("name") == name:
-                        # Update appearance data with saved values
+                        # Update appearance data with saved values.
+                        # These live nested under rec['data']
+                        # (CharCreation.py writes {'name':.., 'class':..,
+                        # 'data': {...appearance fields...}, 'offline':
+                        # {...}}), NOT at the top level of rec. Checking
+                        # "key in rec" directly meant clothesColour1/
+                        # clothesColour2/clothes were never actually
+                        # found here -- hairColour1/hairColour2/
+                        # eyeColour/skinColour only looked like they
+                        # worked because those are already real
+                        # Avatar.def properties set correctly at spawn
+                        # regardless of this loop; clothesColour1/2 and
+                        # clothes are not, so they had nothing else to
+                        # fall back on and always stayed at their
+                        # hardcoded defaults.
+                        char_data = rec.get("data", {}) or {}
+
                         dye_fields = ["clothesColour1", "clothesColour2", "hairColour1", 
                                      "hairColour2", "eyeColour", "skinColour"]
                         for key in dye_fields:
-                            if key in rec:
-                                appearance_data[key] = rec[key]
-                                setattr(self, key, rec[key])
+                            if key in char_data:
+                                appearance_data[key] = char_data[key]
+                                setattr(self, key, char_data[key])
                         
                         # Also save clothes ID for later
-                        if "clothes" in rec:
-                            self._saved_clothes = rec["clothes"]
+                        if "clothes" in char_data:
+                            self._saved_clothes = char_data["clothes"]
                         
                         print "[PATCH] Loaded appearance data from player.dat:", appearance_data
                         break
@@ -123,6 +139,37 @@ class Avatar(BigWorld.Entity):
     def refreshEquipment(self):
         e = deserialize(self.equipped)
         assert len(e) < 2
+        if not e:
+            # Nothing equipped. Unlike applying an item, there's no
+            # data-driven way to "un-apply" one -- the for loop below
+            # simply wouldn't run, leaving self.cm showing whatever was
+            # last applied, forever. So this has to actively reset the
+            # model back to the character's own base outfit, using the
+            # same values the [PATCH] loader in enterWorld() already
+            # populated onto self (self._saved_clothes,
+            # self.clothesColour1, self.clothesColour2), rather than
+            # every caller re-deriving/re-loading that itself.
+            try:
+                base_clothes = getattr(self, '_saved_clothes', 0)
+                base_colour1 = getattr(self, 'clothesColour1', 128)
+                base_colour2 = getattr(self, 'clothesColour2', 128)
+                self.cm.clothes = base_clothes
+                self.cm.clothesColour1 = base_colour1
+                self.cm.clothesColour2 = base_colour2
+                # cm.armour tracks separately-attached trim pieces
+                # (gloves/pants/shirt/shoes -- see InventoryItem.
+                # apply_shirt(), CharacterModel._setArmour()). Its
+                # setter is the only thing that calls _stripArmour()
+                # to actually detach whatever's currently attached;
+                # clothes/clothesColour1/clothesColour2 have no effect
+                # on it at all. Without this, any armour pieces from
+                # the last-equipped item stayed attached forever, even
+                # though the clothes/colours reverted correctly.
+                self.cm.armour = {}
+                print '[Avatar] refreshEquipment: nothing equipped, reset cm to base outfit (clothes=%r, colour1=%r, colour2=%r), stripped armour pieces' % (base_clothes, base_colour1, base_colour2)
+            except Exception, details:
+                print '[Avatar] refreshEquipment: failed to reset to base outfit:', details
+            return
         for (k, v) in e.items():
             assert equipment(k)
             v.apply_to(self.cm)

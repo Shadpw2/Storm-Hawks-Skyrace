@@ -238,7 +238,13 @@ def spawn_vendor(x, y, z, yaw=0.0,
     _try(retries)
 
 def _build_starting_wardrobe(data):
-    """Build a serialized 'equipped' value for a freshly-created Avatar,
+    """NOTE: not called from EnterOfflineWorld() -- character creation
+    (Bitcasters/mode/CharCreation.py) builds the starting wardrobe item
+    itself, once, at creation time, so player.dat is always the single
+    source of truth from then on, including when it's empty. Left here
+    in case it's useful again later rather than deleted outright.
+
+    Build a serialized 'equipped' value for a freshly-created Avatar,
     from the raw 'clothes' choice made at character creation/selection.
 
     Avatar.def has no 'clothes' / 'clothesColour1' / 'clothesColour2'
@@ -316,13 +322,45 @@ def EnterOfflineWorld(data):
     print '[EnterOfflineWorld] controlEntity granted, seeding properties...'
 
     _ensure_property(BigWorld.player(), 'gold', data.get('offline', {}).get('gold', 0))
-    _ensure_property(BigWorld.player(), 'inventory', {})
 
-    # 'equipped' always gets rebuilt fresh from the character's current
-    # clothes choice rather than left alone if present, since it needs
-    # to reflect data['clothes']/data['clothesColour1']/data['clothesColour2']
-    # every time, not just be "not missing".
-    wardrobe = _build_starting_wardrobe(data)
+    # Build the real {slotID: InventoryItem} inventory from this
+    # character's saved offline block -- the same deserialize() step
+    # ShopMode.updateInventory() already does. Previously this was
+    # skipped here entirely (inventory was always seeded as a flat {}),
+    # which is why nothing showed up in the Inventory screen until
+    # after the first shop visit, since only the shop ever actually
+    # loaded this data.
+    from InventoryItem import deserialize, serialize
+    offline = data.get('offline', {}) or {}
+    saved_inventory = {}
+    try:
+        saved_inventory.update(deserialize(offline.get('inventory_equipped', [])))
+    except Exception, e:
+        print '[EnterOfflineWorld] failed to deserialize saved equipped:', e
+    try:
+        saved_inventory.update(deserialize(offline.get('inventory_bag', [])))
+    except Exception, e:
+        print '[EnterOfflineWorld] failed to deserialize saved bag:', e
+
+    if 0 in saved_inventory:
+        # There's a saved equipped item -- use it.
+        wardrobe = serialize({0: saved_inventory[0]})
+        print '[EnterOfflineWorld] using saved equipped item from player.dat'
+    else:
+        # player.dat is the single source of truth for what's equipped,
+        # including "nothing". CharCreation.py seeds a real starting
+        # wardrobe item into inventory_equipped exactly once, at
+        # character creation, so an empty equipped slot here means the
+        # player deliberately unequipped everything -- it does NOT mean
+        # "nothing's ever been set up yet". Re-deriving a fresh outfit
+        # from the raw character-creation clothes choice here (like
+        # this used to) put a fresh outfit back on the character every
+        # single spawn, even after an explicit unequip.
+        wardrobe = serialize({})
+        print '[EnterOfflineWorld] no equipped item saved -- staying unequipped'
+
+    _ensure_property(BigWorld.player(), 'inventory', saved_inventory)
+
     BigWorld.player().equipped = wardrobe
     print '[EnterOfflineWorld] equipped set to: %r' % (wardrobe,)
 

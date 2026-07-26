@@ -10,7 +10,7 @@ from keys import *
 from Mode import Mode
 from Cameras import AimInventoryCameraAt, AimCursorCameraAt
 from InventoryItem import keyToSlotID, slotIDToKey, serialize
-from Bitcasters.OfflineSave import save_offline_state
+from Bitcasters.OfflineSave import save_offline_state, next_free_bag_slot
 
 class Inventory(Mode):
 
@@ -85,6 +85,53 @@ class Inventory(Mode):
             print '[Inventory] click_icon: failed to persist equip change:', e
 
         print '[Inventory] click_icon: equipped item from slot %r' % (slotID,)
+
+    def click_shirt(self):
+        """
+        Unequip whatever's in the equipped slot (0), moving it back
+        into a free bag slot. This is the click handler for the
+        equipped-item icon itself -- Bitcasters/layers/inventory.py
+        builds it from WEAR_SLOTS[0] ('shirt'), which dispatches here
+        by name. There was previously no handler at all for this
+        widget, which is why clicking the equipped icon did nothing.
+        """
+        print '[Inventory] click_shirt (unequip) start'
+        p = BigWorld.player()
+        inv = getattr(p, 'inventory', {}) or {}
+
+        if 0 not in inv:
+            print '[Inventory] click_shirt: nothing equipped, nothing to unequip'
+            return
+
+        item = inv[0]
+        del inv[0]
+
+        slot = next_free_bag_slot(inv)
+        inv[slot] = item
+
+        p.inventory = inv
+        try:
+            p.equipped = serialize({})
+        except Exception, e:
+            print '[Inventory] click_shirt: failed to clear equipped:', e
+
+        # refreshEquipment() now resets self.cm to this character's own
+        # base outfit itself whenever self.equipped is empty (see
+        # Avatar.py), so there's nothing left to do here but call it.
+        try:
+            p.refreshEquipment()
+            print '[Inventory] click_shirt: refreshEquipment() OK'
+        except Exception, e:
+            print '[Inventory] click_shirt: refreshEquipment() failed:', e
+
+        self.updateInventory()
+
+        try:
+            save_offline_state(getattr(p, 'name', 'Unnamed'), p)
+        except Exception, e:
+            print '[Inventory] click_shirt: failed to persist unequip change:', e
+
+        print '[Inventory] click_shirt: unequipped, moved to bag slot %r' % (slot,)
 
     def click_exit(self):
         """Return to the game world."""

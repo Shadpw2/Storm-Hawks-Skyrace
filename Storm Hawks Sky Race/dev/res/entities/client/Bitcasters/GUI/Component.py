@@ -418,11 +418,20 @@ class ComponentBase(object):
 
     def dispatch(self, type, *args):
         """Use reflection to call event handlers in handler objects."""
+        print '[GUI-DEBUG] dispatch(%r) on ID=%r enabled=%r parent=%r handlers=%r' % (
+            type, self.ID, self.enabled,
+            (self.parent.ID if self.parent else None),
+            [h.__class__.__name__ for h in self.handlers]
+        )
         if not self.enabled:
+            print '[GUI-DEBUG] -- component not enabled, dispatch skipped'
             return
         for handler in self.handlers:
             if self._dispatch_to(handler, type + '_' + self.ID, args):
+                print '[GUI-DEBUG] -- handled by %r' % (handler.__class__.__name__,)
                 break
+        else:
+            print '[GUI-DEBUG] -- no handler matched %r on any of %r' % (type + '_' + self.ID, [h.__class__.__name__ for h in self.handlers])
 
     def _dispatch_to(self, handler, base, args):
         if hasattr(handler, 'component_' + base):

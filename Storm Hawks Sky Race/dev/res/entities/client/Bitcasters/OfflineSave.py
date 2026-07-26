@@ -59,6 +59,15 @@ def find_char_record(char_name):
     return None
 
 
+def next_free_bag_slot(inventory_dict):
+    """Lowest unused bag slotID (>= WEAR_SLOT_COUNT) in a {slotID: InventoryItem} dict."""
+    from InventoryItem import WEAR_SLOT_COUNT
+    slot = WEAR_SLOT_COUNT
+    while slot in inventory_dict:
+        slot += 1
+    return slot
+
+
 def save_offline_state(char_name, player):
     """
     Write player.gold and player.inventory back into this character's

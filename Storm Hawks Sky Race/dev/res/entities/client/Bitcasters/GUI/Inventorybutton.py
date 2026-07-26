@@ -74,9 +74,17 @@ class Inventorybutton(Component):
             (255, 100, 0)      # orange red
         ]
 
-        # Choose a stable colour based on item ID
+        # Real, owned InventoryItem objects only expose .prototype, not
+        # .id -- OfflineShopItem (the shop-preview stand-in) is the only
+        # thing with .id. Previously item.id always threw for a real
+        # item, silently falling back to flat grey regardless of which
+        # item it actually was.
+        item_key = getattr(item, 'id', None)
+        if item_key is None:
+            item_key = getattr(item, 'prototype', 0)
+
         try:
-            base_col = PALETTE[item.id % len(PALETTE)]
+            base_col = PALETTE[item_key % len(PALETTE)]
         except:
             base_col = (200, 200, 200)
 
@@ -87,11 +95,27 @@ class Inventorybutton(Component):
             min(255, base_col[2] + 40)
         )
 
-        # Tint strengths from OfflineShopItem
+        # item.colours means two different things depending on what
+        # kind of item this is: OfflineShopItem provides a 0.0-1.0
+        # "strength" pair for its own preview swatch, but a real
+        # InventoryItem's .colours is the actual 0-255 clothesColour
+        # palette pair. Treating a real item's colours as if they were
+        # 0.0-1.0 strengths produced wildly out-of-range values (e.g.
+        # colour=128 read as strength=128), which is why a purchased
+        # item's icon didn't look anything like what was bought.
+        raw_colours = getattr(item, 'colours', (1.0, 0.8))
         try:
-            strengthA, strengthB = item.colours
+            c0, c1 = raw_colours
         except:
-            strengthA, strengthB = (1.0, 0.8)
+            c0, c1 = (1.0, 0.8)
+
+        if c0 > 1.0 or c1 > 1.0:
+            # real InventoryItem: 0-255 palette values -> normalize
+            strengthA = c0 / 255.0
+            strengthB = c1 / 255.0
+        else:
+            # OfflineShopItem: already a 0.0-1.0 strength
+            strengthA, strengthB = c0, c1
 
         # Compute highlight layer colour (layer 2)
         bright_r = int((high_col[0] / 255.0) * strengthA * 255)
