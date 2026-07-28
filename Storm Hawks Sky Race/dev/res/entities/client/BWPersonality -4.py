@@ -237,47 +237,6 @@ def spawn_vendor(x, y, z, yaw=0.0,
 
     _try(retries)
 
-def spawn_vendor2(x, y, z, yaw=0.0, pitch=0.0, roll=0.0,
-                            vendor_type=Vendor.HUMAN_M_1, costume_num=0,
-                            retries=50):
-    pos = Math.Vector3(float(x), float(y), float(z))
-    dir = (float(yaw), float(pitch), float(roll))
-    data = {'vendorType': int(vendor_type), 'costumeNum': int(costume_num)}
-
-
-
-def spawn_boost(x, y, z, dir, boost_type=0):
-    """
-    Spawn a race boost pickup.
-    boost_type: 0=GROUND_1, 1=AIR_1, 2=GROUND_2
-    """
-    pos = Math.Vector3(float(x), float(y), float(z))
-    #dir = (0.0, 0.0, 0.0)
-    data = {'boostType': int(boost_type)}
-    
-    p = BigWorld.player()
-    if p and getattr(p, 'spaceID', 0):
-        BigWorld.createEntity('Race_Boost', p.spaceID, 0, pos, dir, data)
-        print "[Race_Boost] spawned at", pos, "type:", boost_type
-    else:
-        print "[Race_Boost][ERROR] player not ready"
-
-def spawn_crystal(x, y, z, dir, item_type=0):
-    """
-    Spawn a race crystal.
-    item_type: 0=GROUND, 1=AIR_HELI
-    """
-    pos = Math.Vector3(float(x), float(y), float(z))
-    #dir = (0.0, 0.0, 0.0)
-    data = {'itemType': int(item_type)}
-    
-    p = BigWorld.player()
-    if p and getattr(p, 'spaceID', 0):
-        BigWorld.createEntity('Race_Crystal', p.spaceID, 0, pos, dir, data)
-        print "[Race_Crystal] spawned at", pos, "type:", item_type
-    else:
-        print "[Race_Crystal][ERROR] player not ready"
-
 def _build_starting_wardrobe(data):
     """NOTE: not called from EnterOfflineWorld() -- character creation
     (Bitcasters/mode/CharCreation.py) builds the starting wardrobe item
@@ -434,18 +393,6 @@ def EnterOfflineWorld(data):
     # schedule the console spawn on the next frame
     BigWorld.callback(0.1, spawn_console)
     BigWorld.callback(0.2, lambda: spawn_vendor(-165, 0, 365, yaw=0.0))
-    BigWorld.callback(0.2, lambda: spawn_vendor(-178, 0, 294, yaw=0.0, pitch=0.0, roll=1.51))
-    BigWorld.callback(0.2, lambda: spawn_vendor2(-179, 0, 301, yaw=1.51, pitch=0.0, roll=0.76))
-    
-    #===============Vendor 1(Wallop)=============================
-    #PLAYER POSITION: x=-178, y=0, z=294
-    #PLAYER ROTATION: yaw=0.0, pitch=-0.0, roll=1.51
-    #============================================================
-    
-    #===============Vendor 2(Human)==============================
-    #PLAYER POSITION: x=-178.21, y=0.15, z=293.67
-    #PLAYER ROTATION: yaw=1.51, pitch=-0.76, roll=0.00
-    #============================================================
     return
 
 

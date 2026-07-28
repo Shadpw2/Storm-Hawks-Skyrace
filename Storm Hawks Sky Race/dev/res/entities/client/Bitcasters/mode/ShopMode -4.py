@@ -236,7 +236,7 @@ class OfflineShopItem(object):
         return None
 
 
-def build_stock_from_items_map(max_items=15, vendor_type=None, seed=None):
+def build_stock_from_items_map(max_items=12, vendor_type=None):
     """
     Build the vendor stock dict that layers/shop.py expects:
       { 0: OfflineShopItem(...),
@@ -250,28 +250,13 @@ def build_stock_from_items_map(max_items=15, vendor_type=None, seed=None):
     So keys MUST be numeric slot indices (0,1,2...)
     and values MUST be OfflineShopItem objects.
 
-    IMPORTANT: 15 is a hard ceiling, not just a default -- Bitcasters/
-    layers/shop.py only ever builds 15 'buy_N' widgets (a fixed 3x5
-    grid), so max_items > 15 would try to write to a component that
-    doesn't exist and throw.
-
     vendor_type, if given, filters ITEM_MAP down to items matching that
     vendor's configured clothes_setting(s) in VENDOR_STOCK_FILTERS --
     see that dict below to give a custom vendor its own stock. Every
     item in items.ITEM_MAP has a 'clothes_setting' of 0 (civilian), 1
     (military dress) or 2 (flight suit); vendor_type=None (or a type
-    with no entry in VENDOR_STOCK_FILTERS) draws from the full
-    catalog.
-
-    With 100 items in items.py and only 15 slots per vendor, seed
-    (typically the vendor's own npc_id) determines which 15 of the
-    eligible items this particular vendor randomly ends up with.
-    Passing the same seed always produces the same selection, so a
-    given vendor's stock is stable across visits within a session
-    rather than reshuffling every time the shop opens; different
-    vendors (different seeds) draw independently, so placing several
-    vendors of the same type still gives a wide spread of items across
-    them rather than everyone selling the identical 15.
+    with no entry in VENDOR_STOCK_FILTERS) sells the full unfiltered
+    catalog, same as before.
     """
     allowed_settings = None
     if vendor_type is not None:
@@ -282,30 +267,17 @@ def build_stock_from_items_map(max_items=15, vendor_type=None, seed=None):
     stock_dict = {}
     try:
         try:
-            all_ids = sorted(game_items.ITEM_MAP.keys())
+            item_ids = sorted(game_items.ITEM_MAP.keys())
         except:
-            all_ids = game_items.ITEM_MAP.keys()
-
-        if allowed_settings is None:
-            eligible_ids = all_ids
-        else:
-            eligible_ids = [item_id for item_id in all_ids
-                             if game_items.ITEM_MAP[item_id].get('clothes_setting', 0) in allowed_settings]
-
-        rng = random.Random(seed)
-        if len(eligible_ids) > max_items:
-            chosen_ids = rng.sample(eligible_ids, max_items)
-        else:
-            chosen_ids = list(eligible_ids)
-        chosen_ids.sort()
-
-        print "[Shop] %d items eligible (vendor_type=%s), drew %d with seed=%r" % (
-            len(eligible_ids), vendor_type, len(chosen_ids), seed
-        )
+            item_ids = game_items.ITEM_MAP.keys()
 
         slot_index = 0
-        for item_id in chosen_ids:
+        for item_id in item_ids:
             raw = game_items.ITEM_MAP[item_id]
+
+            if allowed_settings is not None:
+                if raw.get('clothes_setting', 0) not in allowed_settings:
+                    continue
 
             # description: try CLOTHES_DESC[clothes_setting]
             desc_txt = 'No description.'
@@ -336,6 +308,8 @@ def build_stock_from_items_map(max_items=15, vendor_type=None, seed=None):
                 print "[Shop] load slot=%d id=%s -- colour logging failed: %s" % (slot_index, item_id, e)
 
             slot_index += 1
+            if slot_index >= max_items:
+                break
 
     except Exception, e:
         print "[Shop] build_stock_from_items_map failed:", e
@@ -499,16 +473,13 @@ class ShopMode(Mode):
 
         # Right panel (vendor stock) - generated offline from ITEM_MAP,
         # filtered by this vendor's vendorType if VENDOR_STOCK_FILTERS
-        # has an entry for it (see that dict above build_stock_from_items_map),
-        # then randomly sampled down to the 15-slot cap, seeded by this
-        # specific vendor's npc_id so its stock is stable across visits
-        # but independent of every other vendor.
+        # has an entry for it (see that dict above build_stock_from_items_map).
         vendor_type = None
         try:
             vendor_type = BigWorld.entities[npc_id].vendorType
         except:
             pass
-        stock_dict = build_stock_from_items_map(15, vendor_type=vendor_type, seed=npc_id)
+        stock_dict = build_stock_from_items_map(12, vendor_type=vendor_type)
         self.browseShop(stock_dict)
 
         # Live code would call npc.cell.windowShop() to refresh.

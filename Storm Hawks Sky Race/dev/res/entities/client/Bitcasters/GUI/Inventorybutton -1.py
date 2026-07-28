@@ -4,7 +4,6 @@
 # Embedded file name: /entities/client/Bitcasters/GUI/Inventorybutton.py
 # Compiled at: 2008-12-16 09:35:38
 from Component import Component
-from Bitcasters.CharacterModel import translateColour
 INVISIBLE = 31
 
 class Inventorybutton(Component):
@@ -61,33 +60,50 @@ class Inventorybutton(Component):
         base = 12 + clothes * 4
         self._set_mappings(range(base + 1, base + 4))
 
-        # item.colours is a real (colour1, colour2) pair of 0-255
-        # clothesColour palette indices -- the exact same values
-        # InventoryItem.apply_shirt() feeds into
-        # cm.clothesColour1/cm.clothesColour2 on the actual character
-        # model. Running them through the same translateColour() lookup
-        # the model uses means the icon shows precisely the colour the
-        # item will render as when worn, instead of a guess based on
-        # item id or trim material. Clamped defensively since
-        # translateColour() indexes straight into an 11-entry table and
-        # will throw on an out-of-range value.
+        # -----------------------------------------------
+        #   NEW COLOUR SYSTEM - SERVER STYLE PALETTE
+        # -----------------------------------------------
+
+        PALETTE = [
+            (200, 200, 200),   # grey
+            (0, 180, 255),     # cyan
+            (255, 0, 200),     # magenta
+            (255, 255, 0),     # yellow
+            (0, 255, 0),       # green
+            (210, 150, 0),     # brown
+            (255, 100, 0)      # orange red
+        ]
+
+        # Choose a stable colour based on item ID
         try:
-            colour1, colour2 = item.colours
+            base_col = PALETTE[item.id % len(PALETTE)]
         except:
-            colour1, colour2 = (128, 128)
+            base_col = (200, 200, 200)
 
-        colour1 = max(0, min(255, int(colour1)))
-        colour2 = max(0, min(255, int(colour2)))
+        # Highlight is a lighter version
+        high_col = (
+            min(255, base_col[0] + 40),
+            min(255, base_col[1] + 40),
+            min(255, base_col[2] + 40)
+        )
 
+        # Tint strengths from OfflineShopItem
         try:
-            bright_rgba = tuple((int(x * 256) for x in translateColour(colour1, 'clothesColour1')))[:3] + (255,)
-        except Exception:
-            bright_rgba = (200, 200, 200, 255)
+            strengthA, strengthB = item.colours
+        except:
+            strengthA, strengthB = (1.0, 0.8)
 
-        try:
-            dark_rgba = tuple((int(x * 256) for x in translateColour(colour2, 'clothesColour2')))[:3] + (255,)
-        except Exception:
-            dark_rgba = (140, 140, 140, 255)
+        # Compute highlight layer colour (layer 2)
+        bright_r = int((high_col[0] / 255.0) * strengthA * 255)
+        bright_g = int((high_col[1] / 255.0) * strengthA * 255)
+        bright_b = int((high_col[2] / 255.0) * strengthA * 255)
+        bright_rgba = (bright_r, bright_g, bright_b, 255)
+
+        # Compute shadow layer colour (layer 1)
+        dark_r = int((base_col[0] / 255.0) * strengthB * 255)
+        dark_g = int((base_col[1] / 255.0) * strengthB * 255)
+        dark_b = int((base_col[2] / 255.0) * strengthB * 255)
+        dark_rgba = (dark_r, dark_g, dark_b, 255)
 
         # Apply the tint colours
         try:

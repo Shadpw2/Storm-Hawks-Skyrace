@@ -13,7 +13,6 @@ from InventoryItem import keyToSlotID, slotIDToKey, serialize, deserialize, Inve
 from Mode import Mode
 import BigWorld
 import items as game_items
-import random
 
 # NOTE: this used to be hardcoded to "characters.txt" in updateInventory(),
 # which is stale -- CharCreation.py and CharSelection.py both moved to
@@ -53,70 +52,28 @@ def _colour_strengths_for_setting(cs):
 # The 11 distinct gradient stops in clothesColour1/clothesColour2 (see
 # Bitcasters/CharCreationColours.py) land on clean, whole-number
 # palette indices at roughly these values (spaced 256/10 apart, the
-# same spacing translateColour() itself uses).
+# same spacing translateColour() itself uses). Picking from this list
+# gives each item a genuinely different hue rather than just a
+# lighter/darker shade of the same one every time.
 _COLOUR_STOPS = [0, 26, 51, 77, 102, 128, 154, 179, 205, 230, 255]
 
-# Precomputed offline from clothesColour1's actual RGB values via HSV
-# analysis (hue + saturation), rather than done at runtime with the
-# colorsys module, which may not be available in this embedded
-# interpreter. STOP_HUE_CLASS buckets each of the 11 stops as warm,
-# cool, or neutral (near-zero saturation -- greys/near-whites, which
-# suit anything). COMPLEMENT_STOP maps each stop to whichever other
-# stop's hue sits closest to the true colour-wheel opposite (target
-# hue + 180 degrees) -- e.g. stop 4 (red, hue 0) maps to stop 7 (cyan,
-# hue 180), a genuine complementary pair; stop 6 (green, 120) maps to
-# stop 9 (magenta, 300), also genuine. Low-saturation stops can end up
-# paired with each other since their hue, while technically defined,
-# isn't visually meaningful -- that's fine, neutrals pair with
-# anything.
-STOP_HUE_CLASS = {0: 'warm', 1: 'warm', 2: 'neutral', 3: 'neutral', 4: 'warm',
-                   5: 'warm', 6: 'cool', 7: 'cool', 8: 'cool', 9: 'cool', 10: 'warm'}
-COMPLEMENT_STOP = {0: 2, 1: 8, 2: 3, 3: 7, 4: 7, 5: 8, 6: 9, 7: 3, 8: 5, 9: 6, 10: 7}
 
-WARM_STOPS = [i for i in range(11) if STOP_HUE_CLASS[i] == 'warm']
-COOL_STOPS = [i for i in range(11) if STOP_HUE_CLASS[i] == 'cool']
-NEUTRAL_STOPS = [i for i in range(11) if STOP_HUE_CLASS[i] == 'neutral']
-
-
-def _colour_pair_for_item(item_id, raw_dict):
+def _colour_pair_for_item(item_id):
     """
-    Pick a primary colour (colour1) and its colour-wheel-complementary
-    secondary colour (colour2) for this item, biased to suit its
-    dominant trim metal: items trimmed mostly in warm metals
-    (copper/gold) get a cool-or-neutral primary fabric colour to
-    contrast against the metal; items trimmed mostly in silver (a cool
-    metal) get a warm-or-neutral primary instead; items with no trim,
-    or an even mix of warm and cool metals, can land on any hue.
-
-    "Random" is seeded by this item's own id, so the result is stable
-    across loads (the same item always looks the same) rather than
-    reshuffling every time the shop is opened.
+    Return a real (colour1, colour2) pair of 0-255 clothesColour
+    palette indices for this item -- the same kind of value
+    Avatar.apply_shirt() feeds into cm.clothesColour1/cm.clothesColour2,
+    and what Inventorybutton.setItem() runs through translateColour()
+    to render the shop/inventory icon. Using the same index for both
+    still produces a two-tone look on its own, since clothesColour2's
+    table is inherently a darker variant of clothesColour1's table at
+    matching indices (e.g. index 128 -> (198,198,74) for colour1 vs
+    (131,131,22) for colour2 -- same hue family, naturally darker).
+    Variety across items comes from cycling which stop each item lands
+    on, deterministically by item id so it's stable across loads.
     """
-    warm_metal_weight = 0
-    cool_metal_weight = 0
-    for piece_key in ('gloves', 'pants', 'shirt', 'shoes'):
-        piece = raw_dict.get(piece_key, {})
-        if not isinstance(piece, dict):
-            continue
-        for material in piece.values():
-            if material in ('copper', 'gold'):
-                warm_metal_weight += 1
-            elif material == 'silver':
-                cool_metal_weight += 1
-
-    if warm_metal_weight > cool_metal_weight:
-        eligible_primary = COOL_STOPS + NEUTRAL_STOPS
-    elif cool_metal_weight > warm_metal_weight:
-        eligible_primary = WARM_STOPS + NEUTRAL_STOPS
-    else:
-        eligible_primary = range(11)
-
-    rng = random.Random(item_id)
-    primary_stop = rng.choice(eligible_primary)
-    secondary_stop = COMPLEMENT_STOP[primary_stop]
-
-    return (_COLOUR_STOPS[primary_stop], _COLOUR_STOPS[secondary_stop])
-
+    stop = _COLOUR_STOPS[item_id % len(_COLOUR_STOPS)]
+    return (stop, stop)
 
 
 # Representative swatch colour for each real trim material used in
@@ -188,11 +145,12 @@ class OfflineShopItem(object):
         # colours: a real (colour1, colour2) pair of 0-255
         # clothesColour palette indices -- exactly what
         # Avatar.apply_shirt()/InventoryItem.insert() expect, and what
-        # Inventorybutton.setItem() renders via translateColour().
-        # colour2 is chosen as colour1's colour-wheel complement,
-        # biased to contrast with this item's dominant trim metal --
-        # see _colour_pair_for_item() for the full reasoning.
-        self.colours = list(_colour_pair_for_item(item_id, raw_dict))
+        # Inventorybutton.setItem() renders via translateColour(). This
+        # used to be a pair of 0.0-1.0 "strength" floats with no
+        # relationship to the real dye system at all, which is why the
+        # shop icon never matched what the item would actually look
+        # like once equipped.
+        self.colours = list(_colour_pair_for_item(item_id))
 
         # material_name/material_rgb: derived from the item's actual
         # gloves/pants/shirt/shoes zone data in items.py (copper/silver/
@@ -236,7 +194,7 @@ class OfflineShopItem(object):
         return None
 
 
-def build_stock_from_items_map(max_items=15, vendor_type=None, seed=None):
+def build_stock_from_items_map(max_items=12, vendor_type=None):
     """
     Build the vendor stock dict that layers/shop.py expects:
       { 0: OfflineShopItem(...),
@@ -250,28 +208,13 @@ def build_stock_from_items_map(max_items=15, vendor_type=None, seed=None):
     So keys MUST be numeric slot indices (0,1,2...)
     and values MUST be OfflineShopItem objects.
 
-    IMPORTANT: 15 is a hard ceiling, not just a default -- Bitcasters/
-    layers/shop.py only ever builds 15 'buy_N' widgets (a fixed 3x5
-    grid), so max_items > 15 would try to write to a component that
-    doesn't exist and throw.
-
     vendor_type, if given, filters ITEM_MAP down to items matching that
     vendor's configured clothes_setting(s) in VENDOR_STOCK_FILTERS --
     see that dict below to give a custom vendor its own stock. Every
     item in items.ITEM_MAP has a 'clothes_setting' of 0 (civilian), 1
     (military dress) or 2 (flight suit); vendor_type=None (or a type
-    with no entry in VENDOR_STOCK_FILTERS) draws from the full
-    catalog.
-
-    With 100 items in items.py and only 15 slots per vendor, seed
-    (typically the vendor's own npc_id) determines which 15 of the
-    eligible items this particular vendor randomly ends up with.
-    Passing the same seed always produces the same selection, so a
-    given vendor's stock is stable across visits within a session
-    rather than reshuffling every time the shop opens; different
-    vendors (different seeds) draw independently, so placing several
-    vendors of the same type still gives a wide spread of items across
-    them rather than everyone selling the identical 15.
+    with no entry in VENDOR_STOCK_FILTERS) sells the full unfiltered
+    catalog, same as before.
     """
     allowed_settings = None
     if vendor_type is not None:
@@ -282,30 +225,17 @@ def build_stock_from_items_map(max_items=15, vendor_type=None, seed=None):
     stock_dict = {}
     try:
         try:
-            all_ids = sorted(game_items.ITEM_MAP.keys())
+            item_ids = sorted(game_items.ITEM_MAP.keys())
         except:
-            all_ids = game_items.ITEM_MAP.keys()
-
-        if allowed_settings is None:
-            eligible_ids = all_ids
-        else:
-            eligible_ids = [item_id for item_id in all_ids
-                             if game_items.ITEM_MAP[item_id].get('clothes_setting', 0) in allowed_settings]
-
-        rng = random.Random(seed)
-        if len(eligible_ids) > max_items:
-            chosen_ids = rng.sample(eligible_ids, max_items)
-        else:
-            chosen_ids = list(eligible_ids)
-        chosen_ids.sort()
-
-        print "[Shop] %d items eligible (vendor_type=%s), drew %d with seed=%r" % (
-            len(eligible_ids), vendor_type, len(chosen_ids), seed
-        )
+            item_ids = game_items.ITEM_MAP.keys()
 
         slot_index = 0
-        for item_id in chosen_ids:
+        for item_id in item_ids:
             raw = game_items.ITEM_MAP[item_id]
+
+            if allowed_settings is not None:
+                if raw.get('clothes_setting', 0) not in allowed_settings:
+                    continue
 
             # description: try CLOTHES_DESC[clothes_setting]
             desc_txt = 'No description.'
@@ -336,6 +266,8 @@ def build_stock_from_items_map(max_items=15, vendor_type=None, seed=None):
                 print "[Shop] load slot=%d id=%s -- colour logging failed: %s" % (slot_index, item_id, e)
 
             slot_index += 1
+            if slot_index >= max_items:
+                break
 
     except Exception, e:
         print "[Shop] build_stock_from_items_map failed:", e
@@ -499,16 +431,13 @@ class ShopMode(Mode):
 
         # Right panel (vendor stock) - generated offline from ITEM_MAP,
         # filtered by this vendor's vendorType if VENDOR_STOCK_FILTERS
-        # has an entry for it (see that dict above build_stock_from_items_map),
-        # then randomly sampled down to the 15-slot cap, seeded by this
-        # specific vendor's npc_id so its stock is stable across visits
-        # but independent of every other vendor.
+        # has an entry for it (see that dict above build_stock_from_items_map).
         vendor_type = None
         try:
             vendor_type = BigWorld.entities[npc_id].vendorType
         except:
             pass
-        stock_dict = build_stock_from_items_map(15, vendor_type=vendor_type, seed=npc_id)
+        stock_dict = build_stock_from_items_map(12, vendor_type=vendor_type)
         self.browseShop(stock_dict)
 
         # Live code would call npc.cell.windowShop() to refresh.

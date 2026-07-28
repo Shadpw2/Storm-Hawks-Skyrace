@@ -191,10 +191,20 @@ class WorldMode(Mode):
         BWPersonality._handler.showHelp()
 
     def click_gestures(self, gesture):
-        BigWorld.player().user.startGesture({'wave': 'wave001', 
+        p = BigWorld.player()
+        gesture_anims = {'wave': 'wave001', 
            'bow': 'bowing001', 
            'fistpump': 'fistpump001', 
-           'defeat': 'defeat001'}[gesture])
+           'defeat': 'defeat001'}
+        try:
+            pos = p.position
+            print '[Emote] %s at position=(%.2f, %.2f, %.2f) yaw=%.3f pitch=%.3f roll=%.3f' % (
+                gesture, pos[0], pos[1], pos[2],
+                getattr(p, 'yaw', 0.0), getattr(p, 'pitch', 0.0), getattr(p, 'roll', 0.0)
+            )
+        except Exception, details:
+            print '[Emote] %s -- failed to read position/rotation: %s' % (gesture, details)
+        p.user.startGesture(gesture_anims[gesture])
 
     def click_leftgui_inventory(self):
         """Manage inventory"""
