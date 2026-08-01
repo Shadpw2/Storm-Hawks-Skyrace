@@ -217,12 +217,14 @@ def spawn_console():
 
 from Vendor import Vendor
 
-def spawn_vendor(x, y, z, yaw=0.0,
+def spawn_vendor(x, y, z, yaw=0.0, pitch=0.0, roll=0.0,
                             vendor_type=Vendor.WALLOP_M_1, costume_num=0,
                             retries=50):
     pos = Math.Vector3(float(x), float(y), float(z))
-    dir = (float(yaw), 0.0, 0.0)
+    dir = (float(yaw), float(pitch), float(roll))
     data = {'vendorType': int(vendor_type), 'costumeNum': int(costume_num)}
+
+    print 'Spawning Endo'
 
     def _try(remaining):
         p = BigWorld.player()
@@ -236,14 +238,6 @@ def spawn_vendor(x, y, z, yaw=0.0,
         BigWorld.callback(0.1, lambda: _try(remaining - 1))
 
     _try(retries)
-
-def spawn_vendor2(x, y, z, yaw=0.0, pitch=0.0, roll=0.0,
-                            vendor_type=Vendor.HUMAN_M_1, costume_num=0,
-                            retries=50):
-    pos = Math.Vector3(float(x), float(y), float(z))
-    dir = (float(yaw), float(pitch), float(roll))
-    data = {'vendorType': int(vendor_type), 'costumeNum': int(costume_num)}
-
 
 
 def spawn_boost(x, y, z, dir, boost_type=0):
@@ -434,8 +428,8 @@ def EnterOfflineWorld(data):
     # schedule the console spawn on the next frame
     BigWorld.callback(0.1, spawn_console)
     BigWorld.callback(0.2, lambda: spawn_vendor(-165, 0, 365, yaw=0.0))
-    BigWorld.callback(0.2, lambda: spawn_vendor(-178, 0, 294, yaw=0.0, pitch=0.0, roll=1.51))
-    BigWorld.callback(0.2, lambda: spawn_vendor2(-179, 0, 301, yaw=1.51, pitch=0.0, roll=0.76))
+    BigWorld.callback(0.3, lambda: spawn_vendor(-178, 0, 294, yaw=0.0, pitch=0.0, roll=1.51))
+    BigWorld.callback(0.3, lambda: spawn_vendor(-179, 0, 301, yaw=0.0, pitch=0.0, roll=0.76, vendor_type=Vendor.HUMAN_M_1, costume_num=0))
     
     #===============Vendor 1(Wallop)=============================
     #PLAYER POSITION: x=-178, y=0, z=294
