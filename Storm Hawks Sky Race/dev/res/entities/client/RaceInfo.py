@@ -534,6 +534,11 @@ class RaceInfo:
         """
         Called either when race is finished OR when player gives up.
         """
+        if crossedFinishLine==True:
+            print'[Race] Player Crossed FinishLine'
+        else:
+            print'[RACE] Player Quit'
+        
         _debug_player_class("doneRace (enter)")
 
         if hasattr(self, "thread"):
@@ -570,9 +575,11 @@ class RaceInfo:
 
         if not isOnline():
             self.ranking = self.calculateOfflineRank(total_time, self._TRACK)
+            print '[RACE] done race, calling showResultsScreen'
             BigWorld.callback(2, self.showResultsScreen)
         else:
             BigWorld.callback(0.2, self.cleanup)
+            print '[RACE] Failed to see self offline, cleanedup anyway'
 
     def showResultsScreen(self):
         """Show the end-of-race results screen"""
@@ -617,11 +624,12 @@ class RaceInfo:
                     position=position_text,
                     crystals=str(getattr(self, 'final_crystals', 0)),  # Use saved values
                     boosts=str(getattr(self, 'final_boosts', 0)),      # Use saved values
-                    gold='+%d' % earned if earned else '---',
-                    callback=self.postcleanup)
+                    gold='+%d' % earned if earned else '---', callback=self.postcleanup)
             print "[RACE] Finished", position_text, "Gold earned: ", earned
             import BWPersonality
-            BWPersonality.add_gold(BigWorld.player(), earned)
+            #--------------------------------------------------------------------------------------------------
+            BWPersonality.add_gold(BigWorld.player(), earned) #TO DO Add Gold back to main player.
+            #---------------------------------------------------------------------------------------------------
             print "[RACE -> BWP] updating gold to file"
                    
         except Exception, e:
@@ -679,7 +687,9 @@ class RaceInfo:
         if isOnline():
             BigWorld.player().base.endTimeTrial()
         else:
+            print '[DEBUG - RACE] postcleanup (suppose to trigger after window is cleared)'
             BigWorld.callback(0.5, self.restorePlayerAndExit)
+            #Maybe Destroy avatar and re-enter world? 
 
     def restorePlayerAndExit(self):
         """

@@ -272,6 +272,123 @@ def spawn_crystal(x, y, z, dir, item_type=0):
     else:
         print "[Race_Crystal][ERROR] player not ready"
 
+def save_character_data(player_name, updates):
+    """
+    Update character data in player.dat for a specific character.
+    
+    Args:
+        player_name: Name of the character to update
+        updates: Dict of fields to update (e.g., {'gold': 150, 'inventory': {...}})
+    
+    Returns:
+        True if successful, False otherwise
+    """
+    try:
+        file_chars = []
+        
+        # Load existing characters
+        try:
+            f = open('player.dat', 'r')
+            for ln in f:
+                ln = ln.strip()
+                if ln and ln.startswith('{'):
+                    try:
+                        rec = eval(ln, {'__builtins__': {}}, {})
+                        file_chars.append(rec)
+                    except:
+                        pass
+            f.close()
+        except:
+            print "[save_character_data] Could not read player.dat"
+            return False
+        
+        # Find and update the character
+        found = False
+        for char in file_chars:
+            if char.get('name') == player_name:
+                char.update(updates)
+                found = True
+                print "[save_character_data] Updated character '%s' with: %s" % (player_name, updates)
+                break
+        
+        if not found:
+            print "[save_character_data] Character '%s' not found" % player_name
+            return False
+        
+        # Write back to file
+        try:
+            f = open('player.dat', 'w')
+            for rec in file_chars:
+                f.write(repr(rec) + '\n')
+            f.close()
+            print "[save_character_data] player.dat updated successfully"
+            return True
+        except Exception, e:
+            print "[save_character_data] Failed to write player.dat:", e
+            return False
+            
+    except Exception, e:
+        print "[save_character_data] Error:", e
+        return False
+
+
+def add_gold(player, amount):
+    """
+    Add (or subtract) gold from a player and save to file.
+    
+    Args:
+        player: The player entity
+        amount: Gold to add (can be negative to subtract)
+    
+    Returns:
+        New gold total, or None if failed
+    """
+    try:
+        old_gold = getattr(player, 'gold', 0)
+        new_gold = max(0, old_gold + amount)  # Don't allow negative gold
+        player.gold = new_gold
+        
+        player_name = getattr(player, 'name', None)
+        if player_name:
+            save_character_data(player_name, {'gold': new_gold})
+            print "[add_gold] %s: %d -> %d (%+d)" % (player_name, old_gold, new_gold, amount)
+            return new_gold
+        else:
+            print "[add_gold] Player has no name, cannot save"
+            return new_gold
+            
+    except Exception, e:
+        print "[add_gold] Error:", e
+        return None
+
+
+def save_player_state(player):
+    """
+    Save complete player state (gold, inventory, etc.) to file.
+    
+    Args:
+        player: The player entity
+    
+    Returns:
+        True if successful, False otherwise
+    """
+    try:
+        player_name = getattr(player, 'name', None)
+        if not player_name:
+            print "[save_player_state] Player has no name"
+            return False
+        
+        updates = {
+            'gold': getattr(player, 'gold', 0),
+            'inventory': getattr(player, 'inventory', {}),
+        }
+        
+        return save_character_data(player_name, updates)
+        
+    except Exception, e:
+        print "[save_player_state] Error:", e
+        return False
+
 def _build_starting_wardrobe(data):
     """NOTE: not called from EnterOfflineWorld() -- character creation
     (Bitcasters/mode/CharCreation.py) builds the starting wardrobe item
