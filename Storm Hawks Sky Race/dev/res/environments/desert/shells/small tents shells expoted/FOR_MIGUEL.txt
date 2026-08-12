@@ -1,0 +1,11 @@
+hey,
+
+I've updated the other tent shells, here are the names of the new files:
+
+tent_blister_shell.visual
+
+tent_ab_zero_shell.visual
+
+tent_riderx_shell.visual
+
+they are only missing the textures for the floors

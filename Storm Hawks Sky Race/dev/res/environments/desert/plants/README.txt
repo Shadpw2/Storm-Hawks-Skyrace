@@ -1,0 +1,1 @@
+"Flora" are the special low-poly BigWorld flora pieces (which are randomly scattered on the ground using the engine's system).
